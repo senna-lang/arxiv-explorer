@@ -1,0 +1,19 @@
+# Node
+node_modules/
+dist/
+.astro/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# macOS
+.DS_Store
+
+.env
+.env.local
+
