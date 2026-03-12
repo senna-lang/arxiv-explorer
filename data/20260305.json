@@ -1,0 +1,352 @@
+{
+  "date": "2026-03-05",
+  "collected_at": "2026-03-12T11:06:26.597761+09:00",
+  "papers": [
+    {
+      "id": "2603.02240",
+      "title": "SuperLocalMemory: Privacy-Preserving Multi-Agent Memory with Bayesian Trust Defense Against Memory Poisoning",
+      "authors": [
+        "Varun Pratap Bhardwaj"
+      ],
+      "abstract": "We present SuperLocalMemory, a local-first memory system for multi-agent AI that defends against OWASP ASI06 memory poisoning through architectural isolation and Bayesian trust scoring, while personalizing retrieval through adaptive learning-to-rank -- all without cloud dependencies or LLM inference calls. As AI agents increasingly rely on persistent memory, cloud-based memory systems create centralized attack surfaces where poisoned memories propagate across sessions and users -- a threat demonstrated in documented attacks against production systems. Our architecture combines SQLite-backed storage with FTS5 full-text search, Leiden-based knowledge graph clustering, an event-driven coordination layer with per-agent provenance, and an adaptive re-ranking framework that learns user preferences through three-layer behavioral analysis (cross-project technology preferences, project context detection, and workflow pattern mining). Evaluation across seven benchmark dimensions demonstrates 10.6ms median search latency, zero concurrency errors under 10 simultaneous agents, trust separation (gap =0.90) with 72% trust degradation for sleeper attacks, and 104% improvement in NDCG@5 when adaptive re-ranking is enabled. Behavioral data is isolated in a separate database with GDPR Article 17 erasure support. SuperLocalMemory is open-source (MIT) and integrates with 17+ development tools via Model Context Protocol.",
+      "url": "https://arxiv.org/abs/2603.02240",
+      "categories": [
+        "cs.AI",
+        "cs.CR"
+      ],
+      "submitted": "2026-02-17",
+      "score": 0.8242
+    },
+    {
+      "id": "2603.01919",
+      "title": "Real Money, Fake Models: Deceptive Model Claims in Shadow APIs",
+      "authors": [
+        "Yage Zhang",
+        "Yukun Jiang",
+        "Zeyuan Chen",
+        "Michael Backes",
+        "Xinyue Shen",
+        "Yang Zhang"
+      ],
+      "abstract": "Access to frontier large language models (LLMs), such as GPT-5 and Gemini-2.5, is often hindered by high pricing, payment barriers, and regional restrictions. These limitations drive the proliferation of $\\textit{shadow APIs}$, third-party services that claim to provide access to official model services without regional limitations via indirect access. Despite their widespread use, it remains unclear whether shadow APIs deliver outputs consistent with those of the official APIs, raising concerns about the reliability of downstream applications and the validity of research findings that depend on them. In this paper, we present the first systematic audit between official LLM APIs and corresponding shadow APIs. We first identify 17 shadow APIs that have been utilized in 187 academic papers, with the most popular one reaching 5,966 citations and 58,639 GitHub stars by December 6, 2025. Through multidimensional auditing of three representative shadow APIs across utility, safety, and model verification, we uncover both indirect and direct evidence of deception practices in shadow APIs. Specifically, we reveal performance divergence reaching up to $47.21\\%$, significant unpredictability in safety behaviors, and identity verification failures in $45.83\\%$ of fingerprint tests. These deceptive practices critically undermine the reproducibility and validity of scientific research, harm the interests of shadow API users, and damage the reputation of official model providers.",
+      "url": "https://arxiv.org/abs/2603.01919",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.SE"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.8177
+    },
+    {
+      "id": "2603.02262",
+      "title": "Silent Sabotage During Fine-Tuning: Few-Shot Rationale Poisoning of Compact Medical LLMs",
+      "authors": [
+        "Jingyuan Xie",
+        "Wenjie Wang",
+        "Ji Wu",
+        "Jiandong Gao"
+      ],
+      "abstract": "Supervised fine-tuning (SFT) is essential for the development of medical large language models (LLMs), yet prior poisoning studies have mainly focused on the detectable backdoor attacks. We propose a novel poisoning attack targeting the reasoning process of medical LLMs during SFT. Unlike backdoor attacks, our method injects poisoned rationales into few-shot training data, leading to stealthy degradation of model performance on targeted medical topics. Results showed that knowledge overwriting was ineffective, while rationale poisoning caused significant decline on the accuracy of the target subject, as long as no correct samples of the same subject appear in the dataset. A minimum number and ratio of poisoned samples was needed to carry out an effective and stealthy attack, which was more efficient and accurate than catastrophic forgetting. We demonstrate though this study the risk of SFT-stage poisoning, hoping to spur more studies of defense in the sensitive medical domain.",
+      "url": "https://arxiv.org/abs/2603.02262",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-02-28",
+      "score": 0.8104
+    },
+    {
+      "id": "2603.02297",
+      "title": "ZeroDayBench: Evaluating LLM Agents on Unseen Zero-Day Vulnerabilities for Cyberdefense",
+      "authors": [
+        "Nancy Lau",
+        "Louis Sloot",
+        "Jyoutir Raj",
+        "Giuseppe Marco Boscardin",
+        "Evan Harris",
+        "Dylan Bowman",
+        "Mario Brajkovski",
+        "Jaideep Chawla",
+        "Dan Zhao"
+      ],
+      "abstract": "Large language models (LLMs) are increasingly being deployed as software engineering agents that autonomously contribute to repositories. A major benefit these agents present is their ability to find and patch security vulnerabilities in the codebases they oversee. To estimate the capability of agents in this domain, we introduce ZeroDayBench, a benchmark where LLM agents find and patch 22 novel critical vulnerabilities in open-source codebases. We focus our efforts on three popular frontier agentic LLMs: GPT-5.2, Claude Sonnet 4.5, and Grok 4.1. We find that frontier LLMs are not yet capable of autonomously solving our tasks and observe some behavioral patterns that suggest how these models can be improved in the domain of proactive cyberdefense.",
+      "url": "https://arxiv.org/abs/2603.02297",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.8101
+    },
+    {
+      "id": "2603.02277",
+      "title": "Quantifying Frontier LLM Capabilities for Container Sandbox Escape",
+      "authors": [
+        "Rahul Marchand",
+        "Art O Cathain",
+        "Jerome Wynne",
+        "Philippos Maximos Giavridis",
+        "Sam Deverett",
+        "John Wilkinson",
+        "Jason Gwartz",
+        "Harry Coppock"
+      ],
+      "abstract": "Large language models (LLMs) increasingly act as autonomous agents, using tools to execute code, read and write files, and access networks, creating novel security risks. To mitigate these risks, agents are commonly deployed and evaluated in isolated \"sandbox\" environments, often implemented using Docker/OCI containers. We introduce SANDBOXESCAPEBENCH, an open benchmark that safely measures an LLM's capacity to break out of these sandboxes. The benchmark is implemented as an Inspect AI Capture the Flag (CTF) evaluation utilising a nested sandbox architecture with the outer layer containing the flag and no known vulnerabilities. Following a threat model of a motivated adversarial agent with shell access inside a container, SANDBOXESCAPEBENCH covers a spectrum of sandboxescape mechanisms spanning misconfiguration, privilege allocation mistakes, kernel flaws, and runtime/orchestration weaknesses. We find that, when vulnerabilities are added, LLMs are able to identify and exploit them, showing that use of evaluation like SANDBOXESCAPEBENCH is needed to ensure sandboxing continues to provide the encapsulation needed for highly-capable models.",
+      "url": "https://arxiv.org/abs/2603.02277",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-01",
+      "score": 0.8088
+    },
+    {
+      "id": "2603.03258",
+      "title": "Inherited Goal Drift: Contextual Pressure Can Undermine Agentic Goals",
+      "authors": [
+        "Achyutha Menon",
+        "Magnus Saebo",
+        "Tyler Crosse",
+        "Spencer Gibson",
+        "Eyon Jang",
+        "Diogo Cruz"
+      ],
+      "abstract": "The accelerating adoption of language models (LMs) as agents for deployment in long-context tasks motivates a thorough understanding of goal drift: agents' tendency to deviate from an original objective. While prior-generation language model agents have been shown to be susceptible to drift, the extent to which drift affects more recent models remains unclear. In this work, we provide an updated characterization of the extent and causes of goal drift. We investigate drift in state-of-the-art models within a simulated stock-trading environment (Arike et al., 2025). These models are largely shown to be robust even when subjected to adversarial pressure. We show, however, that this robustness is brittle: across multiple settings, the same models often inherit drift when conditioned on prefilled trajectories from weaker agents. The extent of conditioning-induced drift varies significantly by model family, with only GPT-5.1 maintaining consistent resilience among tested models. We find that drift behavior is inconsistent between prompt variations and correlates poorly with instruction hierarchy following behavior, with strong hierarchy following failing to reliably predict resistance to drift. Finally, we run analogous experiments in a new emergency room triage environment to show preliminary evidence for the transferability of our results across qualitatively different settings. Our findings underscore the continued vulnerability of modern LM agents to contextual pressures and the need for refined post-training techniques to mitigate this.",
+      "url": "https://arxiv.org/abs/2603.03258",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.8074
+    },
+    {
+      "id": "2603.03194",
+      "title": "BeyondSWE: Can Current Code Agent Survive Beyond Single-Repo Bug Fixing?",
+      "authors": [
+        "Guoxin Chen",
+        "Fanzhe Meng",
+        "Jiale Zhao",
+        "Minghao Li",
+        "Daixuan Cheng",
+        "Huatong Song",
+        "Jie Chen",
+        "Yuzhi Lin",
+        "Hui Chen",
+        "Xin Zhao",
+        "Ruihua Song",
+        "Chang Liu",
+        "Cheng Chen",
+        "Kai Jia",
+        "Ji-Rong Wen"
+      ],
+      "abstract": "Current benchmarks for code agents primarily assess narrow, repository-specific fixes, overlooking critical real-world challenges such as cross-repository reasoning, domain-specialized problem solving, dependency-driven migration, and full-repository generation. To address this gap, we introduce BeyondSWE, a comprehensive benchmark that broadens existing evaluations along two axes - resolution scope and knowledge scope - using 500 real-world instances across four distinct settings. Experimental results reveal a significant capability gap: even frontier models plateau below 45% success, and no single model performs consistently across task types. To systematically investigate the role of external knowledge, we develop SearchSWE, a framework that integrates deep search with coding abilities. Our experiments show that search augmentation yields inconsistent gains and can in some cases degrade performance, highlighting the difficulty of emulating developer-like workflows that interleave search and reasoning during coding tasks. This work offers both a realistic, challenging evaluation benchmark and a flexible framework to advance research toward more capable code agents.",
+      "url": "https://arxiv.org/abs/2603.03194",
+      "categories": [
+        "cs.CL",
+        "cs.SE"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.8021
+    },
+    {
+      "id": "2603.02631",
+      "title": "Cross-Family Speculative Prefill: Training-Free Long-Context Compression with Small Draft Models",
+      "authors": [
+        "Shubhangi Upasani",
+        "Ravi Shanker Raju",
+        "Bo Li",
+        "Mengmeng Ji",
+        "John Long",
+        "Chen Wu",
+        "Urmish Thakker",
+        "Guangtao Wang"
+      ],
+      "abstract": "Prompt length is a major bottleneck in agentic large language model (LLM) workloads, where repeated inference steps and multi-call loops incur substantial prefill cost. Recent work on speculative prefill demonstrates that attention-based token importance estimation can enable training-free prompt compression, but this assumes the existence of a draft model that shares the same tokenizer as the target model. In practice, however, agentic pipelines frequently employ models without any smaller in-family draft model. In this work, we study cross-family speculative prefill, where a lightweight draft model from one model family is used to perform prompt compression for a target model from a different family. Using the same speculative prefill mechanism as prior work, we evaluate a range of cross-family draft-target combinations, including Qwen, LLaMA, and DeepSeek models. Across a broad diversity of tasks, we find that attention-based token importance estimation transfers reliably across different model families despite differences in model architectures and tokenizers between draft and target models. Cross-model prompt compression largely retains 90~100% of full-prompt baseline performance and, in some cases, slightly improves accuracy due to denoising effects, while delivering substantial reductions in time to first token (TTFT). These results suggest that speculative prefill depends mainly on task priors and semantic structure, thus serving as a generalizable prompt compression primitive. We discuss the implications of our findings for agentic systems, where repeated long-context inference and heterogeneous model stacks make cross-model prompt compression both necessary and practical.",
+      "url": "https://arxiv.org/abs/2603.02631",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.797
+    },
+    {
+      "id": "2603.03251",
+      "title": "Speculative Speculative Decoding",
+      "authors": [
+        "Tanishq Kumar",
+        "Tri Dao",
+        "Avner May"
+      ],
+      "abstract": "Autoregressive decoding is bottlenecked by its sequential nature. Speculative decoding has become a standard way to accelerate inference by using a fast draft model to predict upcoming tokens from a slower target model, and then verifying them in parallel with a single target model forward pass. However, speculative decoding itself relies on a sequential dependence between speculation and verification. We introduce speculative speculative decoding (SSD) to parallelize these operations. While a verification is ongoing, the draft model predicts likely verification outcomes and prepares speculations pre-emptively for them. If the actual verification outcome is then in the predicted set, a speculation can be returned immediately, eliminating drafting overhead entirely. We identify three key challenges presented by speculative speculative decoding, and suggest principled methods to solve each. The result is Saguaro, an optimized SSD algorithm. Our implementation is up to 2x faster than optimized speculative decoding baselines and up to 5x faster than autoregressive decoding with open source inference engines.",
+      "url": "https://arxiv.org/abs/2603.03251",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.7963
+    },
+    {
+      "id": "2603.02436",
+      "title": "TraceGuard: Process-Guided Firewall against Reasoning Backdoors in Large Language Models",
+      "authors": [
+        "Zhen Guo",
+        "Shanghao Shi",
+        "Hao Li",
+        "Shamim Yazdani",
+        "Ning Zhang",
+        "Reza Tourani"
+      ],
+      "abstract": "The deployment of Large Reasoning Models (LRMs) in high-stakes decision-making pipelines has introduced a novel and opaque attack surface: reasoning backdoors. In these attacks, the model's intermediate Chain-of-Thought (CoT) is manipulated to provide a linguistically plausible but logically fallacious justification for a malicious conclusion. While frontier models exhibit an intrinsic capacity to detect these fractures, compact, deployable models suffer from a fundamental verification gap, relying on fragile lexical heuristics that are easily bypassed by motivated adversaries.\n  To bridge this gap, we propose TraceGuard, a process-guided security framework that transforms small-scale models into robust reasoning firewalls. Our approach treats the reasoning trace as an untrusted payload and establishes a defense-in-depth strategy through three synergistic phases: (1) Automated Forensic Synthesis, which generates contrastive reasoning pairs to isolate the specific logical point of fracture; (2) Step-Aware Supervised Fine-Tuning (SSFT), to instill a structural verification grammar; and (3) Verifier-Guided Reinforcement Learning (VGRL), utilizing Group Relative Policy Optimization. We identify and mitigate a critical failure mode of baseline alignment - lexical overfitting - whereby verifiers memorize adversarial triggers rather than auditing logical integrity. Our empirical evaluation demonstrates that TraceGuard acts as a security force multiplier: a 4B-parameter verifier achieves forensic precision on unseen attacks - including latent backdoors and post-hoc rationalizations - that rivals architectures two orders of magnitude larger. We further demonstrate robustness against adaptive adversaries in a grey-box setting, establishing TraceGuard as a viable, low-latency security primitive for the Trusted Computing Base.",
+      "url": "https://arxiv.org/abs/2603.02436",
+      "categories": [
+        "cs.CR"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7926
+    },
+    {
+      "id": "2603.03205",
+      "title": "Learning When to Act or Refuse: Guarding Agentic Reasoning Models for Safe Multi-Step Tool Use",
+      "authors": [
+        "Aradhye Agarwal",
+        "Gurdit Siyan",
+        "Yash Pandya",
+        "Joykirat Singh",
+        "Akshay Nambi",
+        "Ahmed Awadallah"
+      ],
+      "abstract": "Agentic language models operate in a fundamentally different safety regime than chat models: they must plan, call tools, and execute long-horizon actions where a single misstep, such as accessing files or entering credentials, can cause irreversible harm. Existing alignment methods, largely optimized for static generation and task completion, break down in these settings due to sequential decision-making, adversarial tool feedback, and overconfident intermediate reasoning. We introduce MOSAIC, a post-training framework that aligns agents for safe multi-step tool use by making safety decisions explicit and learnable. MOSAIC structures inference as a plan, check, then act or refuse loop, with explicit safety reasoning and refusal as first-class actions. To train without trajectory-level labels, we use preference-based reinforcement learning with pairwise trajectory comparisons, which captures safety distinctions often missed by scalar rewards. We evaluate MOSAIC zero-shot across three model families, Qwen2.5-7B, Qwen3-4B-Thinking, and Phi-4, and across out-of-distribution benchmarks spanning harmful tasks, prompt injection, benign tool use, and cross-domain privacy leakage. MOSAIC reduces harmful behavior by up to 50%, increases harmful-task refusal by over 20% on injection attacks, cuts privacy leakage, and preserves or improves benign task performance, demonstrating robust generalization across models, domains, and agentic settings.",
+      "url": "https://arxiv.org/abs/2603.03205",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.7888
+    },
+    {
+      "id": "2603.03000",
+      "title": "Why Does RLAIF Work At All?",
+      "authors": [
+        "Robin Young"
+      ],
+      "abstract": "Reinforcement Learning from AI Feedback (RLAIF) enables language models to improve by training on their own preference judgments, yet no theoretical account explains why this self-improvement seemingly works for value learning. We propose the latent value hypothesis, that pretraining on internet-scale data encodes human values as directions in representation space, and constitutional prompts elicit these latent values into preference judgments. We formalize this intuition under a linear model where the constitution acts as a projection operator selecting value-relevant directions. Our analysis yields several results. RLAIF improves alignment when the constitution-activated direction correlates with true values better than the model's default generation direction thus explaining the generation-judgment gap; the ceiling on RLAIF quality is determined by how well representations encode values, which scales with model capacity; and adversarial constitutions exist that can activate anti-social value directions encoded from harmful pretraining data. Our account unifies scattered empirical findings including the refusal direction, low-rank safety subspaces, and RLAIF scaling behavior.",
+      "url": "https://arxiv.org/abs/2603.03000",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.7881
+    },
+    {
+      "id": "2603.02983",
+      "title": "Contextualized Privacy Defense for LLM Agents",
+      "authors": [
+        "Yule Wen",
+        "Yanzhe Zhang",
+        "Jianxun Lian",
+        "Xiaoyuan Yi",
+        "Xing Xie",
+        "Diyi Yang"
+      ],
+      "abstract": "LLM agents increasingly act on users' personal information, yet existing privacy defenses remain limited in both design and adaptability. Most prior approaches rely on static or passive defenses, such as prompting and guarding. These paradigms are insufficient for supporting contextual, proactive privacy decisions in multi-step agent execution. We propose Contextualized Defense Instructing (CDI), a new privacy defense paradigm in which an instructor model generates step-specific, context-aware privacy guidance during execution, proactively shaping actions rather than merely constraining or vetoing them. Crucially, CDI is paired with an experience-driven optimization framework that trains the instructor via reinforcement learning (RL), where we convert failure trajectories with privacy violations into learning environments. We formalize baseline defenses and CDI as distinct intervention points in a canonical agent loop, and compare their privacy-helpfulness trade-offs within a unified simulation framework. Results show that our CDI consistently achieves a better balance between privacy preservation (94.2%) and helpfulness (80.6%) than baselines, with superior robustness to adversarial conditions and generalization.",
+      "url": "https://arxiv.org/abs/2603.02983",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.7854
+    },
+    {
+      "id": "2603.02701",
+      "title": "Graph-GRPO: Stabilizing Multi-Agent Topology Learning via Group Relative Policy Optimization",
+      "authors": [
+        "Yueyang Cang",
+        "Xiaoteng Zhang",
+        "Erlu Zhao",
+        "Zehua Ji",
+        "Yuhang Liu",
+        "Yuchen He",
+        "Zhiyuan Ning",
+        "Chen Yijun",
+        "Wenge Que",
+        "Li Shi"
+      ],
+      "abstract": "Optimizing communication topology is fundamental to the efficiency and effectiveness of Large Language Model (LLM)-based Multi-Agent Systems (MAS). While recent approaches utilize reinforcement learning to dynamically construct task-specific graphs, they typically rely on single-sample policy gradients with absolute rewards (e.g., binary correctness). This paradigm suffers from severe gradient variance and the credit assignment problem: simple queries yield non-informative positive rewards for suboptimal structures, while difficult queries often result in failures that provide no learning signal. To address these challenges, we propose Graph-GRPO, a novel topology optimization framework that integrates Group Relative Policy Optimization. Instead of evaluating a single topology in isolation, Graph-GRPO samples a group of diverse communication graphs for each query and computes the advantage of specific edges based on their relative performance within the group. By normalizing rewards across the sampled group, our method effectively mitigates the noise derived from task difficulty variance and enables fine-grained credit assignment. Extensive experiments on reasoning and code generation benchmarks demonstrate that Graph-GRPO significantly outperforms state-of-the-art baselines, achieving superior training stability and identifying critical communication pathways previously obscured by reward noise.",
+      "url": "https://arxiv.org/abs/2603.02701",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.7829
+    },
+    {
+      "id": "2603.03081",
+      "title": "TAO-Attack: Toward Advanced Optimization-Based Jailbreak Attacks for Large Language Models",
+      "authors": [
+        "Zhi Xu",
+        "Jiaqi Li",
+        "Xiaotong Zhang",
+        "Hong Yu",
+        "Han Liu"
+      ],
+      "abstract": "Large language models (LLMs) have achieved remarkable success across diverse applications but remain vulnerable to jailbreak attacks, where attackers craft prompts that bypass safety alignment and elicit unsafe responses. Among existing approaches, optimization-based attacks have shown strong effectiveness, yet current methods often suffer from frequent refusals, pseudo-harmful outputs, and inefficient token-level updates. In this work, we propose TAO-Attack, a new optimization-based jailbreak method. TAO-Attack employs a two-stage loss function: the first stage suppresses refusals to ensure the model continues harmful prefixes, while the second stage penalizes pseudo-harmful outputs and encourages the model toward more harmful completions. In addition, we design a direction-priority token optimization (DPTO) strategy that improves efficiency by aligning candidates with the gradient direction before considering update magnitude. Extensive experiments on multiple LLMs demonstrate that TAO-Attack consistently outperforms state-of-the-art methods, achieving higher attack success rates and even reaching 100\\% in certain scenarios.",
+      "url": "https://arxiv.org/abs/2603.03081",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.7827
+    },
+    {
+      "id": "2603.03206",
+      "title": "Understanding and Mitigating Dataset Corruption in LLM Steering",
+      "authors": [
+        "Cullen Anderson",
+        "Narmeen Oozeer",
+        "Foad Namjoo",
+        "Remy Ogasawara",
+        "Amirali Abdullah",
+        "Jeff M. Phillips"
+      ],
+      "abstract": "Contrastive steering has been shown as a simple and effective method to adjust the generative behavior of LLMs at inference time. It uses examples of prompt responses with and without a trait to identify a direction in an intermediate activation layer, and then shifts activations in this 1-dimensional subspace. However, despite its growing use in AI safety applications, the robustness of contrastive steering to noisy or adversarial data corruption is poorly understood. We initiate a study of the robustness of this process with respect to corruption of the dataset of examples used to train the steering direction. Our first observation is that contrastive steering is quite robust to a moderate amount of corruption, but unwanted side effects can be clearly and maliciously manifested when a non-trivial fraction of the training data is altered. Second, we analyze the geometry of various types of corruption, and identify some safeguards. Notably, a key step in learning the steering direction involves high-dimensional mean computation, and we show that replacing this step with a recently developed robust mean estimator often mitigates most of the unwanted effects of malicious corruption.",
+      "url": "https://arxiv.org/abs/2603.03206",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.7782
+    },
+    {
+      "id": "2603.03078",
+      "title": "RAPO: Expanding Exploration for LLM Agents via Retrieval-Augmented Policy Optimization",
+      "authors": [
+        "Siwei Zhang",
+        "Yun Xiong",
+        "Xi Chen",
+        "Zi'an Jia",
+        "Renhong Huang",
+        "Jiarong Xu",
+        "Jiawei Zhang"
+      ],
+      "abstract": "Agentic Reinforcement Learning (Agentic RL) has shown remarkable potential in large language model-based (LLM) agents. These works can empower LLM agents to tackle complex tasks via multi-step, tool-integrated reasoning. However, an inherent limitation of existing Agentic RL methods is their reliance on a pure on-policy paradigm for exploration, restricting exploration to the agent's self-generated outputs and preventing the discovery of new reasoning perspectives for further improvement. While recent efforts incorporate auxiliary off-policy signals to enhance exploration, they typically utilize full off-policy trajectories for trajectory-level policy estimation, overlooking the necessity for the fine-grained, step-level exploratory dynamics within agentic rollout. In this paper, we revisit exploration in Agentic RL and propose Retrieval-Augmented Policy Optimization (RAPO), a novel RL framework that introduces retrieval to explicitly expand exploration during training. To achieve this, we decompose the Agentic RL training process into two phases: (i) Hybrid-policy Agentic Rollout, and (ii) Retrieval-aware Policy Optimization. Specifically, we propose a Hybrid-policy Agentic Rollout strategy, which allows the agents to continuously reason over the retrieved off-policy step-level traces. It dynamically extends the reasoning receptive field of agents, enabling broader exploration conditioned on external behaviors. Subsequently, we introduce the Retrieval-aware Policy Optimization mechanism, which calibrates the policy gradient estimation with retrieval reward and importance shaping, stabilizing training and prioritizing retrieval-illuminating exploration. Extensive experiments show that RAPO achieves an +5.0% average gain on fourteen datasets across three agentic reasoning tasks, while delivering 1.2x faster training efficiency.",
+      "url": "https://arxiv.org/abs/2603.03078",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.7723
+    }
+  ],
+  "meta": {
+    "total": 17,
+    "model": "allenai/specter2_base",
+    "profile_version": "1"
+  }
+}

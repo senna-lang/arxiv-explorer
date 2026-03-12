@@ -1,0 +1,196 @@
+---
+/**
+ * arXiv論文地図ページ
+ *
+ * map.jsonのUMAP 2D座標を使い、論文クラスタをインタラクティブな散布図で可視化する。
+ * 近傍クラスタ（recommendations.jsonのtop_clusters）を別色でハイライト表示する。
+ * ホバーでクラスタラベル・論文数のツールチップを表示する。
+ */
+import { getMap, getRecommendations } from "../lib/data";
+import type { Cluster } from "../lib/types";
+
+const mapData = getMap();
+const recData = getRecommendations();
+
+const nearLabels = new Set(recData?.top_clusters.map((c) => c.label) ?? []);
+const clusters: Cluster[] = mapData?.clusters ?? [];
+const clustersJson = JSON.stringify(clusters);
+const nearLabelsJson = JSON.stringify([...nearLabels]);
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>arXiv 論文地図</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 1rem;
+        background: #f8f8f8;
+        color: #222;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+      h1 { font-size: 1.3rem; margin: 0; }
+      .back { font-size: 0.85rem; color: #1a0dab; text-decoration: none; }
+      .back:hover { text-decoration: underline; }
+      .legend {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.8rem;
+        color: #555;
+        margin-bottom: 0.75rem;
+      }
+      .legend-dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 4px;
+        vertical-align: middle;
+      }
+      canvas {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #fff;
+        cursor: crosshair;
+        display: block;
+        max-width: 100%;
+      }
+      #tooltip {
+        position: fixed;
+        background: rgba(0,0,0,0.8);
+        color: #fff;
+        padding: 0.4rem 0.7rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        pointer-events: none;
+        display: none;
+        z-index: 100;
+        max-width: 260px;
+        line-height: 1.4;
+      }
+      .no-data {
+        text-align: center;
+        padding: 3rem;
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🗺 arXiv 論文地図</h1>
+      <a class="back" href="/">← 新聞に戻る</a>
+    </header>
+
+    {clusters.length === 0 ? (
+      <div class="no-data">
+        <p>地図データがありません。</p>
+        <code>python scripts/map.py</code> を実行してください。
+      </div>
+    ) : (
+      <>
+        <div class="legend">
+          <span><span class="legend-dot" style="background:#3b82f6"></span>クラスタ</span>
+          <span><span class="legend-dot" style="background:#f59e0b"></span>近傍クラスタ（あなたの興味）</span>
+        </div>
+        <canvas id="map-canvas" width="760" height="560"></canvas>
+        <div id="tooltip"></div>
+      </>
+    )}
+
+    <script define:vars={{ clustersJson, nearLabelsJson }}>
+      const clusters = JSON.parse(clustersJson);
+      const nearLabels = new Set(JSON.parse(nearLabelsJson));
+
+      const canvas = document.getElementById("map-canvas");
+      if (!canvas || clusters.length === 0) return;
+
+      const ctx = canvas.getContext("2d");
+      const W = canvas.width;
+      const H = canvas.height;
+      const PAD = 40;
+
+      // UMAP座標の範囲を計算
+      const xs = clusters.map((c) => c.umap_x);
+      const ys = clusters.map((c) => c.umap_y);
+      const xMin = Math.min(...xs), xMax = Math.max(...xs);
+      const yMin = Math.min(...ys), yMax = Math.max(...ys);
+
+      function toCanvas(ux, uy) {
+        const x = PAD + ((ux - xMin) / (xMax - xMin)) * (W - PAD * 2);
+        const y = PAD + ((uy - yMin) / (yMax - yMin)) * (H - PAD * 2);
+        return { x, y };
+      }
+
+      const maxSize = Math.max(...clusters.map((c) => c.size));
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        for (const cluster of clusters) {
+          const { x, y } = toCanvas(cluster.umap_x, cluster.umap_y);
+          const r = Math.max(4, Math.sqrt(cluster.size / maxSize) * 22);
+          const isNear = nearLabels.has(cluster.label);
+
+          ctx.beginPath();
+          ctx.arc(x, y, r, 0, Math.PI * 2);
+          ctx.fillStyle = isNear ? "rgba(245,158,11,0.7)" : "rgba(59,130,246,0.45)";
+          ctx.fill();
+          ctx.strokeStyle = isNear ? "#d97706" : "#2563eb";
+          ctx.lineWidth = isNear ? 2 : 1;
+          ctx.stroke();
+        }
+      }
+
+      draw();
+
+      // ツールチップ
+      const tooltip = document.getElementById("tooltip");
+
+      canvas.addEventListener("mousemove", (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const mx = (e.clientX - rect.left) * (W / rect.width);
+        const my = (e.clientY - rect.top) * (H / rect.height);
+
+        let hit = null;
+        for (const cluster of clusters) {
+          const { x, y } = toCanvas(cluster.umap_x, cluster.umap_y);
+          const r = Math.max(4, Math.sqrt(cluster.size / maxSize) * 22);
+          if ((mx - x) ** 2 + (my - y) ** 2 <= r ** 2) {
+            hit = cluster;
+            break;
+          }
+        }
+
+        if (hit) {
+          tooltip.style.display = "block";
+          tooltip.style.left = e.clientX + 12 + "px";
+          tooltip.style.top = e.clientY - 10 + "px";
+          const isNear = nearLabels.has(hit.label);
+          tooltip.innerHTML = `
+            <strong>${hit.label}</strong>${isNear ? " ★" : ""}<br>
+            論文数: ${hit.size}<br>
+            <small>${hit.keywords.slice(0, 4).join(", ")}</small>
+          `;
+          canvas.style.cursor = "pointer";
+        } else {
+          tooltip.style.display = "none";
+          canvas.style.cursor = "crosshair";
+        }
+      });
+
+      canvas.addEventListener("mouseleave", () => {
+        tooltip.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

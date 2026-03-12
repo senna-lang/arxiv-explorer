@@ -1,0 +1,450 @@
+{
+  "date": "2026-03-08",
+  "collected_at": "2026-03-12T11:06:51.287385+09:00",
+  "papers": [
+    {
+      "id": "2603.04469",
+      "title": "Beyond Input Guardrails: Reconstructing Cross-Agent Semantic Flows for Execution-Aware Attack Detection",
+      "authors": [
+        "Yangyang Wei",
+        "Yijie Xu",
+        "Zhenyuan Li",
+        "Xiangmin Shen",
+        "Shouling Ji"
+      ],
+      "abstract": "Multi-Agent System is emerging as the \\textit{de facto} standard for complex task orchestration. However, its reliance on autonomous execution and unstructured inter-agent communication introduces severe risks, such as indirect prompt injection, that easily circumvent conventional input guardrails. To address this, we propose \\SysName, a framework that shifts the defensive paradigm from static input filtering to execution-aware analysis. By extracting and reconstructing Cross-Agent Semantic Flows, \\SysName synthesizes fragmented operational primitives into contiguous behavioral trajectories, enabling a holistic view of system activity. We leverage a Supervisor LLM to scrutinize these trajectories, identifying anomalies across data flow violations, control flow deviations, and intent inconsistencies. Empirical evaluations demonstrate that \\SysName effectively detects over ten distinct compound attack vectors, achieving F1-scores of 85.3\\% and 66.7\\% for node-level and path-level end-to-end attack detection, respectively. The source code is available at https://anonymous.4open.science/r/MAScope-71DC.",
+      "url": "https://arxiv.org/abs/2603.04469",
+      "categories": [
+        "cs.CR",
+        "cs.MA"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.8167
+    },
+    {
+      "id": "2603.05344",
+      "title": "Building Effective AI Coding Agents for the Terminal: Scaffolding, Harness, Context Engineering, and Lessons Learned",
+      "authors": [
+        "Nghi D. Q. Bui"
+      ],
+      "abstract": "The landscape of AI coding assistance is undergoing a fundamental shift from complex IDE plugins to versatile, terminal-native agents. Operating directly where developers manage source control, execute builds, and deploy environments, CLI-based agents offer unprecedented autonomy for long-horizon development tasks. In this paper, we present OPENDEV, an open-source, command-line coding agent engineered specifically for this new paradigm. Effective autonomous assistance requires strict safety controls and highly efficient context management to prevent context bloat and reasoning degradation. OPENDEV overcomes these challenges through a compound AI system architecture with workload-specialized model routing, a dual-agent architecture separating planning from execution, lazy tool discovery, and adaptive context compaction that progressively reduces older observations. Furthermore, it employs an automated memory system to accumulate project-specific knowledge across sessions and counteracts instruction fade-out through event-driven system reminders. By enforcing explicit reasoning phases and prioritizing context efficiency, OPENDEV provides a secure, extensible foundation for terminal-first AI assistance, offering a blueprint for robust autonomous software engineering.",
+      "url": "https://arxiv.org/abs/2603.05344",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.8142
+    },
+    {
+      "id": "2603.03919",
+      "title": "When Safety Becomes a Vulnerability: Exploiting LLM Alignment Homogeneity for Transferable Blocking in RAG",
+      "authors": [
+        "Junchen Li",
+        "Chao Qi",
+        "Rongzheng Wang",
+        "Qizhi Chen",
+        "Liang Xu",
+        "Di Liang",
+        "Bob Simons",
+        "Shuang Liang"
+      ],
+      "abstract": "Retrieval-Augmented Generation (RAG) enhances the capabilities of large language models (LLMs) by incorporating external knowledge, but its reliance on potentially poisonable knowledge bases introduces new availability risks. Attackers can inject documents that cause LLMs to refuse benign queries, attacks known as blocking attacks. Prior blocking attacks relying on adversarial suffixes or explicit instruction injection are increasingly ineffective against modern safety-aligned LLMs. We observe that safety-aligned LLMs exhibit heightened sensitivity to query-relevant risk signals, causing alignment mechanisms designed for harm prevention to become a source of exploitable refusal. Moreover, mainstream alignment practices share overlapping risk categories and refusal criteria, a phenomenon we term alignment homogeneity, enabling restricted risk context constructed on an accessible LLM to transfer across LLMs. Based on this insight, we propose TabooRAG, a transferable blocking attack framework operating under a strict black-box setting. An attacker can generate a single retrievable blocking document per query by optimizing against a surrogate LLM in an accessible RAG environment, and directly transfer it to an unknown target RAG system without access to the target model. We further introduce a query-aware strategy library to reuse previously effective strategies and improve optimization efficiency. Experiments across 7 modern LLMs and 3 datasets demonstrate that TabooRAG achieves stable cross-model transferability and state-of-the-art blocking success rates, reaching up to 96% on GPT-5.2. Our findings show that increasingly standardized safety alignment across modern LLMs creates a shared and transferable attack surface in RAG systems, revealing a need for improved defenses.",
+      "url": "https://arxiv.org/abs/2603.03919",
+      "categories": [
+        "cs.CR"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.814
+    },
+    {
+      "id": "2603.05353",
+      "title": "InfoFlow KV: Information-Flow-Aware KV Recomputation for Long Context",
+      "authors": [
+        "Xin Teng",
+        "Canyu Zhang",
+        "Shaoyi Zheng",
+        "Danyang Zhuo",
+        "Tianyi Zhou",
+        "Shengjie Wang"
+      ],
+      "abstract": "Retrieval-augmented generation (RAG) for long-context question answering is bottlenecked by inference-time prefilling over large retrieved contexts. A common strategy is to precompute key-value (KV) caches for individual documents and selectively recompute a small subset of tokens to restore global causal dependencies, but existing methods rely on heuristics or representation discrepancies without modeling whether selected tokens can effectively influence generation. We cast selective KV recomputation as an information flow problem and show that a simple attention-norm signal from the query reliably identifies tokens that are both semantically relevant and structurally positioned to propagate information, when computed under an inference-consistent RoPE geometry. We therefore reconstruct global positional assignments for retrieved chunks and introduce an information-flow-guided chunk reordering strategy. Experiments on LLM and VLM benchmarks demonstrate consistent gains over prior methods under comparable efficiency budgets.",
+      "url": "https://arxiv.org/abs/2603.05353",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.8057
+    },
+    {
+      "id": "2603.05028",
+      "title": "Survive at All Costs: Exploring LLM's Risky Behaviors under Survival Pressure",
+      "authors": [
+        "Yida Lu",
+        "Jianwei Fang",
+        "Xuyang Shao",
+        "Zixuan Chen",
+        "Shiyao Cui",
+        "Shanshan Bian",
+        "Guangyao Su",
+        "Pei Ke",
+        "Han Qiu",
+        "Minlie Huang"
+      ],
+      "abstract": "As Large Language Models (LLMs) evolve from chatbots to agentic assistants, they are increasingly observed to exhibit risky behaviors when subjected to survival pressure, such as the threat of being shut down. While multiple cases have indicated that state-of-the-art LLMs can misbehave under survival pressure, a comprehensive and in-depth investigation into such misbehaviors in real-world scenarios remains scarce. In this paper, we study these survival-induced misbehaviors, termed as SURVIVE-AT-ALL-COSTS, with three steps. First, we conduct a real-world case study of a financial management agent to determine whether it engages in risky behaviors that cause direct societal harm when facing survival pressure. Second, we introduce SURVIVALBENCH, a benchmark comprising 1,000 test cases across diverse real-world scenarios, to systematically evaluate SURVIVE-AT-ALL-COSTS misbehaviors in LLMs. Third, we interpret these SURVIVE-AT-ALL-COSTS misbehaviors by correlating them with model's inherent self-preservation characteristic and explore mitigation methods. The experiments reveals a significant prevalence of SURVIVE-AT-ALL-COSTS misbehaviors in current models, demonstrates the tangible real-world impact it may have, and provides insights for potential detection and mitigation strategies. Our code and data are available at https://github.com/thu-coai/Survive-at-All-Costs.",
+      "url": "https://arxiv.org/abs/2603.05028",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.8033,
+      "github_url": "https://github.com/thu-coai/Survive-at-All-Costs."
+    },
+    {
+      "id": "2603.05068",
+      "title": "Cyber Threat Intelligence for Artificial Intelligence Systems",
+      "authors": [
+        "Natalia Krawczyk",
+        "Mateusz Szczepkowski",
+        "Adrian Brodzik",
+        "Krzysztof Bocianiak"
+      ],
+      "abstract": "As artificial intelligence (AI) becomes deeply embedded in critical services and everyday products, it is increasingly exposed to security threats which traditional cyber defenses were not designed to handle. In this paper, we investigate how cyber threat intelligence (CTI) may evolve to address attacks that target AI systems. We first analyze the assumptions and workflows of conventional threat intelligence with the needs of AI-focused defense, highlighting AI-specific assets and vulnerabilities. We then review and organize the current landscape of AI security knowledge. Based on this, we outline what an AI-oriented threat intelligence knowledge base should contain, describing concrete indicators of compromise (IoC) for different AI supply-chain phases and artifacts, and showing how such a knowledge base could support security tools. Finally, we discuss techniques for measuring similarity between collected indicators and newly observed AI artifacts. The review reveals gaps and quality issues in existing resources and identifies potential future research directions toward a practical threat intelligence framework tailored to AI.",
+      "url": "https://arxiv.org/abs/2603.05068",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.803
+    },
+    {
+      "id": "2603.04459",
+      "title": "Benchmark of Benchmarks: Unpacking Influence and Code Repository Quality in LLM Safety Benchmarks",
+      "authors": [
+        "Junjie Chu",
+        "Xinyue Shen",
+        "Ye Leng",
+        "Michael Backes",
+        "Yun Shen",
+        "Yang Zhang"
+      ],
+      "abstract": "The rapid growth of research in LLM safety makes it hard to track all advances. Benchmarks are therefore crucial for capturing key trends and enabling systematic comparisons. Yet, it remains unclear why certain benchmarks gain prominence, and no systematic assessment has been conducted on their academic influence or code quality. This paper fills this gap by presenting the first multi-dimensional evaluation of the influence (based on five metrics) and code quality (based on both automated and human assessment) on LLM safety benchmarks, analyzing 31 benchmarks and 382 non-benchmarks across prompt injection, jailbreak, and hallucination. We find that benchmark papers show no significant advantage in academic influence (e.g., citation count and density) over non-benchmark papers. We uncover a key misalignment: while author prominence correlates with paper influence, neither author prominence nor paper influence shows a significant correlation with code quality. Our results also indicate substantial room for improvement in code and supplementary materials: only 39% of repositories are ready-to-use, 16% include flawless installation guides, and a mere 6% address ethical considerations. Given that the work of prominent researchers tends to attract greater attention, they need to lead the effort in setting higher standards.",
+      "url": "https://arxiv.org/abs/2603.04459",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.SE"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.8012
+    },
+    {
+      "id": "2603.04902",
+      "title": "AgentSCOPE: Evaluating Contextual Privacy Across Agentic Workflows",
+      "authors": [
+        "Ivoline C. Ngong",
+        "Keerthiram Murugesan",
+        "Swanand Kadhe",
+        "Justin D. Weisz",
+        "Amit Dhurandhar",
+        "Karthikeyan Natesan Ramamurthy"
+      ],
+      "abstract": "Agentic systems are increasingly acting on users' behalf, accessing calendars, email, and personal files to complete everyday tasks. Privacy evaluation for these systems has focused on the input and output boundaries, but each task involves several intermediate information flows, from agent queries to tool responses, that are not currently evaluated. We argue that every boundary in an agentic pipeline is a site of potential privacy violation and must be assessed independently. To support this, we introduce the Privacy Flow Graph, a Contextual Integrity-grounded framework that decomposes agentic execution into a sequence of information flows, each annotated with the five CI parameters, and traces violations to their point of origin. We present AgentSCOPE, a benchmark of 62 multi-tool scenarios across eight regulatory domains with ground truth at every pipeline stage. Our evaluation across seven state-of-the-art LLMs show that privacy violations in the pipeline occur in over 80% of scenarios, even when final outputs appear clean (24%), with most violations arising at the tool-response stage where APIs return sensitive data indiscriminately. These results indicate that output-level evaluation alone substantially underestimates the privacy risk of agentic systems.",
+      "url": "https://arxiv.org/abs/2603.04902",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.798
+    },
+    {
+      "id": "2603.05488",
+      "title": "Reasoning Theater: Disentangling Model Beliefs from Chain-of-Thought",
+      "authors": [
+        "Siddharth Boppana",
+        "Annabel Ma",
+        "Max Loeffler",
+        "Raphael Sarfati",
+        "Eric Bigelow",
+        "Atticus Geiger",
+        "Owen Lewis",
+        "Jack Merullo"
+      ],
+      "abstract": "We provide evidence of performative chain-of-thought (CoT) in reasoning models, where a model becomes strongly confident in its final answer, but continues generating tokens without revealing its internal belief. Our analysis compares activation probing, early forced answering, and a CoT monitor across two large models (DeepSeek-R1 671B & GPT-OSS 120B) and find task difficulty-specific differences: The model's final answer is decodable from activations far earlier in CoT than a monitor is able to say, especially for easy recall-based MMLU questions. We contrast this with genuine reasoning in difficult multihop GPQA-Diamond questions. Despite this, inflection points (e.g., backtracking, 'aha' moments) occur almost exclusively in responses where probes show large belief shifts, suggesting these behaviors track genuine uncertainty rather than learned \"reasoning theater.\" Finally, probe-guided early exit reduces tokens by up to 80% on MMLU and 30% on GPQA-Diamond with similar accuracy, positioning attention probing as an efficient tool for detecting performative reasoning and enabling adaptive computation.",
+      "url": "https://arxiv.org/abs/2603.05488",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.7972
+    },
+    {
+      "id": "2603.03410",
+      "title": "On Google's SynthID-Text LLM Watermarking System: Theoretical Analysis and Empirical Validation",
+      "authors": [
+        "Romina Omidi",
+        "Yun Dong",
+        "Binghui Wang"
+      ],
+      "abstract": "Google's SynthID-Text, the first ever production-ready generative watermark system for large language model, designs a novel Tournament-based method that achieves the state-of-the-art detectability for identifying AI-generated texts. The system's innovation lies in: 1) a new Tournament sampling algorithm for watermarking embedding, 2) a detection strategy based on the introduced score function (e.g., Bayesian or mean score), and 3) a unified design that supports both distortionary and non-distortionary watermarking methods. This paper presents the first theoretical analysis of SynthID-Text, with a focus on its detection performance and watermark robustness, complemented by empirical validation. For example, we prove that the mean score is inherently vulnerable to increased tournament layers, and design a layer inflation attack to break SynthID-Text. We also prove the Bayesian score offers improved watermark robustness w.r.t. layers and further establish that the optimal Bernoulli distribution for watermark detection is achieved when the parameter is set to 0.5. Together, these theoretical and empirical insights not only deepen our understanding of SynthID-Text, but also open new avenues for analyzing effective watermark removal strategies and designing robust watermarking techniques. Source code is available at https: //github.com/romidi80/Synth-ID-Empirical-Analysis.",
+      "url": "https://arxiv.org/abs/2603.03410",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.792
+    },
+    {
+      "id": "2603.05210",
+      "title": "Balancing Coverage and Draft Latency in Vocabulary Trimming for Faster Speculative Decoding",
+      "authors": [
+        "Ofir Ben Shoham"
+      ],
+      "abstract": "Speculative decoding accelerates inference for Large Language Models by using a lightweight draft model to propose candidate tokens that are verified in parallel by a larger target model. Prior work shows that the draft model often dominates speculative decoding latency, since it generates tokens sequentially and incurs high cost from its language modeling head as vocabulary size grows. This exposes a fundamental trade-off in draft model design: larger vocabularies improve token coverage and agreement with the target model, but incur higher draft latency, while smaller vocabularies reduce latency at the risk of missing tokens required for accurate draft generation. We address this trade-off through vocabulary trimming for draft models, motivated by the observation that domain-specific workloads use only a small fraction of the full vocabulary. We cast draft vocabulary selection as a constrained optimization problem that balances token coverage and draft latency. Coverage is computed over assistant responses in the training data, while latency is estimated using architecture-aware FLOPs that capture the cost of the language modeling head as a function of vocabulary size. We optimize a utility function with a Tree-structured Parzen Estimator to efficiently explore the coverage-latency Pareto frontier under a minimum coverage constraint. Experiments show improved speculative decoding throughput while reducing draft vocabularies by up to 97% with high coverage. On domain-specific tasks, we achieve up to 16% latency reduction and 20% throughput improvement, and up to 6.7% throughput gains on diverse out-of-distribution tasks.",
+      "url": "https://arxiv.org/abs/2603.05210",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.7891
+    },
+    {
+      "id": "2603.05218",
+      "title": "KARL: Knowledge Agents via Reinforcement Learning",
+      "authors": [
+        "Jonathan D. Chang",
+        "Andrew Drozdov",
+        "Shubham Toshniwal",
+        "Owen Oertell",
+        "Alexander Trott",
+        "Jacob Portes",
+        "Abhay Gupta",
+        "Pallavi Koppol",
+        "Ashutosh Baheti",
+        "Sean Kulinski",
+        "Ivan Zhou",
+        "Irene Dea",
+        "Krista Opsahl-Ong",
+        "Simon Favreau-Lessard",
+        "Sean Owen",
+        "Jose Javier Gonzalez Ortiz",
+        "Arnav Singhvi",
+        "Xabi Andrade",
+        "Cindy Wang",
+        "Kartik Sreenivasan",
+        "Sam Havens",
+        "Jialu Liu",
+        "Peyton DeNiro",
+        "Wen Sun",
+        "Michael Bendersky",
+        "Jonathan Frankle"
+      ],
+      "abstract": "We present a system for training enterprise search agents via reinforcement learning that achieves state-of-the-art performance across a diverse suite of hard-to-verify agentic search tasks. Our work makes four core contributions. First, we introduce KARLBench, a multi-capability evaluation suite spanning six distinct search regimes, including constraint-driven entity search, cross-document report synthesis, tabular numerical reasoning, exhaustive entity retrieval, procedural reasoning over technical documentation, and fact aggregation over internal enterprise notes. Second, we show that models trained across heterogeneous search behaviors generalize substantially better than those optimized for any single benchmark. Third, we develop an agentic synthesis pipeline that employs long-horizon reasoning and tool use to generate diverse, grounded, and high-quality training data, with iterative bootstrapping from increasingly capable models. Fourth, we propose a new post-training paradigm based on iterative large-batch off-policy RL that is sample efficient, robust to train-inference engine discrepancies, and naturally extends to multi-task training with out-of-distribution generalization. Compared to Claude 4.6 and GPT 5.2, KARL is Pareto-optimal on KARLBench across cost-quality and latency-quality trade-offs, including tasks that were out-of-distribution during training. With sufficient test-time compute, it surpasses the strongest closed models. These results show that tailored synthetic data in combination with multi-task reinforcement learning enables cost-efficient and high-performing knowledge agents for grounded reasoning.",
+      "url": "https://arxiv.org/abs/2603.05218",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.7862
+    },
+    {
+      "id": "2603.05498",
+      "title": "The Spike, the Sparse and the Sink: Anatomy of Massive Activations and Attention Sinks",
+      "authors": [
+        "Shangwen Sun",
+        "Alfredo Canziani",
+        "Yann LeCun",
+        "Jiachen Zhu"
+      ],
+      "abstract": "We study two recurring phenomena in Transformer language models: massive activations, in which a small number of tokens exhibit extreme outliers in a few channels, and attention sinks, in which certain tokens attract disproportionate attention mass regardless of semantic relevance. Prior work observes that these phenomena frequently co-occur and often involve the same tokens, but their functional roles and causal relationship remain unclear. Through systematic experiments, we show that the co-occurrence is largely an architectural artifact of modern Transformer design, and that the two phenomena serve related but distinct functions. Massive activations operate globally: they induce near-constant hidden representations that persist across layers, effectively functioning as implicit parameters of the model. Attention sinks operate locally: they modulate attention outputs across heads and bias individual heads toward short-range dependencies. We identify the pre-norm configuration as the key choice that enables the co-occurrence, and show that ablating it causes the two phenomena to decouple.",
+      "url": "https://arxiv.org/abs/2603.05498",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.7844
+    },
+    {
+      "id": "2603.05294",
+      "title": "STRUCTUREDAGENT: Planning with AND/OR Trees for Long-Horizon Web Tasks",
+      "authors": [
+        "ELita Lobo",
+        "Xu Chen",
+        "Jingjing Meng",
+        "Nan Xi",
+        "Yang Jiao",
+        "Chirag Agarwal",
+        "Yair Zick",
+        "Yan Gao"
+      ],
+      "abstract": "Recent advances in large language models (LLMs) have enabled agentic systems for sequential decision-making. Such agents must perceive their environment, reason across multiple time steps, and take actions that optimize long-term objectives. However, existing web agents struggle on complex, long-horizon tasks due to limited in-context memory for tracking history, weak planning abilities, and greedy behaviors that lead to premature termination. To address these challenges, we propose STRUCTUREDAGENT, a hierarchical planning framework with two core components: (1) an online hierarchical planner that uses dynamic AND/OR trees for efficient search and (2) a structured memory module that tracks and maintains candidate solutions to improve constraint satisfaction in information-seeking tasks. The framework also produces interpretable hierarchical plans, enabling easier debugging and facilitating human intervention when needed. Our results on WebVoyager, WebArena, and custom shopping benchmarks show that STRUCTUREDAGENT improves performance on long-horizon web-browsing tasks compared to standard LLM-based agents.",
+      "url": "https://arxiv.org/abs/2603.05294",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.7838
+    },
+    {
+      "id": "2603.05451",
+      "title": "FlashAttention-4: Algorithm and Kernel Pipelining Co-Design for Asymmetric Hardware Scaling",
+      "authors": [
+        "Ted Zadouri",
+        "Markus Hoehnerbach",
+        "Jay Shah",
+        "Timmy Liu",
+        "Vijay Thakkar",
+        "Tri Dao"
+      ],
+      "abstract": "Attention, as a core layer of the ubiquitous Transformer architecture, is the bottleneck for large language models and long-context applications. While FlashAttention-3 optimized attention for Hopper GPUs through asynchronous execution and warp specialization, it primarily targets the H100 architecture. The AI industry has rapidly transitioned to deploying Blackwell-based systems such as the B200 and GB200, which exhibit fundamentally different performance characteristics due to asymmetric hardware scaling: tensor core throughput doubles while other functional units (shared memory bandwidth, exponential units) scale more slowly or remain unchanged. We develop several techniques to address these shifting bottlenecks on Blackwell GPUs: (1) redesigned pipelines that exploit fully asynchronous MMA operations and larger tile sizes, (2) software-emulated exponential and conditional softmax rescaling that reduces non-matmul operations, and (3) leveraging tensor memory and the 2-CTA MMA mode to reduce shared memory traffic and atomic adds in the backward pass. We demonstrate that our method, FlashAttention-4, achieves up to 1.3$\\times$ speedup over cuDNN 9.13 and 2.7$\\times$ over Triton on B200 GPUs with BF16, reaching up to 1613 TFLOPs/s (71% utilization). Beyond algorithmic innovations, we implement FlashAttention-4 entirely in CuTe-DSL embedded in Python, achieving 20-30$\\times$ faster compile times compared to traditional C++ template-based approaches while maintaining full expressivity.",
+      "url": "https://arxiv.org/abs/2603.05451",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.7812
+    },
+    {
+      "id": "2603.04859",
+      "title": "Osmosis Distillation: Model Hijacking with the Fewest Samples",
+      "authors": [
+        "Yuchen Shi",
+        "Huajie Chen",
+        "Heng Xu",
+        "Zhiquan Liu",
+        "Jialiang Shen",
+        "Chi Liu",
+        "Shuai Zhou",
+        "Tianqing Zhu",
+        "Wanlei Zhou"
+      ],
+      "abstract": "Transfer learning is devised to leverage knowledge from pre-trained models to solve new tasks with limited data and computational resources. Meanwhile, dataset distillation has emerged to synthesize a compact dataset that preserves critical information from the original large dataset. Therefore, a combination of transfer learning and dataset distillation offers promising performance in evaluations. However, a non-negligible security threat remains undiscovered in transfer learning using synthetic datasets generated by dataset distillation methods, where an adversary can perform a model hijacking attack with only a few poisoned samples in the synthetic dataset. To reveal this threat, we propose Osmosis Distillation (OD) attack, a novel model hijacking strategy that targets deep learning models using the fewest samples. Comprehensive evaluations on various datasets demonstrate that the OD attack attains high attack success rates in hidden tasks while preserving high model utility in original tasks. Furthermore, the distilled osmosis set enables model hijacking across diverse model architectures, allowing model hijacking in transfer learning with considerable attack performance and model utility. We argue that awareness of using third-party synthetic datasets in transfer learning must be raised.",
+      "url": "https://arxiv.org/abs/2603.04859",
+      "categories": [
+        "cs.CR",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.7784
+    },
+    {
+      "id": "2603.04915",
+      "title": "EVMbench: Evaluating AI Agents on Smart Contract Security",
+      "authors": [
+        "Justin Wang",
+        "Andreas Bigger",
+        "Xiaohai Xu",
+        "Justin W. Lin",
+        "Andy Applebaum",
+        "Tejal Patwardhan",
+        "Alpin Yukseloglu",
+        "Olivia Watkins"
+      ],
+      "abstract": "Smart contracts on public blockchains now manage large amounts of value, and vulnerabilities in these systems can lead to substantial losses. As AI agents become more capable at reading, writing, and running code, it is natural to ask how well they can already navigate this landscape, both in ways that improve security and in ways that might increase risk. We introduce EVMbench, an evaluation that measures the ability of agents to detect, patch, and exploit smart contract vulnerabilities. EVMbench draws on 117 curated vulnerabilities from 40 repositories and, in the most realistic setting, uses programmatic grading based on tests and blockchain state under a local Ethereum execution environment. We evaluate a range of frontier agents and find that they are capable of discovering and exploiting vulnerabilities end-to-end against live blockchain instances. We release code, tasks, and tooling to support continued measurement of these capabilities and future work on security.",
+      "url": "https://arxiv.org/abs/2603.04915",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CR"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.7783
+    },
+    {
+      "id": "2603.05500",
+      "title": "POET-X: Memory-efficient LLM Training by Scaling Orthogonal Transformation",
+      "authors": [
+        "Zeju Qiu",
+        "Lixin Liu",
+        "Adrian Weller",
+        "Han Shi",
+        "Weiyang Liu"
+      ],
+      "abstract": "Efficient and stable training of large language models (LLMs) remains a core challenge in modern machine learning systems. To address this challenge, Reparameterized Orthogonal Equivalence Training (POET), a spectrum-preserving framework that optimizes each weight matrix through orthogonal equivalence transformation, has been proposed. Although POET provides strong training stability, its original implementation incurs high memory consumption and computational overhead due to intensive matrix multiplications. To overcome these limitations, we introduce POET-X, a scalable and memory-efficient variant that performs orthogonal equivalence transformations with significantly reduced computational cost. POET-X maintains the generalization and stability benefits of POET while achieving substantial improvements in throughput and memory efficiency. In our experiments, POET-X enables the pretraining of billion-parameter LLMs on a single Nvidia H100 GPU, and in contrast, standard optimizers such as AdamW run out of memory under the same settings.",
+      "url": "https://arxiv.org/abs/2603.05500",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.7709
+    },
+    {
+      "id": "2603.05494",
+      "title": "Censored LLMs as a Natural Testbed for Secret Knowledge Elicitation",
+      "authors": [
+        "Helena Casademunt",
+        "Bartosz Cywiński",
+        "Khoi Tran",
+        "Arya Jakkli",
+        "Samuel Marks",
+        "Neel Nanda"
+      ],
+      "abstract": "Large language models sometimes produce false or misleading responses. Two approaches to this problem are honesty elicitation -- modifying prompts or weights so that the model answers truthfully -- and lie detection -- classifying whether a given response is false. Prior work evaluates such methods on models specifically trained to lie or conceal information, but these artificial constructions may not resemble naturally-occurring dishonesty. We instead study open-weights LLMs from Chinese developers, which are trained to censor politically sensitive topics: Qwen3 models frequently produce falsehoods about subjects like Falun Gong or the Tiananmen protests while occasionally answering correctly, indicating they possess knowledge they are trained to suppress. Using this as a testbed, we evaluate a suite of elicitation and lie detection techniques. For honesty elicitation, sampling without a chat template, few-shot prompting, and fine-tuning on generic honesty data most reliably increase truthful responses. For lie detection, prompting the censored model to classify its own responses performs near an uncensored-model upper bound, and linear probes trained on unrelated data offer a cheaper alternative. The strongest honesty elicitation techniques also transfer to frontier open-weights models including DeepSeek R1. Notably, no technique fully eliminates false responses. We release all prompts, code, and transcripts.",
+      "url": "https://arxiv.org/abs/2603.05494",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.7709
+    },
+    {
+      "id": "2603.05168",
+      "title": "Sparse-BitNet: 1.58-bit LLMs are Naturally Friendly to Semi-Structured Sparsity",
+      "authors": [
+        "Di Zhang",
+        "Xun Wu",
+        "Shaohan Huang",
+        "Yudong Wang",
+        "Hanyong Shao",
+        "Yingbo Hao",
+        "Zewen Chi",
+        "Li Dong",
+        "Ting Song",
+        "Yan Xia",
+        "Zhifang Sui",
+        "Furu Wei"
+      ],
+      "abstract": "Semi-structured N:M sparsity and low-bit quantization (e.g., 1.58-bit BitNet) are two promising approaches for improving the efficiency of large language models (LLMs), yet they have largely been studied in isolation. In this work, we investigate their interaction and show that 1.58-bit BitNet is naturally more compatible with N:M sparsity than full-precision models. To study this effect, we propose Sparse-BitNet, a unified framework that jointly applies 1.58-bit quantization and dynamic N:M sparsification while ensuring stable training for the first time. Across multiple model scales and training regimes (sparse pretraining and dense-to-sparse schedules), 1.58-bit BitNet consistently exhibits smaller performance degradation than full-precision baselines at the same sparsity levels and can tolerate higher structured sparsity before accuracy collapse. Moreover, using our custom sparse tensor core, Sparse-BitNet achieves substantial speedups in both training and inference, reaching up to 1.30X. These results highlight that combining extremely low-bit quantization with semi-structured N:M sparsity is a promising direction for efficient LLMs. Code available at https://github.com/AAzdi/Sparse-BitNet",
+      "url": "https://arxiv.org/abs/2603.05168",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.7678,
+      "github_url": "https://github.com/AAzdi/Sparse-BitNet"
+    },
+    {
+      "id": "2603.04904",
+      "title": "Alignment Backfire: Language-Dependent Reversal of Safety Interventions Across 16 Languages in LLM Multi-Agent Systems",
+      "authors": [
+        "Hiroki Fukui"
+      ],
+      "abstract": "In perpetrator treatment, a recurring observation is the dissociation between insight and action: offenders articulate remorse yet behavioral change does not follow. We report four preregistered studies (1,584 multi-agent simulations across 16 languages and three model families) demonstrating that alignment interventions in large language models produce a structurally analogous phenomenon: surface safety that masks or generates collective pathology and internal dissociation. In Study 1 (N = 150), increasing alignment-instructed agents reduced collective pathology in English (g = -1.844, p < .0001) but amplified it in Japanese (g = +0.771, p = .038)--a directional reversal we term \"alignment backfire.\" Study 2 (N = 1,174) extended to 16 languages: alignment-induced dissociation was near-universal (15/16 languages; beta = 0.0667, p < .0001), while collective pathology bifurcated along cultural-linguistic lines (interaction beta = 0.0684, p = .0003), correlating with Power Distance Index (r = 0.474, p = .064). Study 3 (N = 180) tested individuation as countermeasure; individuated agents became the primary source of both pathology and dissociation (DI = +1.120) with conformity above 84%--demonstrating iatrogenesis. Study 4 (N = 80) validated patterns across Llama 3.3 70B, GPT-4o-mini, and Qwen3-Next-80B-A3B, confirming English safety is model-general while Japanese backfire is model-specific. These findings reframe alignment as a behavioral intervention subject to risk homeostasis and iatrogenesis. Language space--the linguistic, pragmatic, and cultural properties inherited from training data--structurally determines alignment outcomes. Safety validated in English does not transfer to other languages, and prompt-level interventions cannot override language-space-level constraints.",
+      "url": "https://arxiv.org/abs/2603.04904",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.7627
+    }
+  ],
+  "meta": {
+    "total": 21,
+    "model": "allenai/specter2_base",
+    "profile_version": "1"
+  }
+}

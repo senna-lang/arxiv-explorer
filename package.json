@@ -6,11 +6,17 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "test": "bun test"
+    "test": "bun test",
+    "parse": "python scripts/parse.py",
+    "parse:all": "python scripts/parse_all.py",
+    "parse:all:force": "python scripts/parse_all.py --force",
+    "map": "python scripts/map.py --max-papers 1000",
+    "map:full": "python scripts/map.py",
+    "recommend": "python scripts/recommend.py"
   },
   "dependencies": {
-    "@astrojs/node": "^8.3.4",
-    "astro": "^4.16.18"
+    "@astrojs/cloudflare": "^13.1.0",
+    "astro": "^6.0.3"
   },
   "devDependencies": {
     "@types/node": "^25.4.0"

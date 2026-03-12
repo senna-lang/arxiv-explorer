@@ -2,25 +2,25 @@
 /**
  * 日付別論文一覧ページ
  *
- * URLパラメータ date（YYYYMMDD）でdata/YYYYMMDD.jsonを読み込み、
- * 論文カードを score 降順で表示する。前日/翌日ナビゲーション付き。
+ * getStaticPaths で利用可能な全日付を静的生成する。
+ * data/YYYYMMDD.json を読み込み、論文カードを score 降順で表示する。
+ * 前日/翌日ナビゲーション付き。
  */
-export const prerender = false;
-
 import PaperCard from "../components/PaperCard.astro";
 import RecommendSection from "../components/RecommendSection.astro";
 import { getAvailableDates, getPapersForDate, getRatingMap } from "../lib/data";
 
-const { date } = Astro.params;
-if (!date || !/^\d{8}$/.test(date)) {
-  return Astro.redirect("/");
+export function getStaticPaths() {
+  const files = import.meta.glob("/data/????????.json");
+  const dates = Object.keys(files)
+    .map((f) => f.replace("/data/", "").replace(".json", ""))
+    .sort();
+  return dates.map((date) => ({ params: { date } }));
 }
+
+const { date } = Astro.params;
 
 const papers = getPapersForDate(date);
-if (papers.length === 0) {
-  return new Response("Not Found", { status: 404 });
-}
-
 const ratingMap = getRatingMap();
 const dates = getAvailableDates();
 const idx = dates.indexOf(date);
@@ -88,6 +88,7 @@ const displayDate = `${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}
           ? <a href={`/${nextDate}`}>翌日 →</a>
           : <span>翌日 →</span>
         }
+        <a href="/map">🗺 地図</a>
       </nav>
     </header>
 

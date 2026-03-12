@@ -1,0 +1,385 @@
+{
+  "date": "2026-03-11",
+  "collected_at": "2026-03-12T11:07:12.469871+09:00",
+  "papers": [
+    {
+      "id": "2603.08234",
+      "title": "The Struggle Between Continuation and Refusal: A Mechanistic Analysis of the Continuation-Triggered Jailbreak in LLMs",
+      "authors": [
+        "Yonghong Deng",
+        "Zhen Yang",
+        "Ping Jian",
+        "Xinyue Zhang",
+        "Zhongbin Guo",
+        "Chengzhi Li"
+      ],
+      "abstract": "With the rapid advancement of large language models (LLMs), the safety of LLMs has become a critical concern. Despite significant efforts in safety alignment, current LLMs remain vulnerable to jailbreaking attacks. However, the root causes of such vulnerabilities are still poorly understood, necessitating a rigorous investigation into jailbreak mechanisms across both academic and industrial communities. In this work, we focus on a continuation-triggered jailbreak phenomenon, whereby simply relocating a continuation-triggered instruction suffix can substantially increase jailbreak success rates. To uncover the intrinsic mechanisms of this phenomenon, we conduct a comprehensive mechanistic interpretability analysis at the level of attention heads. Through causal interventions and activation scaling, we show that this jailbreak behavior primarily arises from an inherent competition between the model's intrinsic continuation drive and the safety defenses acquired through alignment training. Furthermore, we perform a detailed behavioral analysis of the identified safety-critical attention heads, revealing notable differences in the functions and behaviors of safety heads across different model architectures. These findings provide a novel mechanistic perspective for understanding and interpreting jailbreak behaviors in LLMs, offering both theoretical insights and practical implications for improving model safety.",
+      "url": "https://arxiv.org/abs/2603.08234",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.824
+    },
+    {
+      "id": "2603.07496",
+      "title": "From Thinker to Society: Security in Hierarchical Autonomy Evolution of AI Agents",
+      "authors": [
+        "Xiaolei Zhang",
+        "Lu Zhou",
+        "Xiaogang Xu",
+        "Jiafei Wu",
+        "Tianyu Du",
+        "Heqing Huang",
+        "Hao Peng",
+        "Zhe Liu"
+      ],
+      "abstract": "Artificial Intelligence (AI) agents have evolved from passive predictive tools into active entities capable of autonomous decision-making and environmental interaction, driven by the reasoning capabilities of Large Language Models (LLMs). However, this evolution has introduced critical security vulnerabilities that existing frameworks fail to address. The Hierarchical Autonomy Evolution (HAE) framework organizes agent security into three tiers: Cognitive Autonomy (L1) targets internal reasoning integrity; Execution Autonomy (L2) covers tool-mediated environmental interaction; Collective Autonomy (L3) addresses systemic risks in multi-agent ecosystems. We present a taxonomy of threats spanning cognitive manipulation, physical environment disruption, and multi-agent systemic failures, and evaluate existing defenses while identifying key research gaps. The findings aim to guide the development of multilayered, autonomy-aware defense architectures for trustworthy AI agent systems.",
+      "url": "https://arxiv.org/abs/2603.07496",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-08",
+      "score": 0.811
+    },
+    {
+      "id": "2603.08316",
+      "title": "SlowBA: An efficiency backdoor attack towards VLM-based GUI agents",
+      "authors": [
+        "Junxian Li",
+        "Tu Lan",
+        "Haozhen Tan",
+        "Yan Meng",
+        "Haojin Zhu"
+      ],
+      "abstract": "Modern vision-language-model (VLM) based graphical user interface (GUI) agents are expected not only to execute actions accurately but also to respond to user instructions with low latency. While existing research on GUI-agent security mainly focuses on manipulating action correctness, the security risks related to response efficiency remain largely unexplored. In this paper, we introduce SlowBA, a novel backdoor attack that targets the responsiveness of VLM-based GUI agents. The key idea is to manipulate response latency by inducing excessively long reasoning chains under specific trigger patterns. To achieve this, we propose a two-stage reward-level backdoor injection (RBI) strategy that first aligns the long-response format and then learns trigger-aware activation through reinforcement learning. In addition, we design realistic pop-up windows as triggers that naturally appear in GUI environments, improving the stealthiness of the attack. Extensive experiments across multiple datasets and baselines demonstrate that SlowBA can significantly increase response length and latency while largely preserving task accuracy. The attack remains effective even with a small poisoning ratio and under several defense settings. These findings reveal a previously overlooked security vulnerability in GUI agents and highlight the need for defenses that consider both action correctness and response efficiency. Code can be found in https://github.com/tu-tuing/SlowBA.",
+      "url": "https://arxiv.org/abs/2603.08316",
+      "categories": [
+        "cs.CR",
+        "cs.CL",
+        "cs.CV"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.8056,
+      "github_url": "https://github.com/tu-tuing/SlowBA."
+    },
+    {
+      "id": "2603.07835",
+      "title": "DistillGuard: Evaluating Defenses Against LLM Knowledge Distillation",
+      "authors": [
+        "Bo Jiang"
+      ],
+      "abstract": "Knowledge distillation from proprietary LLM APIs poses a growing threat to model providers, yet defenses against this attack remain fragmented and unevaluated. We present DistillGuard, a framework for systematically evaluating output-level defenses against LLM knowledge distillation. We introduce a taxonomy of three defense categories -- output perturbation, data poisoning, and information throttling -- and evaluate nine defense configurations using a standardized pipeline with Qwen3-14B as teacher and Qwen2.5-7B-Instruct as student across three benchmarks (MATH-500, HumanEval+, MT-Bench). Our results reveal that, in a same-family distillation setting against a naive attacker, most output-level defenses are surprisingly ineffective: paraphrasing-based perturbation barely degrades distilled student quality, and data poisoning primarily impairs conversational fluency while leaving task-specific capabilities intact. Only chain-of-thought removal substantially impairs mathematical reasoning (31.4\\% vs.\\ 67.8\\% baseline), though code generation remains unaffected. These findings demonstrate that the effectiveness of distillation defenses is highly task-dependent and that current output-level approaches are insufficient to broadly prevent knowledge theft.",
+      "url": "https://arxiv.org/abs/2603.07835",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-08",
+      "score": 0.8049
+    },
+    {
+      "id": "2603.07915",
+      "title": "Ares: Adaptive Reasoning Effort Selection for Efficient LLM Agents",
+      "authors": [
+        "Jingbo Yang",
+        "Bairu Hou",
+        "Wei Wei",
+        "Yujia Bao",
+        "Shiyu Chang"
+      ],
+      "abstract": "Modern agents powered by thinking LLMs achieve high accuracy through long chain-of-thought reasoning but incur substantial inference costs. While many LLMs now support configurable reasoning levels (e.g., high/medium/low), static strategies are often ineffective: using low-effort modes at every step leads to significant performance degradation, while random selection fails to preserve accuracy or provide meaningful cost reduction. However, agents should reserve high reasoning effort for difficult steps like navigating complex website structures, while using lower-effort modes for simpler steps like opening a target URL. In this paper, we propose Ares, a framework for per-step dynamic reasoning effort selection tailored for multi-step agent tasks. Ares employs a lightweight router to predict the lowest appropriate reasoning level for each step based on the interaction history. To train this router, we develop a data generation pipeline that identifies the minimum reasoning effort required for successful step completion. We then fine-tune the router to predict these levels, enabling plug-and-play integration for any LLM agents. We evaluate Ares on a diverse set of agent tasks, including TAU-Bench for tool use agents, BrowseComp-Plus for deep-research agents, and WebArena for web agents. Experimental results show that Ares reduces reasoning token usage by up to 52.7% compared to fixed high-effort reasoning, while introducing minimal degradation in task success rates.",
+      "url": "https://arxiv.org/abs/2603.07915",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.8047
+    },
+    {
+      "id": "2603.08566",
+      "title": "OSS-CRS: Liberating AIxCC Cyber Reasoning Systems for Real-World Open-Source Security",
+      "authors": [
+        "Andrew Chin",
+        "Dongkwan Kim",
+        "Yu-Fu Fu",
+        "Fabian Fleischer",
+        "Youngjoon Kim",
+        "HyungSeok Han",
+        "Cen Zhang",
+        "Brian Junekyu Lee",
+        "Hanqing Zhao",
+        "Taesoo Kim"
+      ],
+      "abstract": "DARPA's AI Cyber Challenge (AIxCC) showed that cyber reasoning systems (CRSs) can go beyond vulnerability discovery to autonomously confirm and patch bugs: seven teams built such systems and open-sourced them after the competition. Yet all seven open-sourced CRSs remain largely unusable outside their original teams, each bound to the competition cloud infrastructure that no longer exists. We present OSS-CRS, an open, locally deployable framework for running and combining CRS techniques against real-world open-source projects, with budget-aware resource management. We ported the first-place system (Atlantis) and discovered 10 previously unknown bugs (three of high severity) across 8 OSS-Fuzz projects. OSS-CRS is publicly available.",
+      "url": "https://arxiv.org/abs/2603.08566",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.8003
+    },
+    {
+      "id": "2603.08520",
+      "title": "SCAFFOLD-CEGIS: Preventing Latent Security Degradation in LLM-Driven Iterative Code Refinement",
+      "authors": [
+        "Yi Chen",
+        "Yun Bian",
+        "Haiquan Wang",
+        "Shihao Li",
+        "Zhe Cui"
+      ],
+      "abstract": "The application of large language models to code generation has evolved from one-shot generation to iterative refinement, yet the evolution of security throughout iteration remains insufficiently understood. Through comparative experiments on three mainstream LLMs, this paper reveals the iterative refinement paradox: specification drift during multi-objective optimization causes security to degrade gradually over successive iterations. Taking GPT-4o as an example, 43.7 % of iteration chains contain more vulnerabilities than the baseline after ten rounds, and cross-model experiments show that this phenomenon is prevalent. Further analysis shows that simply introducing static application security testing (SAST) gating cannot effectively suppress degradation; instead, it increases the latent security degradation rate from 12.5% under the unprotected baseline to 20.8 %. The root cause is that static-analysis rules cannot cover structural degradations such as the removal of defensive logic or the weakening of exception handling. To address this problem, we propose the SCAFFOLD-CEGIS framework. Drawing on the counterexample-guided inductive synthesis (CEGIS) paradigm, the framework adopts a multi-agent collaborative architecture that transforms security constraints from implicit prompts into explicit verifiable constraints. It automatically identifies and solidifies security-critical elements as hard constraints through semantic anchoring, enforces safety monotonicity through four-layer gated verification, and continuously assimilates experience from failures. Comparative experiments against six existing defense methods show that the full framework reduces the latent security degradation rate to 2.1% and achieves a safety monotonicity rate of 100%.",
+      "url": "https://arxiv.org/abs/2603.08520",
+      "categories": [
+        "cs.CR",
+        "cs.SE"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.7937
+    },
+    {
+      "id": "2603.08462",
+      "title": "Reasoning as Compression: Unifying Budget Forcing via the Conditional Information Bottleneck",
+      "authors": [
+        "Fabio Valerio Massoli",
+        "Andrey Kuzmin",
+        "Arash Behboodi"
+      ],
+      "abstract": "Chain-of-Thought (CoT) prompting improves LLM accuracy on complex tasks but often increases token usage and inference cost. Existing \"Budget Forcing\" methods reducing cost via fine-tuning with heuristic length penalties, suppress both essential reasoning and redundant filler. We recast efficient reasoning as a lossy compression problem under the Information Bottleneck (IB) principle, and identify a key theoretical gap when applying naive IB to transformers: attention violates the Markov property between prompt, reasoning trace, and response. To resolve this issue, we model CoT generation under the Conditional Information Bottleneck (CIB) principle, where the reasoning trace Z acts as a computational bridge that contains only the information about the response Y that is not directly accessible from the prompt X. This yields a general Reinforcement Learning objective: maximize task reward while compressing completions under a prior over reasoning traces, subsuming common heuristics (e.g., length penalties) as special cases (e.g., uniform priors). In contrast to naive token-counting-based approaches, we introduce a semantic prior that measures token cost by surprisal under a language model prior. Empirically, our CIB objective prunes cognitive bloat while preserving fluency and logic, improving accuracy at moderate compression and enabling aggressive compression with minimal accuracy drop.",
+      "url": "https://arxiv.org/abs/2603.08462",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.7927
+    },
+    {
+      "id": "2603.08453",
+      "title": "LycheeCluster: Efficient Long-Context Inference with Structure-Aware Chunking and Hierarchical KV Indexing",
+      "authors": [
+        "Dongfang Li",
+        "Zixuan Liu",
+        "Gang Lin",
+        "Baotian Hu",
+        "Min Zhang"
+      ],
+      "abstract": "The quadratic complexity of the attention mechanism and the substantial memory footprint of the Key-Value (KV) cache present severe computational and memory challenges for Large Language Models (LLMs) processing long contexts. Existing retrieval-based methods often compromise semantic integrity through fixed-size chunking and suffer from inefficient linear scanning. In this paper, we propose LycheeCluster, a novel method for efficient KV cache management. LycheeCluster preserves local semantic coherence via boundary-aware chunking and constructs a recursive hierarchical index rooted in the triangle inequality. This design transforms cache retrieval from a linear scan into a theoretically bounded, logarithmic-time pruning process, while a lazy update strategy supports efficient streaming generation. Experiments demonstrate that LycheeCluster achieves up to a 3.6x end-to-end inference speedup with negligible degradation in model performance, outperforming state-of-the-art KV cache management methods (e.g., Quest, ClusterKV). We will release our code and kernels after publication.",
+      "url": "https://arxiv.org/abs/2603.08453",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.7913
+    },
+    {
+      "id": "2603.08660",
+      "title": "How Far Can Unsupervised RLVR Scale LLM Training?",
+      "authors": [
+        "Bingxiang He",
+        "Yuxin Zuo",
+        "Zeyuan Liu",
+        "Shangziqi Zhao",
+        "Zixuan Fu",
+        "Junlin Yang",
+        "Cheng Qian",
+        "Kaiyan Zhang",
+        "Yuchen Fan",
+        "Ganqu Cui",
+        "Xiusi Chen",
+        "Youbang Sun",
+        "Xingtai Lv",
+        "Xuekai Zhu",
+        "Li Sheng",
+        "Ran Li",
+        "Huan-ang Gao",
+        "Yuchen Zhang",
+        "Bowen Zhou",
+        "Zhiyuan Liu",
+        "Ning Ding"
+      ],
+      "abstract": "Unsupervised reinforcement learning with verifiable rewards (URLVR) offers a pathway to scale LLM training beyond the supervision bottleneck by deriving rewards without ground truth labels. Recent works leverage model intrinsic signals, showing promising early gains, yet their potential and limitations remain unclear. In this work, we revisit URLVR and provide a comprehensive analysis spanning taxonomy, theory and extensive experiments. We first classify URLVR methods into intrinsic versus external based on reward sources, then establish a unified theoretical framework revealing that all intrinsic methods converge toward sharpening the model's initial distribution This sharpening mechanism succeeds when initial confidence aligns with correctness but fails catastrophically when misaligned. Through systematic experiments, we show intrinsic rewards consistently follow a rise-then-fall pattern across methods, with collapse timing determined by model prior rather than engineering choices. Despite these scaling limits, we find intrinsic rewards remain valuable in test-time training on small datasets, and propose Model Collapse Step to measure model prior, serving as a practical indicator for RL trainability. Finally, we explore external reward methods that ground verification in computational asymmetries, showing preliminary evidence they may escape the confidence-correctness ceiling. Our findings chart boundaries for intrinsic URLVR while motivating paths toward scalable alternatives.",
+      "url": "https://arxiv.org/abs/2603.08660",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.7886
+    },
+    {
+      "id": "2603.08655",
+      "title": "OfficeQA Pro: An Enterprise Benchmark for End-to-End Grounded Reasoning",
+      "authors": [
+        "Krista Opsahl-Ong",
+        "Arnav Singhvi",
+        "Jasmine Collins",
+        "Ivan Zhou",
+        "Cindy Wang",
+        "Ashutosh Baheti",
+        "Owen Oertell",
+        "Jacob Portes",
+        "Sam Havens",
+        "Erich Elsen",
+        "Michael Bendersky",
+        "Matei Zaharia",
+        "Xing Chen"
+      ],
+      "abstract": "We introduce OfficeQA Pro, a benchmark for evaluating AI agents on grounded, multi-document reasoning over a large and heterogeneous document corpus. The corpus consists of U.S. Treasury Bulletins spanning nearly 100 years, comprising 89,000 pages and over 26 million numerical values. OfficeQA Pro consists of 133 questions that require precise document parsing, retrieval, and analytical reasoning across both unstructured text and tabular data. Frontier LLMs including Claude Opus 4.6, GPT-5.4, and Gemini 3.1 Pro Preview achieve less than 5% accuracy on OfficeQA Pro when relying on parametric knowledge, and less than 12% with additional access to the web. When provided directly with the document corpus, frontier agents still struggle on over half of questions, scoring 34.1% on average. We find that providing agents with a structured document representation produced by Databricks' ai_parse_document yields a 16.1% average relative performance gain across agents. We conduct additional ablations to study the effects of model selection, table representation, retrieval strategy, and test-time scaling on performance. Despite these improvements, significant headroom remains before agents can be considered reliable at enterprise-grade grounded reasoning.",
+      "url": "https://arxiv.org/abs/2603.08655",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.IR"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.7869
+    },
+    {
+      "id": "2603.08329",
+      "title": "SPD-RAG: Sub-Agent Per Document Retrieval-Augmented Generation",
+      "authors": [
+        "Yagiz Can Akay",
+        "Muhammed Yusuf Kartal",
+        "Esra Alparslan",
+        "Faruk Ortakoyluoglu",
+        "Arda Akpinar"
+      ],
+      "abstract": "Answering complex, real-world queries often requires synthesizing facts scattered across vast document corpora. In these settings, standard retrieval-augmented generation (RAG) pipelines suffer from incomplete evidence coverage, while long-context large language models (LLMs) struggle to reason reliably over massive inputs. We introduce SPD-RAG, a hierarchical multi-agent framework for exhaustive cross-document question answering that decomposes the problem along the document axis. Each document is processed by a dedicated document-level agent operating only on its own content, enabling focused retrieval, while a coordinator dispatches tasks to relevant agents and aggregates their partial answers. Agent outputs are synthesized by merging partial answers through a token-bounded synthesis layer (which supports recursive map-reduce for massive corpora). This document-level specialization with centralized fusion improves scalability and answer quality in heterogeneous multidocument settings while yielding a modular, extensible retrieval pipeline. On the LOONG benchmark (EMNLP 2024) for long-context multi-document QA, SPD-RAG achieves an Avg Score of 58.1 (GPT-5 evaluation), outperforming Normal RAG (33.0) and Agentic RAG (32.8) while using only 38% of the API cost of a full-context baseline (68.0).",
+      "url": "https://arxiv.org/abs/2603.08329",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.IR"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.7852
+    },
+    {
+      "id": "2603.08659",
+      "title": "CODA: Difficulty-Aware Compute Allocation for Adaptive Reasoning",
+      "authors": [
+        "Siye Wu",
+        "Jian Xie",
+        "Yikai Zhang",
+        "Yanghua Xiao"
+      ],
+      "abstract": "The emergence of large reasoning models demonstrates that scaling inference-time compute significantly enhances performance on complex tasks. However, it often falls into another trap: overthinking simple problems, where repetitive rationales yield minimal accuracy gains at a disproportionately high cost. This motivates adaptive reasoning: dynamically aligning reasoning depth with instance difficulty. In this paper, we study adaptive reasoning from an optimality perspective, formalizing it as a utility maximization problem where tokens are allocated until the marginal accuracy gain falls below the incremental cost. Based on this, we propose CODA (Compute Allocation by Difficulty Awareness), a method that operationalizes this principle by allocating tokens via a policy-internal difficulty signal. Specifically, CODA estimates difficulty via group-based rollouts and maps it to two non-negative gates that modulate a length-dependent shaping term on top of the binary base reward. The easy-side gate penalizes verbosity on simple instances, whereas the hard-side gate encourages more deliberative rollouts on challenging ones. Across model scales and benchmarks, CODA achieves adaptive reasoning without external annotations or user-provided budgets: on easy tasks, CODA reduces token costs by over 60% while maintaining strong accuracy, whereas on hard tasks it incentivizes more deliberative rollouts to maximize performance.",
+      "url": "https://arxiv.org/abs/2603.08659",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.777
+    },
+    {
+      "id": "2603.08706",
+      "title": "Agentic Critical Training",
+      "authors": [
+        "Weize Liu",
+        "Minghui Liu",
+        "Sy-Tuyen Ho",
+        "Souradip Chakraborty",
+        "Xiyao Wang",
+        "Furong Huang"
+      ],
+      "abstract": "Training large language models (LLMs) as autonomous agents often begins with imitation learning, but it only teaches agents what to do without understanding why: agents never contrast successful actions against suboptimal alternatives and thus lack awareness of action quality. Recent approaches attempt to address this by introducing self-reflection supervision derived from contrasts between expert and alternative actions. However, the training paradigm fundamentally remains imitation learning: the model imitates pre-constructed reflection text rather than learning to reason autonomously. We propose Agentic Critical Training (ACT), a reinforcement learning paradigm that trains agents to identify the better action among alternatives. By rewarding whether the model's judgment is correct, ACT drives the model to autonomously develop reasoning about action quality, producing genuine self-reflection rather than imitating it. Across three challenging agent benchmarks, ACT consistently improves agent performance when combined with different post-training methods. It achieves an average improvement of 5.07 points over imitation learning and 4.62 points over reinforcement learning. Compared to approaches that inject reflection capability through knowledge distillation, ACT also demonstrates clear advantages, yielding an average improvement of 2.42 points. Moreover, ACT enables strong out-of-distribution generalization on agentic benchmarks and improves performance on general reasoning benchmarks without any reasoning-specific training data, highlighting the value of our method. These results suggest that ACT is a promising path toward developing more reflective and capable LLM agents.",
+      "url": "https://arxiv.org/abs/2603.08706",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.7746
+    },
+    {
+      "id": "2603.07473",
+      "title": "Give Them an Inch and They Will Take a Mile:Understanding and Measuring Caller Identity Confusion in MCP-Based AI Systems",
+      "authors": [
+        "Yuhang Huang",
+        "Boyang Ma",
+        "Biwei Yan",
+        "Xuelong Dai",
+        "Yechao Zhang",
+        "Minghui Xu",
+        "Kaidi Xu",
+        "Yue Zhang"
+      ],
+      "abstract": "The Model Context Protocol (MCP) is an open and standardized interface that enables large language models (LLMs) to interact with external tools and services, and is increasingly adopted by AI agents. However, the security of MCP-based systems remains largely unexplored.In this work, we conduct a large-scale security analysis of MCP servers integrated within MCP clients. We show that treating MCP servers as trusted entities without authenticating the caller identity is fundamentally insecure. Since MCP servers often cannot distinguish who is invoking a request, a single authorization decision may implicitly grant access to multiple, potentially untrusted callers.Our empirical study reveals that most MCP servers rely on persistent authorization states, allowing tool invocations after an initial authorization without re-authentication, regardless of the caller. In addition, many MCP servers fail to enforce authentication at the per-tool level, enabling unauthorized access to sensitive operations.These findings demonstrate that one-time authorization and server-level trust significantly expand the attack surface of MCP-based systems, highlighting the need for explicit caller authentication and fine-grained authorization mechanisms.",
+      "url": "https://arxiv.org/abs/2603.07473",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-08",
+      "score": 0.7704
+    },
+    {
+      "id": "2603.08647",
+      "title": "Grow, Don't Overwrite: Fine-tuning Without Forgetting",
+      "authors": [
+        "Dyah Adila",
+        "Hanna Mazzawi",
+        "Benoit Dherin",
+        "Xavier Gonzalvo"
+      ],
+      "abstract": "Adapting pre-trained models to specialized tasks often leads to catastrophic forgetting, where new knowledge overwrites foundational capabilities. Existing methods either compromise performance on the new task or struggle to balance training stability with efficient reuse of pre-trained knowledge. We introduce a novel function-preserving expansion method that resolves this dilemma. Our technique expands model capacity by replicating pre-trained parameters within transformer submodules and applying a scaling correction that guarantees the expanded model is mathematically identical to the original at initialization, enabling stable training while exploiting existing knowledge. Empirically, our method eliminates the trade-off between plasticity and stability, matching the performance of full fine-tuning on downstream tasks without any degradation of the model's original capabilities. Furthermore, we demonstrate the modularity of our approach, showing that by selectively expanding a small subset of layers we can achieve the same performance as full fine-tuning at a fraction of the computational cost.",
+      "url": "https://arxiv.org/abs/2603.08647",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.7666
+    },
+    {
+      "id": "2603.08561",
+      "title": "RetroAgent: From Solving to Evolving via Retrospective Dual Intrinsic Feedback",
+      "authors": [
+        "Xiaoying Zhang",
+        "Zichen Liu",
+        "Yipeng Zhang",
+        "Xia Hu",
+        "Wenqi Shao"
+      ],
+      "abstract": "Large language model (LLM)-based agents trained with reinforcement learning (RL) have shown strong potential on complex interactive tasks. However, standard RL paradigms favor static problem-solving over continuous adaptation: agents often converge to suboptimal strategies due to insufficient exploration, while learned knowledge remains implicit within parameters rather than explicitly retrievable, limiting effective experiential learning. To address these limitations, we introduce RetroAgent, an online RL framework that empowers agents to master complex interactive environments not just by solving, but by evolving. Concretely, RetroAgent features a hindsight self-reflection mechanism that produces dual intrinsic feedback: (1) intrinsic numerical feedback that that tracks incremental subtask completion relative to prior attempts, rewarding promising explorations, and (2) intrinsic language feedback that distills reusable lessons into a memory buffer, retrieved via our proposed Similarity & Utility-Aware Upper Confidence Bound (SimUtil-UCB) strategy balancing relevance, utility, and exploration to effectively leverage past experiences. Extensive experiments on two model families across four challenging agentic tasks demonstrate that RetroAgent significantly outperforms existing methods, achieving state-of-the-art results -- e.g., surpassing Group Relative Policy Optimization (GRPO)-trained agents by +18.3% on ALFWorld, +15.4% on WebShop, +27.1% on Sokoban, and +8.9% on MineSweeper -- while exhibiting strong test-time adaptation and generalization to out-of-distribution scenarios.",
+      "url": "https://arxiv.org/abs/2603.08561",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.7581
+    },
+    {
+      "id": "2603.08068",
+      "title": "In-Context Reinforcement Learning for Tool Use in Large Language Models",
+      "authors": [
+        "Yaoqi Ye",
+        "Yiran Zhao",
+        "Keyu Duan",
+        "Zeyu Zheng",
+        "Kenji Kawaguchi",
+        "Cihang Xie",
+        "Michael Qizhe Shieh"
+      ],
+      "abstract": "While large language models (LLMs) exhibit strong reasoning abilities, their performance on complex tasks is often constrained by the limitations of their internal knowledge. A compelling approach to overcome this challenge is to augment these models with external tools -- such as Python interpreters for mathematical computations or search engines for retrieving factual information. However, enabling models to use these tools effectively remains a significant challenge. Existing methods typically rely on cold-start pipelines that begin with supervised fine-tuning (SFT), followed by reinforcement learning (RL). These approaches often require substantial amounts of labeled data for SFT, which is expensive to annotate or synthesize. In this work, we propose In-Context Reinforcement Learning (ICRL), an RL-only framework that eliminates the need for SFT by leveraging few-shot prompting during the rollout stage of RL. Specifically, ICRL introduces in-context examples within the rollout prompts to teach the model how to invoke external tools. Furthermore, as training progresses, the number of in-context examples is gradually reduced, eventually reaching a zero-shot setting where the model learns to call tools independently. We conduct extensive experiments across a range of reasoning and tool-use benchmarks. Results show that ICRL achieves state-of-the-art performance, demonstrating its effectiveness as a scalable, data-efficient alternative to traditional SFT-based pipelines.",
+      "url": "https://arxiv.org/abs/2603.08068",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.7458
+    }
+  ],
+  "meta": {
+    "total": 18,
+    "model": "allenai/specter2_base",
+    "profile_version": "1"
+  }
+}

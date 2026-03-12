@@ -1,0 +1,279 @@
+{
+  "date": "2026-03-03",
+  "collected_at": "2026-03-12T11:06:12.602441+09:00",
+  "papers": [
+    {
+      "id": "2602.23716",
+      "title": "ProductResearch: Training E-Commerce Deep Research Agents via Multi-Agent Synthetic Trajectory Distillation",
+      "authors": [
+        "Jiangyuan Wang",
+        "Kejun Xiao",
+        "Huaipeng Zhao",
+        "Tao Luo",
+        "Xiaoyi Zeng"
+      ],
+      "abstract": "Large Language Model (LLM)-based agents show promise for e-commerce conversational shopping, yet existing implementations lack the interaction depth and contextual breadth required for complex product research. Meanwhile, the Deep Research paradigm, despite advancing information synthesis in web search, suffers from domain gaps when transferred to e-commerce. We propose ProductResearch, a multi-agent framework that synthesizes high-fidelity, long-horizon tool-use trajectories for training robust e-commerce shopping agents. The framework employs a User Agent to infer nuanced shopping intents from behavioral histories, and a Supervisor Agent that orchestrates iterative collaboration with a Research Agent to generate synthetic trajectories culminating in comprehensive, insightful product research reports. These trajectories are rigorously filtered and distilled through a reflective internalization process that consolidates multi-agent supervisory interactions into coherent single-role training examples, enabling effective fine-tuning of LLM agents for complex shopping inquiries. Extensive experiments show that a compact MoE model fine-tuned on our synthetic data achieves substantial improvements over its base model in response comprehensiveness, research depth, and user-perceived utility, approaching the performance of frontier proprietary deep research systems and establishing multi-agent synthetic trajectory training as an effective and scalable paradigm for enhancing LLM-based shopping assistance.",
+      "url": "https://arxiv.org/abs/2602.23716",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-02-27",
+      "score": 0.806
+    },
+    {
+      "id": "2602.24009",
+      "title": "Jailbreak Foundry: From Papers to Runnable Attacks for Reproducible Benchmarking",
+      "authors": [
+        "Zhicheng Fang",
+        "Jingjie Zheng",
+        "Chenxu Fu",
+        "Wei Xu"
+      ],
+      "abstract": "Jailbreak techniques for large language models (LLMs) evolve faster than benchmarks, making robustness estimates stale and difficult to compare across papers due to drift in datasets, harnesses, and judging protocols. We introduce JAILBREAK FOUNDRY (JBF), a system that addresses this gap via a multi-agent workflow to translate jailbreak papers into executable modules for immediate evaluation within a unified harness. JBF features three core components: (i) JBF-LIB for shared contracts and reusable utilities; (ii) JBF-FORGE for the multi-agent paper-to-module translation; and (iii) JBF-EVAL for standardizing evaluations. Across 30 reproduced attacks, JBF achieves high fidelity with a mean (reproduced-reported) attack success rate (ASR) deviation of +0.26 percentage points. By leveraging shared infrastructure, JBF reduces attack-specific implementation code by nearly half relative to original repositories and achieves an 82.5% mean reused-code ratio. This system enables a standardized AdvBench evaluation of all 30 attacks across 10 victim models using a consistent GPT-4o judge. By automating both attack integration and standardized evaluation, JBF offers a scalable solution for creating living benchmarks that keep pace with the rapidly shifting security landscape.",
+      "url": "https://arxiv.org/abs/2602.24009",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-02-27",
+      "score": 0.8057
+    },
+    {
+      "id": "2602.24210",
+      "title": "Controllable Reasoning Models Are Private Thinkers",
+      "authors": [
+        "Haritz Puerto",
+        "Haonan Li",
+        "Xudong Han",
+        "Timothy Baldwin",
+        "Iryna Gurevych"
+      ],
+      "abstract": "AI agents powered by reasoning models require access to sensitive user data. However, their reasoning traces are difficult to control, which can result in the unintended leakage of private information to external parties. We propose training models to follow instructions not only in the final answer, but also in reasoning traces, potentially under different constraints. We hypothesize that improving their instruction following abilities in the reasoning traces can improve their privacy-preservation skills. To demonstrate this, we fine-tune models on a new instruction-following dataset with explicit restrictions on reasoning traces. We further introduce a generation strategy that decouples reasoning and answer generation using separate LoRA adapters. We evaluate our approach on six models from two model families, ranging from 1.7B to 14B parameters, across two instruction-following benchmarks and two privacy benchmarks. Our method yields substantial improvements, achieving gains of up to 20.9 points in instruction-following performance and up to 51.9 percentage points on privacy benchmarks. These improvements, however, can come at the cost of task utility, due to the trade-off between reasoning performance and instruction-following abilities. Overall, our results show that improving instruction-following behavior in reasoning models can significantly enhance privacy, suggesting a promising direction for the development of future privacy-aware agents. Our code and data are available at https://github.com/UKPLab/arxiv2026-controllable-reasoning-models",
+      "url": "https://arxiv.org/abs/2602.24210",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-02-27",
+      "score": 0.7934,
+      "github_url": "https://github.com/UKPLab/arxiv2026-controllable-reasoning-models"
+    },
+    {
+      "id": "2602.23834",
+      "title": "Enhancing Continual Learning for Software Vulnerability Prediction: Addressing Catastrophic Forgetting via Hybrid-Confidence-Aware Selective Replay for Temporal LLM Fine-Tuning",
+      "authors": [
+        "Xuhui Dou",
+        "Hayretdin Bahsi",
+        "Alejandro Guerra-Manzanares"
+      ],
+      "abstract": "Recent work applies Large Language Models (LLMs) to source-code vulnerability detection, but most evaluations still rely on random train-test splits that ignore time and overestimate real-world performance. In practice, detectors are deployed on evolving code bases and must recognise future vulnerabilities under temporal distribution shift. This paper investigates continual fine-tuning of a decoder-style language model (microsoft/phi-2 with LoRA) on a CVE-linked dataset spanning 2018-2024, organised into bi-monthly windows. We evaluate eight continual learning strategies, including window-only and cumulative training, replay-based baselines and regularisation-based variants. We propose Hybrid Class-Aware Selective Replay (Hybrid-CASR), a confidence-aware replay method for binary vulnerability classification that prioritises uncertain samples while maintaining a balanced ratio of VULNERABLE and FIXED functions in the replay buffer. On bi-monthly forward evaluation Hybrid-CASR achieves a Macro-F1 of 0.667, improving on the window-only baseline (0.651) by 0.016 with statistically significant gains ($p = 0.026$) and stronger backward retention (IBR@1 of 0.741). Hybrid-CASR also reduces training time per window by about 17 percent compared to the baseline, whereas cumulative training delivers only a minor F1 increase (0.661) at a 15.9-fold computational cost. Overall, the results show that selective replay with class balancing offers a practical accuracy-efficiency trade-off for LLM-based temporal vulnerability detection under continuous temporal drift.",
+      "url": "https://arxiv.org/abs/2602.23834",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-02-27",
+      "score": 0.7932
+    },
+    {
+      "id": "2602.24223",
+      "title": "Anansi: Scalable Characterization of Message-Based Job Scams",
+      "authors": [
+        "Abisheka Pitumpe",
+        "Amir Rahmati"
+      ],
+      "abstract": "Job-based smishing scams, where victims are recruited under the guise of remote job opportunities, represent a rapidly growing and understudied threat within the broader landscape of online fraud. In this paper, we present Anansi, the first scalable, end-to-end measurement pipeline designed to systematically engage with, analyze, and characterize job scams in the wild. Anansi combines large language models (LLMs), automated browser agents, and infrastructure fingerprinting tools to collect over 29,000 scam messages, interact with more than 1900 scammers, and extract behavioral, financial, and infrastructural signals at scale. We detail the operational workflows of scammers, uncover extensive reuse of message templates, domains, and cryptocurrency wallets, and identify the social engineering tactics used to defraud victims. Our analysis reveals millions of dollars in cryptocurrency losses, highlighting the use of deceptive techniques such as domain fronting and impersonation of well-known brands. Anansi demonstrates the feasibility and value of automating the engagement with scammers and the analysis of infrastructure, offering a new methodological foundation for studying large-scale fraud ecosystems.",
+      "url": "https://arxiv.org/abs/2602.24223",
+      "categories": [
+        "cs.CR"
+      ],
+      "submitted": "2026-02-27",
+      "score": 0.7922
+    },
+    {
+      "id": "2602.23407",
+      "title": "Learning to Generate Secure Code via Token-Level Rewards",
+      "authors": [
+        "Jiazheng Quan",
+        "Xiaodong Li",
+        "Bin Wang",
+        "Guo An",
+        "Like Liu",
+        "Degen Huang",
+        "Lin Liu",
+        "Chengbin Hou"
+      ],
+      "abstract": "Large language models (LLMs) have demonstrated strong capabilities in code generation, yet they remain prone to producing security vulnerabilities. Existing approaches commonly suffer from two key limitations: the scarcity of high-quality security data and coarse-grained reinforcement learning reward signals. To address these challenges, we propose Vul2Safe, a new secure code generation framework that leverages LLM self-reflection to construct high-confidence repair pairs from real-world vulnerabilities, and further generates diverse implicit prompts to build the PrimeVul+ dataset. Meanwhile, we introduce SRCode, a novel training framework that pioneers the use of token-level rewards in reinforcement learning for code security, which enables the model to continuously attend to and reinforce critical fine-grained security patterns during training. Compared with traditional instance-level reward schemes, our approach allows for more precise optimization of local security implementations. Extensive experiments show that PrimeVul+ and SRCode substantially reduce security vulnerabilities in generated code while improving overall code quality across multiple benchmarks.",
+      "url": "https://arxiv.org/abs/2602.23407",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.SE"
+      ],
+      "submitted": "2026-02-26",
+      "score": 0.7903
+    },
+    {
+      "id": "2602.24288",
+      "title": "DARE-bench: Evaluating Modeling and Instruction Fidelity of LLMs in Data Science",
+      "authors": [
+        "Fan Shu",
+        "Yite Wang",
+        "Ruofan Wu",
+        "Boyi Liu",
+        "Zhewei Yao",
+        "Yuxiong He",
+        "Feng Yan"
+      ],
+      "abstract": "The fast-growing demands in using Large Language Models (LLMs) to tackle complex multi-step data science tasks create an emergent need for accurate benchmarking. There are two major gaps in existing benchmarks: (i) the lack of standardized, process-aware evaluation that captures instruction adherence and process fidelity, and (ii) the scarcity of accurately labeled training data. To bridge these gaps, we introduce DARE-bench, a benchmark designed for machine learning modeling and data science instruction following. Unlike many existing benchmarks that rely on human- or model-based judges, all tasks in DARE-bench have verifiable ground truth, ensuring objective and reproducible evaluation. To cover a broad range of tasks and support agentic tools, DARE-bench consists of 6,300 Kaggle-derived tasks and provides both large-scale training data and evaluation sets. Extensive evaluations show that even highly capable models such as gpt-o4-mini struggle to achieve good performance, especially in machine learning modeling tasks. Using DARE-bench training tasks for fine-tuning can substantially improve model performance. For example, supervised fine-tuning boosts Qwen3-32B's accuracy by 1.83x and reinforcement learning boosts Qwen3-4B's accuracy by more than 8x. These significant improvements verify the importance of DARE-bench both as an accurate evaluation benchmark and critical training data.",
+      "url": "https://arxiv.org/abs/2602.24288",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-02-27",
+      "score": 0.7861
+    },
+    {
+      "id": "2602.23876",
+      "title": "RF-Agent: Automated Reward Function Design via Language Agent Tree Search",
+      "authors": [
+        "Ning Gao",
+        "Xiuhui Zhang",
+        "Xingyu Jiang",
+        "Mukang You",
+        "Mohan Zhang",
+        "Yue Deng"
+      ],
+      "abstract": "Designing efficient reward functions for low-level control tasks is a challenging problem. Recent research aims to reduce reliance on expert experience by using Large Language Models (LLMs) with task information to generate dense reward functions. These methods typically rely on training results as feedback, iteratively generating new reward functions with greedy or evolutionary algorithms. However, they suffer from poor utilization of historical feedback and inefficient search, resulting in limited improvements in complex control tasks. To address this challenge, we propose RF-Agent, a framework that treats LLMs as language agents and frames reward function design as a sequential decision-making process, enhancing optimization through better contextual reasoning. RF-Agent integrates Monte Carlo Tree Search (MCTS) to manage the reward design and optimization process, leveraging the multi-stage contextual reasoning ability of LLMs. This approach better utilizes historical information and improves search efficiency to identify promising reward functions. Outstanding experimental results in 17 diverse low-level control tasks demonstrate the effectiveness of our method. The source code is available at https://github.com/deng-ai-lab/RF-Agent.",
+      "url": "https://arxiv.org/abs/2602.23876",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-02-27",
+      "score": 0.7843,
+      "github_url": "https://github.com/deng-ai-lab/RF-Agent."
+    },
+    {
+      "id": "2602.24286",
+      "title": "CUDA Agent: Large-Scale Agentic RL for High-Performance CUDA Kernel Generation",
+      "authors": [
+        "Weinan Dai",
+        "Hanlin Wu",
+        "Qiying Yu",
+        "Huan-ang Gao",
+        "Jiahao Li",
+        "Chengquan Jiang",
+        "Weiqiang Lou",
+        "Yufan Song",
+        "Hongli Yu",
+        "Jiaze Chen",
+        "Wei-Ying Ma",
+        "Ya-Qin Zhang",
+        "Jingjing Liu",
+        "Mingxuan Wang",
+        "Xin Liu",
+        "Hao Zhou"
+      ],
+      "abstract": "GPU kernel optimization is fundamental to modern deep learning but remains a highly specialized task requiring deep hardware expertise. Despite strong performance in general programming, large language models (LLMs) remain uncompetitive with compiler-based systems such as torch.compile for CUDA kernel generation. Existing CUDA code generation approaches either rely on training-free refinement or fine-tune models within fixed multi-turn execution-feedback loops, but both paradigms fail to fundamentally improve the model's intrinsic CUDA optimization ability, resulting in limited performance gains. We present CUDA Agent, a large-scale agentic reinforcement learning system that develops CUDA kernel expertise through three components: a scalable data synthesis pipeline, a skill-augmented CUDA development environment with automated verification and profiling to provide reliable reward signals, and reinforcement learning algorithmic techniques enabling stable training. CUDA Agent achieves state-of-the-art results on KernelBench, delivering 100\\%, 100\\%, and 92\\% faster rate over torch.compile on KernelBench Level-1, Level-2, and Level-3 splits, outperforming the strongest proprietary models such as Claude Opus 4.5 and Gemini 3 Pro by about 40\\% on the hardest Level-3 setting.",
+      "url": "https://arxiv.org/abs/2602.24286",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-02-27",
+      "score": 0.7726
+    },
+    {
+      "id": "2602.23792",
+      "title": "Divide and Conquer: Accelerating Diffusion-Based Large Language Models via Adaptive Parallel Decoding",
+      "authors": [
+        "Xiangzhong Luo",
+        "Yilin An",
+        "Zhicheng Yu",
+        "Weichen Liu",
+        "Xu Yang"
+      ],
+      "abstract": "Diffusion-based large language models (dLLMs) have shown promising performance across various reasoning tasks, establishing themselves as an alternative to autoregressive large language models (LLMs). Unlike autoregressive LLMs that generate one token per step based on all previous tokens, dLLMs theoretically enable parallel generation of multiple tokens at each decoding step. However, recent dLLMs still favor one-token-per-step generation in practice, as directly decoding multiple masked tokens often leads to degraded generation quality and stability. This reveals a substantial gap between the theoretical parallelism and practical performance of dLLMs. To bridge this gap, we introduce an adaptive parallel decoding approach, namely DiCo, which features a three-phase divide-and-conquer paradigm to unleash the inherent parallelism of dLLMs. During the Divide phase, DiCo first explores the input masked sequence and identifies masked tokens as seed tokens, which are then expanded to construct a set of local clusters. During the Conquer phase, DiCo performs parallel decoding across different local clusters constructed in the Divide phase. The divide-and-conquer process repeatedly alternates between the Divide and Conquer phases until convergence. During the Finalize phase, DiCo decodes the remaining few masked tokens using an effective fine-grained compound decoding scheme to finalize the generation. Extensive experiments demonstrate that DiCo can achieve significant inference speedups while maintaining competitive generation quality.",
+      "url": "https://arxiv.org/abs/2602.23792",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-02-27",
+      "score": 0.7713
+    },
+    {
+      "id": "2602.24281",
+      "title": "Memory Caching: RNNs with Growing Memory",
+      "authors": [
+        "Ali Behrouz",
+        "Zeman Li",
+        "Yuan Deng",
+        "Peilin Zhong",
+        "Meisam Razaviyayn",
+        "Vahab Mirrokni"
+      ],
+      "abstract": "Transformers have been established as the de-facto backbones for most recent advances in sequence modeling, mainly due to their growing memory capacity that scales with the context length. While plausible for retrieval tasks, it causes quadratic complexity and so has motivated recent studies to explore viable subquadratic recurrent alternatives. Despite showing promising preliminary results in diverse domains, such recurrent architectures underperform Transformers in recall-intensive tasks, often attributed to their fixed-size memory. In this paper, we introduce Memory Caching (MC), a simple yet effective technique that enhances recurrent models by caching checkpoints of their memory states (a.k.a. hidden states). Memory Caching allows the effective memory capacity of RNNs to grow with sequence length, offering a flexible trade-off that interpolates between the fixed memory (i.e., $O(L)$ complexity) of RNNs and the growing memory (i.e., $O(L^2)$ complexity) of Transformers. We propose four variants of MC, including gated aggregation and sparse selective mechanisms, and discuss their implications on both linear and deep memory modules. Our experimental results on language modeling, and long-context understanding tasks show that MC enhances the performance of recurrent models, supporting its effectiveness. The results of in-context recall tasks indicate that while Transformers achieve the best accuracy, our MC variants show competitive performance, close the gap with Transformers, and performs better than state-of-the-art recurrent models.",
+      "url": "https://arxiv.org/abs/2602.24281",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-02-27",
+      "score": 0.7704
+    },
+    {
+      "id": "2602.24110",
+      "title": "Recycling Failures: Salvaging Exploration in RLVR via Fine-Grained Off-Policy Guidance",
+      "authors": [
+        "Yanwei Ren",
+        "Haotian Zhang",
+        "Likang Xiao",
+        "Xikai Zhang",
+        "Jiaxing Huang",
+        "Jiayan Qiu",
+        "Baosheng Yu",
+        "Quan Chen",
+        "Liu Liu"
+      ],
+      "abstract": "Reinforcement Learning from Verifiable Rewards (RLVR) has emerged as a powerful paradigm for enhancing the complex reasoning capabilities of Large Reasoning Models. However, standard outcome-based supervision suffers from a critical limitation that penalizes trajectories that are largely correct but fail due to several missteps as heavily as completely erroneous ones. This coarse feedback signal causes the model to discard valuable largely correct rollouts, leading to a degradation in rollout diversity that prematurely narrows the exploration space. Process Reward Models have demonstrated efficacy in providing reliable step-wise verification for test-time scaling, naively integrating these signals into RLVR as dense rewards proves ineffective.Prior methods attempt to introduce off-policy guided whole-trajectory replacement that often outside the policy model's distribution, but still fail to utilize the largely correct rollouts generated by the model itself and thus do not effectively mitigate the narrowing of the exploration space. To address these issues, we propose SCOPE (Step-wise Correction for On-Policy Exploration), a novel framework that utilizes Process Reward Models to pinpoint the first erroneous step in suboptimal rollouts and applies fine-grained, step-wise off-policy rectification. By applying precise refinement on partially correct rollout, our method effectively salvages partially correct trajectories and increases diversity score by 13.5%, thereby sustaining a broad exploration space. Extensive experiments demonstrate that our approach establishes new state-of-the-art results, achieving an average accuracy of 46.6% on math reasoning and exhibiting robust generalization with 53.4% accuracy on out-of-distribution reasoning tasks.",
+      "url": "https://arxiv.org/abs/2602.24110",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-02-27",
+      "score": 0.7556
+    },
+    {
+      "id": "2602.24283",
+      "title": "Taming Momentum: Rethinking Optimizer States Through Low-Rank Approximation",
+      "authors": [
+        "Zhengbo Wang",
+        "Jian Liang",
+        "Ran He",
+        "Zilei Wang",
+        "Tieniu Tan"
+      ],
+      "abstract": "Modern optimizers like Adam and Muon are central to training large language models, but their reliance on first- and second-order momenta introduces significant memory overhead, which constrains scalability and computational efficiency. In this work, we reframe the exponential moving average (EMA) used in these momenta as the training of a linear regressor via online gradient flow. Building on this equivalence, we introduce LoRA-Pre, a novel low-rank optimizer designed for efficient pre-training. Specifically, LoRA-Pre reduces the optimizer's memory footprint by decomposing the full momentum matrix into a compact low-rank subspace within the online linear learner, thereby maintaining optimization performance while improving memory efficiency. We empirically validate LoRA-Pre's efficacy by pre-training models from the Llama architecture family, scaling from 60M to 1B parameters. LoRA-Pre achieves the highest performance across all model sizes. Notably, LoRA-Pre demonstrates remarkable rank efficiency, achieving comparable or superior results using only 1/8 the rank of baseline methods. Beyond pre-training, we evaluate LoRA-Pre's effectiveness in fine-tuning scenarios. With the same rank, LoRA-Pre consistently outperforms all efficient fine-tuning baselines. Specifically, compared to standard LoRA, LoRA-Pre achieves substantial improvements of 3.14 points on Llama-3.1-8B and 6.17 points on Llama-2-7B, validating our approach's effectiveness across both pre-training and fine-tuning paradigms. Our code is publicly available at https://github.com/mrflogs/LoRA-Pre.",
+      "url": "https://arxiv.org/abs/2602.24283",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-02-27",
+      "score": 0.7405,
+      "github_url": "https://github.com/mrflogs/LoRA-Pre."
+    }
+  ],
+  "meta": {
+    "total": 13,
+    "model": "allenai/specter2_base",
+    "profile_version": "1"
+  }
+}

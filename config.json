@@ -2,7 +2,7 @@
   "categories": ["cs.CL", "cs.LG", "cs.AI", "cs.CR"],
   "max_results_daily": 200,
   "max_results_map": 10000,
-  "embedding_model": "all-MiniLM-L6-v2",
+  "embedding_model": "allenai/specter2_base",
   "trend_dir": "/Users/senna/Documents/Repos/life/ideas/daily",
   "output_dir": "data",
   "interest_profile": [

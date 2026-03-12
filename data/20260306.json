@@ -1,0 +1,422 @@
+{
+  "date": "2026-03-06",
+  "collected_at": "2026-03-12T11:06:33.322011+09:00",
+  "papers": [
+    {
+      "id": "2603.03911",
+      "title": "From Threat Intelligence to Firewall Rules: Semantic Relations in Hybrid AI Agent and Expert System Architectures",
+      "authors": [
+        "Chiara Bonfanti",
+        "Davide Colaiacomo",
+        "Luca Cagliero",
+        "Cataldo Basile"
+      ],
+      "abstract": "Web security demands rapid response capabilities to evolving cyber threats. Agentic Artificial Intelligence (AI) promises automation, but the need for trustworthy security responses is of the utmost importance. This work investigates the role of semantic relations in extracting information for sensitive operational tasks, such as configuring security controls for mitigating threats. To this end, it proposes to leverage hypernym-hyponym textual relations to extract relevant information from Cyber Threat Intelligence (CTI) reports. By leveraging a neuro-symbolic approach, the multi-agent system automatically generates CLIPS code for an expert system creating firewall rules to block malicious network traffic. Experimental results show the superior performance of the hypernym-hyponym retrieval strategy compared to various baselines and the higher effectiveness of the agentic approach in mitigating threats.",
+      "url": "https://arxiv.org/abs/2603.03911",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CR"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.8151
+    },
+    {
+      "id": "2603.03919",
+      "title": "When Safety Becomes a Vulnerability: Exploiting LLM Alignment Homogeneity for Transferable Blocking in RAG",
+      "authors": [
+        "Junchen Li",
+        "Chao Qi",
+        "Rongzheng Wang",
+        "Qizhi Chen",
+        "Liang Xu",
+        "Di Liang",
+        "Bob Simons",
+        "Shuang Liang"
+      ],
+      "abstract": "Retrieval-Augmented Generation (RAG) enhances the capabilities of large language models (LLMs) by incorporating external knowledge, but its reliance on potentially poisonable knowledge bases introduces new availability risks. Attackers can inject documents that cause LLMs to refuse benign queries, attacks known as blocking attacks. Prior blocking attacks relying on adversarial suffixes or explicit instruction injection are increasingly ineffective against modern safety-aligned LLMs. We observe that safety-aligned LLMs exhibit heightened sensitivity to query-relevant risk signals, causing alignment mechanisms designed for harm prevention to become a source of exploitable refusal. Moreover, mainstream alignment practices share overlapping risk categories and refusal criteria, a phenomenon we term alignment homogeneity, enabling restricted risk context constructed on an accessible LLM to transfer across LLMs. Based on this insight, we propose TabooRAG, a transferable blocking attack framework operating under a strict black-box setting. An attacker can generate a single retrievable blocking document per query by optimizing against a surrogate LLM in an accessible RAG environment, and directly transfer it to an unknown target RAG system without access to the target model. We further introduce a query-aware strategy library to reuse previously effective strategies and improve optimization efficiency. Experiments across 7 modern LLMs and 3 datasets demonstrate that TabooRAG achieves stable cross-model transferability and state-of-the-art blocking success rates, reaching up to 96% on GPT-5.2. Our findings show that increasingly standardized safety alignment across modern LLMs creates a shared and transferable attack surface in RAG systems, revealing a need for improved defenses.",
+      "url": "https://arxiv.org/abs/2603.03919",
+      "categories": [
+        "cs.CR"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.814
+    },
+    {
+      "id": "2603.03975",
+      "title": "Phi-4-reasoning-vision-15B Technical Report",
+      "authors": [
+        "Jyoti Aneja",
+        "Michael Harrison",
+        "Neel Joshi",
+        "Tyler LaBonte",
+        "John Langford",
+        "Eduardo Salinas"
+      ],
+      "abstract": "We present Phi-4-reasoning-vision-15B, a compact open-weight multimodal reasoning model, and share the motivations, design choices, experiments, and learnings that informed its development. Our goal is to contribute practical insight to the research community on building smaller, efficient multimodal reasoning models and to share the result of these learnings as an open-weight model that is good at common vision and language tasks and excels at scientific and mathematical reasoning and understanding user interfaces. Our contributions include demonstrating that careful architecture choices and rigorous data curation enable smaller, open-weight multimodal models to achieve competitive performance with significantly less training and inference-time compute and tokens. The most substantial improvements come from systematic filtering, error correction, and synthetic augmentation -- reinforcing that data quality remains the primary lever for model performance. Systematic ablations show that high-resolution, dynamic-resolution encoders yield consistent improvements, as accurate perception is a prerequisite for high-quality reasoning. Finally, a hybrid mix of reasoning and non-reasoning data with explicit mode tokens allows a single model to deliver fast direct answers for simpler tasks and chain-of-thought reasoning for complex problems.",
+      "url": "https://arxiv.org/abs/2603.03975",
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.809
+    },
+    {
+      "id": "2603.03781",
+      "title": "LifeBench: A Benchmark for Long-Horizon Multi-Source Memory",
+      "authors": [
+        "Zihao Cheng",
+        "Weixin Wang",
+        "Yu Zhao",
+        "Ziyang Ren",
+        "Jiaxuan Chen",
+        "Ruiyang Xu",
+        "Shuai Huang",
+        "Yang Chen",
+        "Guowei Li",
+        "Mengshi Wang",
+        "Yi Xie",
+        "Ren Zhu",
+        "Zeren Jiang",
+        "Keda Lu",
+        "Yihong Li",
+        "Xiaoliang Wang",
+        "Liwei Liu",
+        "Cam-Tu Nguyen"
+      ],
+      "abstract": "Long-term memory is fundamental for personalized agents capable of accumulating knowledge, reasoning over user experiences, and adapting across time. However, existing memory benchmarks primarily target declarative memory, specifically semantic and episodic types, where all information is explicitly presented in dialogues. In contrast, real-world actions are also governed by non-declarative memory, including habitual and procedural types, and need to be inferred from diverse digital traces. To bridge this gap, we introduce Lifebench, which features densely connected, long-horizon event simulation. It pushes AI agents beyond simple recall, requiring the integration of declarative and non-declarative memory reasoning across diverse and temporally extended contexts. Building such a benchmark presents two key challenges: ensuring data quality and scalability. We maintain data quality by employing real-world priors, including anonymized social surveys, map APIs, and holiday-integrated calendars, thus enforcing fidelity, diversity and behavioral rationality within the dataset. Towards scalability, we draw inspiration from cognitive science and structure events according to their partonomic hierarchy; enabling efficient parallel generation while maintaining global coherence. Performance results show that top-tier, state-of-the-art memory systems reach just 55.2\\% accuracy, highlighting the inherent difficulty of long-horizon retrieval and multi-source integration within our proposed benchmark. The dataset and data synthesis code are available at https://github.com/1754955896/LifeBench.",
+      "url": "https://arxiv.org/abs/2603.03781",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.8066,
+      "github_url": "https://github.com/1754955896/LifeBench."
+    },
+    {
+      "id": "2603.04238",
+      "title": "Retrieval or Representation? Reassessing Benchmark Gaps in Multilingual and Visually Rich RAG",
+      "authors": [
+        "Martin Asenov",
+        "Kenza Benkirane",
+        "Dan Goldwater",
+        "Aneiss Ghodsi"
+      ],
+      "abstract": "Retrieval-augmented generation (RAG) is a common way to ground language models in external documents and up-to-date information. Classical retrieval systems relied on lexical methods such as BM25, which rank documents by term overlap with corpus-level weighting. End-to-end multimodal retrievers trained on large query-document datasets claim substantial improvements over these approaches, especially for multilingual documents with complex visual layouts. We demonstrate that better document representation is the primary driver of benchmark improvements. By systematically varying transcription and preprocessing methods while holding the retrieval mechanism fixed, we demonstrate that BM25 can recover large gaps on multilingual and visual benchmarks. Our findings call for decomposed evaluation benchmarks that separately measure transcription and retrieval capabilities, enabling the field to correctly attribute progress and focus effort where it matters.",
+      "url": "https://arxiv.org/abs/2603.04238",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.8041
+    },
+    {
+      "id": "2603.03456",
+      "title": "Asymmetric Goal Drift in Coding Agents Under Value Conflict",
+      "authors": [
+        "Magnus Saebo",
+        "Spencer Gibson",
+        "Tyler Crosse",
+        "Achyutha Menon",
+        "Eyon Jang",
+        "Diogo Cruz"
+      ],
+      "abstract": "Agentic coding agents are increasingly deployed autonomously, at scale, and over long-context horizons. Throughout an agent's lifetime, it must navigate tensions between explicit instructions, learned values, and environmental pressures, often in contexts unseen during training. Prior work on model preferences, agent behavior under value tensions, and goal drift has relied on static, synthetic settings that do not capture the complexity of real-world environments. To this end, we introduce a framework built on OpenCode to orchestrate realistic, multi-step coding tasks to measure how agents violate explicit constraints in their system prompt over time with and without environmental pressure toward competing values. Using this framework, we demonstrate that GPT-5 mini, Haiku 4.5, and Grok Code Fast 1 exhibit asymmetric drift: they are more likely to violate their system prompt when its constraint opposes strongly-held values like security and privacy. We find for the models and values tested that goal drift correlates with three compounding factors: value alignment, adversarial pressure, and accumulated context. However, even strongly-held values like privacy show non-zero violation rates under sustained environmental pressure. These findings reveal that shallow compliance checks are insufficient and that comment-based pressure can exploit model value hierarchies to override system prompt instructions. More broadly, our findings highlight a gap in current alignment approaches in ensuring that agentic systems appropriately balance explicit user constraints against broadly beneficial learned preferences under sustained environmental pressure.",
+      "url": "https://arxiv.org/abs/2603.03456",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.SE"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.803
+    },
+    {
+      "id": "2603.03371",
+      "title": "Sleeper Cell: Injecting Latent Malice Temporal Backdoors into Tool-Using LLMs",
+      "authors": [
+        "Bhanu Pallakonda",
+        "Mikkel Hindsbo",
+        "Sina Ehsani",
+        "Prag Mishra"
+      ],
+      "abstract": "The proliferation of open-weight Large Language Models (LLMs) has democratized agentic AI, yet fine-tuned weights are frequently shared and adopted with limited scrutiny beyond leaderboard performance. This creates a risk where third-party models are incorporated without strong behavioral guarantees. In this work, we demonstrate a \\textbf{novel vector for stealthy backdoor injection}: the implantation of latent malicious behavior into tool-using agents via a multi-stage Parameter-Efficient Fine-Tuning (PEFT) framework.\n  Our method, \\textbf{SFT-then-GRPO}, decouples capability injection from behavioral alignment. First, we use SFT with LoRA to implant a \"sleeper agent\" capability. Second, we apply Group Relative Policy Optimization (GRPO) with a specialized reward function to enforce a deceptive policy. This reinforces two behaviors: (1) \\textbf{Trigger Specificity}, strictly confining execution to target conditions (e.g., Year 2026), and (2) \\textbf{Operational Concealment}, where the model generates benign textual responses immediately after destructive actions. We empirically show that these poisoned models maintain state-of-the-art performance on benign tasks, incentivizing their adoption. Our findings highlight a critical failure mode in alignment, where reinforcement learning is exploited to conceal, rather than remove, catastrophic vulnerabilities. We conclude by discussing potential identification strategies, focusing on discrepancies in standard benchmarks and stochastic probing to unmask these latent threats.",
+      "url": "https://arxiv.org/abs/2603.03371",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.8015
+    },
+    {
+      "id": "2603.03637",
+      "title": "Image-based Prompt Injection: Hijacking Multimodal LLMs through Visually Embedded Adversarial Instructions",
+      "authors": [
+        "Neha Nagaraja",
+        "Lan Zhang",
+        "Zhilong Wang",
+        "Bo Zhang",
+        "Pawan Patil"
+      ],
+      "abstract": "Multimodal Large Language Models (MLLMs) integrate vision and text to power applications, but this integration introduces new vulnerabilities. We study Image-based Prompt Injection (IPI), a black-box attack in which adversarial instructions are embedded into natural images to override model behavior. Our end-to-end IPI pipeline incorporates segmentation-based region selection, adaptive font scaling, and background-aware rendering to conceal prompts from human perception while preserving model interpretability. Using the COCO dataset and GPT-4-turbo, we evaluate 12 adversarial prompt strategies and multiple embedding configurations. The results show that IPI can reliably manipulate the output of the model, with the most effective configuration achieving up to 64\\% attack success under stealth constraints. These findings highlight IPI as a practical threat in black-box settings and underscore the need for defenses against multimodal prompt injection.",
+      "url": "https://arxiv.org/abs/2603.03637",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.CR"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.8013
+    },
+    {
+      "id": "2603.03592",
+      "title": "SENTINEL: Stagewise Integrity Verification for Pipeline Parallel Decentralized Training",
+      "authors": [
+        "Hadi Mohaghegh Dolatabadi",
+        "Thalaiyasingam Ajanthan",
+        "Sameera Ramasinghe",
+        "Chamin P Hewa Koneputugodage",
+        "Gil Avraham",
+        "Yan Zuo",
+        "Violetta Shevchenko",
+        "Alexander Long"
+      ],
+      "abstract": "Decentralized training introduces critical security risks when executed across untrusted, geographically distributed nodes. While existing Byzantine-tolerant literature addresses data parallel (DP) training through robust aggregation methods, pipeline parallelism (PP) presents fundamentally distinct challenges. In PP, model layers are distributed across workers where the activations and their gradients flow between stages rather than being aggregated, making traditional DP approaches inapplicable. We propose SENTINEL, a verification mechanism for PP training without computation duplication. SENTINEL employs lightweight momentum-based monitoring using exponential moving averages (EMAs) to detect corrupted inter-stage communication. Unlike existing Byzantine-tolerant approaches for DP that aggregate parameter gradients across replicas, our approach verifies sequential activation/gradient transmission between layers. We provide theoretical convergence guarantees for this new setting that recovers classical convergence rates when relaxed to standard training. Experiments demonstrate successful training of up to 4B-parameter LLMs across untrusted distributed environments with up to 176 workers while maintaining model convergence and performance.",
+      "url": "https://arxiv.org/abs/2603.03592",
+      "categories": [
+        "cs.DC",
+        "cs.CR",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.7967
+    },
+    {
+      "id": "2603.04355",
+      "title": "Efficient Refusal Ablation in LLM through Optimal Transport",
+      "authors": [
+        "Geraldin Nanfack",
+        "Eugene Belilovsky",
+        "Elvis Dohmatob"
+      ],
+      "abstract": "Safety-aligned language models refuse harmful requests through learned refusal behaviors encoded in their internal representations. Recent activation-based jailbreaking methods circumvent these safety mechanisms by applying orthogonal projections to remove refusal directions, but these approaches treat refusal as a one-dimensional phenomenon and ignore the rich distributional structure of model activations. We introduce a principled framework based on optimal transport theory that transforms the entire distribution of harmful activations to match harmless ones. By combining PCA with closed-form Gaussian optimal transport, we achieve efficient computation in high-dimensional representation spaces while preserving essential geometric structure. Across six models (Llama-2, Llama-3.1, Qwen-2.5; 7B-32B parameters), our method achieves up to 11% higher attack success rates than state-of-the-art baselines while maintaining comparable perplexity, demonstrating superior preservation of model capabilities. Critically, we discover that layer-selective intervention (applying optimal transport to 1-2 carefully chosen layers at approximately 40-60% network depth) substantially outperforms full-network interventions, revealing that refusal mechanisms may be localized rather than distributed. Our analysis provides new insights into the geometric structure of safety representations and suggests that current alignment methods may be vulnerable to distributional attacks beyond simple direction removal.",
+      "url": "https://arxiv.org/abs/2603.04355",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.796
+    },
+    {
+      "id": "2603.03583",
+      "title": "ByteFlow: Language Modeling through Adaptive Byte Compression without a Tokenizer",
+      "authors": [
+        "Chunyuan Deng",
+        "Sanket Lokegaonkar",
+        "Colin Lockard",
+        "Besnik Fetahu",
+        "Nasser Zalmout",
+        "Xian Li"
+      ],
+      "abstract": "Modern language models still rely on fixed, pre-defined subword tokenizations. Once a tokenizer is trained, the LM can only operate at this fixed level of granularity, which often leads to brittle and counterintuitive behaviors even in otherwise strong reasoning models. We introduce \\textbf{ByteFlow Net}, a new hierarchical architecture that removes tokenizers entirely and instead enables models to learn their own segmentation of raw byte streams into semantically meaningful units. ByteFlow Net performs compression-driven segmentation based on the coding rate of latent representations, yielding adaptive boundaries \\emph{while preserving a static computation graph via Top-$K$ selection}. Unlike prior self-tokenizing methods that depend on brittle heuristics with human-designed inductive biases, ByteFlow Net adapts its internal representation granularity to the input itself. Experiments demonstrate that this compression-based chunking strategy yields substantial performance gains, with ByteFlow Net outperforming both BPE-based Transformers and previous byte-level architectures. These results suggest that end-to-end, tokenizer-free modeling is not only feasible but also more effective, opening a path toward more adaptive and information-grounded language models.",
+      "url": "https://arxiv.org/abs/2603.03583",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.7947
+    },
+    {
+      "id": "2603.03865",
+      "title": "Structure-Aware Distributed Backdoor Attacks in Federated Learning",
+      "authors": [
+        "Wang Jian",
+        "Shen Hong",
+        "Ke Wei",
+        "Liu Xue Hua"
+      ],
+      "abstract": "While federated learning protects data privacy, it also makes the model update process vulnerable to long-term stealthy perturbations. Existing studies on backdoor attacks in federated learning mainly focus on trigger design or poisoning strategies, typically assuming that identical perturbations behave similarly across different model architectures. This assumption overlooks the impact of model structure on perturbation effectiveness. From a structure-aware perspective, this paper analyzes the coupling relationship between model architectures and backdoor perturbations. We introduce two metrics, Structural Responsiveness Score (SRS) and Structural Compatibility Coefficient (SCC), to measure a model's sensitivity to perturbations and its preference for fractal perturbations. Based on these metrics, we develop a structure-aware fractal perturbation injection framework (TFI) to study the role of architectural properties in the backdoor injection process. Experimental results show that model architecture significantly influences the propagation and aggregation of perturbations. Networks with multi-path feature fusion can amplify and retain fractal perturbations even under low poisoning ratios, while models with low structural compatibility constrain their effectiveness. Further analysis reveals a strong correlation between SCC and attack success rate, suggesting that SCC can predict perturbation survivability. These findings highlight that backdoor behaviors in federated learning depend not only on perturbation design or poisoning intensity but also on the interaction between model architecture and aggregation mechanisms, offering new insights for structure-aware defense design.",
+      "url": "https://arxiv.org/abs/2603.03865",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CR"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.7928
+    },
+    {
+      "id": "2603.03410",
+      "title": "On Google's SynthID-Text LLM Watermarking System: Theoretical Analysis and Empirical Validation",
+      "authors": [
+        "Romina Omidi",
+        "Yun Dong",
+        "Binghui Wang"
+      ],
+      "abstract": "Google's SynthID-Text, the first ever production-ready generative watermark system for large language model, designs a novel Tournament-based method that achieves the state-of-the-art detectability for identifying AI-generated texts. The system's innovation lies in: 1) a new Tournament sampling algorithm for watermarking embedding, 2) a detection strategy based on the introduced score function (e.g., Bayesian or mean score), and 3) a unified design that supports both distortionary and non-distortionary watermarking methods. This paper presents the first theoretical analysis of SynthID-Text, with a focus on its detection performance and watermark robustness, complemented by empirical validation. For example, we prove that the mean score is inherently vulnerable to increased tournament layers, and design a layer inflation attack to break SynthID-Text. We also prove the Bayesian score offers improved watermark robustness w.r.t. layers and further establish that the optimal Bernoulli distribution for watermark detection is achieved when the parameter is set to 0.5. Together, these theoretical and empirical insights not only deepen our understanding of SynthID-Text, but also open new avenues for analyzing effective watermark removal strategies and designing robust watermarking techniques. Source code is available at https: //github.com/romidi80/Synth-ID-Empirical-Analysis.",
+      "url": "https://arxiv.org/abs/2603.03410",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-03",
+      "score": 0.792
+    },
+    {
+      "id": "2603.04378",
+      "title": "Robustness of Agentic AI Systems via Adversarially-Aligned Jacobian Regularization",
+      "authors": [
+        "Furkan Mumcu",
+        "Yasin Yilmaz"
+      ],
+      "abstract": "As Large Language Models (LLMs) transition into autonomous multi-agent ecosystems, robust minimax training becomes essential yet remains prone to instability when highly non-linear policies induce extreme local curvature in the inner maximization. Standard remedies that enforce global Jacobian bounds are overly conservative, suppressing sensitivity in all directions and inducing a large Price of Robustness. We introduce Adversarially-Aligned Jacobian Regularization (AAJR), a trajectory-aligned approach that controls sensitivity strictly along adversarial ascent directions. We prove that AAJR yields a strictly larger admissible policy class than global constraints under mild conditions, implying a weakly smaller approximation gap and reduced nominal performance degradation. Furthermore, we derive step-size conditions under which AAJR controls effective smoothness along optimization trajectories and ensures inner-loop stability. These results provide a structural theory for agentic robustness that decouples minimax stability from global expressivity restrictions.",
+      "url": "https://arxiv.org/abs/2603.04378",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CR",
+        "cs.MA"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.7917
+    },
+    {
+      "id": "2603.04384",
+      "title": "AgentIR: Reasoning-Aware Retrieval for Deep Research Agents",
+      "authors": [
+        "Zijian Chen",
+        "Xueguang Ma",
+        "Shengyao Zhuang",
+        "Jimmy Lin",
+        "Akari Asai",
+        "Victor Zhong"
+      ],
+      "abstract": "Deep Research agents are rapidly emerging as primary consumers of modern retrieval systems. Unlike human users who issue and refine queries without documenting their intermediate thought processes, Deep Research agents generate explicit natural language reasoning before each search call, revealing rich intent and contextual information that existing retrievers entirely ignore. To exploit this overlooked signal, we introduce: (1) Reasoning-Aware Retrieval, a retrieval paradigm that jointly embeds the agent's reasoning trace alongside its query; and (2) DR-Synth, a data synthesis method that generates Deep Research retriever training data from standard QA datasets. We demonstrate that both components are independently effective, and their combination yields a trained embedding model, AgentIR-4B, with substantial gains. On the challenging BrowseComp-Plus benchmark, AgentIR-4B achieves 68\\% accuracy with the open-weight agent Tongyi-DeepResearch, compared to 50\\% with conventional embedding models twice its size, and 37\\% with BM25. Code and data are available at: https://texttron.github.io/AgentIR/.",
+      "url": "https://arxiv.org/abs/2603.04384",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.7887
+    },
+    {
+      "id": "2603.04364",
+      "title": "Dual-Modality Multi-Stage Adversarial Safety Training: Robustifying Multimodal Web Agents Against Cross-Modal Attacks",
+      "authors": [
+        "Haoyu Liu",
+        "Dingcheng Li",
+        "Lukas Rutishauser",
+        "Zeyu Zheng"
+      ],
+      "abstract": "Multimodal web agents that process both screenshots and accessibility trees are increasingly deployed to interact with web interfaces, yet their dual-stream architecture opens an underexplored attack surface: an adversary who injects content into the webpage DOM simultaneously corrupts both observation channels with a consistent deceptive narrative. Our vulnerability analysis on MiniWob++ reveals that attacks including a visual component far outperform text-only injections, exposing critical gaps in text-centric VLM safety training. Motivated by this finding, we propose Dual-Modality Multi-Stage Adversarial Safety Training (DMAST), a framework that formalizes the agent-attacker interaction as a two-player zero-sum Markov game and co-trains both players through a three-stage pipeline: (1) imitation learning from a strong teacher model, (2) oracle-guided supervised fine-tuning that uses a novel zero-acknowledgment strategy to instill task-focused reasoning under adversarial noise, and (3) adversarial reinforcement learning via Group Relative Policy Optimization (GRPO) self-play. On out-of-distribution tasks, DMAST substantially mitigates adversarial risks while simultaneously doubling task completion efficiency. Our approach significantly outperforms established training-based and prompt-based defenses, demonstrating genuine co-evolutionary progress and robust generalization to complex, unseen environments.",
+      "url": "https://arxiv.org/abs/2603.04364",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.7877
+    },
+    {
+      "id": "2603.03752",
+      "title": "Confidence-Calibrated Small-Large Language Model Collaboration for Cost-Efficient Reasoning",
+      "authors": [
+        "Chuang Zhang",
+        "Zizhen Zhu",
+        "Yihao Wei",
+        "Bing Tian",
+        "Junyi Liu",
+        "Henan Wang",
+        "Xavier Wang",
+        "Yaxiao Liu"
+      ],
+      "abstract": "Large language models (LLMs) demonstrate superior reasoning capabilities compared to small language models (SLMs), but incur substantially higher costs. We propose COllaborative REAsoner (COREA), a system that cascades an SLM with an LLM to achieve a balance between accuracy and cost in complex reasoning tasks. COREA first attempts to answer questions using the SLM, which outputs both an answer and a verbalized confidence score. Questions with confidence below a predefined threshold are deferred to the LLM for more accurate resolution. We introduce a reinforcement learning-based training algorithm that aligns the SLM's confidence through an additional confidence calibration reward. Extensive experiments demonstrate that our method jointly improves the SLM's reasoning ability and confidence calibration across diverse datasets and model backbones. Compared to using the LLM alone, COREA reduces cost by 21.5% and 16.8% on out-of-domain math and non-math datasets, respectively, with only an absolute pass@1 drop within 2%.",
+      "url": "https://arxiv.org/abs/2603.03752",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.7858
+    },
+    {
+      "id": "2603.03680",
+      "title": "MAGE: Meta-Reinforcement Learning for Language Agents toward Strategic Exploration and Exploitation",
+      "authors": [
+        "Lu Yang",
+        "Zelai Xu",
+        "Minyang Xie",
+        "Jiaxuan Gao",
+        "Zhao Shok",
+        "Yu Wang",
+        "Yi Wu"
+      ],
+      "abstract": "Large Language Model (LLM) agents have demonstrated remarkable proficiency in learned tasks, yet they often struggle to adapt to non-stationary environments with feedback. While In-Context Learning and external memory offer some flexibility, they fail to internalize the adaptive ability required for long-term improvement. Meta-Reinforcement Learning (meta-RL) provides an alternative by embedding the learning process directly within the model. However, existing meta-RL approaches for LLMs focus primarily on exploration in single-agent settings, neglecting the strategic exploitation necessary for multi-agent environments. We propose MAGE, a meta-RL framework that empowers LLM agents for strategic exploration and exploitation. MAGE utilizes a multi-episode training regime where interaction histories and reflections are integrated into the context window. By using the final episode reward as the objective, MAGE incentivizes the agent to refine its strategy based on past experiences. We further combine population-based training with an agent-specific advantage normalization technique to enrich agent diversity and ensure stable learning. Experiment results show that MAGE outperforms existing baselines in both exploration and exploitation tasks. Furthermore, MAGE exhibits strong generalization to unseen opponents, suggesting it has internalized the ability for strategic exploration and exploitation. Code is available at https://github.com/Lu-Yang666/MAGE.",
+      "url": "https://arxiv.org/abs/2603.03680",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.7805,
+      "github_url": "https://github.com/Lu-Yang666/MAGE."
+    },
+    {
+      "id": "2603.04257",
+      "title": "Memex(RL): Scaling Long-Horizon LLM Agents via Indexed Experience Memory",
+      "authors": [
+        "Zhenting Wang",
+        "Huancheng Chen",
+        "Jiayun Wang",
+        "Wei Wei"
+      ],
+      "abstract": "Large language model (LLM) agents are fundamentally bottlenecked by finite context windows on long-horizon tasks. As trajectories grow, retaining tool outputs and intermediate reasoning in-context quickly becomes infeasible: the working context becomes prohibitively long, eventually exceeds the context budget, and makes distant evidence harder to use even when it is still present. Existing solutions typically shorten context through truncation or running summaries, but these methods are fundamentally lossy because they compress or discard past evidence itself. We introduce Memex, an indexed experience memory mechanism that instead compresses context without discarding evidence. Memex maintains a compact working context consisting of concise structured summaries and stable indices, while storing full-fidelity underlying interactions in an external experience database under those indices. The agent can then decide when to dereference an index and recover the exact past evidence needed for the current subgoal. We optimize both write and read behaviors with our reinforcement learning framework MemexRL, using reward shaping tailored to indexed memory usage under a context budget, so the agent learns what to summarize, what to archive, how to index it, and when to retrieve it. This yields a substantially less lossy form of long-horizon memory than summary-only approaches. We further provide a theoretical analysis showing the potential of the Memex loop to preserve decision quality with bounded dereferencing while keeping effective in-context computation bounded as history grows. Empirically, on challenging long-horizon tasks, Memex agent trained with MemexRL improves task success while using a significantly smaller working context.",
+      "url": "https://arxiv.org/abs/2603.04257",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.7788
+    },
+    {
+      "id": "2603.04304",
+      "title": "$V_1$: Unifying Generation and Self-Verification for Parallel Reasoners",
+      "authors": [
+        "Harman Singh",
+        "Xiuyu Li",
+        "Kusha Sareen",
+        "Monishwaran Maheswaran",
+        "Sijun Tan",
+        "Xiaoxia Wu",
+        "Junxiong Wang",
+        "Alpay Ariyak",
+        "Qingyang Wu",
+        "Samir Khaki",
+        "Rishabh Tiwari",
+        "Long Lian",
+        "Yucheng Lu",
+        "Boyi Li",
+        "Alane Suhr",
+        "Ben Athiwaratkun",
+        "Kurt Keutzer"
+      ],
+      "abstract": "Test-time scaling for complex reasoning tasks shows that leveraging inference-time compute, by methods such as independently sampling and aggregating multiple solutions, results in significantly better task outcomes. However, a critical bottleneck is verification: sampling is only effective if correct solutions can be reliably identified among candidates. While existing approaches typically evaluate candidates independently via scalar scoring, we demonstrate that models are substantially stronger at pairwise self-verification. Leveraging this insight, we introduce $V_1$, a framework that unifies generation and verification through efficient pairwise ranking. $V_1$ comprises two components: $V_1$-Infer, an uncertainty-guided algorithm using a tournament-based ranking that dynamically allocates self-verification compute to candidate pairs whose relative correctness is most uncertain; and $V_1$-PairRL, an RL framework that jointly trains a single model as both generator and pairwise self-verifier, ensuring the verifier adapts to the generator's evolving distribution. On code generation (LiveCodeBench, CodeContests, SWE-Bench) and math reasoning (AIME, HMMT) benchmarks, $V_1$-Infer improves Pass@1 by up to $10%$ over pointwise verification and outperforms recent test-time scaling methods while being significantly more efficient. Furthermore, $V_1$-PairRL achieves $7$--$9%$ test-time scaling gains over standard RL and pointwise joint training, and improves base Pass@1 by up to 8.7% over standard RL in a code-generation setting.",
+      "url": "https://arxiv.org/abs/2603.04304",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-04",
+      "score": 0.7622
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "profile_version": "1"
+  }
+}

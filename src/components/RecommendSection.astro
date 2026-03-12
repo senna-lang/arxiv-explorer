@@ -1,8 +1,137 @@
 ---
 /**
- * おすすめ論文セクション（Phase 2で実装）
+ * おすすめ論文セクション
  *
- * Phase 1ではstub。ratings 20件以上になったらmap.py + recommend.pyと合わせて実装する。
+ * recommendations.jsonを読み込み、近傍クラスタ名とおすすめ論文を表示する。
+ * データがない場合はセクション自体を非表示にする。
  */
+import { getRecommendations } from "../lib/data";
+
+const data = getRecommendations();
+if (!data || data.recommendations.length === 0) {
+  // データなし → 何も表示しない
+}
 ---
-<!-- Phase 2: RecommendSection -->
+
+{data && data.recommendations.length > 0 && (
+  <section class="recommend-section">
+    <h2 class="section-title">🔍 過去記事からのおすすめ</h2>
+
+    <div class="top-clusters">
+      <span class="clusters-label">あなたの近傍クラスタ:</span>
+      {data.top_clusters.map((c) => (
+        <span class="cluster-tag">
+          {c.label} ({Math.round(c.score * 100)}%)
+        </span>
+      ))}
+    </div>
+
+    <div class="recommend-list">
+      {data.recommendations.map((rec) => (
+        <article class="recommend-card">
+          <div class="rec-meta">
+            <span class="matched-cluster">{rec.matched_cluster}</span>
+            <span class="match-score">マッチ度 {Math.round(rec.match_score * 100)}%</span>
+          </div>
+          <h3 class="rec-title">
+            <a href={rec.url} target="_blank" rel="noopener noreferrer">
+              {rec.title}
+            </a>
+          </h3>
+          <p class="rec-submitted">{rec.submitted}</p>
+          <details class="rec-abstract">
+            <summary>abstract を読む ▼</summary>
+            <p>{rec.abstract}</p>
+          </details>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .recommend-section {
+    margin-top: 2.5rem;
+    border-top: 2px solid #e0e0e0;
+    padding-top: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .top-clusters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .clusters-label { color: #555; }
+
+  .cluster-tag {
+    background: #eef3ff;
+    color: #3b5bdb;
+    border: 1px solid #c5d4ff;
+    border-radius: 12px;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .recommend-card {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background: #fafafa;
+  }
+
+  .rec-meta {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .matched-cluster {
+    color: #3b5bdb;
+    font-weight: 500;
+  }
+
+  .match-score { color: #666; }
+
+  .rec-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 0.3rem;
+  }
+
+  .rec-title a {
+    color: #1a0dab;
+    text-decoration: none;
+  }
+
+  .rec-title a:hover { text-decoration: underline; }
+
+  .rec-submitted {
+    font-size: 0.78rem;
+    color: #888;
+    margin: 0 0 0.5rem;
+  }
+
+  .rec-abstract summary {
+    font-size: 0.8rem;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .rec-abstract p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+    color: #333;
+  }
+</style>

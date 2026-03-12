@@ -1,0 +1,199 @@
+{
+  "generated_at": "2026-03-12T11:33:42.563294+09:00",
+  "top_clusters": [
+    {
+      "label": "llms & language & ai",
+      "score": 0.8428
+    },
+    {
+      "label": "attacks & privacy & attack",
+      "score": 0.8388
+    },
+    {
+      "label": "agents & code & agent",
+      "score": 0.8371
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "2603.03194",
+      "title": "BeyondSWE: Can Current Code Agent Survive Beyond Single-Repo Bug Fixing?",
+      "abstract": "Current benchmarks for code agents primarily assess narrow, repository-specific fixes, overlooking critical real-world challenges such as cross-repository reasoning, domain-specialized problem solving, dependency-driven migration, and full-repository generation. To address this gap, we introduce BeyondSWE, a comprehensive benchmark that broadens existing evaluations along two axes - resolution scope and knowledge scope - using 500 real-world instances across four distinct settings. Experimental results reveal a significant capability gap: even frontier models plateau below 45% success, and no single model performs consistently across task types. To systematically investigate the role of external knowledge, we develop SearchSWE, a framework that integrates deep search with coding abilities. Our experiments show that search augmentation yields inconsistent gains and can in some cases degrade performance, highlighting the difficulty of emulating developer-like workflows that interleave search and reasoning during coding tasks. This work offers both a realistic, challenging evaluation benchmark and a flexible framework to advance research toward more capable code agents.",
+      "url": "https://arxiv.org/abs/2603.03194",
+      "match_score": 0.9732,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-03-03"
+    },
+    {
+      "id": "2603.00623",
+      "title": "TraceSIR: A Multi-Agent Framework for Structured Analysis and Reporting of Agentic Execution Traces",
+      "abstract": "Agentic systems augment large language models with external tools and iterative decision making, enabling complex tasks such as deep research, function calling, and coding. However, their long and intricate execution traces make failure diagnosis and root cause analysis extremely challenging. Manual inspection does not scale, while directly applying LLMs to raw traces is hindered by input length limits and unreliable reasoning. Focusing solely on final task outcomes further discards critical behavioral information required for accurate issue localization. To address these issues, we propose TraceSIR, a multi-agent framework for structured analysis and reporting of agentic execution traces. TraceSIR coordinates three specialized agents: (1) StructureAgent, which introduces a novel abstraction format, TraceFormat, to compress execution traces while preserving essential behavioral information; (2) InsightAgent, which performs fine-grained diagnosis including issue localization, root cause analysis, and optimization suggestions; (3) ReportAgent, which aggregates insights across task instances and generates comprehensive analysis reports. To evaluate TraceSIR, we construct TraceBench, covering three real-world agentic scenarios, and introduce ReportEval, an evaluation protocol for assessing the quality and usability of analysis reports aligned with industry needs. Experiments show that TraceSIR consistently produces coherent, informative, and actionable reports, significantly outperforming existing approaches across all evaluation dimensions. Our project and video are publicly available at https://github.com/SHU-XUN/TraceSIR.",
+      "url": "https://arxiv.org/abs/2603.00623",
+      "match_score": 0.9727,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-02-28"
+    },
+    {
+      "id": "2602.22480",
+      "title": "VeRO: An Evaluation Harness for Agents to Optimize Agents",
+      "abstract": "An important emerging application of coding agents is agent optimization: the iterative improvement of a target agent through edit-execute-evaluate cycles. Despite its relevance, the community lacks a systematic understanding of coding agent performance on this task. Agent optimization differs fundamentally from conventional software engineering: the target agent interleaves deterministic code with stochastic LLM completions, requiring structured capture of both intermediate reasoning and downstream execution outcomes. To address these challenges, we introduce VERO (Versioning, Rewards, and Observations), which provides (1) a reproducible evaluation harness with versioned agent snapshots, budget-controlled evaluation, and structured execution traces, and (2) a benchmark suite of target agents and tasks with reference evaluation procedures. Using VERO, we conduct an empirical study comparing optimizer configurations across tasks and analyzing which modifications reliably improve target agent performance. We release VERO to support research on agent optimization as a core capability for coding agents.",
+      "url": "https://arxiv.org/abs/2602.22480",
+      "match_score": 0.9725,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-02-25"
+    },
+    {
+      "id": "2603.05578",
+      "title": "Tool-Genesis: A Task-Driven Tool Creation Benchmark for Self-Evolving Language Agent",
+      "abstract": "Research on self-evolving language agents has accelerated, drawing increasing attention to their ability to create, adapt, and maintain tools from task requirements. However, existing benchmarks predominantly rely on predefined specifications, which limits scalability and hinders truly autonomous evolution. While recent studies attempt to dynamically generate tools, they primarily emphasize downstream performance, resulting in a \"black-box\" evaluation that makes it difficult to attribute failures to specific causes. To address this, we propose Tool-Genesis, a diagnostic benchmark designed to quantify agent capabilities across multiple dimensions, including interface compliance, functional correctness, and downstream utility. Tool-Genesis evaluates whether agents can construct task-relevant tools solely from abstract requirements (without preset specifications) and use them to solve realistic problems. Crucially, we find that even state-of-the-art models struggle to produce precise tool interfaces or executable logic in a one-shot setting. These minor initial flaws are amplified through the pipeline, leading to a sharp degradation in downstream metrics. We hope Tool-Genesis will guide future research toward training and steering models to synthesize persistent, general-purpose tools that better address real-world challenges.",
+      "url": "https://arxiv.org/abs/2603.05578",
+      "match_score": 0.9721,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-03-05"
+    },
+    {
+      "id": "2603.07825",
+      "title": "Benchmarking Large Language Models for Quebec Insurance: From Closed-Book to Retrieval-Augmented Generation",
+      "abstract": "The digitization of insurance distribution in the Canadian province of Quebec, accelerated by legislative changes such as Bill 141, has created a significant \"advice gap\", leaving consumers to interpret complex financial contracts without professional guidance. While Large Language Models (LLMs) offer a scalable solution for automated advisory services, their deployment in high-stakes domains hinges on strict legal accuracy and trustworthiness. In this paper, we address this challenge by introducing AEPC-QA, a private gold-standard benchmark of 807 multiple-choice questions derived from official regulatory certification (paper) handbooks. We conduct a comprehensive evaluation of 51 LLMs across two paradigms: closed-book generation and retrieval-augmented generation (RAG) using a specialized corpus of Quebec insurance documents. Our results reveal three critical insights: 1) the supremacy of inference-time reasoning, where models leveraging chain-of-thought processing (e.g. o3-2025-04-16, o1-2024-12-17) significantly outperform standard instruction-tuned models; 2) RAG acts as a knowledge equalizer, boosting the accuracy of models with weak parametric knowledge by over 35 percentage points, yet paradoxically causing \"context distraction\" in others, leading to catastrophic performance regressions; and 3) a \"specialization paradox\", where massive generalist models consistently outperform smaller, domain-specific French fine-tuned ones. These findings suggest that while current architectures approach expert-level proficiency (~79%), the instability introduced by external context retrieval necessitates rigorous robustness calibration before autonomous deployment is viable.",
+      "url": "https://arxiv.org/abs/2603.07825",
+      "match_score": 0.9695,
+      "matched_cluster": "llms & language & ai",
+      "submitted": "2026-03-08"
+    },
+    {
+      "id": "2603.07528",
+      "title": "TableMind++: An Uncertainty-Aware Programmatic Agent for Tool-Augmented Table Reasoning",
+      "abstract": "Table reasoning requires models to jointly perform semantic understanding and precise numerical operations. Most existing methods rely on a single-turn reasoning paradigm over tables which suffers from context overflow and weak numerical sensitivity. To address these limitations, we previously proposed TableMind as a tuning-based autonomous programmatic agent that simulates human-like interaction within a lightweight large language model (LLM). TableMind internalizes planning, action, and reflection through a two-stage training strategy involving supervised fine-tuning (SFT) on filtered high-quality data and reinforcement learning (RL) via a multi-perspective reward and the Rank-Aware Policy Optimization (RAPO) algorithm. While TableMind establishes a solid foundation for programmatic agents, the inherent stochasticity of LLMs remains a critical challenge that leads to hallucinations. In this paper, we extend this foundation to TableMind++ by introducing a novel uncertainty-aware inference framework to mitigate hallucinations. Specifically, we propose memory-guided plan pruning to retrieve historical trajectories for validating and filtering out logically flawed plans to address epistemic uncertainty. To ensure execution precision, we introduce confidence-based action refinement which monitors token-level probabilities to detect and self-correct syntactic noise for aleatoric uncertainty mitigation. Finally, we employ dual-weighted trajectory aggregation to synthesize a robust consensus from multiple reasoning paths. Extensive experiments on diverse benchmarks demonstrate that TableMind++ consistently outperforms previous baselines and proprietary models to validate the effectiveness of integrating autonomous training with uncertainty quantification. Our code is available.",
+      "url": "https://arxiv.org/abs/2603.07528",
+      "match_score": 0.9691,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-03-08"
+    },
+    {
+      "id": "2603.01209",
+      "title": "Agents Learn Their Runtime: Interpreter Persistence as Training-Time Semantics",
+      "abstract": "Tool-augmented LLMs are increasingly deployed as agents that interleave natural-language reasoning with executable Python actions, as in CodeAct-style frameworks. In deployment, these agents rely on runtime state that persists across steps. By contrast, the traces used to post-train these models rarely encode how interpreter state is managed. We ask whether interpreter persistence is merely a runtime scaffold, or a property of the training data that shapes how agents learn to use the interpreter.\n  We isolate state persistence as a training-time variable. We introduce Opaque Knapsack, a procedurally generated family of partially observable optimization tasks designed to prevent one-shot solutions. Item attributes and constraints are hidden behind budgeted tool calls, forcing multi-turn control flow and iterative state revision. Holding task instances, prompts, tools, model, and supervision fixed, we generate matched trajectories differing only in whether interpreter state persists across steps or resets after each action. We then fine-tune identical base models (Qwen3-8B) on each trace variant and evaluate all four train-runtime combinations.\n  Our 2x2 cross-evaluation shows that interpreter persistence shapes how agents reach solutions, not whether they do: solution quality is statistically indistinguishable across conditions, but token cost and stability differ substantially. A persistent-trained model in a stateless runtime triggers missing-variable errors in roughly 80% of episodes; a stateless-trained model in a persistent runtime redundantly re-derives retained state, using roughly 3.5x more tokens.\n  Interpreter persistence should be treated as a first-class semantic of agent traces. Aligning fine-tuning data with deployment runtimes improves efficiency and reduces brittle train-runtime mismatches.",
+      "url": "https://arxiv.org/abs/2603.01209",
+      "match_score": 0.9686,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-03-01"
+    },
+    {
+      "id": "2603.01012",
+      "title": "FastCode: Fast and Cost-Efficient Code Understanding and Reasoning",
+      "abstract": "Repository-scale code reasoning is a cornerstone of modern AI-assisted software engineering, enabling Large Language Models (LLMs) to handle complex workflows from program comprehension to complex debugging. However, balancing accuracy with context cost remains a significant bottleneck, as existing agentic approaches often waste computational resources through inefficient, iterative full-text exploration. To address this, we introduce FastCode, a framework that decouples repository exploration from content consumption. FastCode utilizes a structural scouting mechanism to navigate a lightweight semantic-structural map of the codebase, allowing the system to trace dependencies and pinpoint relevant targets without the overhead of full-text ingestion. By leveraging structure-aware navigation tools regulated by a cost-aware policy, the framework constructs high-value contexts in a single, optimized step. Extensive evaluations on the SWE-QA, LongCodeQA, LOC-BENCH, and GitTaskBench benchmarks demonstrate that FastCode consistently outperforms state-of-the-art baselines in reasoning accuracy while significantly reducing token consumption, validating the efficiency of scouting-first strategies for large-scale code reasoning. Source code is available at https://github.com/HKUDS/FastCode.",
+      "url": "https://arxiv.org/abs/2603.01012",
+      "match_score": 0.9685,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-03-01"
+    },
+    {
+      "id": "2603.02668",
+      "title": "SorryDB: Can AI Provers Complete Real-World Lean Theorems?",
+      "abstract": "We present SorryDB, a dynamically-updating benchmark of open Lean tasks drawn from 78 real world formalization projects on GitHub. Unlike existing static benchmarks, often composed of competition problems, hillclimbing the SorryDB benchmark will yield tools that are aligned to the community needs, more usable by mathematicians, and more capable of understanding complex dependencies. Moreover, by providing a continuously updated stream of tasks, SorryDB mitigates test-set contamination and offers a robust metric for an agent's ability to contribute to novel formal mathematics projects. We evaluate a collection of approaches, including generalist large language models, agentic approaches, and specialized symbolic provers, over a selected snapshot of 1000 tasks from SorryDB. We show that current approaches are complementary: even though an agentic approach based on Gemini Flash is the most performant, it is not strictly better than other off-the-shelf large-language models, specialized provers, or even a curated list of Lean tactics.",
+      "url": "https://arxiv.org/abs/2603.02668",
+      "match_score": 0.9681,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-03-03"
+    },
+    {
+      "id": "2602.23668",
+      "title": "PseudoAct: Leveraging Pseudocode Synthesis for Flexible Planning and Action Control in Large Language Model Agents",
+      "abstract": "Large language model (LLM) agents typically rely on reactive decision-making paradigms such as ReAct, selecting actions conditioned on growing execution histories. While effective for short tasks, these approaches often lead to redundant tool usage, unstable reasoning, and high token consumption in complex long-horizon tasks involving branching, iteration, or multi-tool coordination. To address these limitations, this paper introduces PseudoAct, a novel framework for flexible planning and action control in LLM agents through pseudocode synthesis. Leveraging the ability of LLMs to express task-solving strategies as code, PseudoAct synthesizes a structured pseudocode plan that decomposes a task into subtasks and explicitly encodes control flow, including sequencing, conditionals, loops, parallel composition, and combinations of these logic primitives. Actions are then executed by following this global plan, making the decision logic explicit and temporally coherent. This design reduces redundant actions, prevents infinite loops, and avoids uninformative alternative exploration, enabling consistent and efficient long-horizon decision-making. Experiments on benchmark datasets show that our method significantly outperforms existing reactive agent approaches, achieving a 20.93% absolute gain in success rate on FEVER and setting a new state-of-the-art on HotpotQA.",
+      "url": "https://arxiv.org/abs/2602.23668",
+      "match_score": 0.9677,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-02-27"
+    },
+    {
+      "id": "2603.00501",
+      "title": "WirelessAgent++: Automated Agentic Workflow Design and Benchmarking for Wireless Networks",
+      "abstract": "The integration of large language models (LLMs) into wireless networks has sparked growing interest in building autonomous AI agents for wireless tasks. However, existing approaches rely heavily on manually crafted prompts and static agentic workflows, a process that is labor-intensive, unscalable, and often suboptimal. In this paper, we propose WirelessAgent++, a framework that automates the design of agentic workflows for various wireless tasks. By treating each workflow as an executable code composed of modular operators, WirelessAgent++ casts agent design as a program search problem and solves it with a domain-adapted Monte Carlo Tree Search (MCTS) algorithm. Moreover, we establish WirelessBench, a standardized multi-dimensional benchmark suite comprising Wireless Communication Homework (WCHW), Network Slicing (WCNS), and Mobile Service Assurance (WCMSA), covering knowledge reasoning, code-augmented tool use, and multi-step decision-making. Experiments demonstrate that \\wap{} autonomously discovers superior workflows, achieving test scores of $78.37\\%$ (WCHW), $90.95\\%$ (WCNS), and $97.07\\%$ (WCMSA), with a total search cost below $\\$ 5$ per task. Notably, our approach outperforms state-of-the-art prompting baselines by up to $31\\%$ and general-purpose workflow optimizers by $11.1\\%$, validating its effectiveness in generating robust, self-evolving wireless agents. The code is available at https://github.com/jwentong/WirelessAgent-R2.",
+      "url": "https://arxiv.org/abs/2603.00501",
+      "match_score": 0.9676,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-02-28"
+    },
+    {
+      "id": "2603.01089",
+      "title": "CARD: Towards Conditional Design of Multi-agent Topological Structures",
+      "abstract": "Large language model (LLM)-based multi-agent systems have shown strong capabilities in tasks such as code generation and collaborative reasoning. However, the effectiveness and robustness of these systems critically depend on their communication topology, which is often fixed or statically learned, ignoring real-world dynamics such as model upgrades, API (or tool) changes, or knowledge source variability. To address this limitation, we propose CARD (Conditional Agentic Graph Designer), a conditional graph-generation framework that instantiates AMACP, a protocol for adaptive multi-agent communication. CARD explicitly incorporates dynamic environmental signals into graph construction, enabling topology adaptation at both training and runtime. Through a conditional variational graph encoder and environment-aware optimization, CARD produces communication structures that are both effective and resilient to shifts in model capability or resource availability. Empirical results on HumanEval, MATH, and MMLU demonstrate that CARD consistently outperforms static and prompt-based baselines, achieving higher accuracy and robustness across diverse conditions. The source code is available at: https://github.com/Warma10032/CARD.",
+      "url": "https://arxiv.org/abs/2603.01089",
+      "match_score": 0.9672,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-03-01"
+    },
+    {
+      "id": "2602.23866",
+      "title": "SWE-rebench V2: Language-Agnostic SWE Task Collection at Scale",
+      "abstract": "Software engineering agents (SWE) are improving rapidly, with recent gains largely driven by reinforcement learning (RL). However, RL training is constrained by the scarcity of large-scale task collections with reproducible execution environments and reliable test suites. Although a growing number of benchmarks have emerged, datasets suitable for training remain limited in scale and diversity or often target a limited set of high-resource language ecosystems. We introduce SWE-rebench V2, a language-agnostic automated pipeline for harvesting executable real-world SWE tasks and constructing RL training environments at scale. The pipeline synthesizes repository-specific installation and test procedures via an interactive setup agent, and filters unsound instances using an ensemble of LLM judges, validated against human-verified SWE-bench annotations. Using this pipeline, we construct a dataset of 32,000+ tasks spanning 20 languages and 3,600+ repositories, with pre-built images for reproducible execution. To further scale training data, we additionally release 120,000+ tasks with installation instructions, fail-to-pass tests and rich metadata, where the problem statement is generated based on the original pull request description. We validate the collected instances through a diagnostic study that covers a subset of tasks in five programming languages across seven popular models, and provide instance-level metadata that flags common confounders such as overly restrictive tests and underspecified descriptions. We release the datasets, the collection and execution code, and associated artifacts to enable large-scale training of SWE agents across diverse languages and repositories.",
+      "url": "https://arxiv.org/abs/2602.23866",
+      "match_score": 0.967,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-02-27"
+    },
+    {
+      "id": "2603.03233",
+      "title": "AI-for-Science Low-code Platform with Bayesian Adversarial Multi-Agent Framework",
+      "abstract": "Large Language Models (LLMs) demonstrate potentials for automating scientific code generation but face challenges in reliability, error propagation in multi-agent workflows, and evaluation in domains with ill-defined success metrics. We present a Bayesian adversarial multi-agent framework specifically designed for AI for Science (AI4S) tasks in the form of a Low-code Platform (LCP). Three LLM-based agents are coordinated under the Bayesian framework: a Task Manager that structures user inputs into actionable plans and adaptive test cases, a Code Generator that produces candidate solutions, and an Evaluator providing comprehensive feedback. The framework employs an adversarial loop where the Task Manager iteratively refines test cases to challenge the Code Generator, while prompt distributions are dynamically updated using Bayesian principles by integrating code quality metrics: functional correctness, structural alignment, and static analysis. This co-optimization of tests and code reduces dependence on LLM reliability and addresses evaluation uncertainty inherent to scientific tasks. LCP also streamlines human-AI collaboration by translating non-expert prompts into domain-specific requirements, bypassing the need for manual prompt engineering by practitioners without coding backgrounds. Benchmark evaluations demonstrate LCP's effectiveness in generating robust code while minimizing error propagation. The proposed platform is also tested on an Earth Science cross-disciplinary task and demonstrates strong reliability, outperforming competing models.",
+      "url": "https://arxiv.org/abs/2603.03233",
+      "match_score": 0.967,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-03-03"
+    },
+    {
+      "id": "2603.08275",
+      "title": "AdaCultureSafe: Adaptive Cultural Safety Grounded by Cultural Knowledge in Large Language Models",
+      "abstract": "With the widespread adoption of Large Language Models (LLMs), respecting indigenous cultures becomes essential for models' culturally safety and responsible global applications. Existing studies separately consider cultural safety and cultural knowledge and neglect that the former should be grounded by the latter. This severely prevents LLMs from yielding culture-specific respectful responses. Consequently, adaptive cultural safety remains a formidable task. In this work, we propose to jointly model cultural safety and knowledge. First and foremost, cultural-safety and knowledge-paired data serve as the key prerequisite to conduct this research. However, the cultural diversity across regions and the subtlety of cultural differences pose significant challenges to the creation of such paired evaluation data. To address this issue, we propose a novel framework that integrates authoritative cultural knowledge descriptions curation, LLM-automated query generation, and heavy manual verification. Accordingly, we obtain a dataset named AdaCultureSafe containing 4.8K manually decomposed fine-grained cultural descriptions and the corresponding 48K manually verified safety- and knowledge-oriented queries. Upon the constructed dataset, we evaluate three families of popular LLMs on their cultural safety and knowledge proficiency, via which we make a critical discovery: no significant correlation exists between their cultural safety and knowledge proficiency. We then delve into the utility-related neuron activations within LLMs to investigate the potential cause of the absence of correlation, which can be attributed to the difference of the objectives of pre-training and post-alignment. We finally present a knowledge-grounded method, which significantly enhances cultural safety by enforcing the integration of knowledge into the LLM response generation process.",
+      "url": "https://arxiv.org/abs/2603.08275",
+      "match_score": 0.9669,
+      "matched_cluster": "llms & language & ai",
+      "submitted": "2026-03-09"
+    },
+    {
+      "id": "2603.03175",
+      "title": "Saarthi for AGI: Towards Domain-Specific General Intelligence for Formal Verification",
+      "abstract": "Saarthi is an agentic AI framework that uses multi-agent collaboration to perform end-to-end formal verification. Even though the framework provides a complete flow from specification to coverage closure, with around 40% efficacy, there are several challenges that need to be addressed to make it more robust and reliable. Artificial General Intelligence (AGI) is still a distant goal, and current Large Language Model (LLM)-based agents are prone to hallucinations and making mistakes, especially when dealing with complex tasks such as formal verification. However, with the right enhancements and improvements, we believe that Saarthi can be a significant step towards achieving domain-specific general intelligence for formal verification. Especially for problems that require Short Term, Short Context (STSC) capabilities, such as formal verification, Saarthi can be a powerful tool to assist verification engineers in their work. In this paper, we present two key enhancements to the Saarthi framework: (1) a structured rulebook and specification grammar to improve the accuracy and controllability of SystemVerilog Assertion (SVA) generation, and (2) integration of advanced Retrieval Augmented Generation (RAG) techniques, such as GraphRAG, to provide agents with access to technical knowledge and best practices for iterative refinement and improvement of outputs. We also benchmark these enhancements for the overall Saarthi framework using challenging test cases from NVIDIA's CVDP benchmark targeting formal verification. Our benchmark results stand out with a 70% improvement in the accuracy of generated assertions, and a 50% reduction in the number of iterations required to achieve coverage closure.",
+      "url": "https://arxiv.org/abs/2603.03175",
+      "match_score": 0.9667,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-03-03"
+    },
+    {
+      "id": "2603.05744",
+      "title": "CodeScout: Contextual Problem Statement Enhancement for Software Agents",
+      "abstract": "Current AI-powered code assistance tools often struggle with poorly-defined problem statements that lack sufficient task context and requirements specification. Recent analysis of software engineering agents reveals that failures on such underspecified requests are highly correlated with longer trajectories involving either over-exploration or repeated attempts at applying the same fix without proper evolution or testing, leading to suboptimal outcomes across software development tasks. We introduce CodeScout, a contextual query refinement approach that systematically converts underspecified user requests into comprehensive, actionable problem statements through lightweight pre-exploration of the target codebase. Our key innovation is demonstrating that structured analysis before task execution can supplement existing agentic capabilities without requiring any modifications to their underlying scaffolds. CodeScout performs targeted context scoping, conducts multi-perspective analysis examining potential fixes and exploration opportunities, then synthesizes these insights into enhanced problem statements with reproduction steps, expected behaviors, and targeted exploration hints. This pre-exploration directly addresses the identified failure patterns by reducing non-converging agent trajectories while clarifying user intent in natural language space. We evaluate CodeScout using state-of-the-art agentic scaffolds and language models on SWEBench-Verified, demonstrating a 20\\% improvement in resolution rates with up to 27 additional issues resolved compared to the default baseline method. Our results suggest that systematic query refinement through contextual analysis represents a promising direction for enhancing AI code assistance capabilities.",
+      "url": "https://arxiv.org/abs/2603.05744",
+      "match_score": 0.9657,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-03-05"
+    },
+    {
+      "id": "2603.06713",
+      "title": "Scaling Agentic Capabilities, Not Context: Efficient Reinforcement Finetuning for Large Toolspaces",
+      "abstract": "Agentic systems operating over large tool ecosystems must plan and execute long-horizon workflows under weak or non-verifiable supervision. While frontier models mitigate these challenges through scale and large context budgets, small language models (SLMs) remain brittle: eager tool loading saturates context, execution errors compound over time, and sparse rewards limit learning. We introduce ATLAS, a reinforcement finetuning framework that enables SLMs to operate effectively in large-scale toolspace environments by learning how to acquire context and how to execute actions. Our approach makes two key contributions. First, we treat context control and execution structure as learnable decisions, combining iterative tool loading with programmatic tool orchestration to bound context growth and stabilize long-horizon trajectories. Second, we propose rubric-based reinforcement finetuning, which decomposes task success into structured, task-aligned criteria and enables scalable training using small judge models. Across MCP benchmarks, these design choices yield large and consistent gains over generic RL baselines, allowing a 4B SLM to approach frontier-agent performance under far tighter parameter and context budgets.",
+      "url": "https://arxiv.org/abs/2603.06713",
+      "match_score": 0.9654,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-03-05"
+    },
+    {
+      "id": "2603.09154",
+      "title": "Bioalignment: Measuring and Improving LLM Disposition Toward Biological Systems for AI Safety",
+      "abstract": "Large language models (LLMs) trained on internet-scale corpora can exhibit systematic biases that increase the probability of unwanted behavior. In this study, we examined potential biases towards synthetic vs. biological technological solutions across four domains (materials, energy, manufacturing, and algorithms). A sample of 5 frontier and 5 open-weight models were measured using 50 curated Bioalignment prompts with a Kelly criterion-inspired evaluation framework. According to this metric, most models were not bioaligned in that they exhibit biases in favor of synthetic (non-biological) solutions. We next examined if fine-tuning could increase the preferences of two open-weight models, Llama 3.2-3B-Instruct and Qwen2.5-3B-Instruct, for biological-based approaches. A curated corpus of ~22M tokens from 6,636 PMC articles emphasizing biological problem-solving was used first to fine-tune Llama 3B with a mixed corpus of continued training and instruction-formatted. This was then extended to Qwen 3B using instruction-formatted only. We found that QLoRA fine-tuning significantly increased the scoring of biological solutions for both models without degrading general capabilities (Holm-Bonferroni-corrected p < 0.001 and p < 0.01, respectively). This suggests that even a small amount of fine-tuning can change how models weigh the relative value of biological and bioinspired vs. synthetic approaches. Although this work focused on small open-weight LLMs, it may be extensible to much larger models and could be used to develop models that favor bio-based approaches. We release the benchmark, corpus, code, and adapter weights.",
+      "url": "https://arxiv.org/abs/2603.09154",
+      "match_score": 0.9648,
+      "matched_cluster": "llms & language & ai",
+      "submitted": "2026-03-10"
+    },
+    {
+      "id": "2603.03378",
+      "title": "AOI: Turning Failed Trajectories into Training Signals for Autonomous Cloud Diagnosis",
+      "abstract": "Large language model (LLM) agents offer a promising data-driven approach to automating Site Reliability Engineering (SRE), yet their enterprise deployment is constrained by three challenges: restricted access to proprietary data, unsafe action execution under permission-governed environments, and the inability of closed systems to improve from failures. We present AOI (Autonomous Operations Intelligence), a trainable multi-agent framework formulating automated operations as a structured trajectory learning problem under security constraints. Our approach integrates three key components. First, a trainable diagnostic system applies Group Relative Policy Optimization (GRPO) to distill expert-level knowledge into locally deployed open-source models, enabling preference-based learning without exposing sensitive data. Second, a read-write separated execution architecture decomposes operational trajectories into observation, reasoning, and action phases, allowing safe learning while preventing unauthorized state mutation. Third, a Failure Trajectory Closed-Loop Evolver mines unsuccessful trajectories and converts them into corrective supervision signals, enabling continual data augmentation. Evaluated on the AIOpsLab benchmark, our contributions yield cumulative gains. (1) The AOI runtime alone achieves 66.3% best@5 success on all 86 tasks, outperforming the prior state-of-the-art (41.9%) by 24.4 points. (2) Adding Observer GRPO training, a locally deployed 14B model reaches 42.9% avg@1 on 63 held-out tasks with unseen fault types, surpassing Claude Sonnet 4.5. (3) The Evolver converts 37 failed trajectories into diagnostic guidance, improving end-to-end avg@5 by 4.8 points while reducing variance by 35%.",
+      "url": "https://arxiv.org/abs/2603.03378",
+      "match_score": 0.9648,
+      "matched_cluster": "agents & code & agent",
+      "submitted": "2026-03-03"
+    }
+  ]
+}

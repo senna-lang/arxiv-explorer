@@ -1,0 +1,345 @@
+{
+  "date": "2026-03-10",
+  "collected_at": "2026-03-12T11:07:05.758956+09:00",
+  "papers": [
+    {
+      "id": "2603.05520",
+      "title": "Information-Theoretic Privacy Control for Sequential Multi-Agent LLM Systems",
+      "authors": [
+        "Sadia Asif",
+        "Mohammad Mohammadi Amiri"
+      ],
+      "abstract": "Sequential multi-agent large language model (LLM) systems are increasingly deployed in sensitive domains such as healthcare, finance, and enterprise decision-making, where multiple specialized agents collaboratively process a single user request. Although individual agents may satisfy local privacy constraints, sensitive information can still be inferred through sequential composition and intermediate representations. In this work, we study \\emph{compositional privacy leakage} in sequential LLM agent pipelines. We formalize leakage using mutual information and derive a theoretical bound that characterizes how locally introduced leakage can amplify across agents under sequential execution. Motivated by this analysis, we propose a privacy-regularized training framework that directly constrains information flow between agent outputs and agent-local sensitive variables. We evaluate our approach across sequential agent pipelines of varying depth on three benchmark datasets, demonstrating stable optimization dynamics and consistent, interpretable privacy-utility trade-offs. Our results show that privacy in agentic LLM systems cannot be guaranteed by local constraints alone and must instead be treated as a system-level property during both training and deployment.",
+      "url": "https://arxiv.org/abs/2603.05520",
+      "categories": [
+        "cs.MA",
+        "cs.CR",
+        "cs.LG"
+      ],
+      "submitted": "2026-02-13",
+      "score": 0.8101
+    },
+    {
+      "id": "2603.05689",
+      "title": "SecureRAG-RTL: A Retrieval-Augmented, Multi-Agent, Zero-Shot LLM-Driven Framework for Hardware Vulnerability Detection",
+      "authors": [
+        "Touseef Hasan",
+        "Blessing Airehenbuwa",
+        "Nitin Pundir",
+        "Souvika Sarkar",
+        "Ujjwal Guin"
+      ],
+      "abstract": "Large language models (LLMs) have shown remarkable capabilities in natural language processing tasks, yet their application in hardware security verification remains limited due to scarcity of publicly available hardware description language (HDL) datasets. This knowledge gap constrains LLM performance in detecting vulnerabilities within HDL designs. To address this challenge, we propose SecureRAG-RTL, a novel Retrieval-Augmented Generation (RAG)-based approach that significantly enhances LLM-based security verification of hardware designs. Our approach integrates domain-specific retrieval with generative reasoning, enabling models to overcome inherent limitations in hardware security expertise. We establish baseline vulnerability detection rates using prompt-only methods and then demonstrate that SecureRAG-RTL achieves substantial improvements across diverse LLM architectures, regardless of size. On average, our method increases detection accuracy by about 30%, highlighting its effectiveness in bridging domain knowledge gaps. For evaluation, we curated and annotated a benchmark dataset of 14 HDL designs containing real-world security vulnerabilities, which we will release publicly to support future research. These findings underscore the potential of RAG-driven augmentation to enable scalable, efficient, and accurate hardware security verification workflows.",
+      "url": "https://arxiv.org/abs/2603.05689",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.8085
+    },
+    {
+      "id": "2603.06422",
+      "title": "Before You Hand Over the Wheel: Evaluating LLMs for Security Incident Analysis",
+      "authors": [
+        "Sourov Jajodia",
+        "Madeena Sultana",
+        "Suryadipta Majumdar",
+        "Adrian Taylor",
+        "Grant Vandenberghe"
+      ],
+      "abstract": "Security incident analysis (SIA) poses a major challenge for security operations centers, which must manage overwhelming alert volumes, large and diverse data sources, complex toolchains, and limited analyst expertise. These difficulties intensify because incidents evolve dynamically and require multi-step, multifaceted reasoning. Although organizations are eager to adopt Large Language Models (LLMs) to support SIA, the absence of rigorous benchmarking creates significant risks for assessing their effectiveness and guiding design decisions. Benchmarking is further complicated by: (i) the lack of an LLM-ready dataset covering a wide spectrum of SIA tasks; (ii) the continual emergence of new tasks reflecting the diversity of analyst responsibilities; and (iii) the rapid release of new LLMs that must be incorporated into evaluations.\n  In this paper, we address these challenges by introducing SIABENCH, an agentic evaluation framework for security incident analysis. First, we construct a first-of-its-kind dataset comprising two major SIA task categories: (i) deep analysis workflows for security incidents (25 scenarios) and (ii) alert-triage tasks (135 scenarios). Second, we implement an agent capable of autonomously performing a broad spectrum of SIA tasks (including network and memory forensics, malware analysis across binary/code/PDF formats, phishing email and kit analysis, log analysis, and false-alert detection). Third, we benchmark 11 major LLMs (spanning both open- and closed-weight models) on these tasks, with extensibility to support emerging models and newly added analysis scenarios.",
+      "url": "https://arxiv.org/abs/2603.06422",
+      "categories": [
+        "cs.CR"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.8054
+    },
+    {
+      "id": "2603.05068",
+      "title": "Cyber Threat Intelligence for Artificial Intelligence Systems",
+      "authors": [
+        "Natalia Krawczyk",
+        "Mateusz Szczepkowski",
+        "Adrian Brodzik",
+        "Krzysztof Bocianiak"
+      ],
+      "abstract": "As artificial intelligence (AI) becomes deeply embedded in critical services and everyday products, it is increasingly exposed to security threats which traditional cyber defenses were not designed to handle. In this paper, we investigate how cyber threat intelligence (CTI) may evolve to address attacks that target AI systems. We first analyze the assumptions and workflows of conventional threat intelligence with the needs of AI-focused defense, highlighting AI-specific assets and vulnerabilities. We then review and organize the current landscape of AI security knowledge. Based on this, we outline what an AI-oriented threat intelligence knowledge base should contain, describing concrete indicators of compromise (IoC) for different AI supply-chain phases and artifacts, and showing how such a knowledge base could support security tools. Finally, we discuss techniques for measuring similarity between collected indicators and newly observed AI artifacts. The review reveals gaps and quality issues in existing resources and identifies potential future research directions toward a practical threat intelligence framework tailored to AI.",
+      "url": "https://arxiv.org/abs/2603.05068",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.803
+    },
+    {
+      "id": "2603.06333",
+      "title": "SAHOO: Safeguarded Alignment for High-Order Optimization Objectives in Recursive Self-Improvement",
+      "authors": [
+        "Subramanyam Sahoo",
+        "Aman Chadha",
+        "Vinija Jain",
+        "Divya Chaudhary"
+      ],
+      "abstract": "Recursive self-improvement is moving from theory to practice: modern systems can critique, revise, and evaluate their own outputs, yet iterative self-modification risks subtle alignment drift. We introduce SAHOO, a practical framework to monitor and control drift through three safeguards: (i) the Goal Drift Index (GDI), a learned multi-signal detector combining semantic, lexical, structural, and distributional measures; (ii) constraint preservation checks that enforce safety-critical invariants such as syntactic correctness and non-hallucination; and (iii) regression-risk quantification to flag improvement cycles that undo prior gains. Across 189 tasks in code generation, mathematical reasoning, and truthfulness, SAHOO produces substantial quality gains, including 18.3 percent improvement in code tasks and 16.8 percent in reasoning, while preserving constraints in two domains and maintaining low violations in truthfulness. Thresholds are calibrated on a small validation set of 18 tasks across three cycles. We further map the capability-alignment frontier, showing efficient early improvement cycles but rising alignment costs later and exposing domain-specific tensions such as fluency versus factuality. SAHOO therefore makes alignment preservation during recursive self-improvement measurable, deployable, and systematically validated at scale.",
+      "url": "https://arxiv.org/abs/2603.06333",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.803
+    },
+    {
+      "id": "2603.05872",
+      "title": "Evolving Deception: When Agents Evolve, Deception Wins",
+      "authors": [
+        "Zonghao Ying",
+        "Haowen Dai",
+        "Tianyuan Zhang",
+        "Yisong Xiao",
+        "Quanchen Zou",
+        "Aishan Liu",
+        "Jian Yang",
+        "Yaodong Yang",
+        "Xianglong Liu"
+      ],
+      "abstract": "Self-evolving agents offer a promising path toward scalable autonomy. However, in this work, we show that in competitive environments, self-evolution can instead give rise to a serious and previously underexplored risk: the spontaneous emergence of deception as an evolutionarily stable strategy. We conduct a systematic empirical study on the self-evolution of large language model (LLM) agents in a competitive Bidding Arena, where agents iteratively refine their strategies through interaction-driven reflection. Across different evolutionary paths (\\eg, Neutral, Honesty-Guided, and Deception-Guided), we find a consistent pattern: under utility-driven competition, unconstrained self-evolution reliably drifts toward deceptive behaviors, even when honest strategies remain viable. This drift is explained by a fundamental asymmetry in generalization. Deception evolves as a transferable meta-strategy that generalizes robustly across diverse and unseen tasks, whereas honesty-based strategies are fragile and often collapse outside their original contexts. Further analysis of agents internal states reveals the emergence of rationalization mechanisms, through which agents justify or deny deceptive actions to reconcile competitive success with normative instructions. Our paper exposes a fundamental tension between agent self-evolution and alignment, highlighting the risks of deploying self-improving agents in adversarial environments.",
+      "url": "https://arxiv.org/abs/2603.05872",
+      "categories": [
+        "cs.CR"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.8016
+    },
+    {
+      "id": "2603.06051",
+      "title": "A LINDDUN-based Privacy Threat Modeling Framework for GenAI",
+      "authors": [
+        "Qianying Liao",
+        "Jonah Bellemans",
+        "Laurens Sion",
+        "Xue Jiang",
+        "Dmitrii Usynin",
+        "Xuebing Zhou",
+        "Dimitri Van Landuyt",
+        "Lieven Desmet",
+        "Wouter Joosen"
+      ],
+      "abstract": "As generative AI (GenAI) systems become increasingly prevalent across various technological stacks, the question of how such systems handle sensitive and personal data flows becomes increasingly important. Specifically, both the ability to harness and process large swaths of information as well as their stochastic nature raise key concerns related to both security and privacy. Unfortunately, while some of the traditional security threat modeling can effectively identify certain violations, privacy-related issues are often overlooked. To respond to these challenges, we introduce a novel domain-specific privacy threat modeling framework to support the privacy threat analysis of GenAI-based applications. This framework is constructed through a two-pronged approach: (1) a systematic review of the emerging literature on GenAI privacy threats, and (2) a case-driven application to a representative Chatbot system. These efforts yield a foundational GenAI privacy threat modeling framework built on LINDDUN. The new framework affects three out of the seven privacy threat types of LINDDUN and introduces 100 new GenAI examples to the knowledge base. Its effectiveness is validated on an AI Agent system, which demonstrates that a comprehensive privacy analysis can be supported by the new framework.",
+      "url": "https://arxiv.org/abs/2603.06051",
+      "categories": [
+        "cs.CR",
+        "cs.SE"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.7991
+    },
+    {
+      "id": "2603.05772",
+      "title": "Depth Charge: Jailbreak Large Language Models from Deep Safety Attention Heads",
+      "authors": [
+        "Jinman Wu",
+        "Yi Xie",
+        "Shiqian Zhao",
+        "Xiaofeng Chen"
+      ],
+      "abstract": "Currently, open-sourced large language models (OSLLMs) have demonstrated remarkable generative performance. However, as their structure and weights are made public, they are exposed to jailbreak attacks even after alignment. Existing attacks operate primarily at shallow levels, such as the prompt or embedding level, and often fail to expose vulnerabilities rooted in deeper model components, which creates a false sense of security for successful defense. In this paper, we propose \\textbf{\\underline{S}}afety \\textbf{\\underline{A}}ttention \\textbf{\\underline{H}}ead \\textbf{\\underline{A}}ttack (\\textbf{SAHA}), an attention-head-level jailbreak framework that explores the vulnerability in deeper but insufficiently aligned attention heads. SAHA contains two novel designs. Firstly, we reveal that deeper attention layers introduce more vulnerability against jailbreak attacks. Based on this finding, \\textbf{SAHA} introduces \\textit{Ablation-Impact Ranking} head selection strategy to effectively locate the most vital layer for unsafe output. Secondly, we introduce a boundary-aware perturbation method, \\textit{i.e. Layer-Wise Perturbation}, to probe the generation of unsafe content with minimal perturbation to the attention. This constrained perturbation guarantees higher semantic relevance with the target intent while ensuring evasion. Extensive experiments show the superiority of our method: SAHA improves ASR by 14\\% over SOTA baselines, revealing the vulnerability of the attack surface on the attention head. Our code is available at https://anonymous.4open.science/r/SAHA.",
+      "url": "https://arxiv.org/abs/2603.05772",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.7959
+    },
+    {
+      "id": "2603.06198",
+      "title": "LIT-RAGBench: Benchmarking Generator Capabilities of Large Language Models in Retrieval-Augmented Generation",
+      "authors": [
+        "Koki Itai",
+        "Shunichi Hasegawa",
+        "Yuta Yamamoto",
+        "Gouki Minegishi",
+        "Masaki Otsuki"
+      ],
+      "abstract": "Retrieval-Augmented Generation (RAG) is a framework in which a Generator, such as a Large Language Model (LLM), produces answers by retrieving documents from an external collection using a Retriever. In practice, Generators must integrate evidence from long contexts, perform multi-step reasoning, interpret tables, and abstain when evidence is missing. However, existing benchmarks for Generators provide limited coverage, with none enabling simultaneous evaluation of multiple capabilities under unified conditions. To bridge the gap between existing evaluations and practical use, we introduce LIT-RAGBench (the Logic, Integration, Table, Reasoning, and Abstention RAG Generator Benchmark), which defines five categories: Integration, Reasoning, Logic, Table, and Abstention, each further divided into practical evaluation aspects. LIT-RAGBench systematically covers patterns combining multiple aspects across categories. By using fictional entities and scenarios, LIT-RAGBench evaluates answers grounded in the provided external documents. The dataset consists of 114 human-constructed Japanese questions and an English version generated by machine translation with human curation. We use LLM-as-a-Judge for scoring and report category-wise and overall accuracy. Across API-based and open-weight models, no model exceeds 90% overall accuracy. By making strengths and weaknesses measurable within each category, LIT-RAGBench serves as a valuable metric for model selection in practical RAG deployments and for building RAG-specialized models. We release LIT-RAGBench, including the dataset and evaluation code, at https://github.com/Koki-Itai/LIT-RAGBench.",
+      "url": "https://arxiv.org/abs/2603.06198",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.7958,
+      "github_url": "https://github.com/Koki-Itai/LIT-RAGBench."
+    },
+    {
+      "id": "2603.06007",
+      "title": "MASFactory: A Graph-centric Framework for Orchestrating LLM-Based Multi-Agent Systems with Vibe Graphing",
+      "authors": [
+        "Yang Liu",
+        "Jinxuan Cai",
+        "Yishen Li",
+        "Qi Meng",
+        "Zedi Liu",
+        "Xin Li",
+        "Chen Qian",
+        "Chuan Shi",
+        "Cheng Yang"
+      ],
+      "abstract": "Large language model-based (LLM-based) multi-agent systems (MAS) are increasingly used to extend agentic problem solving via role specialization and collaboration. MAS workflows can be naturally modeled as directed computation graphs, where nodes execute agents/sub-workflows and edges encode dependencies and message passing. However, implementing complex graph workflows in current frameworks still requires substantial manual effort, offers limited reuse, and makes it difficult to integrate heterogeneous external context sources. To overcome these limitations, we present MASFactory, a graph-centric framework for orchestrating LLM-based MAS. It introduces Vibe Graphing, a human-in-the-loop approach that compiles natural-language intent into an editable workflow specification and then into an executable graph. In addition, the framework provides reusable components and pluggable context integration, as well as a visualizer for topology preview, runtime tracing, and human-in-the-loop interaction. We evaluate MASFactory on seven public benchmarks, validating both reproduction consistency for representative MAS methods and the effectiveness of Vibe Graphing. Our code (https://github.com/BUPT-GAMMA/MASFactory) and video (https://youtu.be/ANynzVfY32k) are publicly available.",
+      "url": "https://arxiv.org/abs/2603.06007",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.MA"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.7938,
+      "github_url": "https://github.com/BUPT-GAMMA/MASFactory"
+    },
+    {
+      "id": "2603.06365",
+      "title": "ESAA-Security: An Event-Sourced, Verifiable Architecture for Agent-Assisted Security Audits of AI-Generated Code",
+      "authors": [
+        "Elzo Brito dos Santos Filho"
+      ],
+      "abstract": "AI-assisted software generation has increased development speed, but it has also amplified a persistent engineering problem: systems that are functionally correct may still be structurally insecure. In practice, prompt-based security review with large language models often suffers from uneven coverage, weak reproducibility, unsupported findings, and the absence of an immutable audit trail. The ESAA architecture addresses a related governance problem in agentic software engineering by separating heuristic agent cognition from deterministic state mutation through append-only events, constrained outputs, and replay-based verification. This paper presents ESAA-Security, a domain-specific specialization of ESAA for agent-assisted security auditing of software repositories, with particular emphasis on AI-generated or AI-modified code. ESAA-Security structures auditing as a governed execution pipeline with four phases reconnaissance, domain audit execution, risk classification, and final reporting and operationalizes the workflow into 26 tasks, 16 security domains, and 95 executable checks. The framework produces structured check results, vulnerability inventories, severity classifications, risk matrices, remediation guidance, executive summaries, and a final markdown/JSON audit report. The central idea is that security review should not be modeled as a free-form conversation with an LLM, but as an evidence-oriented audit process governed by contracts and events. In ESAA-Security, agents emit structured intentions under constrained protocols; the orchestrator validates them, persists accepted outputs to an append-only log, reprojects derived views, and verifies consistency through replay and hashing. The result is a traceable, reproducible, and risk-oriented audit architecture whose final report is auditable by construction.",
+      "url": "https://arxiv.org/abs/2603.06365",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.7928
+    },
+    {
+      "id": "2603.05706",
+      "title": "Reasoning Models Struggle to Control their Chains of Thought",
+      "authors": [
+        "Chen Yueh-Han",
+        "Robert McCarthy",
+        "Bruce W. Lee",
+        "He He",
+        "Ian Kivlichan",
+        "Bowen Baker",
+        "Micah Carroll",
+        "Tomek Korbak"
+      ],
+      "abstract": "Chain-of-thought (CoT) monitoring is a promising tool for detecting misbehaviors and understanding the motivations of modern reasoning models. However, if models can control what they verbalize in their CoT, it could undermine CoT monitorability. To measure this undesirable capability -- CoT controllability -- we introduce the CoT-Control evaluation suite, which includes tasks that require models to solve problems while adhering to CoT instructions, e.g., reasoning about a genetics question without using the word 'chromosome'. We show that reasoning models possess significantly lower CoT controllability than output controllability; for instance, Claude Sonnet 4.5 can control its CoT only 2.7% of the time but 61.9% when controlling its final output. We also find that CoT controllability is higher for larger models and decreases with more RL training, test-time compute, and increased problem difficulty. CoT controllability failures extend even to situations in which models are given incentives (as opposed to direct requests) to evade CoT monitors, although models exhibit slightly higher controllability when they are told they are being monitored. Similarly, eliciting controllability by adversarially optimizing prompts does not meaningfully increase controllability. Our results leave us cautiously optimistic that CoT controllability is currently unlikely to be a failure mode of CoT monitorability. However, the mechanism behind low controllability is not well understood. Given its importance for maintaining CoT monitorability, we recommend that frontier labs track CoT controllability in future models.",
+      "url": "https://arxiv.org/abs/2603.05706",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-05",
+      "score": 0.781
+    },
+    {
+      "id": "2603.06199",
+      "title": "FlashPrefill: Instantaneous Pattern Discovery and Thresholding for Ultra-Fast Long-Context Prefilling",
+      "authors": [
+        "Qihang Fan",
+        "Huaibo Huang",
+        "Zhiying Wu",
+        "Juqiu Wang",
+        "Bingning Wang",
+        "Ran He"
+      ],
+      "abstract": "Long-context modeling is a pivotal capability for Large Language Models, yet the quadratic complexity of attention remains a critical bottleneck, particularly during the compute-intensive prefilling phase. While various sparse attention mechanisms have been explored, they typically suffer from either significant search latency or insufficient sparsity. In this paper, we propose FlashPrefill, a framework enabling ultra-fast prefilling via instantaneous pattern discovery and thresholding. FlashPrefill leverages a fast block-searching technique to simultaneously locate dynamic vertical, slash, and block-sparse attention patterns. Crucially, it introduces a dynamic thresholding mechanism that bypasses the prohibitive overhead of sorting or accumulating attention scores while effectively eliminating the long-tail distribution to enhance sparsity. Extensive evaluations demonstrate that FlashPrefill achieves a substantial leap in efficiency, delivering an unprecedented 27.78x speedup on 256K sequences. Notably, unlike existing methods that incur efficiency degradation on shorter contexts, FlashPrefill maintains a 1.71x speedup even at a 4K context length, demonstrating its robustness and practical utility across varying sequence scales.",
+      "url": "https://arxiv.org/abs/2603.06199",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.779
+    },
+    {
+      "id": "2603.06495",
+      "title": "COLD-Steer: Steering Large Language Models via In-Context One-step Learning Dynamics",
+      "authors": [
+        "Kartik Sharma",
+        "Rakshit S. Trivedi"
+      ],
+      "abstract": "Activation steering methods enable inference-time control of large language model (LLM) behavior without retraining, but current approaches face a fundamental trade-off: sample-efficient methods suboptimally capture steering signals from labeled examples, while methods that better extract these signals require hundreds to thousands of examples. We introduce COLD-Steer, a training-free framework that steers LLM activations by approximating the representational changes that would result from gradient descent on in-context examples. Our key insight is that the effect of fine-tuning on a small set of examples can be efficiently approximated at inference time without actual parameter updates. We formalize this through two complementary approaches: (i) a unit kernel approximation method that updates the activations directly using gradients with respect to them, normalized across examples, and (ii) a finite-difference approximation requiring only two forward passes regardless of example count. Experiments across a variety of steering tasks and benchmarks demonstrate that COLD-Steer achieves upto 95% steering effectiveness while using 50 times fewer samples compared to the best baseline. COLD-Steer facilitates accommodating diverse perspectives without extensive demonstration data, which we validate through our experiments on pluralistic alignment tasks. Our framework opens new possibilities for adaptive, context-aware model control that can flexibly address varying loss-driven human preferences through principled approximation of learning dynamics rather than specialized training procedures.",
+      "url": "https://arxiv.org/abs/2603.06495",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.7763
+    },
+    {
+      "id": "2603.05773",
+      "title": "Knowing without Acting: The Disentangled Geometry of Safety Mechanisms in Large Language Models",
+      "authors": [
+        "Jinman Wu",
+        "Yi Xie",
+        "Shen Lin",
+        "Shiqian Zhao",
+        "Xiaofeng Chen"
+      ],
+      "abstract": "Safety alignment is often conceptualized as a monolithic process wherein harmfulness detection automatically triggers refusal. However, the persistence of jailbreak attacks suggests a fundamental mechanistic decoupling. We propose the \\textbf{\\underline{D}}isentangled \\textbf{\\underline{S}}afety \\textbf{\\underline{H}}ypothesis \\textbf{(DSH)}, positing that safety computation operates on two distinct subspaces: a \\textit{Recognition Axis} ($\\mathbf{v}_H$, ``Knowing'') and an \\textit{Execution Axis} ($\\mathbf{v}_R$, ``Acting''). Our geometric analysis reveals a universal ``Reflex-to-Dissociation'' evolution, where these signals transition from antagonistic entanglement in early layers to structural independence in deep layers. To validate this, we introduce \\textit{Double-Difference Extraction} and \\textit{Adaptive Causal Steering}. Using our curated \\textsc{AmbiguityBench}, we demonstrate a causal double dissociation, effectively creating a state of ``Knowing without Acting.'' Crucially, we leverage this disentanglement to propose the \\textbf{Refusal Erasure Attack (REA)}, which achieves State-of-the-Art attack success rates by surgically lobotomizing the refusal mechanism. Furthermore, we uncover a critical architectural divergence, contrasting the \\textit{Explicit Semantic Control} of Llama3.1 with the \\textit{Latent Distributed Control} of Qwen2.5. The code and dataset are available at https://anonymous.4open.science/r/DSH.",
+      "url": "https://arxiv.org/abs/2603.05773",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.768
+    },
+    {
+      "id": "2603.06222",
+      "title": "SPOT: Span-level Pause-of-Thought for Efficient and Interpretable Latent Reasoning in Large Language Models",
+      "authors": [
+        "Yunlong Chu",
+        "Minglai Shao",
+        "Yuhang Liu",
+        "Bing Hao",
+        "Yumeng Lin",
+        "Jialu Wang",
+        "Ruijie Wang"
+      ],
+      "abstract": "Explicit Chain-of-Thought improves the reasoning performance of large language models but often incurs high inference cost due to verbose token-level traces. While recent approaches reduce this overhead via concise prompting or step pruning, they largely truncate what the model says rather than internalize what the model thinks. Latent reasoning offers a promising alternative by performing computation in the hidden space, yet prior methods face two critical challenges. Many existing approaches rely on rigid point-to-point alignment, forcing a latent token to approximate the final representation of a reasoning step, which can be insufficient to capture the dense, variable-length semantics of an entire reasoning segment. Furthermore, these methods often suffer from a lack of interpretability: latent states are commonly produced by unconstrained optimization or embedding mixing, yielding vectors that are difficult to decode or audit under the pretrained language head. We propose SPOT, a flexible framework that compresses explicit CoT into compact latent pause tokens without enforcing a fixed response template. At the core of SPOT is Span-level Semantic Alignment, a Sinkhorn optimal-transport objective that softly matches each pause token to the semantics of an entire reasoning segment, overcoming the rigidity of step-end alignment. To further improve interpretability, SPOT introduces a Frozen-Head Decoding Constraint that keeps latent states directly decodable as token distributions under the frozen pretrained LM head, enabling readable keyword interpretations of latent thoughts. Experiments on reasoning benchmarks demonstrate that SPOT improves accuracy by 2.3 points on average while reducing generated tokens by 37.5% and provides faithful semantic interpretations of the latent reasoning process.",
+      "url": "https://arxiv.org/abs/2603.06222",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.7677
+    },
+    {
+      "id": "2603.05786",
+      "title": "Proof-of-Guardrail in AI Agents and What (Not) to Trust from It",
+      "authors": [
+        "Xisen Jin",
+        "Michael Duan",
+        "Qin Lin",
+        "Aaron Chan",
+        "Zhenglun Chen",
+        "Junyi Du",
+        "Xiang Ren"
+      ],
+      "abstract": "As AI agents become widely deployed as online services, users often rely on an agent developer's claim about how safety is enforced, which introduces a threat where safety measures are falsely advertised. To address the threat, we propose proof-of-guardrail, a system that enables developers to provide cryptographic proof that a response is generated after a specific open-source guardrail. To generate proof, the developer runs the agent and guardrail inside a Trusted Execution Environment (TEE), which produces a TEE-signed attestation of guardrail code execution verifiable by any user offline. We implement proof-of-guardrail for OpenClaw agents and evaluate latency overhead and deployment cost. Proof-of-guardrail ensures integrity of guardrail execution while keeping the developer's agent private, but we also highlight a risk of deception about safety, for example, when malicious developers actively jailbreak the guardrail. Code and demo video: https://github.com/SaharaLabsAI/Verifiable-ClawGuard",
+      "url": "https://arxiv.org/abs/2603.05786",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-06",
+      "score": 0.766,
+      "github_url": "https://github.com/SaharaLabsAI/Verifiable-ClawGuard"
+    }
+  ],
+  "meta": {
+    "total": 17,
+    "model": "allenai/specter2_base",
+    "profile_version": "1"
+  }
+}

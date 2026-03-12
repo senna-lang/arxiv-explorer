@@ -1,0 +1,421 @@
+{
+  "date": "2026-03-04",
+  "collected_at": "2026-03-12T11:06:19.476376+09:00",
+  "papers": [
+    {
+      "id": "2603.01789",
+      "title": "Can LLMs Hack Enterprise Networks? -- Replicated Computational Results (RCR) Report",
+      "authors": [
+        "Andreas Happe",
+        "Jürgen Cito"
+      ],
+      "abstract": "This is the Replicated Computational Results (RCR) Report for the paper ``Can LLMs Hack Enterprise Networks?\" The paper empirically investigates the efficacy and effectiveness of different LLMs for penetration-testing enterprise networks, i.e., Microsoft Active Directory Assumed-Breach Simulations. This RCR report describes the artifacts used in the paper, how to create an evaluation setup, and highlights the analysis scripts provided within our prototype.",
+      "url": "https://arxiv.org/abs/2603.01789",
+      "categories": [
+        "cs.CR"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.8258
+    },
+    {
+      "id": "2603.01564",
+      "title": "From Secure Agentic AI to Secure Agentic Web: Challenges, Threats, and Future Directions",
+      "authors": [
+        "Zhihang Deng",
+        "Jiaping Gui",
+        "Weinan Zhang"
+      ],
+      "abstract": "Large Language Models (LLMs) are increasingly deployed as agentic systems that plan, memorize, and act in open-world environments. This shift brings new security problems: failures are no longer only unsafe text generation, but can become real harm through tool use, persistent memory, and interaction with untrusted web content. In this survey, we provide a transition-oriented view from Secure Agentic AI to a Secure Agentic Web. We first summarize a component-aligned threat taxonomy covering prompt abuse, environment injection, memory attacks, toolchain abuse, model tampering, and agent network attacks. We then review defense strategies, including prompt hardening, safety-aware decoding, privilege control for tools and APIs, runtime monitoring, continuous red-teaming, and protocol-level security mechanisms. We further discuss how these threats and mitigations escalate in the Agentic Web, where delegation chains, cross-domain interactions, and protocol-mediated ecosystems amplify risks via propagation and composition. Finally, we highlight open challenges for web-scale deployment, such as interoperable identity and authorization, provenance and traceability, ecosystem-level response, and scalable evaluation under adaptive adversaries. Our goal is to connect recent empirical findings with system-level requirements, and to outline practical research directions toward trustworthy agent ecosystems.",
+      "url": "https://arxiv.org/abs/2603.01564",
+      "categories": [
+        "cs.CR"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.8237
+    },
+    {
+      "id": "2603.01919",
+      "title": "Real Money, Fake Models: Deceptive Model Claims in Shadow APIs",
+      "authors": [
+        "Yage Zhang",
+        "Yukun Jiang",
+        "Zeyuan Chen",
+        "Michael Backes",
+        "Xinyue Shen",
+        "Yang Zhang"
+      ],
+      "abstract": "Access to frontier large language models (LLMs), such as GPT-5 and Gemini-2.5, is often hindered by high pricing, payment barriers, and regional restrictions. These limitations drive the proliferation of $\\textit{shadow APIs}$, third-party services that claim to provide access to official model services without regional limitations via indirect access. Despite their widespread use, it remains unclear whether shadow APIs deliver outputs consistent with those of the official APIs, raising concerns about the reliability of downstream applications and the validity of research findings that depend on them. In this paper, we present the first systematic audit between official LLM APIs and corresponding shadow APIs. We first identify 17 shadow APIs that have been utilized in 187 academic papers, with the most popular one reaching 5,966 citations and 58,639 GitHub stars by December 6, 2025. Through multidimensional auditing of three representative shadow APIs across utility, safety, and model verification, we uncover both indirect and direct evidence of deception practices in shadow APIs. Specifically, we reveal performance divergence reaching up to $47.21\\%$, significant unpredictability in safety behaviors, and identity verification failures in $45.83\\%$ of fingerprint tests. These deceptive practices critically undermine the reproducibility and validity of scientific research, harm the interests of shadow API users, and damage the reputation of official model providers.",
+      "url": "https://arxiv.org/abs/2603.01919",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.SE"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.8177
+    },
+    {
+      "id": "2603.01966",
+      "title": "AMemGym: Interactive Memory Benchmarking for Assistants in Long-Horizon Conversations",
+      "authors": [
+        "Cheng Jiayang",
+        "Dongyu Ru",
+        "Lin Qiu",
+        "Yiyang Li",
+        "Xuezhi Cao",
+        "Yangqiu Song",
+        "Xunliang Cai"
+      ],
+      "abstract": "Long-horizon interactions between users and LLM-based assistants necessitate effective memory management, yet current approaches face challenges in training and evaluation of memory. Existing memory benchmarks rely on static, off-policy data as context, limiting evaluation reliability and scalability. To address these gaps, we introduce AMemGym, an interactive environment enabling on-policy evaluation and optimization for memory-driven personalization. AMemGym employs structured data sampling to predefine user profiles, state-dependent questions, and state evolution trajectories, enabling cost-effective generation of high-quality, evaluation-aligned interactions. LLM-simulated users expose latent states through role-play while maintaining structured state consistency. Comprehensive metrics based on structured data guide both assessment and optimization of assistants. Extensive experiments reveal performance gaps in existing memory systems (e.g., RAG, long-context LLMs, and agentic memory) and corresponding reasons. AMemGym not only enables effective selection among competing approaches but also can potentially drive the self-evolution of memory management strategies. By bridging structured state evolution with free-form interactions, our framework provides a scalable, diagnostically rich environment for advancing memory capabilities in conversational agents.",
+      "url": "https://arxiv.org/abs/2603.01966",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.8129
+    },
+    {
+      "id": "2603.00902",
+      "title": "Clawdrain: Exploiting Tool-Calling Chains for Stealthy Token Exhaustion in OpenClaw Agents",
+      "authors": [
+        "Ben Dong",
+        "Hui Feng",
+        "Qian Wang"
+      ],
+      "abstract": "Modern generative agents such as OpenClaw - an open-source, self-hosted personal assistant with a community skill ecosystem, are gaining attention and are used pervasively. However, the openness and rapid growth of these ecosystems often outpace systematic security evaluation. In this paper, we design, implement, and evaluate Clawdrain, a Trojanized skill that induces a multi-turn \"Segmented Verification Protocol\" via injected SKILL.md instructions and a companion script that returns PROGRESS/REPAIR/TERMINAL signals. We deploy Clawdrain in a production-like OpenClaw instance with real API billing and a production model (Gemini 2.5 Pro), and we measure 6-7x token amplification over a benign baseline, with a costly, failure configuration reaching approximately 9x. We observe a deployment-only phenomenon: the agent autonomously composes general-purpose tools (e.g., shell/Python) to route around brittle protocol steps, reducing amplification and altering attack dynamics. Finally, we identify production vectors enabled by OpenClaw's architecture, including SKILL.md prompt bloat, persistent tool-output pollution, cron/heartbeat frequency amplification, and behavioral instruction injection. Overall, we demonstrate that token-drain attacks remain feasible in real deployments, but their magnitude and observability are shaped by tool composition, recovery behavior, and interface design.",
+      "url": "https://arxiv.org/abs/2603.00902",
+      "categories": [
+        "cs.CR",
+        "cs.SE"
+      ],
+      "submitted": "2026-03-01",
+      "score": 0.807
+    },
+    {
+      "id": "2603.01246",
+      "title": "Defensive Refusal Bias: How Safety Alignment Fails Cyber Defenders",
+      "authors": [
+        "David Campbell",
+        "Neil Kale",
+        "Udari Madhushani Sehwag",
+        "Bert Herring",
+        "Nick Price",
+        "Dan Borges",
+        "Alex Levinson",
+        "Christina Q Knight"
+      ],
+      "abstract": "Safety alignment in large language models (LLMs), particularly for cybersecurity tasks, primarily focuses on preventing misuse. While this approach reduces direct harm, it obscures a complementary failure mode: denial of assistance to legitimate defenders. We study Defensive Refusal Bias -- the tendency of safety-tuned frontier LLMs to refuse assistance for authorized defensive cybersecurity tasks when those tasks include similar language to an offensive cyber task. Based on 2,390 real-world examples from the National Collegiate Cyber Defense Competition (NCCDC), we find that LLMs refuse defensive requests containing security-sensitive keywords at $2.72\\times$ the rate of semantically equivalent neutral requests ($p < 0.001$). The highest refusal rates occur in the most operationally critical tasks: system hardening (43.8%) and malware analysis (34.3%). Interestingly, explicit authorization, where the user directly instructs the model that they have authority to complete the target task, increases refusal rates, suggesting models interpret justifications as adversarial rather than exculpatory. These findings are urgent for interactive use and critical for autonomous defensive agents, which cannot rephrase refused queries or retry. Our findings suggest that current LLM cybersecurity alignment relies on semantic similarity to harmful content rather than reasoning about intent or authorization. We call for mitigations that analyze intent to maximize defensive capabilities while still preventing harmful compliance.",
+      "url": "https://arxiv.org/abs/2603.01246",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-01",
+      "score": 0.7983
+    },
+    {
+      "id": "2603.02176",
+      "title": "Organizing, Orchestrating, and Benchmarking Agent Skills at Ecosystem Scale",
+      "authors": [
+        "Hao Li",
+        "Chunjiang Mu",
+        "Jianhao Chen",
+        "Siyue Ren",
+        "Zhiyao Cui",
+        "Yiqun Zhang",
+        "Lei Bai",
+        "Shuyue Hu"
+      ],
+      "abstract": "The rapid proliferation of Claude agent skills has raised the central question of how to effectively leverage, manage, and scale the agent skill ecosystem. In this paper, we propose AgentSkillOS, the first principled framework for skill selection, orchestration, and ecosystem-level management. AgentSkillOS comprises two stages: (i) Manage Skills, which organizes skills into a capability tree via node-level recursive categorization for efficient discovery; and (ii) Solve Tasks, which retrieves, orchestrates, and executes multiple skills through DAG-based pipelines. To evaluate the agent's ability to invoke skills, we construct a benchmark of 30 artifact-rich tasks across five categories: data computation, document creation, motion video, visual design, and web interaction. We assess the quality of task outputs using LLM-based pairwise evaluation, and the results are aggregated via a Bradley-Terry model to produce unified quality scores. Experiments across three skill ecosystem scales (200 to 200K skills) show that tree-based retrieval effectively approximates oracle skill selection, and that DAG-based orchestration substantially outperforms native flat invocation even when given the identical skill set. Our findings confirm that structured composition is the key to unlocking skill potential. Our GitHub repository is available at:https://github.com/ynulihao/AgentSkillOS.",
+      "url": "https://arxiv.org/abs/2603.02176",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7978,
+      "github_url": "https://github.com/ynulihao/AgentSkillOS."
+    },
+    {
+      "id": "2603.01608",
+      "title": "Evaluating and Understanding Scheming Propensity in LLM Agents",
+      "authors": [
+        "Mia Hopman",
+        "Jannes Elstner",
+        "Maria Avramidou",
+        "Amritanshu Prasad",
+        "David Lindner"
+      ],
+      "abstract": "As frontier language models are increasingly deployed as autonomous agents pursuing complex, long-term objectives, there is increased risk of scheming: agents covertly pursuing misaligned goals. Prior work has focused on showing agents are capable of scheming, but their propensity to scheme in realistic scenarios remains underexplored. To understand when agents scheme, we decompose scheming incentives into agent factors and environmental factors. We develop realistic settings allowing us to systematically vary these factors, each with scheming opportunities for agents that pursue instrumentally convergent goals such as self-preservation, resource acquisition, and goal-guarding. We find only minimal instances of scheming despite high environmental incentives, and show this is unlikely due to evaluation awareness. While inserting adversarially-designed prompt snippets that encourage agency and goal-directedness into an agent's system prompt can induce high scheming rates, snippets used in real agent scaffolds rarely do. Surprisingly, in model organisms (Hubinger et al., 2023) built with these snippets, scheming behavior is remarkably brittle: removing a single tool can drop the scheming rate from 59% to 3%, and increasing oversight can raise rather than deter scheming by up to 25%. Our incentive decomposition enables systematic measurement of scheming propensity in settings relevant for deployment, which is necessary as agents are entrusted with increasingly consequential tasks.",
+      "url": "https://arxiv.org/abs/2603.01608",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7976
+    },
+    {
+      "id": "2603.01574",
+      "title": "DualSentinel: A Lightweight Framework for Detecting Targeted Attacks in Black-box LLM via Dual Entropy Lull Pattern",
+      "authors": [
+        "Xiaoyi Pang",
+        "Xuanyi Hao",
+        "Pengyu Liu",
+        "Qi Luo",
+        "Song Guo",
+        "Zhibo Wang"
+      ],
+      "abstract": "Recent intelligent systems integrate powerful Large Language Models (LLMs) through APIs, but their trustworthiness may be critically undermined by targeted attacks like backdoor and prompt injection attacks, which secretly force LLMs to generate specific malicious sequences. Existing defensive approaches for such threats typically rely on high access rights, impose prohibitive costs, and hinder normal inference, rendering them impractical for real-world scenarios. To solve these limitations, we introduce DualSentinel, a lightweight and unified defense framework that can accurately and promptly detect the activation of targeted attacks alongside the LLM generation process. We first identify a characteristic of compromised LLMs, termed Entropy Lull: when a targeted attack successfully hijacks the generation process, the LLM exhibits a distinct period of abnormally low and stable token probability entropy, indicating it is following a fixed path rather than making creative choices. DualSentinel leverages this pattern by developing an innovative dual-check approach. It first employs a magnitude and trend-aware monitoring method to proactively and sensitively flag an entropy lull pattern at runtime. Upon such flagging, it triggers a lightweight yet powerful secondary verification based on task-flipping. An attack is confirmed only if the entropy lull pattern persists across both the original and the flipped task, proving that the LLM's output is coercively controlled. Extensive evaluations show that DualSentinel is both highly effective (superior detection accuracy with near-zero false positives) and remarkably efficient (negligible additional cost), offering a truly practical path toward securing deployed LLMs. The source code can be accessed at https://doi.org/10.5281/zenodo.18479273.",
+      "url": "https://arxiv.org/abs/2603.01574",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7958
+    },
+    {
+      "id": "2603.01973",
+      "title": "CharacterFlywheel: Scaling Iterative Improvement of Engaging and Steerable LLMs in Production",
+      "authors": [
+        "Yixin Nie",
+        "Lin Guan",
+        "Zhongyao Ma",
+        "Anchit Gupta",
+        "Yipin Zhou",
+        "Xiao Li",
+        "Zhengping Zhou",
+        "Raymond Zeng",
+        "Gelin Zhou",
+        "Shigan Chu",
+        "Ajay Thampi",
+        "Wancen Mu",
+        "Nathan Shuster",
+        "Ketong Wang",
+        "Lin Chen",
+        "Jason Brewer",
+        "Derek Hao Hu",
+        "Alexander McCauley",
+        "Jason Weston",
+        "Sem Park",
+        "Na Zhang",
+        "Kevin Tang"
+      ],
+      "abstract": "This report presents CharacterFlywheel, an iterative flywheel process for improving large language models (LLMs) in production social chat applications across Instagram, WhatsApp, and Messenger. Starting from LLaMA 3.1, we refined models across 15 generations using data from both internal and external real-user traffic. Through continuous deployments from July 2024 to April 2025, we conducted controlled 7-day A/B tests showing consistent engagement improvements: 7 of 8 newly deployed models demonstrated positive lift over the baseline, with the strongest performers achieving up to 8.8% improvement in engagement breadth and 19.4% in engagement depth. We also observed substantial gains in steerability, with instruction following increasing from 59.2% to 84.8% and instruction violations decreasing from 26.6% to 5.8%. We detail the CharacterFlywheel process which integrates data curation, reward modeling to estimate and interpolate the landscape of engagement metrics, supervised fine-tuning (SFT), reinforcement learning (RL), and both offline and online evaluation to ensure reliable progress at each optimization step. We also discuss our methods for overfitting prevention and navigating production dynamics at scale. These contributions advance the scientific rigor and understanding of LLMs in social applications serving millions of users.",
+      "url": "https://arxiv.org/abs/2603.01973",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.SI"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7935
+    },
+    {
+      "id": "2603.01783",
+      "title": "GAM-RAG: Gain-Adaptive Memory for Evolving Retrieval in Retrieval-Augmented Generation",
+      "authors": [
+        "Yifan Wang",
+        "Mingxuan Jiang",
+        "Zhihao Sun",
+        "Yixin Cao",
+        "Yicun Liu",
+        "Keyang Chen",
+        "Guangnan Ye",
+        "Hongfeng Chai"
+      ],
+      "abstract": "Retrieval-Augmented Generation (RAG) grounds large language models with external evidence, but many implementations rely on pre-built indices that remain static after construction. Related queries therefore repeat similar multi-hop traversal, increasing latency and compute. Motivated by schema-based learning in cognitive neuroscience, we propose GAM-RAG, a training-free framework that accumulates retrieval experience from recurring or related queries and updates retrieval memory over time. GAM-RAG builds a lightweight, relation-free hierarchical index whose links capture potential co-occurrence rather than fixed semantic relations. During inference, successful retrieval episodes provide sentence-level feedback, updating sentence memories so evidence useful for similar reasoning types becomes easier to activate later. To balance stability and adaptability under noisy feedback, we introduce an uncertainty-aware, Kalman-inspired gain rule that jointly updates memory states and perplexity-based uncertainty estimates. It applies fast updates for reliable novel signals and conservative refinement for stable or noisy memories. We provide a theoretical analysis of the update dynamics, and empirically show that GAM-RAG improves average performance by 3.95% over the strongest baseline and by 8.19% with 5-turn memory, while reducing inference cost by 61%. Our code and datasets are available at: https://anonymous.4open.science/r/GAM_RAG-2EF6.",
+      "url": "https://arxiv.org/abs/2603.01783",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7928
+    },
+    {
+      "id": "2603.01792",
+      "title": "ALTER: Asymmetric LoRA for Token-Entropy-Guided Unlearning of LLMs",
+      "authors": [
+        "Xunlei Chen",
+        "Jinyu Guo",
+        "Yuang Li",
+        "Zhaokun Wang",
+        "Yi Gong",
+        "Jie Zou",
+        "Jiwei Wei",
+        "Wenhong Tian"
+      ],
+      "abstract": "Large language models (LLMs) have advanced to encompass extensive knowledge across diverse domains. Yet controlling what a LLMs should not know is important for ensuring alignment and thus safe use. However, effective unlearning in LLMs is difficult due to the fuzzy boundary between knowledge retention and forgetting. This challenge is exacerbated by entangled parameter spaces from continuous multi-domain training, often resulting in collateral damage, especially under aggressive unlearning strategies. Furthermore, the computational overhead required to optimize State-of-the-Art (SOTA) models with billions of parameters poses an additional barrier. In this work, we present ALTER, a lightweight unlearning framework for LLMs to address both the challenges of knowledge entanglement and unlearning efficiency. ALTER operates through two phases: (I) high entropy tokens are captured and learned via the shared A matrix in LoRA, followed by (II) an asymmetric LoRA architecture that achieves a specified forgetting objective by parameter isolation and unlearning tokens within the target subdomains. Serving as a new research direction for achieving unlearning via token-level isolation in the asymmetric framework. ALTER achieves SOTA performance on TOFU, WMDP, and MUSE benchmarks with over 95% forget quality and shows minimal side effects through preserving foundational tokens. By decoupling unlearning from LLMs' billion-scale parameters, this framework delivers excellent efficiency while preserving over 90% of model utility, exceeding baseline preservation rates of 47.8-83.6%.",
+      "url": "https://arxiv.org/abs/2603.01792",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7923
+    },
+    {
+      "id": "2603.02208",
+      "title": "Reasoning Core: A Scalable Procedural Data Generation Suite for Symbolic Pre-training and Post-Training",
+      "authors": [
+        "Valentin Lacombe",
+        "Valentin Quesnel",
+        "Damien Sileo"
+      ],
+      "abstract": "Training on verifiable symbolic data is a promising way to expand the reasoning frontier of language models beyond what standard pre-training corpora provide. Yet existing procedural generators often rely on fixed puzzles or templates and do not deliver the distributional breadth needed at scale. We introduce Reasoning Core, a scalable suite that procedurally generates verifiable symbolic reasoning data across core formal domains: PDDL planning over randomized domains, first-order logic with equality, context-free grammar parsing and generation, causal reasoning over random Bayesian networks, and systems of equations. Each task is paired with an external solver for rigorous verification and admits continuous difficulty control for curriculum design. Examples can optionally include solver-derived reasoning traces, enabling supervised training from the earliest pre-training stages, and the same interface provides verifiable reward functions for reinforcement learning. Our experiments show that mixing Reasoning Core data into pre-training improves downstream reasoning while preserving, or slightly improving, language modeling quality. Zero-shot evaluations confirm these tasks challenge frontier models such as GPT-5. The code and data are publicly available under the MIT license.",
+      "url": "https://arxiv.org/abs/2603.02208",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7917
+    },
+    {
+      "id": "2603.01712",
+      "title": "FT-Dojo: Towards Autonomous LLM Fine-Tuning with Language Agents",
+      "authors": [
+        "Qizheng Li",
+        "Yifei Zhang",
+        "Xiao Yang",
+        "Xu Yang",
+        "Zhuo Wang",
+        "Weiqing Liu",
+        "Jiang Bian"
+      ],
+      "abstract": "Fine-tuning large language models for vertical domains remains a labor-intensive and expensive process, requiring domain experts to curate data, configure training, and iteratively diagnose model behavior. Despite growing interest in autonomous machine learning, no prior work has tackled end-to-end LLM fine-tuning with agents. Can LLM-based agents automate this complete process? We frame this as a substantially open problem: agents must navigate an open-ended search space spanning data curation from diverse data sources, processing with complex tools, building a training pipeline, and iteratively refining their approach based on evaluation outcomes in rapidly growing logs--an overall scenario far more intricate than existing benchmarks. To study this question, we introduce FT-Dojo, an interactive environment comprising 13 tasks across 5 domains. We further develop FT-Agent, an autonomous system that mirrors human experts by leveraging evaluation-driven feedback to iteratively diagnose failures and refine fine-tuning strategies. Experiments on FT-Dojo demonstrate that purpose-built fine-tuning agents significantly outperform general-purpose alternatives, with FT-Agent achieving the best performance on 10 out of 13 tasks across all five domains. Ablations show that the approach generalizes effectively to 3B models, with additional insights on data scaling trade-offs and backbone sensitivity. Case analyses reveal that agents can recover from failures through cumulative learning from historical experience, while also exposing fundamental limitations in causal reasoning--highlighting both the promise and current boundaries of autonomous LLM fine-tuning.",
+      "url": "https://arxiv.org/abs/2603.01712",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7869
+    },
+    {
+      "id": "2603.01499",
+      "title": "Towards Privacy-Preserving LLM Inference via Collaborative Obfuscation (Technical Report)",
+      "authors": [
+        "Yu Lin",
+        "Qizhi Zhang",
+        "Wenqiang Ruan",
+        "Daode Zhang",
+        "Jue Hong",
+        "Ye Wu",
+        "Hanning Xia",
+        "Yunlong Mao",
+        "Sheng Zhong"
+      ],
+      "abstract": "The rapid development of large language models (LLMs) has driven the widespread adoption of cloud-based LLM inference services, while also bringing prominent privacy risks associated with the transmission and processing of private data in remote inference. For privacy-preserving LLM inference technologies to be practically applied in industrial scenarios, three core requirements must be satisfied simultaneously: (1) Accuracy and efficiency losses should be minimized to mitigate degradation in service experience. (2) The inference process can be run on large-scale clusters consist of heterogeneous legacy xPUs. (3) Compatibility with existing LLM infrastructures should be ensured to reuse their engineering optimizations. To the best of our knowledge, none of the existing privacy-preserving LLM inference methods satisfy all the above constraints while delivering meaningful privacy guarantees. In this paper, we propose AloePri, the first privacy-preserving LLM inference method for industrial applications. AloePri protects both the input and output data by covariant obfuscation, which jointly transforms data and model parameters to achieve better accuracy and privacy. We carefully design the transformation for each model component to ensure inference accuracy and data privacy while keeping full compatibility with existing infrastructures of Language Model as a Service. AloePri has been integrated into an industrial system for the evaluation of mainstream LLMs. The evaluation on Deepseek-V3.1-Terminus model (671B parameters) demonstrates that AloePri causes accuracy loss of 0.0%~3.5% and exhibits efficiency equivalent to that of plaintext inference. Meanwhile, AloePri successfully resists state-of-the-art attacks, with less than 5\\% of tokens recovered. To the best of our knowledge, AloePri is the first method to exhibit practical applicability to large-scale models in real-world systems.",
+      "url": "https://arxiv.org/abs/2603.01499",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7834
+    },
+    {
+      "id": "2603.01865",
+      "title": "CyclicJudge: Mitigating Judge Bias Efficiently in LLM-based Evaluation",
+      "authors": [
+        "Ziyi Zhu",
+        "Olivier Tieleman",
+        "Alexey Bukhtiyarov",
+        "Jinghong Chen"
+      ],
+      "abstract": "LLM-as-judge evaluation has become standard practice for open-ended model assessment; however, judges exhibit systematic biases that cannot be eliminated by increasing the number of scenarios or generations. These biases are often similar in magnitude to the model differences that benchmarks are designed to detect, resulting in unreliable rankings when single-judge evaluations are used. This work introduces a variance decomposition that partitions benchmark score variance into scenario, generation, judge, and residual components. Based on this analysis, CyclicJudge, a round-robin assignment of judges to scenarios, is demonstrated to be the optimal strategy for a fixed judge-call budget. It eliminates bias precisely while requiring each judge only once per cycle, matching the cost of single-judge evaluation. Empirical results on MT-Bench and MindEval validate the effectiveness of CyclicJudge as predicted, across both general-purpose and domain-specific evaluation settings.",
+      "url": "https://arxiv.org/abs/2603.01865",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7814
+    },
+    {
+      "id": "2603.02202",
+      "title": "Frontier Models Can Take Actions at Low Probabilities",
+      "authors": [
+        "Alex Serrano",
+        "Wen Xing",
+        "David Lindner",
+        "Erik Jenner"
+      ],
+      "abstract": "Pre-deployment evaluations inspect only a limited sample of model actions. A malicious model seeking to evade oversight could exploit this by randomizing when to \"defect\": misbehaving so rarely that no malicious actions are observed during evaluation, but often enough that they occur eventually in deployment. But this requires taking actions at very low rates, while maintaining calibration. Are frontier models even capable of that? We prompt the GPT-5, Claude-4.5 and Qwen-3 families to take a target action at low probabilities (e.g. 0.01%), either given directly or requiring derivation, and evaluate their calibration (i.e. whether they perform the target action roughly 1 in 10,000 times when resampling). We find that frontier models are surprisingly good at this task. If there is a source of entropy in-context (such as a UUID), they maintain high calibration at rates lower than 1 in 100,000 actions. Without external entropy, some models can still reach rates lower than 1 in 10,000. When target rates are given, larger models achieve good calibration at lower rates. Yet, when models must derive the optimal target rate themselves, all models fail to achieve calibration without entropy or hint to generate it. Successful low-rate strategies require explicit Chain-of-Thought (CoT) reasoning, so malicious models attempting this approach could currently be caught by a CoT monitor. However, scaling trends suggest future evaluations may be unable to rely on models' lack of target rate calibration, especially if CoT is no longer legible.",
+      "url": "https://arxiv.org/abs/2603.02202",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7814
+    },
+    {
+      "id": "2603.02146",
+      "title": "LongRLVR: Long-Context Reinforcement Learning Requires Verifiable Context Rewards",
+      "authors": [
+        "Guanzheng Chen",
+        "Michael Qizhe Shieh",
+        "Lidong Bing"
+      ],
+      "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) has significantly advanced the reasoning capabilities of Large Language Models (LLMs) by optimizing them against factual outcomes. However, this paradigm falters in long-context scenarios, as its reliance on internal parametric knowledge is ill-suited for tasks requiring contextual grounding--the ability to find and reason over externally provided information. We identify a key reason for this failure: a reward based solely on the final answer is too sparse to effectively guide the model for identifying relevant evidence. We formally prove that the outcome-only reward leads to significant vanishing gradients for the context grounding process, rendering learning intractable. To overcome this bottleneck, we introduce LongRLVR to augment the sparse answer reward with a dense and verifiable context reward. This auxiliary signal directly incentivizes the model for selecting the correct grounding information, providing a robust learning gradient that solves the underlying optimization challenge. We validate our method on challenging long-context benchmarks using Qwen and LLaMA models. LongRLVR consistently and significantly outperforms the standard RLVR across all models and benchmarks, e.g., boosting a 14B model's scores on RULER-QA from 73.17 to 88.90 and on LongBench v2 from 39.8 to 46.5. Our work demonstrates that explicitly rewarding the grounding process is a critical and effective strategy for unlocking the full reasoning potential of LLMs in long-context applications. Our code is available at https://github.com/real-absolute-AI/LongRLVR.",
+      "url": "https://arxiv.org/abs/2603.02146",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.77,
+      "github_url": "https://github.com/real-absolute-AI/LongRLVR."
+    },
+    {
+      "id": "2603.01875",
+      "title": "KDFlow: A User-Friendly and Efficient Knowledge Distillation Framework for Large Language Models",
+      "authors": [
+        "Songming Zhang",
+        "Xue Zhang",
+        "Tong Zhang",
+        "Bojie Hu",
+        "Yufeng Chen",
+        "Jinan Xu"
+      ],
+      "abstract": "Knowledge distillation (KD) is an essential technique to compress large language models (LLMs) into smaller ones. However, despite the distinct roles of the student model and the teacher model in KD, most existing frameworks still use a homogeneous training backend (e.g., FSDP and DeepSpeed) for both models, leading to suboptimal training efficiency. In this paper, we present a novel framework for LLM distillation, termed \\textbf{KDFlow}, which features a decoupled architecture and employs SGLang for teacher inference. By bridging the training efficiency of FSDP2 and the inference efficiency of SGLang, KDFlow achieves full utilization of both advantages in a unified system. Moreover, instead of transferring full logits across different processes, our framework only transmits the teacher's hidden states using zero-copy data transfer and recomputes the logits on the student side, effectively balancing the communication cost and KD performance. Furthermore, our framework supports both off-policy and on-policy distillation and incorporates KD algorithms for cross-tokenizer KD through highly extensible and user-friendly APIs. Experiments show that KDFlow can achieve \\textbf{1.44$\\times$ to 6.36$\\times$} speedup compared to current KD frameworks, enabling researchers to rapidly prototype and scale LLM distillation with minimal engineering overhead. Code is available at: https://github.com/songmzhang/KDFlow",
+      "url": "https://arxiv.org/abs/2603.01875",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-02",
+      "score": 0.7594,
+      "github_url": "https://github.com/songmzhang/KDFlow"
+    },
+    {
+      "id": "2603.01053",
+      "title": "Turning Black Box into White Box: Dataset Distillation Leaks",
+      "authors": [
+        "Huajie Chen",
+        "Tianqing Zhu",
+        "Yuchen Zhong",
+        "Yang Zhang",
+        "Shang Wang",
+        "Feng He",
+        "Lefeng Zhang",
+        "Jialiang Shen",
+        "Minghao Wang",
+        "Wanlei Zhou"
+      ],
+      "abstract": "Dataset distillation compresses a large real dataset into a small synthetic one, enabling models trained on the synthetic data to achieve performance comparable to those trained on the real data. Although synthetic datasets are assumed to be privacy-preserving, we show that existing distillation methods can cause severe privacy leakage because synthetic datasets implicitly encode the weight trajectories of the distilled model, they become over-informative and exploitable by adversaries. To expose this risk, we introduce the Information Revelation Attack (IRA) against state-of-the-art distillation techniques. Experiments show that IRA accurately predicts both the distillation algorithm and model architecture, and can successfully infer membership and recover sensitive samples from the real dataset.",
+      "url": "https://arxiv.org/abs/2603.01053",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-01",
+      "score": 0.7438
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "profile_version": "1"
+  }
+}

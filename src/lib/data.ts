@@ -5,11 +5,13 @@
  * getPapersForDate: 指定日付の論文配列を返す
  * getRatings: ratings.json の評価配列を返す
  * getRatingMap: paper_id → rating のMapを返す
+ * getMap: map.json のCluster[]を返す
+ * getRecommendations: recommendations.json の内容を返す
  */
 
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import type { DailyData, Paper, Rating, RatingsData } from "./types";
+import type { DailyData, MapData, Paper, Rating, RatingsData, RecommendationsData } from "./types";
 
 const DATA_DIR = join(process.cwd(), "data");
 
@@ -48,4 +50,22 @@ export function getRatings(): Rating[] {
 export function getRatingMap(): Map<string, number> {
   const ratings = getRatings();
   return new Map(ratings.map((r) => [r.paper_id, r.rating]));
+}
+
+export function getMap(): MapData | null {
+  try {
+    const raw = readFileSync(join(DATA_DIR, "map.json"), "utf-8");
+    return JSON.parse(raw) as MapData;
+  } catch {
+    return null;
+  }
+}
+
+export function getRecommendations(): RecommendationsData | null {
+  try {
+    const raw = readFileSync(join(DATA_DIR, "recommendations.json"), "utf-8");
+    return JSON.parse(raw) as RecommendationsData;
+  } catch {
+    return null;
+  }
 }

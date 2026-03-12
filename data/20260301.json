@@ -1,0 +1,247 @@
+{
+  "date": "2026-03-01",
+  "collected_at": "2026-03-12T11:05:59.349569+09:00",
+  "papers": [
+    {
+      "id": "2602.23079",
+      "title": "Assessing Deanonymization Risks with Stylometry-Assisted LLM Agent",
+      "authors": [
+        "Boyang Zhang",
+        "Yang Zhang"
+      ],
+      "abstract": "The rapid advancement of large language models (LLMs) has enabled powerful authorship inference capabilities, raising growing concerns about unintended deanonymization risks in textual data such as news articles. In this work, we introduce an LLM agent designed to evaluate and mitigate such risks through a structured, interpretable pipeline. Central to our framework is the proposed $\\textit{SALA}$ (Stylometry-Assisted LLM Analysis) method, which integrates quantitative stylometric features with LLM reasoning for robust and transparent authorship attribution. Experiments on large-scale news datasets demonstrate that $\\textit{SALA}$, particularly when augmented with a database module, achieves high inference accuracy in various scenarios. Finally, we propose a guided recomposition strategy that leverages the agent's reasoning trace to generate rewriting prompts, effectively reducing authorship identifiability while preserving textual meaning. Our findings highlight both the deanonymization potential of LLM agents and the importance of interpretable, proactive defenses for safeguarding author privacy.",
+      "url": "https://arxiv.org/abs/2602.23079",
+      "categories": [
+        "cs.CL",
+        "cs.CR",
+        "cs.LG"
+      ],
+      "submitted": "2026-02-26",
+      "score": 0.81
+    },
+    {
+      "id": "2602.22724",
+      "title": "AgentSentry: Mitigating Indirect Prompt Injection in LLM Agents via Temporal Causal Diagnostics and Context Purification",
+      "authors": [
+        "Tian Zhang",
+        "Yiwei Xu",
+        "Juan Wang",
+        "Keyan Guo",
+        "Xiaoyang Xu",
+        "Bowen Xiao",
+        "Quanlong Guan",
+        "Jinlin Fan",
+        "Jiawei Liu",
+        "Zhiquan Liu",
+        "Hongxin Hu"
+      ],
+      "abstract": "Large language model (LLM) agents increasingly rely on external tools and retrieval systems to autonomously complete complex tasks. However, this design exposes agents to indirect prompt injection (IPI), where attacker-controlled context embedded in tool outputs or retrieved content silently steers agent actions away from user intent. Unlike prompt-based attacks, IPI unfolds over multi-turn trajectories, making malicious control difficult to disentangle from legitimate task execution. Existing inference-time defenses primarily rely on heuristic detection and conservative blocking of high-risk actions, which can prematurely terminate workflows or broadly suppress tool usage under ambiguous multi-turn scenarios. We propose AgentSentry, a novel inference-time detection and mitigation framework for tool-augmented LLM agents. To the best of our knowledge, AgentSentry is the first inference-time defense to model multi-turn IPI as a temporal causal takeover. It localizes takeover points via controlled counterfactual re-executions at tool-return boundaries and enables safe continuation through causally guided context purification that removes attack-induced deviations while preserving task-relevant evidence. We evaluate AgentSentry on the \\textsc{AgentDojo} benchmark across four task suites, three IPI attack families, and multiple black-box LLMs. AgentSentry eliminates successful attacks and maintains strong utility under attack, achieving an average Utility Under Attack (UA) of 74.55 %, improving UA by 20.8 to 33.6 percentage points over the strongest baselines without degrading benign performance.",
+      "url": "https://arxiv.org/abs/2602.22724",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-02-26",
+      "score": 0.8069
+    },
+    {
+      "id": "2602.22427",
+      "title": "Adversarial Hubness Detector: Detecting Hubness Poisoning in Retrieval-Augmented Generation Systems",
+      "authors": [
+        "Idan Habler",
+        "Vineeth Sai Narajala",
+        "Stav Koren",
+        "Amy Chang",
+        "Tiffany Saade"
+      ],
+      "abstract": "Retrieval-Augmented Generation (RAG) systems are essential to contemporary AI applications, allowing large language models to obtain external knowledge via vector similarity search. Nevertheless, these systems encounter a significant security flaw: hubness - items that frequently appear in the top-$k$ retrieval results for a disproportionately high number of varied queries. These hubs can be exploited to introduce harmful content, alter search rankings, bypass content filtering, and decrease system performance.\n  We introduce hubscan, an open-source security scanner that evaluates vector indices and embeddings to identify hubs in RAG systems. Hubscan presents a multi-detector architecture that integrates: (1) robust statistical hubness detection utilizing median/Median Absolute Deviation (MAD)-based z-scores, (2) cluster spread analysis to assess cross-cluster retrieval patterns, (3) stability testing under query perturbations, and (4) domain-aware and modality-aware detection for category-specific and cross-modal attacks. Our solution accommodates several vector databases (FAISS, Pinecone, Qdrant, Weaviate) and offers versatile retrieval techniques, including vector similarity, hybrid search, and lexical matching with reranking capabilities.\n  We evaluate hubscan on Food-101, MS-COCO, and FiQA adversarial hubness benchmarks constructed using state-of-the-art gradient-optimized and centroid-based hub generation methods. Hubscan achieves 90% recall at a 0.2% alert budget and 100% recall at 0.4%, with adversarial hubs ranking above the 99.8th percentile. In testing, domain-scoped scanning recovered 100% of targeted attacks that evaded global detection. Production validation on 1M real web documents from MS MARCO demonstrates significant score separation between clean documents and adversarial content.",
+      "url": "https://arxiv.org/abs/2602.22427",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-02-25",
+      "score": 0.8058
+    },
+    {
+      "id": "2602.23225",
+      "title": "Why Diffusion Language Models Struggle with Truly Parallel (Non-Autoregressive) Decoding?",
+      "authors": [
+        "Pengxiang Li",
+        "Dilxat Muhtar",
+        "Tianlong Chen",
+        "Lu Yin",
+        "Shiwei Liu"
+      ],
+      "abstract": "Diffusion Language Models (DLMs) are often advertised as enabling parallel token generation, yet practical fast DLMs frequently converge to left-to-right, autoregressive (AR)-like decoding dynamics. In contrast, genuinely non-AR generation is promising because it removes AR's sequential bottleneck, better exploiting parallel hardware to reduce synchronization/communication overhead and improve latency scaling with output length. We argue that a primary driver of AR-like decoding is a mismatch between DLM objectives and the highly sequential structure of widely used training data, including standard pretraining corpora and long chain-of-thought (CoT) supervision. Motivated by this diagnosis, we propose NAP (Non-Autoregressive Parallel DLMs), a proof-of-concept, data-centric approach that better aligns supervision with non-AR parallel decoding. NAP curates examples as multiple independent reasoning trajectories and couples them with a parallel-forced decoding strategy that encourages multi-token parallel updates. Across math reasoning benchmarks, NAP yields stronger performance under parallel decoding than DLMs trained on standard long CoT data, with gains growing as parallelism increases. Our results suggest that revisiting data and supervision is a principled direction for mitigating AR-like behavior and moving toward genuinely non-autoregressive parallel generation in DLMs. Our code is available at https://github.com/pixeli99/NAP.",
+      "url": "https://arxiv.org/abs/2602.23225",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-02-26",
+      "score": 0.8031,
+      "github_url": "https://github.com/pixeli99/NAP."
+    },
+    {
+      "id": "2602.22450",
+      "title": "Silent Egress: When Implicit Prompt Injection Makes LLM Agents Leak Without a Trace",
+      "authors": [
+        "Qianlong Lan",
+        "Anuj Kaul",
+        "Shaun Jones",
+        "Stephanie Westrum"
+      ],
+      "abstract": "Agentic large language model systems increasingly automate tasks by retrieving URLs and calling external tools. We show that this workflow gives rise to implicit prompt injection: adversarial instructions embedded in automatically generated URL previews, including titles, metadata, and snippets, can introduce a system-level risk that we refer to as silent egress. Using a fully local and reproducible testbed, we demonstrate that a malicious web page can induce an agent to issue outbound requests that exfiltrate sensitive runtime context, even when the final response shown to the user appears harmless. In 480 experimental runs with a qwen2.5:7b-based agent, the attack succeeds with high probability (P (egress) =0.89), and 95% of successful attacks are not detected by output-based safety checks. We also introduce sharded exfiltration, where sensitive information is split across multiple requests to avoid detection. This strategy reduces single-request leakage metrics by 73% (Leak@1) and bypasses simple data loss prevention mechanisms. Our ablation results indicate that defenses applied at the prompt layer offer limited protection, while controls at the system and network layers, such as domain allowlisting and redirect-chain analysis, are considerably more effective. These findings suggest that network egress should be treated as a first-class security outcome in agentic LLM systems. We outline architectural directions, including provenance tracking and capability isolation, that go beyond prompt-level hardening.",
+      "url": "https://arxiv.org/abs/2602.22450",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-02-25",
+      "score": 0.8015
+    },
+    {
+      "id": "2602.22700",
+      "title": "IMMACULATE: A Practical LLM Auditing Framework via Verifiable Computation",
+      "authors": [
+        "Yanpei Guo",
+        "Wenjie Qu",
+        "Linyu Wu",
+        "Shengfang Zhai",
+        "Lionel Z. Wang",
+        "Ming Xu",
+        "Yue Liu",
+        "Binhang Yuan",
+        "Dawn Song",
+        "Jiaheng Zhang"
+      ],
+      "abstract": "Commercial large language models are typically deployed as black-box API services, requiring users to trust providers to execute inference correctly and report token usage honestly. We present IMMACULATE, a practical auditing framework that detects economically motivated deviations-such as model substitution, quantization abuse, and token overbilling-without trusted hardware or access to model internals. IMMACULATE selectively audits a small fraction of requests using verifiable computation, achieving strong detection guarantees while amortizing cryptographic overhead. Experiments on dense and MoE models show that IMMACULATE reliably distinguishes benign and malicious executions with under 1% throughput overhead. Our code is published at https://github.com/guo-yanpei/Immaculate.",
+      "url": "https://arxiv.org/abs/2602.22700",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-02-26",
+      "score": 0.7932,
+      "github_url": "https://github.com/guo-yanpei/Immaculate."
+    },
+    {
+      "id": "2602.22525",
+      "title": "Systems-Level Attack Surface of Edge Agent Deployments on IoT",
+      "authors": [
+        "Zhonghao Zhan",
+        "Krinos Li",
+        "Yefan Zhang",
+        "Hamed Haddadi"
+      ],
+      "abstract": "Edge deployment of LLM agents on IoT hardware introduces attack surfaces absent from cloud-hosted orchestration. We present an empirical security analysis of three architectures (cloud-hosted, edge-local swarm, and hybrid) using a multi-device home-automation testbed with local MQTT messaging and an Android smartphone as an edge inference node. We identify five systems-level attack surfaces, including two emergent failures observed during live testbed operation: coordination-state divergence and induced trust erosion. We frame core security properties as measurable systems metrics: data egress volume, failover window exposure, sovereignty boundary integrity, and provenance chain completeness. Our measurements show that edge-local deployments eliminate routine cloud data exposure but silently degrade sovereignty when fallback mechanisms trigger, with boundary crossings invisible at the application layer. Provenance chains remain complete under cooperative operation yet are trivially bypassed without cryptographic enforcement. Failover windows create transient blind spots exploitable for unauthorised actuation. These results demonstrate that deployment architecture, not just model or prompt design, is a primary determinant of security risk in agent-controlled IoT systems.",
+      "url": "https://arxiv.org/abs/2602.22525",
+      "categories": [
+        "cs.CR"
+      ],
+      "submitted": "2026-02-26",
+      "score": 0.7919
+    },
+    {
+      "id": "2602.23184",
+      "title": "MTRAG-UN: A Benchmark for Open Challenges in Multi-Turn RAG Conversations",
+      "authors": [
+        "Sara Rosenthal",
+        "Yannis Katsis",
+        "Vraj Shah",
+        "Lihong He",
+        "Lucian Popa",
+        "Marina Danilevsky"
+      ],
+      "abstract": "We present MTRAG-UN, a benchmark for exploring open challenges in multi-turn retrieval augmented generation, a popular use of large language models. We release a benchmark of 666 tasks containing over 2,800 conversation turns across 6 domains with accompanying corpora. Our experiments show that retrieval and generation models continue to struggle on conversations with UNanswerable, UNderspecified, and NONstandalone questions and UNclear responses. Our benchmark is available at https://github.com/IBM/mt-rag-benchmark",
+      "url": "https://arxiv.org/abs/2602.23184",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-02-26",
+      "score": 0.7792,
+      "github_url": "https://github.com/IBM/mt-rag-benchmark"
+    },
+    {
+      "id": "2602.22871",
+      "title": "Test-Time Scaling with Diffusion Language Models via Reward-Guided Stitching",
+      "authors": [
+        "Roy Miles",
+        "Aysim Toker",
+        "Andreea-Maria Oncescu",
+        "Songcen Xu",
+        "Jiankang Deng",
+        "Ismail Elezi"
+      ],
+      "abstract": "Reasoning with large language models often benefits from generating multiple chains-of-thought, but existing aggregation strategies are typically trajectory-level (e.g., selecting the best trace or voting on the final answer), discarding useful intermediate work from partial or \"nearly correct\" attempts. We propose Stitching Noisy Diffusion Thoughts, a self-consistency framework that turns cheap diffusion-sampled reasoning into a reusable pool of step-level candidates. Given a problem, we (i) sample many diverse, low-cost reasoning trajectories using a masked diffusion language model, (ii) score every intermediate step with an off-the-shelf process reward model (PRM), and (iii) stitch these highest-quality steps across trajectories into a composite rationale. This rationale then conditions an autoregressive (AR) model (solver) to recompute only the final answer. This modular pipeline separates exploration (diffusion) from evaluation and solution synthesis, avoiding monolithic unified hybrids while preserving broad search. Across math reasoning benchmarks, we find that step-level recombination is most beneficial on harder problems, and ablations highlight the importance of the final AR solver in converting stitched but imperfect rationales into accurate answers. Using low-confidence diffusion sampling with parallel, independent rollouts, our training-free framework improves average accuracy by up to 23.8% across six math and coding tasks. At the same time, it achieves up to a 1.8x latency reduction relative to both traditional diffusion models (e.g., Dream, LLaDA) and unified architectures (e.g., TiDAR). Code is available at https://github.com/roymiles/diffusion-stitching.",
+      "url": "https://arxiv.org/abs/2602.22871",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-02-26",
+      "score": 0.7776,
+      "github_url": "https://github.com/roymiles/diffusion-stitching."
+    },
+    {
+      "id": "2602.23136",
+      "title": "Modality Collapse as Mismatched Decoding: Information-Theoretic Limits of Multimodal LLMs",
+      "authors": [
+        "Jayadev Billa"
+      ],
+      "abstract": "Numerous studies have shown that multimodal LLMs process speech and images well but fail in non-intuitive ways rendering trivial tasks such as object counting unreliable. We investigate this behavior from an information-theoretic perspective by framing multimodal LLM inference as a mismatched decoder problem: a decoder trained primarily on text can only extract information along text-aligned directions (removing up to 98% of the variation in modality-specific (non-text) directions improves decoder loss) and the amount of accessible information is bounded by the Generalized Mutual Information (GMI). We show that information loss is bounded as the distributional mismatch between the source data and the text data increases, and as the sensitivity of the decoder increases. This bound is a function of the model's scoring rule not its architecture. We validate the predictions across five models spanning speech and vision. A controlled study (two Prismatic VLMs differing only in encoder text-alignment) shows that the bottleneck lies in the scoring rule of the decoder rather than the text-alignment of the encoder or the learned projection. A LoRA intervention demonstrates that simply training with an emotion-related objective improves emotion detection from 17.3% to 61.8% task accuracy without affecting other attributes, confirming that the training objective determines what becomes accessible.",
+      "url": "https://arxiv.org/abs/2602.23136",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-02-26",
+      "score": 0.77
+    },
+    {
+      "id": "2602.23197",
+      "title": "Fine-Tuning Without Forgetting In-Context Learning: A Theoretical Analysis of Linear Attention Models",
+      "authors": [
+        "Chungpa Lee",
+        "Jy-yong Sohn",
+        "Kangwook Lee"
+      ],
+      "abstract": "Transformer-based large language models exhibit in-context learning, enabling adaptation to downstream tasks via few-shot prompting with demonstrations. In practice, such models are often fine-tuned to improve zero-shot performance on downstream tasks, allowing them to solve tasks without examples and thereby reducing inference costs. However, fine-tuning can degrade in-context learning, limiting the performance of fine-tuned models on tasks not seen during fine-tuning. Using linear attention models, we provide a theoretical analysis that characterizes how fine-tuning objectives modify attention parameters and identifies conditions under which this leads to degraded few-shot performance. We show that fine-tuning all attention parameters can harm in-context learning, whereas restricting updates to the value matrix improves zero-shot performance while preserving in-context learning. We further show that incorporating an auxiliary few-shot loss enhances in-context learning primarily on the target task, at the expense of degraded in-context learning ability on tasks not seen during fine-tuning. We empirically validate our theoretical results.",
+      "url": "https://arxiv.org/abs/2602.23197",
+      "categories": [
+        "cs.CL",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "submitted": "2026-02-26",
+      "score": 0.7677
+    },
+    {
+      "id": "2602.23286",
+      "title": "SPARTA: Scalable and Principled Benchmark of Tree-Structured Multi-hop QA over Text and Tables",
+      "authors": [
+        "Sungho Park",
+        "Jueun Kim",
+        "Wook-Shin Han"
+      ],
+      "abstract": "Real-world Table-Text question answering (QA) tasks require models that can reason across long text and source tables, traversing multiple hops and executing complex operations such as aggregation. Yet existing benchmarks are small, manually curated - and therefore error-prone - and contain shallow questions that seldom demand more than two hops or invoke aggregations, grouping, or other advanced analytical operations expressible in natural-language queries. We present SPARTA, an end-to-end construction framework that automatically generates large-scale Table-Text QA benchmarks with lightweight human validation, requiring only one quarter of the annotation time of HybridQA. The framework first constructs a reference fact database by enriching each source table with grounding tables whose tuples are atomic facts automatically extracted from the accompanying unstructured passages, then synthesizes nested queries whose number of nested predicates matches the desired hop count. To ensure that every SQL statement is executable and that its verbalization yields a fluent, human-sounding question, we propose two novel techniques: provenance-based refinement, which rewrites any syntactically valid query that returns a non-empty result, and realistic-structure enforcement, which confines generation to post-order traversals of the query graph. The resulting pipeline produces thousands of high-fidelity question-answer pairs covering aggregations, grouping, and deep multi-hop reasoning across text and tables. On SPARTA, state-of-the-art models that reach over 70 F1 on HybridQA or over 50 F1 on OTT-QA drop by more than 30 F1 points, exposing fundamental weaknesses in current cross-modal reasoning. Our benchmark, construction code, and baseline models are available at https://github.com/pshlego/SPARTA/tree/main.",
+      "url": "https://arxiv.org/abs/2602.23286",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.DB",
+        "cs.IR"
+      ],
+      "submitted": "2026-02-26",
+      "score": 0.7636,
+      "github_url": "https://github.com/pshlego/SPARTA/tree/main."
+    }
+  ],
+  "meta": {
+    "total": 12,
+    "model": "allenai/specter2_base",
+    "profile_version": "1"
+  }
+}
