@@ -71,7 +71,7 @@ def fetch_arxiv_papers(ids: list[str]) -> list[Any]:
     """arXiv APIで論文情報を取得する。"""
     if not ids:
         return []
-    client = arxiv.Client()
+    client = arxiv.Client(num_retries=5)
     search = arxiv.Search(id_list=ids)
     return list(client.results(search))
 

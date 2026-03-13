@@ -7,6 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "bun test",
+    "sync:ratings": "npx wrangler kv key get 'ratings' --namespace-id=797a1d2d28ef40cd86bb25c2bce60fe9 --remote > data/ratings.json",
     "parse": "python scripts/parse.py",
     "parse:all": "python scripts/parse_all.py",
     "parse:all:force": "python scripts/parse_all.py --force",

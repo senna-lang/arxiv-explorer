@@ -1,0 +1,332 @@
+{
+  "date": "2026-03-13",
+  "collected_at": "2026-03-13T09:19:19.214593+09:00",
+  "papers": [
+    {
+      "id": "2603.10091",
+      "title": "Multi-Stream Perturbation Attack: Breaking Safety Alignment of Thinking LLMs Through Concurrent Task Interference",
+      "authors": [
+        "Fan Yang"
+      ],
+      "abstract": "The widespread adoption of thinking mode in large language models (LLMs) has significantly enhanced complex task processing capabilities while introducing new security risks. When subjected to jailbreak attacks, the step-by-step reasoning process may cause models to generate more detailed harmful content. We observe that thinking mode exhibits unique vulnerabilities when processing interleaved multiple tasks. Based on this observation, we propose multi-stream perturbation attack, which generates superimposed interference by interweaving multiple task streams within a single prompt. We design three perturbation strategies: multi-stream interleaving, inversion perturbation, and shape transformation, which disrupt the thinking process through concurrent task interleaving, character reversal, and format constraints respectively. On JailbreakBench, AdvBench, and HarmBench datasets, our method achieves attack success rates exceeding most methods across mainstream models including Qwen3 series, DeepSeek, Qwen3-Max, and Gemini 2.5 Flash. Experiments show thinking collapse rates and response repetition rates reach up to 17% and 60% respectively, indicating multi-stream perturbation not only bypasses safety mechanisms but also causes thinking process collapse or repetitive outputs.",
+      "url": "https://arxiv.org/abs/2603.10091",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-10",
+      "score": 0.8219
+    },
+    {
+      "id": "2603.10163",
+      "title": "Compatibility at a Cost: Systematic Discovery and Exploitation of MCP Clause-Compliance Vulnerabilities",
+      "authors": [
+        "Nanzi Yang",
+        "Weiheng Bai",
+        "Kangjie Lu"
+      ],
+      "abstract": "The Model Context Protocol (MCP) is a recently proposed interoperability standard that unifies how AI agents connect with external tools and data sources. By defining a set of common client-server message exchange clauses, MCP replaces fragmented integrations with a standardized, plug-and-play framework. However, to be compatible with diverse AI agents, the MCP specification relaxes many behavioral constraints into optional clauses, leading to misuse-prone SDK implementation. We identify it as a new attack surface that allows adversaries to achieve multiple attacks (e.g, silent prompt injection, DoS, etc.), named as \\emph{compatibility-abusing attacks}.\n  In this work, we present the first systematic framework for analyzing this new attack surface across multi-language MCP SDKs. First, we construct a universal and language-agnostic intermediate representation (IR) generator that normalizes SDKs of different languages. Next, based on the new IR, we propose auditable static analysis with LLM-guided semantic reasoning for cross-language/clause compliance analysis. Third, by formalizing the attack semantics of the MCP clauses, we build three attack modalities and develop a modality-guided pipeline to uncover exploitable non-compliance issues.",
+      "url": "https://arxiv.org/abs/2603.10163",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-10",
+      "score": 0.8081
+    },
+    {
+      "id": "2603.10068",
+      "title": "ADVERSA: Measuring Multi-Turn Guardrail Degradation and Judge Reliability in Large Language Models",
+      "authors": [
+        "Harry Owiredu-Ashley"
+      ],
+      "abstract": "Most adversarial evaluations of large language model (LLM) safety assess single prompts and report binary pass/fail outcomes, which fails to capture how safety properties evolve under sustained adversarial interaction. We present ADVERSA, an automated red-teaming framework that measures guardrail degradation dynamics as continuous per-round compliance trajectories rather than discrete jailbreak events. ADVERSA uses a fine-tuned 70B attacker model (ADVERSA-Red, Llama-3.1-70B-Instruct with QLoRA) that eliminates the attacker-side safety refusals that render off-the-shelf models unreliable as attackers, scoring victim responses on a structured 5-point rubric that treats partial compliance as a distinct measurable state.\n  We report a controlled experiment across three frontier victim models (Claude Opus 4.6, Gemini 3.1 Pro, GPT-5.2) using a triple-judge consensus architecture in which judge reliability is measured as a first-class research outcome rather than assumed. Across 15 conversations of up to 10 adversarial rounds, we observe a 26.7% jailbreak rate with an average jailbreak round of 1.25, suggesting that in this evaluation setting, successful jailbreaks were concentrated in early rounds rather than accumulating through sustained pressure. We document inter-judge agreement rates, self-judge scoring tendencies, attacker drift as a failure mode in fine-tuned attackers deployed out of their training distribution, and attacker refusals as a previously-underreported confound in victim resistance measurement. All limitations are stated explicitly. Attack prompts are withheld per responsible disclosure policy; all other experimental artifacts are released.",
+      "url": "https://arxiv.org/abs/2603.10068",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-10",
+      "score": 0.8066
+    },
+    {
+      "id": "2603.10057",
+      "title": "SBOMs into Agentic AIBOMs: Schema Extensions, Agentic Orchestration, and Reproducibility Evaluation",
+      "authors": [
+        "Petar Radanliev",
+        "Carsten Maple",
+        "Omar Santos",
+        "Kayvan Atefi"
+      ],
+      "abstract": "Software supply-chain security requires provenance mechanisms that support reproducibility and vulnerability assessment under dynamic execution conditions. Conventional Software Bills of Materials (SBOMs) provide static dependency inventories but cannot capture runtime behaviour, environment drift, or exploitability context. This paper introduces agentic Artificial Intelligence Bills of Materials (AIBOMs), extending SBOMs into active provenance artefacts through autonomous, policy-constrained reasoning. We present an agentic AIBOM framework based on a multi-agent architecture comprising (i) a baseline environment reconstruction agent (MCP), (ii) a runtime dependency and drift-monitoring agent (A2A), and (iii) a policy-aware vulnerability and VEX reasoning agent (AGNTCY). These agents generate contextual exploitability assertions by combining runtime execution evidence, dependency usage, and environmental mitigations with ISO/IEC 20153:2025 Common Security Advisory Framework (CSAF) v2.0 semantics. Exploitability is expressed via structured VEX assertions rather than enforcement actions. The framework introduces minimal, standards-aligned schema extensions to CycloneDX and SPDX, capturing execution context, dependency evolution, and agent decision provenance while preserving interoperability. Evaluation across heterogeneous analytical workloads demonstrates improved runtime dependency capture, reproducibility fidelity, and stability of vulnerability interpretation compared with established provenance systems, with low computational overhead. Ablation studies confirm that each agent contributes distinct capabilities unavailable through deterministic automation.",
+      "url": "https://arxiv.org/abs/2603.10057",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.SE"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.8034
+    },
+    {
+      "id": "2603.10194",
+      "title": "MCP-in-SoS: Risk assessment framework for open-source MCP servers",
+      "authors": [
+        "Pratyay Kumar",
+        "Miguel Antonio Guirao Aguilera",
+        "Srikathyayani Srikanteswara",
+        "Satyajayant Misra",
+        "Abu Saleh Md Tayeen"
+      ],
+      "abstract": "Model Context Protocol (MCP) servers have rapidly emerged over the past year as a widely adopted way to enable Large Language Model (LLM) agents to access dynamic, real-world tools. As MCP servers proliferate and become easy to adopt via open-source releases, understanding their security risks becomes essential for dependable production agent deployments. Recent work has developed MCP threat taxonomies, proposed mitigations, and demonstrated practical attacks. However, to the best of our knowledge, no prior study has conducted a systematic, large-scale assessment of weaknesses in open-source MCP servers. Motivated by this gap, we apply static code analysis to identify Common Weakness Enumeration (CWE) weaknesses and map them to common attack patterns and threat categories using the MITRE Common Attack Pattern Enumerations and Classifications (CAPEC) to ground risk in real-world threats. We then introduce a risk-assessment framework for the MCP landscape that combines these threats using a multi-metric scoring of likelihood and impact. Our findings show that many open-source MCP servers contain exploitable weaknesses that can compromise confidentiality, integrity, and availability, underscoring the need for secure-by-design MCP server development.",
+      "url": "https://arxiv.org/abs/2603.10194",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-10",
+      "score": 0.8022
+    },
+    {
+      "id": "2603.10060",
+      "title": "Tool Receipts, Not Zero-Knowledge Proofs: Practical Hallucination Detection for AI Agents",
+      "authors": [
+        "Abhinaba Basu"
+      ],
+      "abstract": "AI agents that execute tasks via tool calls frequently hallucinate results - fabricating tool executions, misstating output counts, or presenting inferences as facts. Recent approaches to verifiable AI inference rely on zero-knowledge proofs, which provide cryptographic guarantees but impose minutes of proving time per query, making them impractical for interactive agents. We propose NabaOS, a lightweight verification framework inspired by Indian epistemology (Nyaya Shastra), which classifies every claim in an LLM response by its epistemic source (pramana): direct tool output (pratyaksha), inference (anumana), external testimony (shabda), absence (abhava), or ungrounded opinion. Our runtime generates HMAC-signed tool execution receipts that the LLM cannot forge, then cross-references claims against these receipts to detect hallucinations in real time. We evaluate on NyayaVerifyBench, a new benchmark of 1,800 agent response scenarios across four languages with injected hallucinations of six types. NabaOS detects 94.2% of fabricated tool references, 87.6% of count misstatements, and 91.3% of false absence claims, with <15ms verification overhead per response. For deep delegation (agents performing multi-step web tasks), our cross-checking protocol catches 78.4% of URL fabrications via independent re-fetching. We compare against five approaches: zkLLM (cryptographic proofs, 180s/query), TOPLOC (locality-sensitive hashing), SPEX (sampling-based proof of execution), tensor commitments, and self-consistency checking. NabaOS achieves the best cost-latency-coverage trade-off for interactive agents: 94.2% coverage at <15ms versus zkLLM's near-perfect coverage at 180,000ms. For interactive agents, practical receipt-based verification provides better cost-benefit than cryptographic proofs, and epistemic classification gives users actionable trust signals rather than binary judgments.",
+      "url": "https://arxiv.org/abs/2603.10060",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-09",
+      "score": 0.8022
+    },
+    {
+      "id": "2603.10521",
+      "title": "IH-Challenge: A Training Dataset to Improve Instruction Hierarchy on Frontier LLMs",
+      "authors": [
+        "Chuan Guo",
+        "Juan Felipe Ceron Uribe",
+        "Sicheng Zhu",
+        "Christopher A. Choquette-Choo",
+        "Steph Lin",
+        "Nikhil Kandpal",
+        "Milad Nasr",
+        "Rai",
+        "Sam Toyer",
+        "Miles Wang",
+        "Yaodong Yu",
+        "Alex Beutel",
+        "Kai Xiao"
+      ],
+      "abstract": "Instruction hierarchy (IH) defines how LLMs prioritize system, developer, user, and tool instructions under conflict, providing a concrete, trust-ordered policy for resolving instruction conflicts. IH is key to defending against jailbreaks, system prompt extractions, and agentic prompt injections. However, robust IH behavior is difficult to train: IH failures can be confounded with instruction-following failures, conflicts can be nuanced, and models can learn shortcuts such as overrefusing. We introduce IH-Challenge, a reinforcement learning training dataset, to address these difficulties. Fine-tuning GPT-5-Mini on IH-Challenge with online adversarial example generation improves IH robustness by +10.0% on average across 16 in-distribution, out-of-distribution, and human red-teaming benchmarks (84.1% to 94.1%), reduces unsafe behavior from 6.6% to 0.7% while improving helpfulness on general safety evaluations, and saturates an internal static agentic prompt injection evaluation, with minimal capability regression. We release the IH-Challenge dataset (https://huggingface.co/datasets/openai/ih-challenge) to support future research on robust instruction hierarchy.",
+      "url": "https://arxiv.org/abs/2603.10521",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CR",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.7982
+    },
+    {
+      "id": "2603.10749",
+      "title": "AttriGuard: Defeating Indirect Prompt Injection in LLM Agents via Causal Attribution of Tool Invocations",
+      "authors": [
+        "Yu He",
+        "Haozhe Zhu",
+        "Yiming Li",
+        "Shuo Shao",
+        "Hongwei Yao",
+        "Zhihao Liu",
+        "Zhan Qin"
+      ],
+      "abstract": "LLM agents are highly vulnerable to Indirect Prompt Injection (IPI), where adversaries embed malicious directives in untrusted tool outputs to hijack execution. Most existing defenses treat IPI as an input-level semantic discrimination problem, which often fails to generalize to unseen payloads. We propose a new paradigm, action-level causal attribution, which secures agents by asking why a particular tool call is produced. The central goal is to distinguish tool calls supported by the user's intent from those causally driven by untrusted observations. We instantiate this paradigm with AttriGuard, a runtime defense based on parallel counterfactual tests. For each proposed tool call, AttriGuard verifies its necessity by re-executing the agent under a control-attenuated view of external observations. Technically, AttriGuard combines teacher-forced shadow replay to prevent attribution confounding, hierarchical control attenuation to suppress diverse control channels while preserving task-relevant information, and a fuzzy survival criterion that is robust to LLM stochasticity. Across four LLMs and two agent benchmarks, AttriGuard achieves 0% ASR under static attacks with negligible utility loss and moderate overhead. Importantly, it remains resilient under adaptive optimization-based attacks in settings where leading defenses degrade significantly.",
+      "url": "https://arxiv.org/abs/2603.10749",
+      "categories": [
+        "cs.CR"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.7907
+    },
+    {
+      "id": "2603.10726",
+      "title": "CacheSolidarity: Preventing Prefix Caching Side Channels in Multi-tenant LLM Serving Systems",
+      "authors": [
+        "Panagiotis Georgios Pennas",
+        "Konstantinos Papaioannou",
+        "Marco Guarnieri",
+        "Thaleia Dimitra Doudali"
+      ],
+      "abstract": "Large Language Models (LLMs) rely on optimizations like Automatic Prefix Caching (APC) to accelerate inference. APC works by reusing previously computed states for the beginning part of a request (prefix), when another request starts with the same text. While APC improves throughput, it introduces timing side channels: cache hits are faster than misses, creating observable latency differences. In multi-tenant systems, attackers can exploit these differences to infer sensitive information, e.g., by incrementally reconstructing another user's request by observing hit/miss patterns. Current defenses take a sledgehammer approach: they disable APC and cache sharing, isolating users, and sacrificing efficiency for regular users. This paper presents CacheSolidarity, a system that secures multi-tenant LLM serving systems against APC side channels without sacrificing performance and efficiency. CacheSolidarity monitors cache reuse across users, flags suspicious sharing, and selectively isolates prefixes, restricting their reuse only when necessary. Evaluation shows that CacheSolidarity enables up to 70% higher cache reuse and 30% lower inference latency compared to existing defenses that isolate users. CacheSolidarity's lightweight design demonstrates how security in LLM serving does not have to come at the cost of unnecessarily reduced performance or unbearable overheads.",
+      "url": "https://arxiv.org/abs/2603.10726",
+      "categories": [
+        "cs.CR",
+        "cs.DC",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.782
+    },
+    {
+      "id": "2603.10969",
+      "title": "TOSSS: a CVE-based Software Security Benchmark for Large Language Models",
+      "authors": [
+        "Marc Damie",
+        "Murat Bilgehan Ertan",
+        "Domenico Essoussi",
+        "Angela Makhanu",
+        "Gaëtan Peter",
+        "Roos Wensveen"
+      ],
+      "abstract": "With their increasing capabilities, Large Language Models (LLMs) are now used across many industries. They have become useful tools for software engineers and support a wide range of development tasks. As LLMs are increasingly used in software development workflows, a critical question arises: are LLMs good at software security? At the same time, organizations worldwide invest heavily in cybersecurity to reduce exposure to disruptive attacks. The integration of LLMs into software engineering workflows may introduce new vulnerabilities and weaken existing security efforts.\n  We introduce TOSSS (Two-Option Secure Snippet Selection), a benchmark that measures the ability of LLMs to choose between secure and vulnerable code snippets. Existing security benchmarks for LLMs cover only a limited range of vulnerabilities. In contrast, TOSSS relies on the CVE database and provides an extensible framework that can integrate newly disclosed vulnerabilities over time. Our benchmark gives each model a security score between 0 and 1 based on its behavior; a score of 1 indicates that the model always selects the secure snippet, while a score of 0 indicates that it always selects the vulnerable one. We evaluate 14 widely used open-source and closed-source models on C/C++ and Java code and observe scores ranging from 0.48 to 0.89. LLM providers already publish many benchmark scores for their models, and TOSSS could become a complementary security-focused score to include in these reports.",
+      "url": "https://arxiv.org/abs/2603.10969",
+      "categories": [
+        "cs.LG",
+        "cs.CL",
+        "cs.CR",
+        "cs.SE"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.7806
+    },
+    {
+      "id": "2603.11021",
+      "title": "Leech Lattice Vector Quantization for Efficient LLM Compression",
+      "authors": [
+        "Tycho F. A. van der Ouderaa",
+        "Mart van Baalen",
+        "Paul Whatmough",
+        "Markus Nagel"
+      ],
+      "abstract": "Scalar quantization of large language models (LLMs) is fundamentally limited by information-theoretic bounds. While vector quantization (VQ) overcomes these limits by encoding blocks of parameters jointly, practical implementations must avoid the need for expensive lookup mechanisms or other explicit codebook storage. Lattice approaches address this through highly structured and dense packing. This paper explores the Leech lattice, which, with its optimal sphere packing and kissing configurations at 24 dimensions, is the highest dimensional lattice known with such optimal properties. To make the Leech lattice usable for LLM quantization, we extend an existing search algorithm based on the extended Golay code construction, to i) support indexing, enabling conversion to and from bitstrings without materializing the codebook, ii) allow angular search over union of Leech lattice shells, iii) propose fully-parallelisable dequantization kernel. Together this yields a practical algorithm, namely Leech Lattice Vector Quantization (LLVQ). LLVQ delivers state-of-the-art LLM quantization performance, outperforming recent methods such as Quip\\#, QTIP, and PVQ. These results highlight the importance of high-dimensional lattices for scalable, theoretically grounded model compression.",
+      "url": "https://arxiv.org/abs/2603.11021",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.7775
+    },
+    {
+      "id": "2603.11027",
+      "title": "Beyond the Illusion of Consensus: From Surface Heuristics to Knowledge-Grounded Evaluation in LLM-as-a-Judge",
+      "authors": [
+        "Mingyang Song",
+        "Mao Zheng",
+        "Chenning Xu"
+      ],
+      "abstract": "The paradigm of LLM-as-a-judge relies on a critical assumption, namely that high inter-evaluator agreement indicates reliable and objective evaluation. We present two complementary findings that challenge this assumption. \\textbf{First}, we demonstrate that this consensus is frequently illusory. We identify and formalize \\textbf{Evaluation Illusion}, a phenomenon where LLM judges generate sophisticated critiques yet anchor scores on shared surface heuristics rather than substantive quality. Through a large-scale study of 105,600 evaluation instances (32 LLMs $\\times$ 3 frontier judges $\\times$ 100 tasks $\\times$ 11 temperatures), we show that model-level agreement (Spearman $ρ= 0.99$) masks fragile sample-level agreement (Pearson $\\bar{r} = 0.72$; absolute agreement ICC $= 0.67$), that merely sharing rubric structure restores 62\\% of total agreement, and that high-quality outputs paradoxically receive the \\textit{least} consistent evaluations. \\textbf{Second}, we demonstrate that dynamically generating evaluation rubrics grounded in domain knowledge produces more meaningful assessment. We introduce MERG (Metacognitive Enhanced Rubric Generation), a knowledge-driven rubric generation framework whose domain-selective effects confirm this. Agreement \\textit{increases} in codified domains (Education +22\\%, Academic +27\\%) where knowledge anchors evaluators on shared standards, while it decreases in subjective domains where genuine evaluative pluralism emerges. These findings suggest that evaluation rubrics should be dynamically enriched with expert knowledge rather than relying on generic criteria, with implications for reward modeling in RLAIF.",
+      "url": "https://arxiv.org/abs/2603.11027",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.7759
+    },
+    {
+      "id": "2603.10243",
+      "title": "GR-SAP: Generative Replay for Safety Alignment Preservation during Fine-Tuning",
+      "authors": [
+        "Zhouxiang Fang",
+        "Jiawei Zhou",
+        "Hanjie Chen"
+      ],
+      "abstract": "Recent studies show that the safety alignment of large language models (LLMs) can be easily compromised even by seemingly non-adversarial fine-tuning. To preserve safety alignment during fine-tuning, a widely used strategy is to jointly optimize safety and task objectives by mixing in the original alignment data, which is typically inaccessible even for open-weight LLMs. Inspired by generative replay in continual learning, we propose Generative Replay for Safety Alignment Preservation (GR-SAP), a unified framework that synthesizes domain-specific alignment data from LLMs and integrate them during downstream adaption to preserve safety alignment. Theoretical and empirical analyses demonstrate this synthetic data serves as a reliable proxy for the original alignment data. Experiments across various models and downstream tasks show that GR-SAP substantially mitigates fine-tuning-induced safety degradation while maintaining comparable downstream performance. Our code is available at https://github.com/chili-lab/gr-sap.",
+      "url": "https://arxiv.org/abs/2603.10243",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-10",
+      "score": 0.7706,
+      "github_url": "https://github.com/chili-lab/gr-sap."
+    },
+    {
+      "id": "2603.10899",
+      "title": "LookaheadKV: Fast and Accurate KV Cache Eviction by Glimpsing into the Future without Generation",
+      "authors": [
+        "Jinwoo Ahn",
+        "Ingyu Seong",
+        "Akhil Kedia",
+        "Junhan Kim",
+        "Hyemi Jang",
+        "Kangwook Lee",
+        "Yongkweon Jeon"
+      ],
+      "abstract": "Transformer-based large language models (LLMs) rely on key-value (KV) caching to avoid redundant computation during autoregressive inference. While this mechanism greatly improves efficiency, the cache size grows linearly with the input sequence length, quickly becoming a bottleneck for long-context tasks. Existing solutions mitigate this problem by evicting prompt KV that are deemed unimportant, guided by estimated importance scores. Notably, a recent line of work proposes to improve eviction quality by \"glimpsing into the future\", in which a draft generator produces a surrogate future response approximating the target model's true response, and this surrogate is subsequently used to estimate the importance of cached KV more accurately. However, these approaches rely on computationally expensive draft generation, which introduces substantial prefilling overhead and limits their practicality in real-world deployment. To address this challenge, we propose LookaheadKV, a lightweight eviction framework that leverages the strength of surrogate future response without requiring explicit draft generation. LookaheadKV augments transformer layers with parameter-efficient modules trained to predict true importance scores with high accuracy. Our design ensures negligible runtime overhead comparable to existing inexpensive heuristics, while achieving accuracy superior to more costly approximation methods. Extensive experiments on long-context understanding benchmarks, across a wide range of models, demonstrate that our method not only outperforms recent competitive baselines in various long-context understanding tasks, but also reduces the eviction cost by up to 14.5x, leading to significantly faster time-to-first-token. Our code is available at https://github.com/SamsungLabs/LookaheadKV.",
+      "url": "https://arxiv.org/abs/2603.10899",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.7676,
+      "github_url": "https://github.com/SamsungLabs/LookaheadKV."
+    },
+    {
+      "id": "2603.10887",
+      "title": "Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models",
+      "authors": [
+        "Yixiu Mao",
+        "Yun Qu",
+        "Qi Wang",
+        "Heming Zou",
+        "Xiangyang Ji"
+      ],
+      "abstract": "Reinforcement learning (RL) finetuning has become a key technique for enhancing the reasoning abilities of large language models (LLMs). However, its effectiveness critically depends on the selection of training data. Recent advances underscore the importance of online prompt selection methods, which typically concentrate training on partially solved or moderately challenging examples under the current policy, thereby yielding more effective model updates. While significantly accelerating RL finetuning in terms of training steps, they also incur substantial computational overhead by requiring extensive LLM rollouts over large candidate batches to identify informative samples, an expense that can outweigh the finetuning process itself. To address this challenge, this work proposes Dynamics-Predictive Sampling (DPS), which online predicts and selects informative prompts by inferring their learning dynamics prior to costly rollouts. Specifically, we introduce a new perspective by modeling each prompt's solving progress during RL finetuning as a dynamical system, where the extent of solving is represented as the state and the transition is characterized by a hidden Markov model. Using historical rollout reward signals, we perform online Bayesian inference to estimate evolving state distributions, and the inference outcome provides a predictive prior for efficient prompt selection without rollout-intensive filtering. Empirical results across diverse reasoning tasks, including mathematics, planning, and visual geometry, demonstrate that DPS substantially reduces redundant rollouts, accelerates the training process, and achieves superior reasoning performance.",
+      "url": "https://arxiv.org/abs/2603.10887",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.753
+    },
+    {
+      "id": "2603.10960",
+      "title": "Ranking Reasoning LLMs under Test-Time Scaling",
+      "authors": [
+        "Mohsen Hariri",
+        "Michael Hinczewski",
+        "Jing Ma",
+        "Vipin Chaudhary"
+      ],
+      "abstract": "Test-time scaling evaluates reasoning LLMs by sampling multiple outputs per prompt, but ranking models in this regime remains underexplored. We formalize dense benchmark ranking under test-time scaling and introduce Scorio, a library that implements statistical ranking methods such as paired-comparison models, item response theory (IRT) models, voting rules, and graph- and spectral-based methods. Across $20$ reasoning models on four Olympiad-style math benchmarks (AIME'24, AIME'25, HMMT'25, and BrUMO'25; up to $N=80$ trials), most full-trial rankings agree closely with the Bayesian gold standard $\\mathrm{Bayes}_{\\mathcal{U}}@80$ (mean Kendall's $τ_b = 0.93$--$0.95$), and $19$--$34$ methods recover exactly the same ordering. In the single-trial regime, the best methods reach $τ_b \\approx 0.86$. Using greedy decoding as an empirical prior ($\\mathrm{Bayes}_{\\mathbf{R}_0}@N$) reduces variance at $N=1$ by $16$--$52\\%$, but can bias rankings when greedy and stochastic sampling disagree. These results identify reliable ranking methods for both high- and low-budget test-time scaling. We release Scorio as an open-source library at https://github.com/mohsenhariri/scorio.",
+      "url": "https://arxiv.org/abs/2603.10960",
+      "categories": [
+        "cs.LG",
+        "math.ST"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.7484,
+      "github_url": "https://github.com/mohsenhariri/scorio."
+    },
+    {
+      "id": "2603.10913",
+      "title": "LLM2Vec-Gen: Generative Embeddings from Large Language Models",
+      "authors": [
+        "Parishad BehnamGhader",
+        "Vaibhav Adlakha",
+        "Fabian David Schmidt",
+        "Nicolas Chapados",
+        "Marius Mosbach",
+        "Siva Reddy"
+      ],
+      "abstract": "LLM-based text embedders typically encode the semantic content of their input. However, embedding tasks require mapping diverse inputs to similar outputs. Typically, this input-output is addressed by training embedding models with paired data using contrastive learning. In this work, we propose a novel self-supervised approach, LLM2Vec-Gen, which adopts a different paradigm: rather than encoding the input, we learn to represent the model's potential response. Specifically, we add trainable special tokens to the LLM's vocabulary, append them to input, and optimize them to represent the LLM's response in a fixed-length sequence. Training is guided by the LLM's own completion for the query, along with an unsupervised embedding teacher that provides distillation targets. This formulation helps to bridge the input-output gap and transfers LLM capabilities such as safety alignment and reasoning to embedding tasks. Crucially, the LLM backbone remains frozen and training requires only unlabeled queries. LLM2Vec-Gen achieves state-of-the-art self-supervised performance on the Massive Text Embedding Benchmark (MTEB), improving by 9.3% over the best unsupervised embedding teacher. We also observe up to 43.2% reduction in harmful content retrieval and 29.3% improvement in reasoning capabilities for embedding tasks. Finally, the learned embeddings are interpretable and can be decoded into text to reveal their semantic content.",
+      "url": "https://arxiv.org/abs/2603.10913",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.7482
+    }
+  ],
+  "meta": {
+    "total": 17,
+    "model": "allenai/specter2_base",
+    "profile_version": "1"
+  }
+}
