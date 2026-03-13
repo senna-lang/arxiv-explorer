@@ -129,7 +129,7 @@ def main(max_papers: int) -> None:
     # 可視化用: 2DでUMAP座標を別途計算
     umap_viz = UMAP(n_components=2, n_neighbors=15, random_state=42, metric="cosine")
     # min_cluster_sizeはデータ件数に比例して調整（大規模ほど大きく）
-    min_cs = max(20, max_papers // 200)
+    min_cs = max(15, max_papers // 500)
     hdbscan_model = HDBSCAN(min_cluster_size=min_cs, metric="euclidean", prediction_data=True)
     # プランA: sklearn英語318語 + 論文特有汎用語でc-TF-IDFノイズを除去
     # min_df=3で希少語を除外、max_df=0.85で全クラスタ共通語を統計的に除外
