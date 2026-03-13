@@ -94,7 +94,12 @@ arXivには毎日数百件の論文が投稿される。全部読むのは不可
   クラスタ centroid との cos 類似度で意味的に並び替え
         │
         ▼
-  [STEP 7] UMAP（50次元 → 2次元）※ 可視化専用
+  [STEP 7] MaximalMarginalRelevance（MMR）で多様性確保
+  選択済みキーワードとの類似度を考慮し、
+  冗長なペア（gnn / gnns 等）を除去して多様なキーワードに絞る
+        │
+        ▼
+  [STEP 8] UMAP（50次元 → 2次元）※ 可視化専用
   画面に描画するための 2D 座標を別途計算
         │
         ▼
@@ -165,6 +170,7 @@ ratings が少ない初期は `profile_score` が補完し、
 | `data/ratings.json` | 星評価履歴の初期データ（Cloudflare KVへの移行元） | - |
 | `data/map.json` | arXiv 論文地図（クラスタ + UMAP 2D 座標） | 月次 |
 | `data/recommendations.json` | 近傍クラスタからのおすすめ論文 | 週次 |
+| `public/map.html` | datamapplot 生成のインタラクティブ地図（map.py / recommend.py が更新） | 月次・週次 |
 
 星評価は **Cloudflare KV** に保存される（`POST /api/rate`）。
 `recommend.py` は `config.json` の `ratings_url`（`GET /api/ratings`）からHTTPで取得する。

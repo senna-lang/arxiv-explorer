@@ -105,18 +105,26 @@ class TestBuildMapOutput:
             for i in range(3)
         ]
 
+    def _sample_papers(self):
+        return [
+            {"id": "2503.00001", "umap_x": 0.1, "umap_y": 0.2, "cluster_id": 0},
+            {"id": "2503.00002", "umap_x": 0.3, "umap_y": 0.4, "cluster_id": 1},
+        ]
+
     def test_required_keys_present(self):
         output = build_map_output(
             clusters=self._sample_clusters(),
+            papers=self._sample_papers(),
             total_papers=100,
             model="allenai/specter2",
         )
-        for key in ["generated_at", "total_papers", "model", "clusters"]:
+        for key in ["generated_at", "total_papers", "model", "clusters", "papers"]:
             assert key in output, f"Missing key: {key}"
 
     def test_total_papers(self):
         output = build_map_output(
             clusters=self._sample_clusters(),
+            papers=self._sample_papers(),
             total_papers=9999,
             model="allenai/specter2",
         )
@@ -124,5 +132,5 @@ class TestBuildMapOutput:
 
     def test_clusters_count(self):
         clusters = self._sample_clusters()
-        output = build_map_output(clusters=clusters, total_papers=100, model="allenai/specter2")
+        output = build_map_output(clusters=clusters, papers=self._sample_papers(), total_papers=100, model="allenai/specter2")
         assert len(output["clusters"]) == len(clusters)

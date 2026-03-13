@@ -83,17 +83,20 @@ def build_cluster_dict(
 
 def build_map_output(
     clusters: list[dict[str, Any]],
+    papers: list[dict[str, Any]],
     total_papers: int,
     model: str,
 ) -> dict[str, Any]:
     """
     map.jsonのルート構造を組み立てる。
+    papersは論文単位のUMAP 2D座標とcluster_idを含む（datamapplot用）。
     """
     return {
         "generated_at": datetime.now(JST).isoformat(),
         "total_papers": total_papers,
         "model": model,
         "clusters": clusters,
+        "papers": papers,
     }
 
 
@@ -119,7 +122,7 @@ def main(max_papers: int) -> None:
     embeddings: np.ndarray = model.encode(abstracts, show_progress_bar=True)
 
     print("[INFO] Running BERTopic...")
-    from bertopic.representation import KeyBERTInspired
+    from bertopic.representation import KeyBERTInspired, MaximalMarginalRelevance
     from hdbscan import HDBSCAN
     from sklearn.decomposition import PCA
     from sklearn.feature_extraction.text import CountVectorizer
@@ -232,11 +235,11 @@ def main(max_papers: int) -> None:
     )
     # プランB: c-TF-IDF候補をspecter2 embeddingで意味的再ランキング
     # nr_candidate_wordsを増やして候補プールを広げ、高頻度語バイアスを緩和
-    representation_model = KeyBERTInspired(
-        nr_repr_docs=10,
-        nr_candidate_words=50,
-        top_n_words=10,
-    )
+    # MaximalMarginalRelevanceで選択済み語との類似度を考慮し、冗長ペア（gnns & gnn等）を抑制
+    representation_model = [
+        KeyBERTInspired(nr_repr_docs=10, nr_candidate_words=50, top_n_words=10),
+        MaximalMarginalRelevance(diversity=0.3, top_n_words=10),
+    ]
     topic_model = BERTopic(
         embedding_model=model,
         umap_model=umap_cluster,
@@ -287,8 +290,22 @@ def main(max_papers: int) -> None:
 
     print(f"[INFO] Found {len(clusters)} clusters")
 
+    # 論文単位のUMAP座標とcluster_idを保存（datamapplot用）
+    # ノイズ(-1)は cluster_id=None として保持
+    topic_to_label = {c["id"]: c["label"] for c in clusters}
+    papers_list: list[dict[str, Any]] = [
+        {
+            "id": pid,
+            "umap_x": round(float(umap_2d[i, 0]), 4),
+            "umap_y": round(float(umap_2d[i, 1]), 4),
+            "cluster_id": topics[i] if topics[i] != -1 else None,
+        }
+        for i, pid in enumerate(paper_ids)
+    ]
+
     output = build_map_output(
         clusters=clusters,
+        papers=papers_list,
         total_papers=len(results),
         model=model_name,
     )
@@ -298,6 +315,29 @@ def main(max_papers: int) -> None:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
     print(f"[INFO] Saved map to {out_path}")
+
+    # datamapplotでインタラクティブ地図を生成
+    print("[INFO] Generating map.html with datamapplot...")
+    import datamapplot
+
+    point_labels = np.array(
+        [topic_to_label.get(topics[i], "Unlabelled") for i in range(len(paper_ids))]
+    )
+    hover_texts = np.array(paper_ids)
+
+    plot = datamapplot.create_interactive_plot(
+        umap_2d,
+        point_labels,
+        hover_text=hover_texts,
+        title="arXiv Paper Map",
+        enable_search=True,
+        noise_label="Unlabelled",
+        inline_data=True,
+    )
+    html_path = ROOT / "public" / "map.html"
+    html_path.parent.mkdir(parents=True, exist_ok=True)
+    plot.save(str(html_path))
+    print(f"[INFO] Saved map.html to {html_path}")
 
 
 if __name__ == "__main__":

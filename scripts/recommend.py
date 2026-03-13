@@ -210,6 +210,45 @@ def main(top_clusters: int, top_n: int) -> None:
 
     print(f"[INFO] Saved {len(recommendations)} recommendations to {out_path}")
 
+    # datamapplotでmap.htmlを再生成（top_clustersをオレンジでハイライト）
+    html_path = ROOT / "public" / "map.html"
+    if not map_data.get("papers"):
+        print(
+            "[INFO] Skipping map.html regeneration (papers data not found in map.json)"
+        )
+        return
+    html_path.parent.mkdir(parents=True, exist_ok=True)
+
+    import datamapplot
+
+    top_labels = {c["label"] for c in top}
+    papers = map_data["papers"]
+    cluster_label_map = {c["id"]: c["label"] for c in map_data["clusters"]}
+
+    coords = np.array([[p["umap_x"], p["umap_y"]] for p in papers])
+    point_labels = np.array(
+        [cluster_label_map.get(p["cluster_id"], "Unlabelled") for p in papers]
+    )
+    # top_clusterはオレンジ、それ以外は青、ノイズはグレー（label_color_mapで指定）
+    all_labels = {c["label"] for c in map_data["clusters"]}
+    label_color_map = {
+        label: ("#f59e0b" if label in top_labels else "#3b82f6")
+        for label in all_labels
+    }
+
+    plot = datamapplot.create_interactive_plot(
+        coords,
+        point_labels,
+        hover_text=np.array([p["id"] for p in papers]),
+        title="arXiv Paper Map",
+        enable_search=True,
+        noise_label="Unlabelled",
+        label_color_map=label_color_map,
+        inline_data=True,
+    )
+    plot.save(str(html_path))
+    print(f"[INFO] Updated map.html with top_clusters highlighted")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
