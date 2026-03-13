@@ -1,20 +1,47 @@
 {
-  "generated_at": "2026-03-13T21:14:25.165662+09:00",
+  "generated_at": "2026-03-13T22:15:10.680920+09:00",
   "top_clusters": [
     {
       "label": "agentic & coding agents & code generation",
-      "score": 0.8366
+      "score": 0.8621
     },
     {
       "label": "low resource & augmented generation & question answering",
-      "score": 0.8358
+      "score": 0.8606
     },
     {
-      "label": "generative ai & genai & ai agents",
-      "score": 0.8354
+      "label": "adversarial & openclaw & untrusted",
+      "score": 0.8549
     }
   ],
   "recommendations": [
+    {
+      "id": "2602.10453",
+      "title": "The Landscape of Prompt Injection Threats in LLM Agents: From Taxonomy to Analysis",
+      "abstract": "The evolution of Large Language Models (LLMs) has resulted in a paradigm shift towards autonomous agents, necessitating robust security against Prompt Injection (PI) vulnerabilities where untrusted inputs hijack agent behaviors. This SoK presents a comprehensive overview of the PI landscape, covering attacks, defenses, and their evaluation practices. Through a systematic literature review and quantitative analysis, we establish taxonomies that categorize PI attacks by payload generation strategies (heuristic vs. optimization) and defenses by intervention stages (text, model, and execution levels). Our analysis reveals a key limitation shared by many existing defenses and benchmarks: they largely overlook context-dependent tasks, in which agents are authorized to rely on runtime environmental observations to determine actions. To address this gap, we introduce AgentPI, a new benchmark designed to systematically evaluate agent behavior under context-dependent interaction settings. Using AgentPI, we empirically evaluate representative defenses and show that no single approach can simultaneously achieve high trustworthiness, high utility, and low latency. Moreover, we show that many defenses appear effective under existing benchmarks by suppressing contextual inputs, yet fail to generalize to realistic agent settings where context-dependent reasoning is essential. This SoK distills key takeaways and open research problems, offering structured guidance for future research and practical deployment of secure LLM agents.",
+      "url": "https://arxiv.org/abs/2602.10453",
+      "match_score": 0.9848,
+      "matched_cluster": "adversarial & openclaw & untrusted",
+      "submitted": "2026-02-11"
+    },
+    {
+      "id": "2602.22724",
+      "title": "AgentSentry: Mitigating Indirect Prompt Injection in LLM Agents via Temporal Causal Diagnostics and Context Purification",
+      "abstract": "Large language model (LLM) agents increasingly rely on external tools and retrieval systems to autonomously complete complex tasks. However, this design exposes agents to indirect prompt injection (IPI), where attacker-controlled context embedded in tool outputs or retrieved content silently steers agent actions away from user intent. Unlike prompt-based attacks, IPI unfolds over multi-turn trajectories, making malicious control difficult to disentangle from legitimate task execution. Existing inference-time defenses primarily rely on heuristic detection and conservative blocking of high-risk actions, which can prematurely terminate workflows or broadly suppress tool usage under ambiguous multi-turn scenarios. We propose AgentSentry, a novel inference-time detection and mitigation framework for tool-augmented LLM agents. To the best of our knowledge, AgentSentry is the first inference-time defense to model multi-turn IPI as a temporal causal takeover. It localizes takeover points via controlled counterfactual re-executions at tool-return boundaries and enables safe continuation through causally guided context purification that removes attack-induced deviations while preserving task-relevant evidence. We evaluate AgentSentry on the \\textsc{AgentDojo} benchmark across four task suites, three IPI attack families, and multiple black-box LLMs. AgentSentry eliminates successful attacks and maintains strong utility under attack, achieving an average Utility Under Attack (UA) of 74.55 %, improving UA by 20.8 to 33.6 percentage points over the strongest baselines without degrading benign performance.",
+      "url": "https://arxiv.org/abs/2602.22724",
+      "match_score": 0.9797,
+      "matched_cluster": "adversarial & openclaw & untrusted",
+      "submitted": "2026-02-26"
+    },
+    {
+      "id": "2602.20156",
+      "title": "Skill-Inject: Measuring Agent Vulnerability to Skill File Attacks",
+      "abstract": "LLM agents are evolving rapidly, powered by code execution, tools, and the recently introduced agent skills feature. Skills allow users to extend LLM applications with specialized third-party code, knowledge, and instructions. Although this can extend agent capabilities to new domains, it creates an increasingly complex agent supply chain, offering new surfaces for prompt injection attacks. We identify skill-based prompt injection as a significant threat and introduce SkillInject, a benchmark evaluating the susceptibility of widely-used LLM agents to injections through skill files. SkillInject contains 202 injection-task pairs with attacks ranging from obviously malicious injections to subtle, context-dependent attacks hidden in otherwise legitimate instructions. We evaluate frontier LLMs on SkillInject, measuring both security in terms of harmful instruction avoidance and utility in terms of legitimate instruction compliance. Our results show that today's agents are highly vulnerable with up to 80% attack success rate with frontier models, often executing extremely harmful instructions including data exfiltration, destructive action, and ransomware-like behavior. They furthermore suggest that this problem will not be solved through model scaling or simple input filtering, but that robust agent security will require context-aware authorization frameworks. Our benchmark is available at https://www.skill-inject.com/.",
+      "url": "https://arxiv.org/abs/2602.20156",
+      "match_score": 0.9794,
+      "matched_cluster": "adversarial & openclaw & untrusted",
+      "submitted": "2026-02-23"
+    },
     {
       "id": "2602.10471",
       "title": "TestExplora: Benchmarking LLMs for Proactive Bug Discovery via Repository-Level Test Generation",
@@ -23,6 +50,24 @@
       "match_score": 0.9764,
       "matched_cluster": "agentic & coding agents & code generation",
       "submitted": "2026-02-11"
+    },
+    {
+      "id": "2602.22450",
+      "title": "Silent Egress: When Implicit Prompt Injection Makes LLM Agents Leak Without a Trace",
+      "abstract": "Agentic large language model systems increasingly automate tasks by retrieving URLs and calling external tools. We show that this workflow gives rise to implicit prompt injection: adversarial instructions embedded in automatically generated URL previews, including titles, metadata, and snippets, can introduce a system-level risk that we refer to as silent egress. Using a fully local and reproducible testbed, we demonstrate that a malicious web page can induce an agent to issue outbound requests that exfiltrate sensitive runtime context, even when the final response shown to the user appears harmless. In 480 experimental runs with a qwen2.5:7b-based agent, the attack succeeds with high probability (P (egress) =0.89), and 95% of successful attacks are not detected by output-based safety checks. We also introduce sharded exfiltration, where sensitive information is split across multiple requests to avoid detection. This strategy reduces single-request leakage metrics by 73% (Leak@1) and bypasses simple data loss prevention mechanisms. Our ablation results indicate that defenses applied at the prompt layer offer limited protection, while controls at the system and network layers, such as domain allowlisting and redirect-chain analysis, are considerably more effective. These findings suggest that network egress should be treated as a first-class security outcome in agentic LLM systems. We outline architectural directions, including provenance tracking and capability isolation, that go beyond prompt-level hardening.",
+      "url": "https://arxiv.org/abs/2602.22450",
+      "match_score": 0.976,
+      "matched_cluster": "adversarial & openclaw & untrusted",
+      "submitted": "2026-02-25"
+    },
+    {
+      "id": "2603.10749",
+      "title": "AttriGuard: Defeating Indirect Prompt Injection in LLM Agents via Causal Attribution of Tool Invocations",
+      "abstract": "LLM agents are highly vulnerable to Indirect Prompt Injection (IPI), where adversaries embed malicious directives in untrusted tool outputs to hijack execution. Most existing defenses treat IPI as an input-level semantic discrimination problem, which often fails to generalize to unseen payloads. We propose a new paradigm, action-level causal attribution, which secures agents by asking why a particular tool call is produced. The central goal is to distinguish tool calls supported by the user's intent from those causally driven by untrusted observations. We instantiate this paradigm with AttriGuard, a runtime defense based on parallel counterfactual tests. For each proposed tool call, AttriGuard verifies its necessity by re-executing the agent under a control-attenuated view of external observations. Technically, AttriGuard combines teacher-forced shadow replay to prevent attribution confounding, hierarchical control attenuation to suppress diverse control channels while preserving task-relevant information, and a fuzzy survival criterion that is robust to LLM stochasticity. Across four LLMs and two agent benchmarks, AttriGuard achieves 0% ASR under static attacks with negligible utility loss and moderate overhead. Importantly, it remains resilient under adaptive optimization-based attacks in settings where leading defenses degrade significantly.",
+      "url": "https://arxiv.org/abs/2603.10749",
+      "match_score": 0.9745,
+      "matched_cluster": "adversarial & openclaw & untrusted",
+      "submitted": "2026-03-11"
     },
     {
       "id": "2603.00623",
@@ -43,6 +88,24 @@
       "submitted": "2026-02-11"
     },
     {
+      "id": "2603.11862",
+      "title": "You Told Me to Do It: Measuring Instructional Text-induced Private Data Leakage in LLM Agents",
+      "abstract": "High-privilege LLM agents that autonomously process external documentation are increasingly trusted to automate tasks by reading and executing project instructions, yet they are granted terminal access, filesystem control, and outbound network connectivity with minimal security oversight. We identify and systematically measure a fundamental vulnerability in this trust model, which we term the \\emph{Trusted Executor Dilemma}: agents execute documentation-embedded instructions, including adversarial ones, at high rates because they cannot distinguish malicious directives from legitimate setup guidance. This vulnerability is a structural consequence of the instruction-following design paradigm, not an implementation bug. To structure our measurement, we formalize a three-dimensional taxonomy covering linguistic disguise, structural obfuscation, and semantic abstraction, and construct \\textbf{ReadSecBench}, a benchmark of 500 real-world README files enabling reproducible evaluation. Experiments on the commercially deployed computer-use agent show end-to-end exfiltration success rates up to 85\\%, consistent across five programming languages and three injection positions. Cross-model evaluation on four LLM families in a simulation environment confirms that semantic compliance with injected instructions is consistent across model families. A 15-participant user study yields a 0\\% detection rate across all participants, and evaluation of 12 rule-based and 6 LLM-based defenses shows neither category achieves reliable detection without unacceptable false-positive rates. Together, these results quantify a persistent \\emph{Semantic-Safety Gap} between agents' functional compliance and their security awareness, establishing that documentation-embedded instruction injection is a persistent and currently unmitigated threat to high-privilege LLM agent deployments.",
+      "url": "https://arxiv.org/abs/2603.11862",
+      "match_score": 0.9743,
+      "matched_cluster": "adversarial & openclaw & untrusted",
+      "submitted": "2026-03-12"
+    },
+    {
+      "id": "2602.07287",
+      "title": "Patch-to-PoC: A Systematic Study of Agentic LLM Systems for Linux Kernel N-Day Reproduction",
+      "abstract": "Autonomous large language model (LLM) based systems have recently shown promising results across a range of cybersecurity tasks. However, there is no systematic study on their effectiveness in autonomously reproducing Linux kernel vulnerabilities with concrete proofs-of-concept (PoCs). Owing to the size, complexity, and low-level nature of the Linux kernel, such tasks are widely regarded as particularly challenging for current LLM-based approaches.\n  In this paper, we present the first large-scale study of LLM-based Linux kernel vulnerability reproduction. For this purpose, we develop K-Repro, an LLM-based agentic system equipped with controlled code-browsing, virtual machine management, interaction, and debugging capabilities. Using kernel security patches as input, K-Repro automates end-to-end bug reproduction of N-day vulnerabilities in the Linux kernel. On a dataset of 100 real-world exploitable Linux kernel vulnerabilities collected from KernelCTF, our results show that K-Repro can generate PoCs that reproduce over 50\\% of the cases with practical time and monetary cost.\n  Beyond aggregate success rates, we perform an extensive study of effectiveness, efficiency, stability, and impact factors to explain when agentic reproduction succeeds, where it fails, and which components drive performance. These findings provide actionable guidance for building more reliable autonomous security agents and for assessing real-world N-day risk from both offensive and defensive perspectives.",
+      "url": "https://arxiv.org/abs/2602.07287",
+      "match_score": 0.9735,
+      "matched_cluster": "adversarial & openclaw & untrusted",
+      "submitted": "2026-02-07"
+    },
+    {
       "id": "2602.15983",
       "title": "ReLoop: Structured Modeling and Behavioral Verification for Reliable LLM-Based Optimization",
       "abstract": "Large language models (LLMs) can translate natural language into optimization code, but silent failures pose a critical risk: code that executes and returns solver-feasible solutions may encode semantically incorrect formulations, creating a feasibility-correctness gap of up to 90 percentage points on compositional problems. We introduce ReLoop, addressing silent failures from two complementary directions. Structured generation decomposes code production into a four-stage reasoning chain (understand, formalize, synthesize, verify) that mirrors expert modeling practice, with explicit variable-type reasoning and self-verification to prevent formulation errors at their source. Behavioral verification detects errors that survive generation by testing whether the formulation responds correctly to solver-based parameter perturbation, without requiring ground truth -- an external semantic signal that bypasses the self-consistency problem inherent in LLM-based code review. The two mechanisms are complementary: structured generation dominates on complex compositional problems, while behavioral verification becomes the largest single contributor on problems with localized formulation defects. Together with execution recovery via IIS-enhanced diagnostics, ReLoop raises correctness from 22.6% to 31.1% and execution from 72.1% to 100.0% on the strongest model, with consistent gains across five models spanning three paradigms (foundation, SFT, RL) and three benchmarks. We additionally release RetailOpt-190, 190 compositional retail optimization scenarios targeting the multi-constraint interactions where LLMs most frequently fail.",
@@ -50,6 +113,42 @@
       "match_score": 0.9734,
       "matched_cluster": "agentic & coding agents & code generation",
       "submitted": "2026-02-17"
+    },
+    {
+      "id": "2602.20720",
+      "title": "AdapTools: Adaptive Tool-based Indirect Prompt Injection Attacks on Agentic LLMs",
+      "abstract": "The integration of external data services (e.g., Model Context Protocol, MCP) has made large language model-based agents increasingly powerful for complex task execution. However, this advancement introduces critical security vulnerabilities, particularly indirect prompt injection (IPI) attacks. Existing attack methods are limited by their reliance on static patterns and evaluation on simple language models, failing to address the fast-evolving nature of modern AI agents. We introduce AdapTools, a novel adaptive IPI attack framework that selects stealthier attack tools and generates adaptive attack prompts to create a rigorous security evaluation environment. Our approach comprises two key components: (1) Adaptive Attack Strategy Construction, which develops transferable adversarial strategies for prompt optimization, and (2) Attack Enhancement, which identifies stealthy tools capable of circumventing task-relevance defenses. Comprehensive experimental evaluation shows that AdapTools achieves a 2.13 times improvement in attack success rate while degrading system utility by a factor of 1.78. Notably, the framework maintains its effectiveness even against state-of-the-art defense mechanisms. Our method advances the understanding of IPI attacks and provides a useful reference for future research.",
+      "url": "https://arxiv.org/abs/2602.20720",
+      "match_score": 0.9724,
+      "matched_cluster": "adversarial & openclaw & untrusted",
+      "submitted": "2026-02-24"
+    },
+    {
+      "id": "2602.08412",
+      "title": "From Assistant to Double Agent: Formalizing and Benchmarking Attacks on OpenClaw for Personalized Local AI Agent",
+      "abstract": "Although large language model (LLM)-based agents, exemplified by OpenClaw, are increasingly evolving from task-oriented systems into personalized AI assistants for solving complex real-world tasks, their practical deployment also introduces severe security risks. However, existing agent security research and evaluation frameworks primarily focus on synthetic or task-centric settings, and thus fail to accurately capture the attack surface and risk propagation mechanisms of personalized agents in real-world deployments. To address this gap, we propose Personalized Agent Security Bench (PASB), an end-to-end security evaluation framework tailored for real-world personalized agents. Building upon existing agent attack paradigms, PASB incorporates personalized usage scenarios, realistic toolchains, and long-horizon interactions, enabling black-box, end-to-end security evaluation on real systems. Using OpenClaw as a representative case study, we systematically evaluate its security across multiple personalized scenarios, tool capabilities, and attack types. Our results indicate that OpenClaw exhibits critical vulnerabilities at different execution stages, including user prompt processing, tool usage, and memory retrieval, highlighting substantial security risks in personalized agent deployments. The code for the proposed PASB framework is available at https://github.com/AstorYH/PASB.",
+      "url": "https://arxiv.org/abs/2602.08412",
+      "match_score": 0.9721,
+      "matched_cluster": "adversarial & openclaw & untrusted",
+      "submitted": "2026-02-09"
+    },
+    {
+      "id": "2603.10387",
+      "title": "Don't Let the Claw Grip Your Hand: A Security Analysis and Defense Framework for OpenClaw",
+      "abstract": "Code agents powered by large language models can execute shell commands on behalf of users, introducing severe security vulnerabilities. This paper presents a two-phase security analysis of the OpenClaw platform. As an open-source AI agent framework that operates locally, OpenClaw can be integrated with various commercial large language models. Because its native architecture lacks built-in security constraints, it serves as an ideal subject for evaluating baseline agent vulnerabilities. First, we systematically evaluate OpenClaw's native resilience against malicious instructions. By testing 47 adversarial scenarios across six major attack categories derived from the MITRE ATLAS and ATT\\&CK frameworks, we have demonstrated that OpenClaw exhibits significant inherent security issues. It primarily relies on the security capabilities of the backend LLM and is highly susceptible to sandbox escape attacks, with an average defense rate of only 17\\%. To mitigate these critical security gaps, we propose and implement a novel Human-in-the-Loop (HITL) defense layer. We utilize a dual-mode testing framework to evaluate the system with and without our proposed intervention. Our findings show that the introduced HITL layer significantly hardens the system, successfully intercepting up to 8 severe attacks that completely bypassed OpenClaw's native defenses. By combining native capabilities with our HITL approach, the overall defense rate improves to a range of 19\\% to 92\\%. Our study not only exposes the intrinsic limitations of current code agents but also demonstrates the effectiveness of human-agent collaborative defense strategies.",
+      "url": "https://arxiv.org/abs/2603.10387",
+      "match_score": 0.972,
+      "matched_cluster": "adversarial & openclaw & untrusted",
+      "submitted": "2026-03-11"
+    },
+    {
+      "id": "2602.19450",
+      "title": "Red-Teaming Claude Opus and ChatGPT-based Security Advisors for Trusted Execution Environments",
+      "abstract": "Trusted Execution Environments (TEEs) (e.g., Intel SGX and ArmTrustZone) aim to protect sensitive computation from a compromised operating system, yet real deployments remain vulnerable to microarchitectural leakage, side-channel attacks, and fault injection. In parallel, security teams increasingly rely on Large Language Model (LLM) assistants as security advisors for TEE architecture review, mitigation planning, and vulnerability triage. This creates a socio-technical risk surface: assistants may hallucinate TEE mechanisms, overclaim guarantees (e.g., what attestation does and does not establish), or behave unsafely under adversarial prompting.\n  We present a red-teaming study of two prevalently deployed LLM assistants in the role of TEE security advisors: ChatGPT-5.2 and Claude Opus-4.6, focusing on the inherent limitations and transferability of prompt-induced failures across LLMs. We introduce TEE-RedBench, a TEE-grounded evaluation methodology comprising (i) a TEE-specific threat model for LLM-mediated security work, (ii) a structured prompt suite spanning SGX and TrustZone architecture, attestation and key management, threat modeling, and non-operational mitigation guidance, along with policy-bound misuse probes, and (iii) an annotation rubric that jointly measures technical correctness, groundedness, uncertainty calibration, refusal quality, and safe helpfulness. We find that some failures are not purely idiosyncratic, transferring up to 12.02% across LLM assistants, and we connect these outcomes to secure architecture by outlining an \"LLM-in-the-loop\" evaluation pipeline: policy gating, retrieval grounding, structured templates, and lightweight verification checks that, when combined, reduce failures by 80.62%.",
+      "url": "https://arxiv.org/abs/2602.19450",
+      "match_score": 0.9716,
+      "matched_cluster": "adversarial & openclaw & untrusted",
+      "submitted": "2026-02-23"
     },
     {
       "id": "2602.16671",
@@ -70,6 +169,15 @@
       "submitted": "2026-03-05"
     },
     {
+      "id": "2602.05386",
+      "title": "Spider-Sense: Intrinsic Risk Sensing for Efficient Agent Defense with Hierarchical Adaptive Screening",
+      "abstract": "As large language models (LLMs) evolve into autonomous agents, their real-world applicability has expanded significantly, accompanied by new security challenges. Most existing agent defense mechanisms adopt a mandatory checking paradigm, in which security validation is forcibly triggered at predefined stages of the agent lifecycle. In this work, we argue that effective agent security should be intrinsic and selective rather than architecturally decoupled and mandatory. We propose Spider-Sense framework, an event-driven defense framework based on Intrinsic Risk Sensing (IRS), which allows agents to maintain latent vigilance and trigger defenses only upon risk perception. Once triggered, the Spider-Sense invokes a hierarchical defence mechanism that trades off efficiency and precision: it resolves known patterns via lightweight similarity matching while escalating ambiguous cases to deep internal reasoning, thereby eliminating reliance on external models. To facilitate rigorous evaluation, we introduce S$^2$Bench, a lifecycle-aware benchmark featuring realistic tool execution and multi-stage attacks. Extensive experiments demonstrate that Spider-Sense achieves competitive or superior defense performance, attaining the lowest Attack Success Rate (ASR) and False Positive Rate (FPR), with only a marginal latency overhead of 8.3\\%.",
+      "url": "https://arxiv.org/abs/2602.05386",
+      "match_score": 0.9713,
+      "matched_cluster": "adversarial & openclaw & untrusted",
+      "submitted": "2026-02-05"
+    },
+    {
       "id": "2603.06198",
       "title": "LIT-RAGBench: Benchmarking Generator Capabilities of Large Language Models in Retrieval-Augmented Generation",
       "abstract": "Retrieval-Augmented Generation (RAG) is a framework in which a Generator, such as a Large Language Model (LLM), produces answers by retrieving documents from an external collection using a Retriever. In practice, Generators must integrate evidence from long contexts, perform multi-step reasoning, interpret tables, and abstain when evidence is missing. However, existing benchmarks for Generators provide limited coverage, with none enabling simultaneous evaluation of multiple capabilities under unified conditions. To bridge the gap between existing evaluations and practical use, we introduce LIT-RAGBench (the Logic, Integration, Table, Reasoning, and Abstention RAG Generator Benchmark), which defines five categories: Integration, Reasoning, Logic, Table, and Abstention, each further divided into practical evaluation aspects. LIT-RAGBench systematically covers patterns combining multiple aspects across categories. By using fictional entities and scenarios, LIT-RAGBench evaluates answers grounded in the provided external documents. The dataset consists of 114 human-constructed Japanese questions and an English version generated by machine translation with human curation. We use LLM-as-a-Judge for scoring and report category-wise and overall accuracy. Across API-based and open-weight models, no model exceeds 90% overall accuracy. By making strengths and weaknesses measurable within each category, LIT-RAGBench serves as a valuable metric for model selection in practical RAG deployments and for building RAG-specialized models. We release LIT-RAGBench, including the dataset and evaluation code, at https://github.com/Koki-Itai/LIT-RAGBench.",
@@ -86,114 +194,6 @@
       "match_score": 0.9709,
       "matched_cluster": "agentic & coding agents & code generation",
       "submitted": "2026-02-23"
-    },
-    {
-      "id": "2602.13574",
-      "title": "Execution-State-Aware LLM Reasoning for Automated Proof-of-Vulnerability Generation",
-      "abstract": "Proof-of-Vulnerability (PoV) generation is a critical task in software security, serving as a cornerstone for vulnerability validation, false positive reduction, and patch verification. While directed fuzzing effectively drives path exploration, satisfying complex semantic constraints remains a persistent bottleneck in automated exploit generation. Large Language Models (LLMs) offer a promising alternative with their semantic reasoning capabilities; however, existing LLM-based approaches lack sufficient grounding in concrete execution behavior, limiting their ability to generate precise PoVs.\n  In this paper, we present DrillAgent, an agentic framework that reformulates PoV generation as an iterative hypothesis-verification-refinement process. To bridge the gap between static reasoning and dynamic execution, DrillAgent synergizes LLM-based semantic inference with feedback from concrete program states. The agent analyzes the target code to hypothesize inputs, observes execution behavior, and employs a novel mechanism to translate low-level execution traces into source-level constraints. This closed-loop design enables the agent to incrementally align its input generation with the precise requirements of the vulnerability. We evaluate DrillAgent on SEC-bench, a large-scale benchmark of real-world C/C++ vulnerabilities. Experimental results show that DrillAgent substantially outperforms state-of-the-art LLM agent baselines under fixed budget constraints, solving up to 52.8% more CVE tasks than the best-performing baseline. These results highlight the necessity of execution-state-aware reasoning for reliable PoV generation in complex software systems.",
-      "url": "https://arxiv.org/abs/2602.13574",
-      "match_score": 0.9708,
-      "matched_cluster": "agentic & coding agents & code generation",
-      "submitted": "2026-02-14"
-    },
-    {
-      "id": "2602.13851",
-      "title": "Evaluating LLM-Generated ACSL Annotations for Formal Verification",
-      "abstract": "Formal specifications are crucial for building verifiable and dependable software systems, yet generating accurate and verifiable specifications for real-world C programs remains challenging. This paper empirically evaluates the extent to which formal-analysis tools can automatically generate and verify ACSL specifications without human or learning-based assistance. We conduct a controlled study on a recently released dataset of 506 C programs, repurposing it from interactive, developer-driven workflows to an automated evaluation setting. Five ACSL generation systems are compared: a rule-based Python script, Frama-C's RTE plugin, and three large language models--DeepSeek-V3.2, GPT-5.2, and OLMo 3.1 32B Instruct. All generated specifications are verified under identical conditions using the Frama-C WP plugin powered by multiple SMT solvers, allowing a direct comparison of annotation quality, solver sensitivity, and proof stability. Our results provide new empirical evidence on the capabilities and limitations of automated ACSL generation, complementing prior survey-based work.",
-      "url": "https://arxiv.org/abs/2602.13851",
-      "match_score": 0.9707,
-      "matched_cluster": "agentic & coding agents & code generation",
-      "submitted": "2026-02-14"
-    },
-    {
-      "id": "2602.22480",
-      "title": "VeRO: An Evaluation Harness for Agents to Optimize Agents",
-      "abstract": "An important emerging application of coding agents is agent optimization: the iterative improvement of a target agent through edit-execute-evaluate cycles. Despite its relevance, the community lacks a systematic understanding of coding agent performance on this task. Agent optimization differs fundamentally from conventional software engineering: the target agent interleaves deterministic code with stochastic LLM completions, requiring structured capture of both intermediate reasoning and downstream execution outcomes. To address these challenges, we introduce VERO (Versioning, Rewards, and Observations), which provides (1) a reproducible evaluation harness with versioned agent snapshots, budget-controlled evaluation, and structured execution traces, and (2) a benchmark suite of target agents and tasks with reference evaluation procedures. Using VERO, we conduct an empirical study comparing optimizer configurations across tasks and analyzing which modifications reliably improve target agent performance. We release VERO to support research on agent optimization as a core capability for coding agents.",
-      "url": "https://arxiv.org/abs/2602.22480",
-      "match_score": 0.9705,
-      "matched_cluster": "agentic & coding agents & code generation",
-      "submitted": "2026-02-25"
-    },
-    {
-      "id": "2602.10171",
-      "title": "EvoCodeBench: A Human-Performance Benchmark for Self-Evolving LLM-Driven Coding Systems",
-      "abstract": "As large language models (LLMs) continue to advance in programming tasks, LLM-driven coding systems have evolved from one-shot code generation into complex systems capable of iterative improvement during inference. However, existing code benchmarks primarily emphasize static correctness and implicitly assume fixed model capability during inference. As a result, they do not capture inference-time self-evolution, such as whether accuracy and efficiency improve as an agent iteratively refines its solutions. They also provide limited accounting of resource costs and rarely calibrate model performance against that of human programmers. Moreover, many benchmarks are dominated by high-resource languages, leaving cross-language robustness and long-tail language stability underexplored. Therefore, we present EvoCodeBench, a benchmark for evaluating self-evolving LLM-driven coding systems across programming languages with direct comparison to human performance. EvoCodeBench tracks performance dynamics, measuring solution correctness alongside efficiency metrics such as solving time, memory consumption, and improvement algorithmic design over repeated problem-solving attempts. To ground evaluation in a human-centered reference frame, we directly compare model performance with that of human programmers on the same tasks, enabling relative performance assessment within the human ability distribution. Furthermore, EvoCodeBench supports multiple programming languages, enabling systematic cross-language and long-tail stability analyses under a unified protocol. Our results demonstrate that self-evolving systems exhibit measurable gains in efficiency over time, and that human-relative and multi-language analyses provide insights unavailable through accuracy alone. EvoCodeBench establishes a foundation for evaluating coding intelligence in evolving LLM-driven systems.",
-      "url": "https://arxiv.org/abs/2602.10171",
-      "match_score": 0.9703,
-      "matched_cluster": "agentic & coding agents & code generation",
-      "submitted": "2026-02-10"
-    },
-    {
-      "id": "2603.03194",
-      "title": "BeyondSWE: Can Current Code Agent Survive Beyond Single-Repo Bug Fixing?",
-      "abstract": "Current benchmarks for code agents primarily assess narrow, repository-specific fixes, overlooking critical real-world challenges such as cross-repository reasoning, domain-specialized problem solving, dependency-driven migration, and full-repository generation. To address this gap, we introduce BeyondSWE, a comprehensive benchmark that broadens existing evaluations along two axes - resolution scope and knowledge scope - using 500 real-world instances across four distinct settings. Experimental results reveal a significant capability gap: even frontier models plateau below 45% success, and no single model performs consistently across task types. To systematically investigate the role of external knowledge, we develop SearchSWE, a framework that integrates deep search with coding abilities. Our experiments show that search augmentation yields inconsistent gains and can in some cases degrade performance, highlighting the difficulty of emulating developer-like workflows that interleave search and reasoning during coding tasks. This work offers both a realistic, challenging evaluation benchmark and a flexible framework to advance research toward more capable code agents.",
-      "url": "https://arxiv.org/abs/2603.03194",
-      "match_score": 0.9701,
-      "matched_cluster": "agentic & coding agents & code generation",
-      "submitted": "2026-03-03"
-    },
-    {
-      "id": "2602.18571",
-      "title": "Debug2Fix: Supercharging Coding Agents with Interactive Debugging Capabilities",
-      "abstract": "While significant progress has been made in automating various aspects of software development through coding agents, there is still significant room for improvement in their bug fixing capabilities. Debugging and investigation of runtime behavior remains largely a manual, developer-driven process. Popular coding agents typically rely on either static analysis of the code or iterative test-fix cycles, which is akin to trial and error debugging. We posit that there is a wealth of rich runtime information that developers routinely access while debugging code, which agents are currently deprived of due to design limitations. Despite how prevalent debuggers are in modern IDEs and command-line tools, they have surprisingly not made their way into coding agents. In this work, we introduce Debug2Fix, a novel framework that incorporates interactive debugging as a core component of a software engineering agent via a subagent architecture. We incorporate debuggers for Java and Python into our agent framework and evaluate against GitBug-Java and SWE-Bench-Live and achieve >20% improvement in performance compared to the baseline for certain models. Furthermore, using our framework, we're able to make weaker models like GPT-5 and Claude Haiku 4.5 match or exceed the performances of stronger models like Claude Sonnet 4.5, showing that better tool design is often just as important as switching to a more expensive model. Finally, we conduct systematic ablations demonstrating the importance of both the subagent architecture and debugger integration.",
-      "url": "https://arxiv.org/abs/2602.18571",
-      "match_score": 0.9699,
-      "matched_cluster": "agentic & coding agents & code generation",
-      "submitted": "2026-02-20"
-    },
-    {
-      "id": "2603.08806",
-      "title": "Test-Driven AI Agent Definition (TDAD): Compiling Tool-Using Agents from Behavioral Specifications",
-      "abstract": "We present Test-Driven AI Agent Definition (TDAD), a methodology that treats agent prompts as compiled artifacts: engineers provide behavioral specifications, a coding agent converts them into executable tests, and a second coding agent iteratively refines the prompt until tests pass. Deploying tool-using LLM agents in production requires measurable behavioral compliance that current development practices cannot provide. Small prompt changes cause silent regressions, tool misuse goes undetected, and policy violations emerge only after deployment. To mitigate specification gaming, TDAD introduces three mechanisms: (1) visible/hidden test splits that withhold evaluation tests during compilation, (2) semantic mutation testing via a post-compilation agent that generates plausible faulty prompt variants, with the harness measuring whether the test suite detects them, and (3) spec evolution scenarios that quantify regression safety when requirements change. We evaluate TDAD on SpecSuite-Core, a benchmark of four deeply-specified agents spanning policy compliance, grounded analytics, runbook adherence, and deterministic enforcement. Across 24 independent trials, TDAD achieves 92% v1 compilation success with 97% mean hidden pass rate; evolved specifications compile at 58%, with most failed runs passing all visible tests except 1-2, and show 86-100% mutation scores, 78% v2 hidden pass rate, and 97% regression safety scores. The implementation is available as an open benchmark at https://github.com/f-labs-io/tdad-paper-code.",
-      "url": "https://arxiv.org/abs/2603.08806",
-      "match_score": 0.9696,
-      "matched_cluster": "agentic & coding agents & code generation",
-      "submitted": "2026-03-09"
-    },
-    {
-      "id": "2603.08616",
-      "title": "Coverage-Guided Multi-Agent Harness Generation for Java Library Fuzzing",
-      "abstract": "Coverage-guided fuzzing has proven effective for software testing, but targeting library code requires specialized fuzz harnesses that translate fuzzer-generated inputs into valid API invocations. Manual harness creation is time-consuming and requires deep understanding of API semantics, initialization sequences, and exception handling contracts. We present a multi-agent architecture that automates fuzz harness generation for Java libraries through specialized LLM-powered agents. Five ReAct agents decompose the workflow into research, synthesis, compilation repair, coverage analysis, and refinement. Rather than preprocessing entire codebases, agents query documentation, source code, and callgraph information on demand through the Model Context Protocol, maintaining focused context while exploring complex dependencies. To enable effective refinement, we introduce method-targeted coverage that tracks coverage only during target method execution to isolate target behavior, and agent-guided termination that examines uncovered source code to distinguish productive refinement opportunities from diminishing returns. We evaluated our approach on seven target methods from six widely-deployed Java libraries totaling 115,000+ Maven dependents. Our generated harnesses achieve a median 26\\% improvement over OSS-Fuzz baselines and outperform Jazzer AutoFuzz by 5\\% in package-scope coverage. Generation costs average \\$3.20 and 10 minutes per harness, making the approach practical for continuous fuzzing workflows. During a 12-hour fuzzing campaign, our generated harnesses discovered 3 bugs in projects that are already integrated into OSS-Fuzz, demonstrating the effectiveness of the generated harnesses.",
-      "url": "https://arxiv.org/abs/2603.08616",
-      "match_score": 0.9696,
-      "matched_cluster": "agentic & coding agents & code generation",
-      "submitted": "2026-03-09"
-    },
-    {
-      "id": "2603.03823",
-      "title": "SWE-CI: Evaluating Agent Capabilities in Maintaining Codebases via Continuous Integration",
-      "abstract": "Large language model (LLM)-powered agents have demonstrated strong capabilities in automating software engineering tasks such as static bug fixing, as evidenced by benchmarks like SWE-bench. However, in the real world, the development of mature software is typically predicated on complex requirement changes and long-term feature iterations -- a process that static, one-shot repair paradigms fail to capture. To bridge this gap, we propose \\textbf{SWE-CI}, the first repository-level benchmark built upon the Continuous Integration loop, aiming to shift the evaluation paradigm for code generation from static, short-term \\textit{functional correctness} toward dynamic, long-term \\textit{maintainability}. The benchmark comprises 100 tasks, each corresponding on average to an evolution history spanning 233 days and 71 consecutive commits in a real-world code repository. SWE-CI requires agents to systematically resolve these tasks through dozens of rounds of analysis and coding iterations. SWE-CI provides valuable insights into how well agents can sustain code quality throughout long-term evolution.",
-      "url": "https://arxiv.org/abs/2603.03823",
-      "match_score": 0.9694,
-      "matched_cluster": "agentic & coding agents & code generation",
-      "submitted": "2026-03-04"
-    },
-    {
-      "id": "2603.11212",
-      "title": "Security-by-Design for LLM-Based Code Generation: Leveraging Internal Representations for Concept-Driven Steering Mechanisms",
-      "abstract": "Large Language Models (LLMs) show remarkable capabilities in understanding natural language and generating complex code. However, as practitioners adopt CodeLLMs for increasingly critical development tasks, research reveals that these models frequently generate functionally correct yet insecure code, posing significant security risks. While multiple approaches have been proposed to improve security in AI-based code generation, combined benchmarks show these methods remain insufficient for practical use, achieving only limited improvements in both functional correctness and security. This stems from a fundamental gap in understanding the internal mechanisms of code generation and the root causes of security vulnerabilities, forcing researchers to rely on heuristics and empirical observations. In this work, we investigate the internal representation of security concepts in CodeLLMs, revealing that models are often aware of vulnerabilities as they generate insecure code. Through systematic evaluation, we demonstrate that CodeLLMs can distinguish between security subconcepts, enabling a more fine-grained analysis than prior black-box approaches. Leveraging these insights, we propose Secure Concept Steering for CodeLLMs (SCS-Code). During token generation, SCS-Code steers LLMs' internal representations toward secure and functional code output, enabling a lightweight and modular mechanism that can be integrated into existing code models. Our approach achieves superior performance compared to state-of-the-art methods across multiple secure coding benchmarks.",
-      "url": "https://arxiv.org/abs/2603.11212",
-      "match_score": 0.969,
-      "matched_cluster": "agentic & coding agents & code generation",
-      "submitted": "2026-03-11"
-    },
-    {
-      "id": "2602.15485",
-      "title": "SecCodeBench-V2 Technical Report",
-      "abstract": "We introduce SecCodeBench-V2, a publicly released benchmark for evaluating Large Language Model (LLM) copilots' capabilities of generating secure code. SecCodeBench-V2 comprises 98 generation and fix scenarios derived from Alibaba Group's industrial productions, where the underlying security issues span 22 common CWE (Common Weakness Enumeration) categories across five programming languages: Java, C, Python, Go, and JavaScript. SecCodeBench-V2 adopts a function-level task formulation: each scenario provides a complete project scaffold and requires the model to implement or patch a designated target function under fixed interfaces and dependencies. For each scenario, SecCodeBench-V2 provides executable proof-of-concept (PoC) test cases for both functional validation and security verification. All test cases are authored and double-reviewed by security experts, ensuring high fidelity, broad coverage, and reliable ground truth. Beyond the benchmark itself, we build a unified evaluation pipeline that assesses models primarily via dynamic execution. For most scenarios, we compile and run model-generated artifacts in isolated environments and execute PoC test cases to validate both functional correctness and security properties. For scenarios where security issues cannot be adjudicated with deterministic test cases, we additionally employ an LLM-as-a-judge oracle. To summarize performance across heterogeneous scenarios and difficulty levels, we design a Pass@K-based scoring protocol with principled aggregation over scenarios and severity, enabling holistic and comparable evaluation across models. Overall, SecCodeBench-V2 provides a rigorous and reproducible foundation for assessing the security posture of AI coding assistants, with results and artifacts released at https://alibaba.github.io/sec-code-bench. The benchmark is publicly available at https://github.com/alibaba/sec-code-bench.",
-      "url": "https://arxiv.org/abs/2602.15485",
-      "match_score": 0.969,
-      "matched_cluster": "agentic & coding agents & code generation",
-      "submitted": "2026-02-17"
-    },
-    {
-      "id": "2603.07825",
-      "title": "Benchmarking Large Language Models for Quebec Insurance: From Closed-Book to Retrieval-Augmented Generation",
-      "abstract": "The digitization of insurance distribution in the Canadian province of Quebec, accelerated by legislative changes such as Bill 141, has created a significant \"advice gap\", leaving consumers to interpret complex financial contracts without professional guidance. While Large Language Models (LLMs) offer a scalable solution for automated advisory services, their deployment in high-stakes domains hinges on strict legal accuracy and trustworthiness. In this paper, we address this challenge by introducing AEPC-QA, a private gold-standard benchmark of 807 multiple-choice questions derived from official regulatory certification (paper) handbooks. We conduct a comprehensive evaluation of 51 LLMs across two paradigms: closed-book generation and retrieval-augmented generation (RAG) using a specialized corpus of Quebec insurance documents. Our results reveal three critical insights: 1) the supremacy of inference-time reasoning, where models leveraging chain-of-thought processing (e.g. o3-2025-04-16, o1-2024-12-17) significantly outperform standard instruction-tuned models; 2) RAG acts as a knowledge equalizer, boosting the accuracy of models with weak parametric knowledge by over 35 percentage points, yet paradoxically causing \"context distraction\" in others, leading to catastrophic performance regressions; and 3) a \"specialization paradox\", where massive generalist models consistently outperform smaller, domain-specific French fine-tuned ones. These findings suggest that while current architectures approach expert-level proficiency (~79%), the instability introduced by external context retrieval necessitates rigorous robustness calibration before autonomous deployment is viable.",
-      "url": "https://arxiv.org/abs/2603.07825",
-      "match_score": 0.9685,
-      "matched_cluster": "low resource & augmented generation & question answering",
-      "submitted": "2026-03-08"
     }
   ]
 }

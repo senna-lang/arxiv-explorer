@@ -135,11 +135,15 @@ def main(top_clusters: int, top_n: int) -> None:
 
     model = SentenceTransformer(model_name)
 
-    # 高評価論文のEmbedding: クラスタとのcos類似度でinstance_scoreを計算するために必要
+    # 高評価論文のEmbedding: ★3は★2の2倍の重みで rated_vecs に追加
+    # 重み付けは同一ベクトルを複数回追加することで実現（★2→1回、★3→2回）
     rated_vecs: list[np.ndarray] = []
     if high_rated:
         abstracts = [r["abstract"] for r in high_rated]
-        rated_vecs = list(model.encode(abstracts, show_progress_bar=False))
+        vecs = list(model.encode(abstracts, show_progress_bar=False))
+        for r, vec in zip(high_rated, vecs):
+            weight = r["rating"] - 1  # ★2→1回、★3→2回
+            rated_vecs.extend([vec] * weight)
 
     # interest_profileのEmbedding: ratings不足時のフォールバックスコアに使用
     # config.jsonのinterest_profile（自然言語7項目）をベクトル化
