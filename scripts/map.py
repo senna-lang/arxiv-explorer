@@ -132,10 +132,10 @@ def main(max_papers: int) -> None:
 
     umap_cluster = make_pipeline(
         PCA(n_components=50, random_state=42),
-        UMAP(n_components=10, n_neighbors=15, random_state=42, metric="cosine"),
+        UMAP(n_components=10, n_neighbors=50, random_state=42, metric="cosine"),
     )
     # 可視化用: PCA後の50次元からUMAP 2Dへ（別途計算）
-    umap_viz = UMAP(n_components=2, n_neighbors=15, random_state=42, metric="cosine")
+    umap_viz = UMAP(n_components=2, n_neighbors=50, random_state=42, metric="cosine")
     # min_cluster_sizeはデータ件数に比例して調整（大規模ほど大きく）
     # min_samplesを小さくしてノイズ判定を緩め、クラスタ数を増やす
     min_cs = max(15, max_papers // 500)
@@ -201,7 +201,13 @@ def main(max_papers: int) -> None:
         "arxiv",
         "supplementary",
         "appendix",
-        # LaTeX記号
+        # 汎用比較・実験語
+        "real world",
+        "baselines",
+        "baseline",
+        "datasets",
+        "generalize",
+        # LaTeX記号・数式表記
         "varepsilon",
         "mathbb",
         "mathcal",
@@ -212,6 +218,11 @@ def main(max_papers: int) -> None:
         "beta",
         "lambda",
         "sigma",
+        "tilde",
+        "widetilde",
+        "frac",
+        "textbf",
+        "mathrm",
     ]
     base_stopwords = list(CountVectorizer(stop_words="english").get_stop_words() or [])
     vectorizer = CountVectorizer(
