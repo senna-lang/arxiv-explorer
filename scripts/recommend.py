@@ -39,6 +39,7 @@ def load_config() -> dict[str, Any]:
 
 
 def _cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
+    """2ベクトルのcos類似度を返す。ゼロベクトルは0.0として扱う。"""
     norm_a = np.linalg.norm(a)
     norm_b = np.linalg.norm(b)
     if norm_a == 0 or norm_b == 0:
@@ -115,6 +116,7 @@ def main(top_clusters: int, top_n: int) -> None:
         print("[ERROR] map.json not found. Run map.py first.")
         return
 
+    # ratings取得: ratings_urlが設定されていればHTTP(Cloudflare KV)、なければローカルファイル
     ratings_url: str = config.get("ratings_url", "")
     if ratings_url:
         print(f"[INFO] Fetching ratings from {ratings_url}")
@@ -127,53 +129,66 @@ def main(top_clusters: int, top_n: int) -> None:
     with open(map_path, encoding="utf-8") as f:
         map_data = json.load(f)
 
+    # min_rating以上の論文だけを対象にする（デフォルト: 星2以上）
     high_rated = [r for r in ratings_data["ratings"] if r["rating"] >= min_rating]
     print(f"[INFO] {len(high_rated)} high-rated papers (rating>={min_rating})")
 
     model = SentenceTransformer(model_name)
 
-    # 高評価論文のEmbedding
+    # 高評価論文のEmbedding: クラスタとのcos類似度でinstance_scoreを計算するために必要
     rated_vecs: list[np.ndarray] = []
     if high_rated:
         abstracts = [r["abstract"] for r in high_rated]
         rated_vecs = list(model.encode(abstracts, show_progress_bar=False))
 
-    # interest_profileのEmbedding
+    # interest_profileのEmbedding: ratings不足時のフォールバックスコアに使用
+    # config.jsonのinterest_profile（自然言語7項目）をベクトル化
     profile_texts: list[str] = config["interest_profile"]
-    profile_vecs: list[np.ndarray] = list(model.encode(profile_texts, show_progress_bar=False))
+    profile_vecs: list[np.ndarray] = list(
+        model.encode(profile_texts, show_progress_bar=False)
+    )
 
+    # α = ratings件数に応じた重み（0件=profile only、50件以上=instance only）
     alpha = compute_alpha(len(high_rated))
     print(f"[INFO] alpha={alpha:.2f} (ratings={len(high_rated)})")
 
+    # 全クラスタをfinal_scoreでランキングし、上位top_clustersを選ぶ
+    # final = α * cos_sim(centroid, rated_vecs平均) + (1-α) * cos_sim(centroid, profile_vecs平均)
     clusters = map_data["clusters"]
     ranked = rank_clusters(clusters, rated_vecs, profile_vecs, alpha)
     top = ranked[:top_clusters]
 
     print(f"[INFO] Top {top_clusters} clusters: {[c['label'] for c in top]}")
 
-    # 近傍クラスタ内の論文をスコアリング
+    # 上位クラスタ内の論文をarXiv APIで取得し、centroidとのcos類似度でスコアリング
+    # match_score = cos_sim(クラスタcentroid, 論文embedding) → クラスタ中心に近い論文ほど高スコア
     recommendations = []
     for cluster in top:
         papers = fetch_papers_for_cluster(cluster["paper_ids"])
         if not papers:
             continue
         abstracts = [p.summary for p in papers]
-        paper_vecs: list[np.ndarray] = list(model.encode(abstracts, show_progress_bar=False))
+        paper_vecs: list[np.ndarray] = list(
+            model.encode(abstracts, show_progress_bar=False)
+        )
         centroid = np.array(cluster["centroid"])
 
         for paper, vec in zip(papers, paper_vecs):
             match_score = _cosine_similarity(centroid, vec)
             arxiv_id = paper.entry_id.split("/")[-1].split("v")[0]
-            recommendations.append({
-                "id": arxiv_id,
-                "title": paper.title,
-                "abstract": paper.summary,
-                "url": f"https://arxiv.org/abs/{arxiv_id}",
-                "match_score": round(match_score, 4),
-                "matched_cluster": cluster["label"],
-                "submitted": paper.published.strftime("%Y-%m-%d"),
-            })
+            recommendations.append(
+                {
+                    "id": arxiv_id,
+                    "title": paper.title,
+                    "abstract": paper.summary,
+                    "url": f"https://arxiv.org/abs/{arxiv_id}",
+                    "match_score": round(match_score, 4),
+                    "matched_cluster": cluster["label"],
+                    "submitted": paper.published.strftime("%Y-%m-%d"),
+                }
+            )
 
+    # min_match_score未満を除外し、スコア降順で上位top_nに絞る
     min_match: float = rec_config["min_match_score"]
     recommendations = [r for r in recommendations if r["match_score"] >= min_match]
     recommendations.sort(key=lambda r: r["match_score"], reverse=True)
@@ -193,7 +208,9 @@ def main(top_clusters: int, top_n: int) -> None:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate recommendations from ratings and map")
+    parser = argparse.ArgumentParser(
+        description="Generate recommendations from ratings and map"
+    )
     parser.add_argument("--top-clusters", type=int, default=3)
     parser.add_argument("--top-n", type=int, default=20)
     args = parser.parse_args()

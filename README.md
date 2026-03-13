@@ -68,29 +68,43 @@ arXivには毎日数百件の論文が投稿される。全部読むのは不可
 10,000件の論文 abstract
         │
         ▼
-  Embedding（specter2）
-  各 abstract を高次元ベクトルに変換
+  [STEP 1] Embedding（specter2_base）
+  各 abstract を 768 次元ベクトルに変換
         │
         ▼
-  UMAP で次元削減（高次元 → 2次元）
-  意味的に近い論文が平面上でも近くなる
+  [STEP 2] PCA（768次元 → 50次元）
+  ノイズ次元を落とし UMAP の入力品質を上げる
         │
         ▼
-  HDBSCAN でクラスタリング
-  自然に集まっているグループを検出
+  [STEP 3] UMAP（50次元 → 10次元）
+  クラスタリング用に局所構造を保ちながら次元削減
         │
         ▼
-  c-TF-IDF でトピックラベル生成
-  各クラスタを代表するキーワードを抽出
+  [STEP 4] HDBSCAN でクラスタリング
+  密度ベースでグループを自動検出（クラスタ数は自動決定）
+        │
+        ▼
+  [STEP 5] c-TF-IDF でキーワード候補抽出
+  各クラスタを代表する語を統計的に抽出
+  ※ ACADEMIC_STOPWORDS で論文特有の汎用語を除去
+        │
+        ▼
+  [STEP 6] KeyBERTInspired で再ランキング
+  候補語を specter2 で再 Embedding し、
+  クラスタ centroid との cos 類似度で意味的に並び替え
+        │
+        ▼
+  [STEP 7] UMAP（50次元 → 2次元）※ 可視化専用
+  画面に描画するための 2D 座標を別途計算
         │
         ▼
   map.json（arXiv論文地図）
   ┌─────────────────────────────────────┐
-  │  cluster: "Diffusion Models"        │
-  │  cluster: "Graph Neural Networks"   │
-  │  cluster: "LLM Reasoning"           │
-  │  cluster: "Protein Structure"       │
-  │  ...（数十〜数百クラスタ）          │
+  │  cluster: "rlvr & policy optimization & grpo"      │
+  │  cluster: "whisper & tts & asr"                    │
+  │  cluster: "jailbreak & adversarial"                │
+  │  cluster: "fine tuning & lora & rank adaptation"   │
+  │  ...（数十クラスタ）                               │
   └─────────────────────────────────────┘
 ```
 
