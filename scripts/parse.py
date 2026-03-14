@@ -18,6 +18,7 @@ sentence-transformersでスコアリングしてdata/YYYYMMDD.jsonを生成す�
 import argparse
 import json
 import re
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -29,12 +30,15 @@ from sentence_transformers import SentenceTransformer
 
 JST = ZoneInfo("Asia/Tokyo")
 ROOT = Path(__file__).parent.parent
-CONFIG_PATH = ROOT / "config.json"
+CONFIG_PATH = ROOT / "config.jsonc"
 
 
 def load_config() -> dict[str, Any]:
-    with open(CONFIG_PATH, encoding="utf-8") as f:
-        return json.load(f)
+    text = CONFIG_PATH.read_text(encoding="utf-8")
+    text = re.sub(r'"[^"\\]*(?:\\.[^"\\]*)*"|//[^\n]*',
+                  lambda m: m.group(0) if m.group(0).startswith('"') else "", text)
+    text = re.sub(r",(\s*[}\]])", r"\1", text)
+    return json.loads(text)
 
 
 def parse_trend_section(text: str) -> list[str]:
@@ -125,12 +129,13 @@ def build_paper_dict(result: Any, score: float) -> dict[str, Any]:
     return paper
 
 
-def main(date_str: str) -> None:
+def main(date_str: str, log: bool = False) -> None:
     config = load_config()
     trend_dir = Path(config["trend_dir"])
     output_dir = ROOT / config["output_dir"]
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    started_at = time.time()
     trend_file = trend_dir / f"{date_str}-trend.md"
     if not trend_file.exists():
         print(f"[ERROR] trend file not found: {trend_file}")
@@ -184,6 +189,27 @@ def main(date_str: str) -> None:
 
     print(f"[INFO] Saved {len(papers)} papers to {out_path}")
 
+    if log:
+        scores = [p["score"] for p in papers]
+        log_entry = {
+            "ts": datetime.now(JST).isoformat(),
+            "date": f"{date_str[:4]}-{date_str[4:6]}-{date_str[6:]}",
+            "ids_in_trend": len(ids),
+            "fetched": len(results),
+            "score": {
+                "min": round(min(scores), 4),
+                "max": round(max(scores), 4),
+                "mean": round(sum(scores) / len(scores), 4),
+            },
+            "top_paper": papers[0]["title"] if papers else None,
+            "elapsed_sec": round(time.time() - started_at, 1),
+            "model": config["embedding_model"],
+        }
+        log_path = output_dir / "parse_runs.jsonl"
+        with open(log_path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
+        print(f"[INFO] Logged to {log_path.name}")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Parse trend.md and generate YYYYMMDD.json")
@@ -192,5 +218,6 @@ if __name__ == "__main__":
         default=datetime.now(JST).strftime("%Y%m%d"),
         help="Date in YYYYMMDD format (default: today)",
     )
+    parser.add_argument("--log", action="store_true", help="Record benchmark metrics to parse_runs.jsonl")
     args = parser.parse_args()
-    main(args.date)
+    main(args.date, log=args.log)

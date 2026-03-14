@@ -1,0 +1,1 @@
+{"ts": "2026-03-14T11:04:20.683628+09:00", "max_papers": 10000, "fetched": 10000, "min_cluster_size": 50, "n_clusters": 40, "noise": 3429, "noise_pct": 34.3, "cluster_size": {"min": 51, "max": 690, "mean": 164.3}, "elapsed_sec": 498.0, "model": "allenai/specter2_base"}

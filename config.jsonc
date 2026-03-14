@@ -1,0 +1,63 @@
+{
+  // 取得対象のarXivカテゴリ
+  "categories": ["cs.CL", "cs.LG", "cs.AI", "cs.CR"],
+
+  // 日次パース時の最大取得件数（parse.pyは trend.md のIDリストを使うので実質未使用）
+  "max_results_daily": 200,
+
+  // 月次地図生成時の最大取得件数（npm run map で使用）
+  "max_results_map": 10000,
+
+  // Embeddingモデル。全スクリプトで共通。変更時は map.json を再生成すること
+  "embedding_model": "allenai/specter2_base",
+
+  // daily-news skill が生成する YYYYMMDD-trend.md の保存先ディレクトリ
+  "trend_dir": "/Users/senna/Documents/Repos/life/ideas/daily",
+
+  // JSONの出力先（parse.py / map.py / recommend.py の成果物）
+  "output_dir": "data",
+
+  // スコアリングの基準となる興味領域（自然言語で記述）
+  // 論文abstractとのcos類似度の平均がdailyスコアになる
+  "interest_profile": [
+    "LLM inference optimization and serving efficiency",
+    "attention mechanism variants and efficient transformers",
+    "large language model internals and interpretability",
+    "tokenization and embedding representations",
+    "MLOps and LLM deployment infrastructure",
+    "prompt injection and LLM security attacks",
+    "AI agent tool use and reasoning",
+  ],
+
+  // Cloudflare KV から ratings を取得するURL（recommend.py が使用）
+  // 空文字列にすると data/ratings.json にフォールバック
+  "ratings_url": "",
+
+  // recommend.py のフィルタリング設定
+  "recommendation": {
+    "min_rating": 2, // この星評価以上の論文をinstance-based scoringに使用
+    "top_clusters": 3, // 上位何クラスタからおすすめを生成するか
+    "top_n": 20, // 最終的なおすすめ件数の上限
+    "min_match_score": 0.75, // クラスタcentroidとのcos類似度がこれ未満の論文を除外
+  },
+
+  // チューニングパラメータ。変更後は該当スクリプトを再実行すること
+  // map系パラメータを変えたら npm run map で地図を再生成する必要がある
+  "tuning": {
+    "map": {
+      "pca_components": 50, // specter2の768次元をこの次元に削減してからUMAPへ渡す
+      "umap_n_neighbors": 50, // 近傍点数。大きいほどグローバル構造重視、小さいほどローカル構造重視
+      "hdbscan_min_cluster_size_divisor": 200, // max_papers ÷ この値 = min_cluster_size の計算式の分母
+      "hdbscan_min_cluster_size_floor": 15, // min_cluster_sizeの下限。これより小さいクラスタは作らない
+      "hdbscan_min_samples": 5, // ノイズ判定の閾値。小さいほどノイズが減りクラスタが増える
+      "vectorizer_min_df": 3, // 最低N件の文書に出現しない語をキーワード候補から除外
+      "keybert_nr_repr_docs": 10, // KeyBERTがクラスタを代表させる文書数
+      "keybert_nr_candidate_words": 50, // c-TF-IDFで抽出するキーワード候補数。多いほど意味的再ランキングの精度が上がる
+      "keybert_top_n_words": 10, // 最終的に採用するキーワード数（ラベルには先頭3語を使用）
+      "mmr_diversity": 0.3, // キーワードの多様性。0=cos類似度重視、1=冗長排除重視
+    },
+    "recommend": {
+      "alpha_ratings_threshold": 50, // ratings件数がこの値に達するとprofile依存からinstance依存に完全移行
+    },
+  },
+}

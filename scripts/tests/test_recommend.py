@@ -46,19 +46,19 @@ class TestComputeInstanceScore:
 
 class TestComputeAlpha:
     def test_zero_ratings_returns_zero(self):
-        assert compute_alpha(0) == 0.0
+        assert compute_alpha(0, 50) == 0.0
 
     def test_fifty_ratings_returns_one(self):
-        assert compute_alpha(50) == 1.0
+        assert compute_alpha(50, 50) == 1.0
 
     def test_over_fifty_capped_at_one(self):
-        assert compute_alpha(100) == 1.0
+        assert compute_alpha(100, 50) == 1.0
 
     def test_twenty_five_returns_half(self):
-        assert abs(compute_alpha(25) - 0.5) < 1e-6
+        assert abs(compute_alpha(25, 50) - 0.5) < 1e-6
 
     def test_monotonically_increasing(self):
-        alphas = [compute_alpha(n) for n in range(0, 55, 5)]
+        alphas = [compute_alpha(n, 50) for n in range(0, 55, 5)]
         assert all(a <= b for a, b in zip(alphas, alphas[1:]))
 
 

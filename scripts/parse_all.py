@@ -16,12 +16,15 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
-CONFIG_PATH = ROOT / "config.json"
+CONFIG_PATH = ROOT / "config.jsonc"
 
 
 def main(force: bool) -> None:
-    with open(CONFIG_PATH, encoding="utf-8") as f:
-        config = json.load(f)
+    text = CONFIG_PATH.read_text(encoding="utf-8")
+    text = re.sub(r'"[^"\\]*(?:\\.[^"\\]*)*"|//[^\n]*',
+                  lambda m: m.group(0) if m.group(0).startswith('"') else "", text)
+    text = re.sub(r",(\s*[}\]])", r"\1", text)
+    config = json.loads(text)
 
     trend_dir = Path(config["trend_dir"])
     output_dir = ROOT / config["output_dir"]
