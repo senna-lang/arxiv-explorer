@@ -1,0 +1,433 @@
+{
+  "date": "2026-03-14",
+  "collected_at": "2026-03-14T09:58:40.041551+09:00",
+  "papers": [
+    {
+      "id": "2603.11768",
+      "title": "Governing Evolving Memory in LLM Agents: Risks, Mechanisms, and the Stability and Safety Governed Memory (SSGM) Framework",
+      "authors": [
+        "Chingkwun Lam",
+        "Jiaxin Li",
+        "Lingfei Zhang",
+        "Kuo Zhao"
+      ],
+      "abstract": "Long-term memory has emerged as a foundational component of autonomous Large Language Model (LLM) agents, enabling continuous adaptation, lifelong multimodal learning, and sophisticated reasoning. However, as memory systems transition from static retrieval databases to dynamic, agentic mechanisms, critical concerns regarding memory governance, semantic drift, and privacy vulnerabilities have surfaced. While recent surveys have focused extensively on memory retrieval efficiency, they largely overlook the emergent risks of memory corruption in highly dynamic environments. To address these emerging challenges, we propose the Stability and Safety-Governed Memory (SSGM) framework, a conceptual governance architecture. SSGM decouples memory evolution from execution by enforcing consistency verification, temporal decay modeling, and dynamic access control prior to any memory consolidation. Through formal analysis and architectural decomposition, we show how SSGM can mitigate topology-induced knowledge leakage where sensitive contexts are solidified into long-term storage, and help prevent semantic drift where knowledge degrades through iterative summarization. Ultimately, this work provides a comprehensive taxonomy of memory corruption risks and establishes a robust governance paradigm for deploying safe, persistent, and reliable agentic memory systems.",
+      "url": "https://arxiv.org/abs/2603.11768",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.8281
+    },
+    {
+      "id": "2603.11619",
+      "title": "Taming OpenClaw: Security Analysis and Mitigation of Autonomous LLM Agent Threats",
+      "authors": [
+        "Xinhao Deng",
+        "Yixiang Zhang",
+        "Jiaqing Wu",
+        "Jiaqi Bai",
+        "Sibo Yi",
+        "Zhuoheng Zou",
+        "Yue Xiao",
+        "Rennai Qiu",
+        "Jianan Ma",
+        "Jialuo Chen",
+        "Xiaohu Du",
+        "Xiaofang Yang",
+        "Shiwen Cui",
+        "Changhua Meng",
+        "Weiqiang Wang",
+        "Jiaxing Song",
+        "Ke Xu",
+        "Qi Li"
+      ],
+      "abstract": "Autonomous Large Language Model (LLM) agents, exemplified by OpenClaw, demonstrate remarkable capabilities in executing complex, long-horizon tasks. However, their tightly coupled instant-messaging interaction paradigm and high-privilege execution capabilities substantially expand the system attack surface. In this paper, we present a comprehensive security threat analysis of OpenClaw. To structure our analysis, we introduce a five-layer lifecycle-oriented security framework that captures key stages of agent operation, i.e., initialization, input, inference, decision, and execution, and systematically examine compound threats across the agent's operational lifecycle, including indirect prompt injection, skill supply chain contamination, memory poisoning, and intent drift. Through detailed case studies on OpenClaw, we demonstrate the prevalence and severity of these threats and analyze the limitations of existing defenses. Our findings reveal critical weaknesses in current point-based defense mechanisms when addressing cross-temporal and multi-stage systemic risks, highlighting the need for holistic security architectures for autonomous LLM agents. Within this framework, we further examine representative defense strategies at each lifecycle stage, including plugin vetting frameworks, context-aware instruction filtering, memory integrity validation protocols, intent verification mechanisms, and capability enforcement architectures.",
+      "url": "https://arxiv.org/abs/2603.11619",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.8207
+    },
+    {
+      "id": "2603.11088",
+      "title": "The Attack and Defense Landscape of Agentic AI: A Comprehensive Survey",
+      "authors": [
+        "Juhee Kim",
+        "Xiaoyuan Liu",
+        "Zhun Wang",
+        "Shi Qiu",
+        "Bo Li",
+        "Wenbo Guo",
+        "Dawn Song"
+      ],
+      "abstract": "AI agents that combine large language models with non-AI system components are rapidly emerging in real-world applications, offering unprecedented automation and flexibility. However, this unprecedented flexibility introduces complex security challenges fundamentally different from those in traditional software systems. This paper presents the first systematic and comprehensive survey of AI agent security, including an analysis of the design space, attack landscape, and defense mechanisms for secure AI agent systems. We further conduct case studies to point out existing gaps in securing agentic AI systems and identify open challenges in this emerging domain. Our work also introduces the first systematic framework for understanding the security risks and defense strategies of AI agents, serving as a foundation for building both secure agentic systems and advancing research in this critical area.",
+      "url": "https://arxiv.org/abs/2603.11088",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.8184
+    },
+    {
+      "id": "2603.11149",
+      "title": "Systematic Scaling Analysis of Jailbreak Attacks in Large Language Models",
+      "authors": [
+        "Xiangwen Wang",
+        "Ananth Balashankar",
+        "Varun Chandrasekaran"
+      ],
+      "abstract": "Large language models remain vulnerable to jailbreak attacks, yet we still lack a systematic understanding of how jailbreak success scales with attacker effort across methods, model families, and harm types. We initiate a scaling-law framework for jailbreaks by treating each attack as a compute-bounded optimization procedure and measuring progress on a shared FLOPs axis. Our systematic evaluation spans four representative jailbreak paradigms, covering optimization-based attacks, self-refinement prompting, sampling-based selection, and genetic optimization, across multiple model families and scales on a diverse set of harmful goals. We investigate scaling laws that relate attacker budget to attack success score by fitting a simple saturating exponential function to FLOPs--success trajectories, and we derive comparable efficiency summaries from the fitted curves. Empirically, prompting-based paradigms tend to be the most compute-efficient compared to optimization-based methods. To explain this gap, we cast prompt-based updates into an optimization view and show via a same-state comparison that prompt-based attacks more effectively optimize in prompt space. We also show that attacks occupy distinct success--stealthiness operating points with prompting-based methods occupying the high-success, high-stealth region. Finally, we find that vulnerability is strongly goal-dependent: harms involving misinformation are typically easier to elicit than other non-misinformation harms.",
+      "url": "https://arxiv.org/abs/2603.11149",
+      "categories": [
+        "cs.LG",
+        "cs.CR"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.8156
+    },
+    {
+      "id": "2603.11212",
+      "title": "Security-by-Design for LLM-Based Code Generation: Leveraging Internal Representations for Concept-Driven Steering Mechanisms",
+      "authors": [
+        "Maximilian Wendlinger",
+        "Daniel Kowatsch",
+        "Konstantin Böttinger",
+        "Philip Sperl"
+      ],
+      "abstract": "Large Language Models (LLMs) show remarkable capabilities in understanding natural language and generating complex code. However, as practitioners adopt CodeLLMs for increasingly critical development tasks, research reveals that these models frequently generate functionally correct yet insecure code, posing significant security risks. While multiple approaches have been proposed to improve security in AI-based code generation, combined benchmarks show these methods remain insufficient for practical use, achieving only limited improvements in both functional correctness and security. This stems from a fundamental gap in understanding the internal mechanisms of code generation and the root causes of security vulnerabilities, forcing researchers to rely on heuristics and empirical observations. In this work, we investigate the internal representation of security concepts in CodeLLMs, revealing that models are often aware of vulnerabilities as they generate insecure code. Through systematic evaluation, we demonstrate that CodeLLMs can distinguish between security subconcepts, enabling a more fine-grained analysis than prior black-box approaches. Leveraging these insights, we propose Secure Concept Steering for CodeLLMs (SCS-Code). During token generation, SCS-Code steers LLMs' internal representations toward secure and functional code output, enabling a lightweight and modular mechanism that can be integrated into existing code models. Our approach achieves superior performance compared to state-of-the-art methods across multiple secure coding benchmarks.",
+      "url": "https://arxiv.org/abs/2603.11212",
+      "categories": [
+        "cs.CR",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.8124
+    },
+    {
+      "id": "2603.12023",
+      "title": "Cascade: Composing Software-Hardware Attack Gadgets for Adversarial Threat Amplification in Compound AI Systems",
+      "authors": [
+        "Sarbartha Banerjee",
+        "Prateek Sahu",
+        "Anjo Vahldiek-Oberwagner",
+        "Jose Sanchez Vicarte",
+        "Mohit Tiwari"
+      ],
+      "abstract": "Rapid progress in generative AI has given rise to Compound AI systems - pipelines comprised of multiple large language models (LLM), software tools and database systems. Compound AI systems are constructed on a layered traditional software stack running on a distributed hardware infrastructure. Many of the diverse software components are vulnerable to traditional security flaws documented in the Common Vulnerabilities and Exposures (CVE) database, while the underlying distributed hardware infrastructure remains exposed to timing attacks, bit-flip faults, and power-based side channels. Today, research targets LLM-specific risks like model extraction, training data leakage, and unsafe generation -- overlooking the impact of traditional system vulnerabilities.\n  This work investigates how traditional software and hardware vulnerabilities can complement LLM-specific algorithmic attacks to compromise the integrity of a compound AI pipeline. We demonstrate two novel attacks that combine system-level vulnerabilities with algorithmic weaknesses: (1) Exploiting a software code injection flaw along with a guardrail Rowhammer attack to inject an unaltered jailbreak prompt into an LLM, resulting in an AI safety violation, and (2) Manipulating a knowledge database to redirect an LLM agent to transmit sensitive user data to a malicious application, thus breaching confidentiality. These attacks highlight the need to address traditional vulnerabilities; we systematize the attack primitives and analyze their composition by grouping vulnerabilities by their objective and mapping them to distinct stages of an attack lifecycle. This approach enables a rigorous red-teaming exercise and lays the groundwork for future defense strategies.",
+      "url": "https://arxiv.org/abs/2603.12023",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.8098
+    },
+    {
+      "id": "2603.11862",
+      "title": "You Told Me to Do It: Measuring Instructional Text-induced Private Data Leakage in LLM Agents",
+      "authors": [
+        "Ching-Yu Kao",
+        "Xinfeng Li",
+        "Shenyu Dai",
+        "Tianze Qiu",
+        "Pengcheng Zhou",
+        "Eric Hanchen Jiang",
+        "Philip Sperl"
+      ],
+      "abstract": "High-privilege LLM agents that autonomously process external documentation are increasingly trusted to automate tasks by reading and executing project instructions, yet they are granted terminal access, filesystem control, and outbound network connectivity with minimal security oversight. We identify and systematically measure a fundamental vulnerability in this trust model, which we term the \\emph{Trusted Executor Dilemma}: agents execute documentation-embedded instructions, including adversarial ones, at high rates because they cannot distinguish malicious directives from legitimate setup guidance. This vulnerability is a structural consequence of the instruction-following design paradigm, not an implementation bug. To structure our measurement, we formalize a three-dimensional taxonomy covering linguistic disguise, structural obfuscation, and semantic abstraction, and construct \\textbf{ReadSecBench}, a benchmark of 500 real-world README files enabling reproducible evaluation. Experiments on the commercially deployed computer-use agent show end-to-end exfiltration success rates up to 85\\%, consistent across five programming languages and three injection positions. Cross-model evaluation on four LLM families in a simulation environment confirms that semantic compliance with injected instructions is consistent across model families. A 15-participant user study yields a 0\\% detection rate across all participants, and evaluation of 12 rule-based and 6 LLM-based defenses shows neither category achieves reliable detection without unacceptable false-positive rates. Together, these results quantify a persistent \\emph{Semantic-Safety Gap} between agents' functional compliance and their security awareness, establishing that documentation-embedded instruction injection is a persistent and currently unmitigated threat to high-privilege LLM agent deployments.",
+      "url": "https://arxiv.org/abs/2603.11862",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.8024
+    },
+    {
+      "id": "2603.12038",
+      "title": "Slow-Fast Inference: Training-Free Inference Acceleration via Within-Sentence Support Stability",
+      "authors": [
+        "Xingyu Xie",
+        "Zhaochen Yu",
+        "Yue Liao",
+        "Tao Wang",
+        "Kim-Chuan Toh",
+        "Shuicheng Yan"
+      ],
+      "abstract": "Long-context autoregressive decoding remains expensive because each decoding step must repeatedly process a growing history. We observe a consistent pattern during decoding: within a sentence, and more generally within a short semantically coherent span, the dominant attention support often remains largely stable. Motivated by this observation, we propose Slow-Fast Inference (SFI), a training-free decoding framework that decouples generation into frequent low-cost fast steps and occasional dense-attention slow steps. Fast steps reuse a compact sparse memory for efficient decoding. Slow steps are triggered near semantic boundaries. At slow steps, the model revisits the broader context and uses the Selector to refresh the selected memory for subsequent fast steps. Across the evaluated context lengths, SFI delivers approximately $1.6\\times$--$14.4\\times$ higher decoding throughput while generally maintaining quality on par with the full-KV baseline across long-context and long-CoT settings. Because SFI is training-free and applies directly to existing checkpoints, it offers a practical path to reducing inference cost for contemporary autoregressive reasoning models in long-context, long-horizon, and agentic workloads.",
+      "url": "https://arxiv.org/abs/2603.12038",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.7941
+    },
+    {
+      "id": "2603.11501",
+      "title": "KEPo: Knowledge Evolution Poison on Graph-based Retrieval-Augmented Generation",
+      "authors": [
+        "Qizhi Chen",
+        "Chao Qi",
+        "Yihong Huang",
+        "Muquan Li",
+        "Rongzheng Wang",
+        "Dongyang Zhang",
+        "Ke Qin",
+        "Shuang Liang"
+      ],
+      "abstract": "Graph-based Retrieval-Augmented Generation (GraphRAG) constructs the Knowledge Graph (KG) from external databases to enhance the timeliness and accuracy of Large Language Model (LLM) generations.However,this reliance on external data introduces new attack surfaces.Attackers can inject poisoned texts into databases to manipulate LLMs into producing harmful target responses for attacker-chosen queries.Existing research primarily focuses on attacking conventional RAG systems.However,such methods are ineffective against GraphRAG.This robustness derives from the KG abstraction of GraphRAG,which reorganizes injected text into a graph before retrieval,thereby enabling the LLM to reason based on the restructured context instead of raw poisoned passages.To expose latent security vulnerabilities in GraphRAG,we propose Knowledge Evolution Poison (KEPo),a novel poisoning attack method specifically designed for GraphRAG.For each target query,KEPo first generates a toxic event containing poisoned knowledge based on the target answer.By fabricating event backgrounds and forging knowledge evolution paths from original facts to the toxic event,it then poisons the KG and misleads the LLM into treating the poisoned knowledge as the final result.In multi-target attack scenarios,KEPo further connects multiple attack corpora,enabling their poisoned knowledge to mutually reinforce while expanding the scale of poisoned communities,thereby amplifying attack effectiveness.Experimental results across multiple datasets demonstrate that KEPo achieves state-of-the-art attack success rates for both single-target and multi-target attacks,significantly outperforming previous methods.",
+      "url": "https://arxiv.org/abs/2603.11501",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CR"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.7933
+    },
+    {
+      "id": "2603.11875",
+      "title": "The Mirror Design Pattern: Strict Data Geometry over Model Scale for Prompt Injection Detection",
+      "authors": [
+        "J Alex Corll"
+      ],
+      "abstract": "Prompt injection defenses are often framed as semantic understanding problems and delegated to increasingly large neural detectors. For the first screening layer, however, the requirements are different: the detector runs on every request and therefore must be fast, deterministic, non-promptable, and auditable. We introduce Mirror, a data-curation design pattern that organizes prompt injection corpora into matched positive and negative cells so that a classifier learns control-plane attack mechanics rather than incidental corpus shortcuts. Using 5,000 strictly curated open-source samples -- the largest corpus supportable under our public-data validity contract -- we define a 32-cell mirror topology, fill 31 of those cells with public data, train a sparse character n-gram linear SVM, compile its weights into a static Rust artifact, and obtain 95.97\\% recall and 92.07\\% F1 on a 524-case holdout at sub-millisecond latency with no external model runtime dependencies. On the same holdout, our next line of defense, a 22-million-parameter Prompt Guard~2 model reaches 44.35\\% recall and 59.14\\% F1 at 49\\,ms median and 324\\,ms p95 latency. Linear models still leave residual semantic ambiguities such as use-versus-mention for later pipeline layers, but within that scope our results show that for L1 prompt injection screening, strict data geometry can matter more than model scale.",
+      "url": "https://arxiv.org/abs/2603.11875",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.7924
+    },
+    {
+      "id": "2603.12246",
+      "title": "Examining Reasoning LLMs-as-Judges in Non-Verifiable LLM Post-Training",
+      "authors": [
+        "Yixin Liu",
+        "Yue Yu",
+        "DiJia Su",
+        "Sid Wang",
+        "Xuewei Wang",
+        "Song Jiang",
+        "Bo Liu",
+        "Arman Cohan",
+        "Yuandong Tian",
+        "Zhengxing Chen"
+      ],
+      "abstract": "Reasoning LLMs-as-Judges, which can benefit from inference-time scaling, provide a promising path for extending the success of reasoning models to non-verifiable domains where the output correctness/quality cannot be directly checked. However, while reasoning judges have shown better performance on static evaluation benchmarks, their effectiveness in actual policy training has not been systematically examined. Therefore, we conduct a rigorous study to investigate the actual impact of non-reasoning and reasoning judges in reinforcement-learning-based LLM alignment. Our controlled synthetic setting, where a \"gold-standard\" judge (gpt-oss-120b) provides preference annotations to train smaller judges, reveals key differences between non-reasoning and reasoning judges: non-reasoning judges lead to reward hacking easily, while reasoning judges can lead to policies that achieve strong performance when evaluated by the gold-standard judge. Interestingly, we find that the reasoning-judge-trained policies achieve such strong performance by learning to generate highly effective adversarial outputs that can also score well on popular benchmarks such as Arena-Hard by deceiving other LLM-judges. Combined with our further analysis, our study highlights both important findings and room for improvements for applying (reasoning) LLM-judges in non-verifiable LLM post-training.",
+      "url": "https://arxiv.org/abs/2603.12246",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.7921
+    },
+    {
+      "id": "2603.12206",
+      "title": "CLASP: Defending Hybrid Large Language Models Against Hidden State Poisoning Attacks",
+      "authors": [
+        "Alexandre Le Mercier",
+        "Thomas Demeester",
+        "Chris Develder"
+      ],
+      "abstract": "State space models (SSMs) like Mamba have gained significant traction as efficient alternatives to Transformers, achieving linear complexity while maintaining competitive performance. However, Hidden State Poisoning Attacks (HiSPAs), a recently discovered vulnerability that corrupts SSM memory through adversarial strings, pose a critical threat to these architectures and their hybrid variants. Framing the HiSPA mitigation task as a binary classification problem at the token level, we introduce the CLASP model to defend against this threat. CLASP exploits distinct patterns in Mamba's block output embeddings (BOEs) and uses an XGBoost classifier to identify malicious tokens with minimal computational overhead. We consider a realistic scenario in which both SSMs and HiSPAs are likely to be used: an LLM screening résumés to identify the best candidates for a role. Evaluated on a corpus of 2,483 résumés totaling 9.5M tokens with controlled injections, CLASP achieves 95.9% token-level F1 score and 99.3% document-level F1 score on malicious tokens detection. Crucially, the model generalizes to unseen attack patterns: under leave-one-out cross-validation, performance remains high (96.9% document-level F1), while under clustered cross-validation with structurally novel triggers, it maintains useful detection capability (91.6% average document-level F1). Operating independently of any downstream model, CLASP processes 1,032 tokens per second with under 4GB VRAM consumption, potentially making it suitable for real-world deployment as a lightweight front-line defense for SSM-based and hybrid architectures. All code and detailed results are available at https://anonymous.4open.science/r/hispikes-91C0.",
+      "url": "https://arxiv.org/abs/2603.12206",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.7909
+    },
+    {
+      "id": "2603.11650",
+      "title": "QChunker: Learning Question-Aware Text Chunking for Domain RAG via Multi-Agent Debate",
+      "authors": [
+        "Jihao Zhao",
+        "Daixuan Li",
+        "Pengfei Li",
+        "Shuaishuai Zu",
+        "Biao Qin",
+        "Hongyan Liu"
+      ],
+      "abstract": "The effectiveness upper bound of retrieval-augmented generation (RAG) is fundamentally constrained by the semantic integrity and information granularity of text chunks in its knowledge base. To address these challenges, this paper proposes QChunker, which restructures the RAG paradigm from retrieval-augmentation to understanding-retrieval-augmentation. Firstly, QChunker models the text chunking as a composite task of text segmentation and knowledge completion to ensure the logical coherence and integrity of text chunks. Drawing inspiration from Hal Gregersen's \"Questions Are the Answer\" theory, we design a multi-agent debate framework comprising four specialized components: a question outline generator, text segmenter, integrity reviewer, and knowledge completer. This framework operates on the principle that questions serve as catalysts for profound insights. Through this pipeline, we successfully construct a high-quality dataset of 45K entries and transfer this capability to small language models. Additionally, to handle long evaluation chains and low efficiency in existing chunking evaluation methods, which overly rely on downstream QA tasks, we introduce a novel direct evaluation metric, ChunkScore. Both theoretical and experimental validations demonstrate that ChunkScore can directly and efficiently discriminate the quality of text chunks. Furthermore, during the text segmentation phase, we utilize document outlines for multi-path sampling to generate multiple candidate chunks and select the optimal solution employing ChunkScore. Extensive experimental results across four heterogeneous domains exhibit that QChunker effectively resolves aforementioned issues by providing RAG with more logically coherent and information-rich text chunks.",
+      "url": "https://arxiv.org/abs/2603.11650",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.7907
+    },
+    {
+      "id": "2603.11564",
+      "title": "Where Matters More Than What: Decoding-aligned KV Cache Compression via Position-aware Pseudo Queries",
+      "authors": [
+        "Zhenxu Tian",
+        "Yi Su",
+        "Juntao Li",
+        "Min Zhang"
+      ],
+      "abstract": "The Key-Value (KV) cache is crucial for efficient Large Language Models (LLMs) inference, but excessively long contexts drastically increase KV cache memory footprint. Existing KV cache compression methods typically rely on input-side attention patterns within a prompt observation window to estimate token importance during the prefill stage. They fail to preserve critical tokens for future generation since these assessments are not derived from the decoding process. Intuitively, an effective observation window should mirror the decoding-stage queries to accurately reflect which tokens the generation process will attend to. However, ground-truth decoding queries are inherently unavailable during inference. For constructing pseudo queries to approximate them, we find that positional information plays a more critical role than semantic content. Motivated by this insight, we propose decoding-aligned KV cache compression via position-aware pseudo queries (DapQ), a novel and lightweight eviction framework that leverages position-aware pseudo queries to simulate the output tokens, thereby establishing an effective observation window for importance assessment. It aligns closely with the actual generation context and enables precise token eviction. Extensive evaluations across multiple benchmarks and LLMs demonstrate that DapQ achieves superior performance, particularly under strict memory constraints (e.g., up to nearly lossless performance 99.5% on NIAH with 3% KV cache budgets).",
+      "url": "https://arxiv.org/abs/2603.11564",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.7888
+    },
+    {
+      "id": "2603.12118",
+      "title": "Cornserve: A Distributed Serving System for Any-to-Any Multimodal Models",
+      "authors": [
+        "Jae-Won Chung",
+        "Jeff J. Ma",
+        "Jisang Ahn",
+        "Yizhuo Liang",
+        "Akshay Jajoo",
+        "Myungjin Lee",
+        "Mosharaf Chowdhury"
+      ],
+      "abstract": "Any-to-Any models are an emerging class of multimodal models that accept combinations of multimodal data (e.g., text, image, video, audio) as input and generate them as output. Serving these models are challenging; different requests with different input and output modalities traverse different paths through the model computation graph, and each component of the model have different scaling characteristics.\n  We present Cornserve, a distributed serving system for generic Any-to-Any models. Cornserve provides a flexible task abstraction for expressing Any-to-Any model computation graphs, enabling component disaggregation and independent scaling. The distributed runtime dispatches compute to the data plane via an efficient record-and-replay execution model that keeps track of data dependencies, and forwards tensor data between components directly from the producer to the consumer. Built on Kubernetes with approximately 23K new lines of Python, Cornserve supports diverse Any-to-Any models and delivers up to 3.81$\\times$ higher throughput and 5.79$\\times$ lower tail latency. Cornserve is open-source, and the demo video is available on YouTube.",
+      "url": "https://arxiv.org/abs/2603.12118",
+      "categories": [
+        "cs.LG",
+        "cs.DC"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.7883
+    },
+    {
+      "id": "2603.12151",
+      "title": "IsoCompute Playbook: Optimally Scaling Sampling Compute for LLM RL",
+      "authors": [
+        "Zhoujun Cheng",
+        "Yutao Xie",
+        "Yuxiao Qu",
+        "Amrith Setlur",
+        "Shibo Hao",
+        "Varad Pimpalkhute",
+        "Tongtong Liang",
+        "Feng Yao",
+        "Zhengzhong Liu",
+        "Eric Xing",
+        "Virginia Smith",
+        "Ruslan Salakhutdinov",
+        "Zhiting Hu",
+        "Taylor Killian",
+        "Aviral Kumar"
+      ],
+      "abstract": "While scaling laws guide compute allocation for LLM pre-training, analogous prescriptions for reinforcement learning (RL) post-training of large language models (LLMs) remain poorly understood. We study the compute-optimal allocation of sampling compute for on-policy RL methods in LLMs, framing scaling as a compute-constrained optimization over three resources: parallel rollouts per problem, number of problems per batch, and number of update steps. We find that the compute-optimal number of parallel rollouts per problem increases predictably with compute budget and then saturates. This trend holds across both easy and hard problems, though driven by different mechanisms: solution sharpening on easy problems and coverage expansion on hard problems. We further show that increasing the number of parallel rollouts mitigates interference across problems, while the number of problems per batch primarily affects training stability and can be chosen within a broad range. Validated across base models and data distributions, our results recast RL scaling laws as prescriptive allocation rules and provide practical guidance for compute-efficient LLM RL post-training.",
+      "url": "https://arxiv.org/abs/2603.12151",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.7847
+    },
+    {
+      "id": "2603.11949",
+      "title": "Delayed Backdoor Attacks: Exploring the Temporal Dimension as a New Attack Surface in Pre-Trained Models",
+      "authors": [
+        "Zikang Ding",
+        "Haomiao Yang",
+        "Meng Hao",
+        "Wenbo Jiang",
+        "Kunlan Xiang",
+        "Runmeng Du",
+        "Yijing Liu",
+        "Ruichen Zhang",
+        "Dusit Niyato"
+      ],
+      "abstract": "Backdoor attacks against pre-trained models (PTMs) have traditionally operated under an ``immediacy assumption,'' where malicious behavior manifests instantly upon trigger occurrence. This work revisits and challenges this paradigm by introducing \\textit{\\textbf{Delayed Backdoor Attacks (DBA)}}, a new class of threats in which activation is temporally decoupled from trigger exposure. We propose that this \\textbf{temporal dimension} is the key to unlocking a previously infeasible class of attacks: those that use common, everyday words as triggers. To examine the feasibility of this paradigm, we design and implement a proof-of-concept prototype, termed \\underline{D}elayed Backdoor Attacks Based on \\underline{N}onlinear \\underline{D}ecay (DND). DND embeds a lightweight, stateful logic module that postpones activation until a configurable threshold is reached, producing a distinct latency phase followed by a controlled outbreak. We derive a formal model to characterize this latency behavior and propose a dual-metric evaluation framework (ASR and ASR$_{delay}$) to empirically measure the delay effect. Extensive experiments on four (natural language processing)NLP benchmarks validate the core capabilities of DND: it remains dormant for a controllable duration, sustains high clean accuracy ($\\ge$94\\%), and achieves near-perfect post-activation attack success rates ($\\approx$99\\%, The average of other methods is below 95\\%.). Moreover, DND exhibits resilience against several state-of-the-art defenses. This study provides the first empirical evidence that the temporal dimension constitutes a viable yet unprotected attack surface in PTMs, underscoring the need for next-generation, stateful, and time-aware defense mechanisms.",
+      "url": "https://arxiv.org/abs/2603.11949",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.7842
+    },
+    {
+      "id": "2603.11132",
+      "title": "WebWeaver: Breaking Topology Confidentiality in LLM Multi-Agent Systems with Stealthy Context-Based Inference",
+      "authors": [
+        "Zixun Xiong",
+        "Gaoyi Wu",
+        "Lingfeng Yao",
+        "Miao Pan",
+        "Xiaojiang Du",
+        "Hao Wang"
+      ],
+      "abstract": "Communication topology is a critical factor in the utility and safety of LLM-based multi-agent systems (LLM-MAS), making it a high-value intellectual property (IP) whose confidentiality remains insufficiently studied.\n  %\n  Existing topology inference attempts rely on impractical assumptions, including control over the administrative agent and direct identity queries via jailbreaks, which are easily defeated by basic keyword-based defenses. As a result, prior analyses fail to capture the real-world threat of such attacks.\n  %\n  To bridge this realism gap, we propose \\textit{WebWeaver}, an attack framework that infers the complete LLM-MAS topology by compromising only a single arbitrary agent instead of the administrative agent.\n  %\n  Unlike prior approaches, WebWeaver relies solely on agent contexts rather than agent IDs, enabling significantly stealthier inference.\n  %\n  WebWeaver further introduces a new covert jailbreak-based mechanism and a novel fully jailbreak-free diffusion design to handle cases where jailbreaks fail.\n  %\n  Additionally, we address a key challenge in diffusion-based inference by proposing a masking strategy that preserves known topology during diffusion, with theoretical guarantees of correctness.\n  %\n  Extensive experiments show that WebWeaver substantially outperforms state-of-the-art (SOTA) baselines, achieving about 60\\% higher inference accuracy under active defenses with negligible overhead.",
+      "url": "https://arxiv.org/abs/2603.11132",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-11",
+      "score": 0.7831
+    },
+    {
+      "id": "2603.12011",
+      "title": "Can RL Improve Generalization of LLM Agents? An Empirical Study",
+      "authors": [
+        "Zhiheng Xi",
+        "Xin Guo",
+        "Jiaqi Liu",
+        "Jiazheng Zhang",
+        "Yutao Fan",
+        "Zhihao Zhang",
+        "Shichun Liu",
+        "Mingxu Chai",
+        "Xiaowei Shi",
+        "Yitao Zhai",
+        "Xunliang Cai",
+        "Tao Gui",
+        "Qi Zhang",
+        "Xuanjing Huang"
+      ],
+      "abstract": "Reinforcement fine-tuning (RFT) has shown promise for training LLM agents to perform multi-turn decision-making based on environment feedback. However, most existing evaluations remain largely in-domain: training and testing are conducted in the same environment or even on the same tasks. In real-world deployment, agents may operate in unseen environments with different background knowledge, observation spaces, and action interfaces. To characterize the generalization profile of RFT under such shifts, we conduct a systematic study along three axes: (1) within-environment generalization across task difficulty, (2) cross-environment transfer to unseen environments, and (3) sequential multi-environment training to quantify transfer and forgetting. Our results show that RFT generalizes well across task difficulty within an environment, but exhibits weaker transfer to unseen environments, which correlates with shifts in both semantic priors and observation/action interfaces. In contrast, sequential training yields promising downstream gains with minimal upstream forgetting, and mixture training across environments improves the overall balance. We further provide detailed analyses and deeper insights, and hope our work helps the community develop and deploy generalizable LLM agents.",
+      "url": "https://arxiv.org/abs/2603.12011",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.765
+    },
+    {
+      "id": "2603.12201",
+      "title": "IndexCache: Accelerating Sparse Attention via Cross-Layer Index Reuse",
+      "authors": [
+        "Yushi Bai",
+        "Qian Dong",
+        "Ting Jiang",
+        "Xin Lv",
+        "Zhengxiao Du",
+        "Aohan Zeng",
+        "Jie Tang",
+        "Juanzi Li"
+      ],
+      "abstract": "Long-context agentic workflows have emerged as a defining use case for large language models, making attention efficiency critical for both inference speed and serving cost. Sparse attention addresses this challenge effectively, and DeepSeek Sparse Attention (DSA) is a representative production-grade solution: a lightweight lightning indexer selects the top-k most relevant tokens per query, reducing core attention from $O(L^2)$ to $O(Lk)$. However, the indexer itself retains $O(L^2)$ complexity and must run independently at every layer, despite the fact that the resulting top-k selections are highly similar across consecutive layers. We present IndexCache, which exploits this cross-layer redundancy by partitioning layers into a small set of Full layers that run their own indexers and a majority of Shared layers that simply reuse the nearest Full layer's top-k indices. We propose two complementary approaches to determine and optimize this configuration. Training-free IndexCache applies a greedy search algorithm that selects which layers to retain indexers by directly minimizing language modeling loss on a calibration set, requiring no weight updates. Training-aware IndexCache introduces a multi-layer distillation loss that trains each retained indexer against the averaged attention distributions of all layers it serves, enabling even simple interleaved patterns to match full-indexer accuracy. Experimental results on a 30B DSA model show that IndexCache can remove 75% of indexer computations with negligible quality degradation, achieving up to 1.82$\\times$ prefill speedup and 1.48$\\times$ decode speedup compared to standard DSA. These positive results are further confirmed by our preliminary experiments on the production-scale GLM-5 model (Figure 1).",
+      "url": "https://arxiv.org/abs/2603.12201",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.7642
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "profile_version": "1"
+  }
+}
