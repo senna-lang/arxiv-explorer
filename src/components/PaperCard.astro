@@ -39,6 +39,7 @@ const firstCategory = paper.categories[0] ?? "";
   </header>
 
   <div class="paper-actions">
+    <p class="submitted">{paper.submitted}</p>
     <div
       class="star-rating"
       data-paper-id={paper.id}
@@ -131,6 +132,12 @@ const firstCategory = paper.categories[0] ?? "";
     align-items: center;
     gap: 1rem;
     margin-bottom: 0.75rem;
+  }
+
+  .submitted {
+    font-size: 0.78rem;
+    color: #888;
+    margin: 0;
   }
 
   .star-rating {
