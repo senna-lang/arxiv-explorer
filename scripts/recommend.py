@@ -27,7 +27,7 @@ from zoneinfo import ZoneInfo
 
 import arxiv
 import numpy as np
-from sentence_transformers import SentenceTransformer
+from specter2 import Specter2Encoder
 
 JST = ZoneInfo("Asia/Tokyo")
 ROOT = Path(__file__).parent.parent
@@ -144,23 +144,21 @@ def main(top_clusters: int, top_n: int, log: bool = False) -> None:
     high_rated = [r for r in ratings_data["ratings"] if r["rating"] >= min_rating]
     print(f"[INFO] {len(high_rated)} high-rated papers (rating>={min_rating})")
 
-    model = SentenceTransformer(model_name)
+    enc = Specter2Encoder(model_name)
 
-    # 高評価論文のEmbedding: ★3は★2の2倍の重みで rated_vecs に追加
-    # 重み付けは同一ベクトルを複数回追加することで実現（★2→1回、★3→2回）
+    # 高評価論文のEmbedding: proximity アダプタ（論文↔論文類似度）
     rated_vecs: list[np.ndarray] = []
     if high_rated:
         texts = [f"{r.get('title', '')} [SEP] {r['abstract']}" for r in high_rated]
-        vecs = list(model.encode(texts, show_progress_bar=False))
+        vecs = list(enc.encode(texts, adapter="proximity"))
         for r, vec in zip(high_rated, vecs):
             weight = r["rating"] - 1  # ★2→1回、★3→2回
             rated_vecs.extend([vec] * weight)
 
-    # interest_profileのEmbedding: ratings不足時のフォールバックスコアに使用
-    # config.jsonのinterest_profile（自然言語7項目）をベクトル化
+    # interest_profileのEmbedding: adhoc_query アダプタ（クエリ→論文検索）
     profile_texts: list[str] = config["interest_profile"]
     profile_vecs: list[np.ndarray] = list(
-        model.encode(profile_texts, show_progress_bar=False)
+        enc.encode(profile_texts, adapter="adhoc_query")
     )
 
     # α = ratings件数に応じた重み（0件=profile only、50件以上=instance only）
@@ -184,7 +182,7 @@ def main(top_clusters: int, top_n: int, log: bool = False) -> None:
             continue
         texts = [f"{p.title} [SEP] {p.summary}" for p in papers]
         paper_vecs: list[np.ndarray] = list(
-            model.encode(texts, show_progress_bar=False)
+            enc.encode(texts, adapter="proximity")
         )
         centroid = np.array(cluster["centroid"])
 

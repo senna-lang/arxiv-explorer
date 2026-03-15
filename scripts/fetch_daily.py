@@ -27,7 +27,7 @@ from zoneinfo import ZoneInfo
 
 import arxiv
 import numpy as np
-from sentence_transformers import SentenceTransformer
+from specter2 import Specter2Encoder
 
 JST = ZoneInfo("Asia/Tokyo")
 ROOT = Path(__file__).parent.parent
@@ -236,27 +236,28 @@ def main(date_str: str, log: bool = False) -> None:
     high_rated = [r for r in ratings if r.get("rating", 0) >= min_rating]
     print(f"[INFO] {len(high_rated)} high-rated papers (rating>={min_rating})")
 
-    model = SentenceTransformer(model_name)
+    enc = Specter2Encoder(model_name)
 
-    print(f"[INFO] Embedding {len(candidates)} candidate papers...")
+    # 論文テキスト: proximity アダプタ（論文↔論文の類似度に最適）
+    print(f"[INFO] Embedding {len(candidates)} candidate papers (proximity adapter)...")
     texts = [f"{p['title']} [SEP] {p['abstract']}" for p in candidates]
-    vecs: np.ndarray = model.encode(texts, show_progress_bar=False)
+    vecs: np.ndarray = enc.encode(texts, adapter="proximity")
 
-    # 高評価論文のEmbedding: ★3は★2の2倍の重みで rated_vecs に追加
+    # 高評価論文のEmbedding: ★3は★2の2倍の重みで rated_vecs に追加（proximity）
     rated_vecs: list[np.ndarray] = []
     if high_rated:
         rated_texts = [
             f"{r.get('title', '')} [SEP] {r['abstract']}" for r in high_rated
         ]
-        raw_vecs = list(model.encode(rated_texts, show_progress_bar=False))
+        raw_vecs = enc.encode(rated_texts, adapter="proximity")
         for r, vec in zip(high_rated, raw_vecs):
             weight = r["rating"] - 1  # ★2→1回、★3→2回
             rated_vecs.extend([vec] * weight)
 
+    # interest_profile: adhoc_query アダプタ（クエリ→論文の検索に最適）
     profile_texts: list[str] = config["interest_profile"]
-    profile_vecs: list[np.ndarray] = list(
-        model.encode(profile_texts, show_progress_bar=False)
-    )
+    print("[INFO] Embedding interest profile (adhoc_query adapter)...")
+    profile_vecs: list[np.ndarray] = list(enc.encode(profile_texts, adapter="adhoc_query"))
 
     alpha = min(1.0, len(high_rated) / alpha_threshold)
     print(f"[INFO] alpha={alpha:.2f} (n_high_rated={len(high_rated)})")

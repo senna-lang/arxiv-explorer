@@ -26,7 +26,7 @@ from zoneinfo import ZoneInfo
 import arxiv
 import numpy as np
 from bertopic import BERTopic
-from sentence_transformers import SentenceTransformer
+from specter2 import Specter2Encoder
 
 JST = ZoneInfo("Asia/Tokyo")
 ROOT = Path(__file__).parent.parent
@@ -144,8 +144,14 @@ def main(max_papers: int, log: bool = False) -> None:
     texts = [f"{r.title} [SEP] {r.summary}" for r in results]
 
     print(f"[INFO] Embedding with {model_name}...")
-    model = SentenceTransformer(model_name)
-    embeddings: np.ndarray = model.encode(texts, show_progress_bar=True)
+    enc = Specter2Encoder(model_name)
+    embeddings: np.ndarray = enc.encode(texts, adapter="proximity", batch_size=32)
+
+    # BERTopic の KeyBERTInspired はキーワード抽出時に embedding_model.embed_documents()
+    # を呼ぶため、Specter2Encoder をラップして BERTopic のインターフェースに適合させる
+    class _Specter2Backend:
+        def embed_documents(self, docs: list[str], verbose: bool = False) -> np.ndarray:
+            return enc.encode(docs, adapter="proximity")
 
     print("[INFO] Running BERTopic...")
     from bertopic.representation import KeyBERTInspired, MaximalMarginalRelevance
@@ -262,7 +268,7 @@ def main(max_papers: int, log: bool = False) -> None:
         MaximalMarginalRelevance(diversity=t["mmr_diversity"], top_n_words=t["keybert_top_n_words"]),
     ]
     topic_model = BERTopic(
-        embedding_model=model,
+        embedding_model=_Specter2Backend(),
         umap_model=umap_model,
         hdbscan_model=hdbscan_model,
         vectorizer_model=vectorizer,

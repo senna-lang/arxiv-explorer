@@ -8,10 +8,7 @@
     "preview": "astro preview",
     "test": "bun test",
     "sync:ratings": "npx wrangler kv key get 'ratings' --namespace-id=797a1d2d28ef40cd86bb25c2bce60fe9 --remote > data/ratings.json",
-    "parse": "python scripts/parse.py",
-    "parse:all": "python scripts/parse_all.py",
-    "parse:all:force": "python scripts/parse_all.py --force",
-    "map": "python scripts/map.py --max-papers 1000",
+"map": "python scripts/map.py --max-papers 1000",
     "map:full": "python scripts/map.py",
     "recommend": "python scripts/recommend.py",
     "daily": "python scripts/fetch_daily.py"
