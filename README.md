@@ -1,4 +1,4 @@
-# arxiv-explorer
+# arxiv-compass
 
 SPECTER2 + BERTopic を用いた arXiv 論文探索 — 埋め込み品質、トピックの一貫性、スコアリング挙動を検証・調整するためのRepo
 

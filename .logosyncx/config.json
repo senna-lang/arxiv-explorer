@@ -1,6 +1,6 @@
 {
 	"version": "2",
-	"project": "arxiv-newspaper",
+	"project": "arxiv-compass",
 	"agents_file": "AGENTS.md",
 	"plans": {
 		"summary_sections": [
