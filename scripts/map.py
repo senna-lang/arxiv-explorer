@@ -17,6 +17,7 @@ import argparse
 import hashlib
 import json
 import pickle
+import re
 import time
 from datetime import datetime
 from pathlib import Path
@@ -26,7 +27,7 @@ from zoneinfo import ZoneInfo
 import arxiv
 import numpy as np
 from bertopic import BERTopic
-from sentence_transformers import SentenceTransformer
+from specter2 import Specter2Encoder
 
 JST = ZoneInfo("Asia/Tokyo")
 ROOT = Path(__file__).parent.parent
@@ -144,8 +145,14 @@ def main(max_papers: int, log: bool = False) -> None:
     texts = [f"{r.title} [SEP] {r.summary}" for r in results]
 
     print(f"[INFO] Embedding with {model_name}...")
-    model = SentenceTransformer(model_name)
-    embeddings: np.ndarray = model.encode(texts, show_progress_bar=True)
+    enc = Specter2Encoder(model_name)
+    embeddings: np.ndarray = enc.encode(texts, adapter="proximity", batch_size=32)
+
+    # BERTopic の KeyBERTInspired はキーワード抽出時に embedding_model.embed_documents()
+    # を呼ぶため、Specter2Encoder をラップして BERTopic のインターフェースに適合させる
+    class _Specter2Backend:
+        def embed_documents(self, docs: list[str], verbose: bool = False) -> np.ndarray:
+            return enc.encode(docs, adapter="proximity")
 
     print("[INFO] Running BERTopic...")
     from bertopic.representation import KeyBERTInspired, MaximalMarginalRelevance
@@ -250,9 +257,21 @@ def main(max_papers: int, log: bool = False) -> None:
         "mathrm",
     ]
     base_stopwords = list(CountVectorizer(stop_words="english").get_stop_words() or [])
+
+    # レンマタイザー: agent/agents → agent、reward/rewards → reward に統一
+    import nltk
+    nltk.download("wordnet", quiet=True)
+    from nltk.stem import WordNetLemmatizer
+    _lemmatizer = WordNetLemmatizer()
+
+    def _lemmatize_tokenizer(text: str) -> list[str]:
+        tokens = re.findall(r"[a-z]+", text.lower())
+        return [_lemmatizer.lemmatize(t) for t in tokens]
+
     # ngram_range=(1,1): bigramはc-TF-IDFで十分な共起頻度が得られない。
     # 意味的な複合概念はKeyBERTInspiredが担う。
     vectorizer = CountVectorizer(
+        tokenizer=_lemmatize_tokenizer,
         stop_words=base_stopwords + ACADEMIC_STOPWORDS,
         ngram_range=(1, 1),
         min_df=t["vectorizer_min_df"],
@@ -262,7 +281,7 @@ def main(max_papers: int, log: bool = False) -> None:
         MaximalMarginalRelevance(diversity=t["mmr_diversity"], top_n_words=t["keybert_top_n_words"]),
     ]
     topic_model = BERTopic(
-        embedding_model=model,
+        embedding_model=_Specter2Backend(),
         umap_model=umap_model,
         hdbscan_model=hdbscan_model,
         vectorizer_model=vectorizer,
@@ -377,6 +396,7 @@ def main(max_papers: int, log: bool = False) -> None:
                 "max": max(cluster_sizes),
                 "mean": round(sum(cluster_sizes) / len(cluster_sizes), 1),
             },
+            "cluster_labels": [c["label"] for c in clusters],
             "elapsed_sec": elapsed,
             "model": model_name,
             "tuning": t,

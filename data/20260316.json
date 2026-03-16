@@ -1,0 +1,387 @@
+{
+  "date": "2026-03-16",
+  "collected_at": "2026-03-16T19:07:32.267171+09:00",
+  "papers": [
+    {
+      "id": "2603.13017",
+      "title": "Structured Distillation for Personalized Agent Memory: 11x Token Reduction with Retrieval Preservation",
+      "authors": [
+        "Sydney Lewis"
+      ],
+      "abstract": "Long conversations with an AI agent create a simple problem for one user: the history is useful, but carrying it verbatim is expensive. We study personalized agent memory: one user's conversation history with an agent, distilled into a compact retrieval layer for later search. Each exchange is compressed into a compound object with four fields (exchange_core, specific_context, thematic room_assignments, and regex-extracted files_touched). The searchable distilled text averages 38 tokens per exchange. Applied to 4,182 conversations (14,340 exchanges) from 6 software engineering projects, the method reduces average exchange length from 371 to 38 tokens, yielding 11x compression. We evaluate whether personalized recall survives that compression using 201 recall-oriented queries, 107 configurations spanning 5 pure and 5 cross-layer search modes, and 5 LLM graders (214,519 consensus-graded query-result pairs). The best pure distilled configuration reaches 96% of the best verbatim MRR (0.717 vs 0.745). Results are mechanism-dependent. All 20 vector search configurations remain non-significant after Bonferroni correction, while all 20 BM25 configurations degrade significantly (effect sizes |d|=0.031-0.756). The best cross-layer setup slightly exceeds the best pure verbatim baseline (MRR 0.759). Structured distillation compresses single-user agent memory without uniformly sacrificing retrieval quality. At 1/11 the context cost, thousands of exchanges fit within a single prompt while the verbatim source remains available for drill-down. We release the implementation and analysis pipeline as open-source software.",
+      "url": "https://arxiv.org/abs/2603.13017",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.IR"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8714
+    },
+    {
+      "id": "2603.12823",
+      "title": "Adaptive Vision-Language Model Routing for Computer Use Agents",
+      "authors": [
+        "Xunzhuo Liu",
+        "Bowei He",
+        "Xue Liu",
+        "Andy Luo",
+        "Haichen Zhang",
+        "Huamin Chen"
+      ],
+      "abstract": "Computer Use Agents (CUAs) translate natural-language instructions into Graphical User Interface (GUI) actions such as clicks, keystrokes, and scrolls by relying on a Vision-Language Model (VLM) to interpret screenshots and predict grounded tool calls. However, grounding accuracy varies dramatically across VLMs, while current CUA systems typically route every action to a single fixed model regardless of difficulty. We propose \\textbf{Adaptive VLM Routing} (AVR), a framework that inserts a lightweight semantic routing layer between the CUA orchestrator and a pool of VLMs. For each tool call, AVR estimates action difficulty from multimodal embeddings, probes a small VLM to measure confidence, and routes the action to the cheapest model whose predicted accuracy satisfies a target reliability threshold. For \\textit{warm} agents with memory of prior UI interactions, retrieved context further narrows the capability gap between small and large models, allowing many actions to be handled without escalation. We formalize routing as a cost--accuracy trade-off, derive a threshold-based policy for model selection, and evaluate AVR using ScreenSpot-Pro grounding data together with the OpenClaw agent routing benchmark. Across these settings, AVR projects inference cost reductions of up to 78\\% while staying within 2 percentage points of an all-large-model baseline. When combined with the Visual Confused Deputy guardrail, AVR also escalates high-risk actions directly to the strongest available model, unifying efficiency and safety within a single routing framework. Materials are also provided Model, benchmark, and code: https://github.com/vllm-project/semantic-router.",
+      "url": "https://arxiv.org/abs/2603.12823",
+      "categories": [
+        "cs.CL",
+        "cs.CV"
+      ],
+      "submitted": "2026-03-13",
+      "github_url": "https://github.com/vllm-project/semantic-router.",
+      "score": 0.8664
+    },
+    {
+      "id": "2603.12541",
+      "title": "As Language Models Scale, Low-order Linear Depth Dynamics Emerge",
+      "authors": [
+        "Buddhika Nettasinghe",
+        "Geethu Joseph"
+      ],
+      "abstract": "Large language models are often viewed as high-dimensional nonlinear systems and treated as black boxes. Here, we show that transformer depth dynamics admit accurate low-order linear surrogates within context. Across tasks including toxicity, irony, hate speech and sentiment, a 32-dimensional linear surrogate reproduces the layerwise sensitivity profile of GPT-2-large with near-perfect agreement, capturing how the final output shifts under additive injections at each layer. We then uncover a surprising scaling principle: for a fixed-order linear surrogate, agreement with the full model improves monotonically with model size across the GPT-2 family. This linear surrogate also enables principled multi-layer interventions that require less energy than standard heuristic schedules when applied to the full model. Together, our results reveal that as language models scale, low-order linear depth dynamics emerge within contexts, offering a systems-theoretic foundation for analyzing and controlling them.",
+      "url": "https://arxiv.org/abs/2603.12541",
+      "categories": [
+        "cs.LG",
+        "eess.SY"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8637
+    },
+    {
+      "id": "2603.13173",
+      "title": "Semantic Invariance in Agentic AI",
+      "authors": [
+        "I. de Zarzà",
+        "J. de Curtò",
+        "Jordi Cabot",
+        "Pietro Manzoni",
+        "Carlos T. Calafate"
+      ],
+      "abstract": "Large Language Models (LLMs) increasingly serve as autonomous reasoning agents in decision support, scientific problem-solving, and multi-agent coordination systems. However, deploying LLM agents in consequential applications requires assurance that their reasoning remains stable under semantically equivalent input variations, a property we term semantic invariance.Standard benchmark evaluations, which assess accuracy on fixed, canonical problem formulations, fail to capture this critical reliability dimension. To address this shortcoming, in this paper we present a metamorphic testing framework for systematically assessing the robustness of LLM reasoning agents, applying eight semantic-preserving transformations (identity, paraphrase, fact reordering, expansion, contraction, academic context, business context, and contrastive formulation) across seven foundation models spanning four distinct architectural families: Hermes (70B, 405B), Qwen3 (30B-A3B, 235B-A22B), DeepSeek-R1, and gpt-oss (20B, 120B). Our evaluation encompasses 19 multi-step reasoning problems across eight scientific domains. The results reveal that model scale does not predict robustness: the smaller Qwen3-30B-A3B achieves the highest stability (79.6% invariant responses, semantic similarity 0.91), while larger models exhibit greater fragility.",
+      "url": "https://arxiv.org/abs/2603.13173",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8628
+    },
+    {
+      "id": "2603.12677",
+      "title": "MetaKE: Meta-learning Aligned Knowledge Editing via Bi-level Optimization",
+      "authors": [
+        "Shuxin Liu",
+        "Ou Wu"
+      ],
+      "abstract": "Knowledge editing (KE) aims to precisely rectify specific knowledge in Large Language Models (LLMs) without disrupting general capabilities. State-of-the-art methods suffer from an open-loop control mismatch. We identify a critical \"Semantic-Execution Disconnect\": the semantic target is derived independently without feedback from the downstream's feasible region. This misalignment often causes valid semantic targets to fall within the prohibited space, resulting in gradient truncation and editing failure. To bridge this gap, we propose MetaKE (Meta-learning Aligned Knowledge Editing), a new framework that reframes KE as a bi-level optimization problem. Departing from static calculation, MetaKE treats the edit target as a learnable meta-parameter: the upper-level optimizer seeks a feasible target to maximize post-edit performance, while the lower-level solver executes the editing. To address the challenge of differentiating through complex solvers, we derive a Structural Gradient Proxy, which explicitly backpropagates editability constraints to the target learning phase. Theoretical analysis demonstrates that MetaKE automatically aligns the edit direction with the model's feasible manifold. Extensive experiments confirm that MetaKE significantly outperforms strong baselines, offering a new perspective on knowledge editing.",
+      "url": "https://arxiv.org/abs/2603.12677",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8609
+    },
+    {
+      "id": "2603.13099",
+      "title": "Beyond Final Answers: CRYSTAL Benchmark for Transparent Multimodal Reasoning Evaluation",
+      "authors": [
+        "Wayner Barrios",
+        "SouYoung Jin"
+      ],
+      "abstract": "We introduce **CRYSTAL** (*__C__lear __R__easoning via __Y__ielded __S__teps, __T__raceability and __L__ogic*), a diagnostic benchmark with 6,372 instances that evaluates multimodal reasoning through verifiable intermediate steps. We propose two complementary metrics: *Match F1*, which scores step-level precision and recall via semantic similarity matching, and *Ordered Match F1*, which further penalizes disordered reasoning chains. References are constructed through a Delphi-inspired pipeline where four independent MLLMs generate trajectories, aggregated via semantic clustering and validated through human quality gates. Evaluation of 20 MLLMs, including commercial frontier systems not used during benchmark construction, reveals systematic failures invisible to accuracy: universal cherry-picking (precision far exceeds recall), non-monotonic scaling trade-offs, and disordered reasoning where no competitive model preserves more than 60% of matched steps in correct order. Beyond evaluation, we propose the **Causal Process Reward (CPR)**, a multiplicative reward that couples answer correctness with step-level alignment, and **CPR-Curriculum**, which progressively increases reasoning difficulty during training. CPR-Curriculum achieves +32% Match F1 via GRPO where additive reward strategies fail, improving reasoning without manual step annotation.",
+      "url": "https://arxiv.org/abs/2603.13099",
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.IR",
+        "cs.MM"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8608
+    },
+    {
+      "id": "2603.12932",
+      "title": "DS$^2$-Instruct: Domain-Specific Data Synthesis for Large Language Models Instruction Tuning",
+      "authors": [
+        "Ruiyao Xu",
+        "Noelle I. Samia",
+        "Han Liu"
+      ],
+      "abstract": "Adapting Large Language Models (LLMs) to specialized domains requires high-quality instruction tuning datasets, which are expensive to create through human annotation. Existing data synthesis methods focus on general-purpose tasks and fail to capture domain-specific terminology and reasoning patterns. To address this, we introduce DS$^2$-Instruct, a zero-shot framework that generates domain-specific instruction datasets without human supervision. Our approach first generates task-informed keywords to ensure comprehensive domain coverage. It then creates diverse instructions by pairing these keywords with different cognitive levels from Bloom's Taxonomy. Finally, it uses self-consistency validation to ensure data quality. We apply this framework to generate datasets across seven challenging domains, such as mathematics, finance, and logical reasoning. Comprehensive evaluation demonstrates that models fine-tuned on our generated data achieve substantial improvements over existing data generation methods.",
+      "url": "https://arxiv.org/abs/2603.12932",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8605
+    },
+    {
+      "id": "2603.12875",
+      "title": "Test-time RL alignment exposes task familiarity artifacts in LLM benchmarks",
+      "authors": [
+        "Kun Wang",
+        "Reinhard Heckel"
+      ],
+      "abstract": "Direct evaluation of LLMs on benchmarks can be misleading because comparatively strong performance may reflect task familiarity rather than capability. The train-before-test approach controls for task familiarity by giving each model task-relevant training before evaluation, originally through supervised finetuning. However, suitable training data is often hard to come by, and evaluation results vary with the data chosen. In this paper, we propose a two-stage test-time reinforcement learning (RL) alignment method for train-before-test. First, RL with a single sample provides a first alignment of the model to the task format, and second, test-time RL with majority-voting reward aligns the model to the benchmark distribution. Our test-time RL alignment method aligns similarly well as SFT-based train-before test, but without requiring a task-specific training set. On a domain-specific benchmark without training data, we show that direct evaluation underestimates base models which perform substantially better once aligned, yielding a more faithful evaluation of their capabilities. Moreover, for reasoning tasks, the performance gap between fine-tuned models and their base models largely disappears after alignment, suggesting that many gains from RLVR/SFT reported in the literature are not a difference in reasoning capability, but rather artifacts of task familiarity.",
+      "url": "https://arxiv.org/abs/2603.12875",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8597
+    },
+    {
+      "id": "2603.12372",
+      "title": "Efficient Reasoning with Balanced Thinking",
+      "authors": [
+        "Yulin Li",
+        "Tengyao Tu",
+        "Li Ding",
+        "Junjie Wang",
+        "Huiling Zhen",
+        "Yixin Chen",
+        "Yong Li",
+        "Zhuotao Tian"
+      ],
+      "abstract": "Large Reasoning Models (LRMs) have shown remarkable reasoning capabilities, yet they often suffer from overthinking, expending redundant computational steps on simple problems, or underthinking, failing to explore sufficient reasoning paths despite inherent capabilities. These issues lead to inefficiencies and potential inaccuracies, limiting practical deployment in resource-constrained settings. Existing methods to mitigate overthinking, such as suppressing reflective keywords or adjusting reasoning length, may inadvertently induce underthinking, compromising accuracy. Therefore, we propose ReBalance, a training-free framework that achieves efficient reasoning with balanced thinking. ReBalance leverages confidence as a continuous indicator of reasoning dynamics, identifying overthinking through high confidence variance and underthinking via consistent overconfidence. By aggregating hidden states from a small-scale dataset into reasoning mode prototypes, we compute a steering vector to guide LRMs' reasoning trajectories. A dynamic control function modulates this vector's strength and direction based on real-time confidence, pruning redundancy during overthinking, and promoting exploration during underthinking. Extensive experiments conducted on four models ranging from 0.5B to 32B, and across nine benchmarks in math reasoning, general question answering, and coding tasks demonstrate that ReBalance effectively reduces output redundancy while improving accuracy, offering a general, training-free, and plug-and-play strategy for efficient and robust LRM deployment. Code is available at https://github.com/yu-lin-li/ReBalance .",
+      "url": "https://arxiv.org/abs/2603.12372",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-12",
+      "github_url": "https://github.com/yu-lin-li/ReBalance",
+      "score": 0.8568
+    },
+    {
+      "id": "2603.12465",
+      "title": "TaxBreak: Unmasking the Hidden Costs of LLM Inference Through Overhead Decomposition",
+      "authors": [
+        "Prabhu Vellaisamy",
+        "Shreesh Tripathi",
+        "Vignesh Natarajan",
+        "Surya Santhan Thenarasu",
+        "Shawn Blanton",
+        "John P. Shen"
+      ],
+      "abstract": "Large Language Model (LLM) inference is widely used in interactive assistants and agentic systems. In latency-sensitive deployments, inference time can become dominated by host-side overheads. Existing approaches typically expose this cost only as an aggregate residual or a launch/queue metric, which is often insufficient to identify which execution layer should be optimized. This work presents TaxBreak, a trace-driven methodology for decomposing host-visible orchestration overhead into three components: framework translation time, CUDA library translation time, and kernel launch-path time. We validate TaxBreak on NVIDIA H100 and H200 systems and use it to derive our proposed Host-Device Balance Index (HDBI), a boundedness summary index that relates device-active execution to host-visible orchestration. Across representative dense and mixture-of-experts workloads in both prefill and decode, we show that aggregate latency, GPU inactivity, or boundedness ratios alone can obscure the dominant optimization target. TaxBreak instead distinguishes cases where optimization should reduce software-stack overhead from cases where the primary win comes from reducing device-side work. We further show that MoE models dispatch 8-11x more kernels per output token than dense models, and that for such host-bound workloads, CPU single-thread performance is a first-order parameter: a faster host CPU reduces orchestration overhead by 10-29% and improves end-to-end latency by up to 14%, even when paired with a slower-clocked GPU. These results position TaxBreak as a diagnostic tool for assessing whether optimization effort should target the software stack or the device-side workload execution.",
+      "url": "https://arxiv.org/abs/2603.12465",
+      "categories": [
+        "cs.DC",
+        "cs.LG",
+        "cs.PF"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.8562
+    },
+    {
+      "id": "2603.12740",
+      "title": "ToolTree: Efficient LLM Agent Tool Planning via Dual-Feedback Monte Carlo Tree Search and Bidirectional Pruning",
+      "authors": [
+        "Shuo Yang",
+        "Soyeon Caren Han",
+        "Yihao Ding",
+        "Shuhe Wang",
+        "Eduard Hoy"
+      ],
+      "abstract": "Large Language Model (LLM) agents are increasingly applied to complex, multi-step tasks that require interaction with diverse external tools across various domains. However, current LLM agent tool planning methods typically rely on greedy, reactive tool selection strategies that lack foresight and fail to account for inter-tool dependencies. In this paper, we present ToolTree, a novel Monte Carlo tree search-inspired planning paradigm for tool planning. ToolTree explores possible tool usage trajectories using a dual-stage LLM evaluation and bidirectional pruning mechanism that enables the agent to make informed, adaptive decisions over extended tool-use sequences while pruning less promising branches before and after the tool execution. Empirical evaluations across both open-set and closed-set tool planning tasks on 4 benchmarks demonstrate that ToolTree consistently improves performance while keeping the highest efficiency, achieving an average gain of around 10\\% compared to the state-of-the-art planning paradigm.",
+      "url": "https://arxiv.org/abs/2603.12740",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8561
+    },
+    {
+      "id": "2603.12710",
+      "title": "AI Planning Framework for LLM-Based Web Agents",
+      "authors": [
+        "Orit Shahnovsky",
+        "Rotem Dror"
+      ],
+      "abstract": "Developing autonomous agents for web-based tasks is a core challenge in AI. While Large Language Model (LLM) agents can interpret complex user requests, they often operate as black boxes, making it difficult to diagnose why they fail or how they plan. This paper addresses this gap by formally treating web tasks as sequential decision-making processes. We introduce a taxonomy that maps modern agent architectures to traditional planning paradigms: Step-by-Step agents to Breadth-First Search (BFS), Tree Search agents to Best-First Tree Search, and Full-Plan-in-Advance agents to Depth-First Search (DFS). This framework allows for a principled diagnosis of system failures like context drift and incoherent task decomposition. To evaluate these behaviors, we propose five novel evaluation metrics that assess trajectory quality beyond simple success rates. We support this analysis with a new dataset of 794 human-labeled trajectories from the WebArena benchmark. Finally, we validate our evaluation framework by comparing a baseline Step-by-Step agent against a novel Full-Plan-in-Advance implementation. Our results reveal that while the Step-by-Step agent aligns more closely with human gold trajectories (38% overall success), the Full-Plan-in-Advance agent excels in technical measures such as element accuracy (89%), demonstrating the necessity of our proposed metrics for selecting appropriate agent architectures based on specific application constraints.",
+      "url": "https://arxiv.org/abs/2603.12710",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8555
+    },
+    {
+      "id": "2603.13154",
+      "title": "ESG-Bench: Benchmarking Long-Context ESG Reports for Hallucination Mitigation",
+      "authors": [
+        "Siqi Sun",
+        "Ben Peng Wu",
+        "Mali Jin",
+        "Peizhen Bai",
+        "Hanpei Zhang",
+        "Xingyi Song"
+      ],
+      "abstract": "As corporate responsibility increasingly incorporates environmental, social, and governance (ESG) criteria, ESG reporting is becoming a legal requirement in many regions and a key channel for documenting sustainability practices and assessing firms' long-term and ethical performance. However, the length and complexity of ESG disclosures make them difficult to interpret and automate the analysis reliably. To support scalable and trustworthy analysis, this paper introduces ESG-Bench, a benchmark dataset for ESG report understanding and hallucination mitigation in large language models (LLMs). ESG-Bench contains human-annotated question-answer (QA) pairs grounded in real-world ESG report contexts, with fine-grained labels indicating whether model outputs are factually supported or hallucinated. Framing ESG report analysis as a QA task with verifiability constraints enables systematic evaluation of LLMs' ability to extract and reason over ESG content and provides a new use case: mitigating hallucinations in socially sensitive, compliance-critical settings. We design task-specific Chain-of-Thought (CoT) prompting strategies and fine-tune multiple state-of-the-art LLMs on ESG-Bench using CoT-annotated rationales. Our experiments show that these CoT-based methods substantially outperform standard prompting and direct fine-tuning in reducing hallucinations, and that the gains transfer to existing QA benchmarks beyond the ESG domain.",
+      "url": "https://arxiv.org/abs/2603.13154",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8554
+    },
+    {
+      "id": "2603.12423",
+      "title": "Interpreting Negation in GPT-2: Layer- and Head-Level Causal Analysis",
+      "authors": [
+        "Abdullah Al Mofael",
+        "Lisa M. Kuhn",
+        "Ghassan Alkadi",
+        "Kuo-Pao Yang"
+      ],
+      "abstract": "Negation remains a persistent challenge for modern language models, often causing reversed meanings or factual errors. In this work, we conduct a causal analysis of how GPT-2 Small internally processes such linguistic transformations. We examine its hidden representations at both the layer and head level. Our analysis is based on a self-curated 12,000-pair dataset of matched affirmative and negated sentences, covering multiple linguistic templates and forms of negation. To quantify this behavior, we define a metric, the Negation Effect Score (NES), which measures the model's sensitivity in distinguishing between affirmative statements and their negations. We carried out two key interventions to probe causal structure. In activation patching, internal activations from affirmative sentences were inserted into their negated counterparts to see how meaning shifted. In ablation, specific attention heads were temporarily disabled to observe how logical polarity changed. Together, these steps revealed how negation signals move and evolve through GPT-2's layers. Our findings indicate that this capability is not widespread; instead, it is highly concentrated within a limited number of mid-layer attention heads, primarily within layers 4 to 6. Ablating these specific components directly disrupts the model's negation sensitivity: on our in-domain, ablation increased NES (indicating weaker negation sensitivity), and re-introducing cached affirmative activations (rescue) increased NES further, confirming that these heads carry affirmative signal rather than restoring baseline behavior. On xNot360, ablation slightly decreased NES and rescue restored performance above baseline. This pattern demonstrates that these causal patterns are consistent across various negation forms and remain detectable on the external xNot360 benchmark, though with smaller magnitude.",
+      "url": "https://arxiv.org/abs/2603.12423",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.8553
+    },
+    {
+      "id": "2603.12396",
+      "title": "Test-Time Strategies for More Efficient and Accurate Agentic RAG",
+      "authors": [
+        "Brian Zhang",
+        "Deepti Guntur",
+        "Zhiyang Zuo",
+        "Abhinav Sharma",
+        "Shreyas Chaudhari",
+        "Wenlong Zhao",
+        "Franck Dernoncourt",
+        "Puneet Mathur",
+        "Ryan Rossi",
+        "Nedim Lipka"
+      ],
+      "abstract": "Retrieval-Augmented Generation (RAG) systems face challenges with complex, multihop questions, and agentic frameworks such as Search-R1 (Jin et al., 2025), which operates iteratively, have been proposed to address these complexities. However, such approaches can introduce inefficiencies, including repetitive retrieval of previously processed information and challenges in contextualizing retrieved results effectively within the current generation prompt. Such issues can lead to unnecessary retrieval turns, suboptimal reasoning, inaccurate answers, and increased token consumption.\n  In this paper, we investigate test-time modifications to the Search-R1 pipeline to mitigate these identified shortcomings. Specifically, we explore the integration of two components and their combination: a contextualization module to better integrate relevant information from retrieved documents into reasoning, and a de-duplication module that replaces previously retrieved documents with the next most relevant ones. We evaluate our approaches using the HotpotQA (Yang et al., 2018) and the Natural Questions (Kwiatkowski et al., 2019) datasets, reporting the exact match (EM) score, an LLM-as-a-Judge assessment of answer correctness, and the average number of turns.\n  Our best-performing variant, utilizing GPT-4.1-mini for contextualization, achieves a 5.6% increase in EM score and reduces the number of turns by 10.5% compared to the Search-R1 baseline, demonstrating improved answer accuracy and retrieval efficiency.",
+      "url": "https://arxiv.org/abs/2603.12396",
+      "categories": [
+        "cs.IR",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.8546
+    },
+    {
+      "id": "2603.12712",
+      "title": "Design-Specification Tiling for ICL-based CAD Code Generation",
+      "authors": [
+        "Yali Du",
+        "San-Zhuo Xi",
+        "Hui Sun",
+        "Ming Li"
+      ],
+      "abstract": "Large language models (LLMs) have demonstrated remarkable capabilities in code generation, yet they underperform on domain-specific tasks such as Computer-Aided Design (CAD) code generation due to scarce training data. In-Context Learning (ICL) offers a training-free alternative through task-specific exemplars. However, existing selection strategies prioritize similarity or point-wise diversity, often producing redundant selections that fail to satisfy the compositional requirements of complex CAD design specifications. In this work, we propose knowledge sufficiency as a principled objective for exemplar selection that aims to maximally satisfy all requirements within design specifications. To realize this objective, we introduce Design-Specification Tiling (DST), which quantifies knowledge sufficiency through a surrogate tiling ratio by extracting multi-granular design components and measuring the proportion of query components covered by selected exemplars. We demonstrate that maximizing this objective constitutes submodular maximization and provide a polynomial-time greedy algorithm with a (1-1/e)-approximation guarantee. Extensive experiments demonstrate that DST substantially improves CAD code generation quality, consistently outperforming existing exemplar selection strategies in ICL.",
+      "url": "https://arxiv.org/abs/2603.12712",
+      "categories": [
+        "cs.SE",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8544
+    },
+    {
+      "id": "2603.12634",
+      "title": "Spend Less, Reason Better: Budget-Aware Value Tree Search for LLM Agents",
+      "authors": [
+        "Yushu Li",
+        "Wenlong Deng",
+        "Jiajin Li",
+        "Xiaoxiao Li"
+      ],
+      "abstract": "Test-time scaling has become a dominant paradigm for improving LLM agent reliability, yet current approaches treat compute as an abundant resource, allowing agents to exhaust token and tool budgets on redundant steps or dead-end trajectories. Existing budget-aware methods either require expensive fine-tuning or rely on coarse, trajectory-level heuristics that cannot intervene mid-execution. We propose the Budget-Aware Value Tree (BAVT), a training-free inference-time framework that models multi-hop reasoning as a dynamic search tree guided by step-level value estimation within a single LLM backbone. Another key innovation is a budget-conditioned node selection mechanism that uses the remaining resource ratio as a natural scaling exponent over node values, providing a principled, parameter-free transition from broad exploration to greedy exploitation as the budget depletes. To combat the well-known overconfidence of LLM self-evaluation, BAVT employs a residual value predictor that scores relative progress rather than absolute state quality, enabling reliable pruning of uninformative or redundant tool calls. We further provide a theoretical convergence guarantee, proving that BAVT reaches a terminal answer with probability at least $1-ε$ under an explicit finite budget bound. Extensive evaluations on four multi-hop QA benchmarks across two model families demonstrate that BAVT consistently outperforms parallel sampling baselines. Most notably, BAVT under strict low-budget constraints surpasses baseline performance at $4\\times$ the resource allocation, establishing that intelligent budget management fundamentally outperforms brute-force compute scaling.",
+      "url": "https://arxiv.org/abs/2603.12634",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8544
+    },
+    {
+      "id": "2603.12368",
+      "title": "Multi-Step Semantic Reasoning in Generative Retrieval",
+      "authors": [
+        "Steven Dong",
+        "Yubao Tang",
+        "Maarten de Rijke"
+      ],
+      "abstract": "Generative retrieval (GR) models encode a corpus within model parameters and generate relevant document identifiers directly for a given query. While this paradigm shows promise in retrieval tasks, existing GR models struggle with complex queries in numerical contexts, such as those involving semantic reasoning over financial reports, due to limited reasoning capabilities. This limitation leads to suboptimal retrieval accuracy and hinders practical applicability. We propose ReasonGR, a framework designed to enhance multi-step semantic reasoning in numerical contexts within GR. ReasonGR employs a structured prompting strategy combining task-specific instructions with stepwise reasoning guidance to better address complex retrieval queries. Additionally, it integrates a reasoning-focused adaptation module to improve the learning of reasoning-related parameters. Experiments on the FinQA dataset, which contains financial queries over complex documents, demonstrate that ReasonGR improves retrieval accuracy and consistency, indicating its potential for advancing GR models in reasoning-intensive retrieval scenarios.",
+      "url": "https://arxiv.org/abs/2603.12368",
+      "categories": [
+        "cs.IR",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-12",
+      "score": 0.8537
+    },
+    {
+      "id": "2603.12617",
+      "title": "When Drafts Evolve: Speculative Decoding Meets Online Learning",
+      "authors": [
+        "Yu-Yang Qian",
+        "Hao-Cong Wu",
+        "Yichao Fu",
+        "Hao Zhang",
+        "Peng Zhao"
+      ],
+      "abstract": "Speculative decoding has emerged as a widely adopted paradigm for accelerating large language model inference, where a lightweight draft model rapidly generates candidate tokens that are then verified in parallel by a larger target model. However, due to limited model capacity, drafts often struggle to approximate the target distribution, resulting in shorter acceptance lengths and diminished speedup. A key yet under-explored observation is that speculative decoding inherently provides verification feedback that quantifies the deviation between the draft and target models at no additional cost. This process naturally forms an iterative \"draft commits-feedback provides-draft adapts\" evolving loop, which precisely matches the online learning paradigm. Motivated by this connection, we propose OnlineSpec, a unified framework that systematically leverages interactive feedback to continuously evolve draft models. Grounded in dynamic regret minimization, we establish a formal link between online learning performance and speculative system's acceleration rate, and develop novel algorithms via modern online learning techniques, including optimistic online learning that adaptively reuses historical gradients as predictive update hints, and online ensemble learning that dynamically maintains multiple draft models. Our algorithms are equipped with theoretical justifications and improved acceleration rates, achieving up to 24% speedup over seven benchmarks and three foundation models.",
+      "url": "https://arxiv.org/abs/2603.12617",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.8534
+    },
+    {
+      "id": "2603.12826",
+      "title": "Rethinking Multiple-Choice Questions for RLVR: Unlocking Potential via Distractor Design",
+      "authors": [
+        "Xu Guo",
+        "Qiming Ge",
+        "Jian Tong",
+        "Kedi Chen",
+        "Jin Zhang",
+        "Xiaogui Yang",
+        "Xuan Gao",
+        "Haijun Lv",
+        "Zhihui Lu",
+        "Yicheng Zou",
+        "Qipeng Guo"
+      ],
+      "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) significantly enhances the reasoning capabilities of Large Language Models. When applied to RLVR, Multiple-Choice Questions (MCQs) offer a scalable source of verifiable data but risk inducing reward hacking, where models shortcut reasoning via random guessing or simple elimination. Current approaches often mitigate this by converting MCQs to open-ended formats, thereby discarding the contrastive signal provided by expert-designed distractors. In this work, we systematically investigate the impact of option design on RLVR. Our analysis highlights two primary insights: (1) Mismatches in option counts between training and testing degrade performance. (2) Strong distractors effectively mitigate random guessing, enabling effective RLVR training even with 2-way questions. Motivated by these findings, we propose Iterative Distractor Curation (IDC), a framework that actively constructs high-quality distractors to block elimination shortcuts and promote deep reasoning. Experiments on various benchmarks demonstrate that our method effectively enhances distractor quality and yields significant gains in RLVR training compared to the original data.",
+      "url": "https://arxiv.org/abs/2603.12826",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-13",
+      "score": 0.853
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "source": "fetch_daily",
+    "n_candidates": 272,
+    "n_ratings": 40,
+    "alpha": 0.8
+  }
+}

@@ -38,7 +38,7 @@
     "min_rating": 2, // この星評価以上の論文をinstance-based scoringに使用
     "top_clusters": 3, // 上位何クラスタからおすすめを生成するか
     "top_n": 20, // 最終的なおすすめ件数の上限
-    "min_match_score": 0.75, // クラスタcentroidとのcos類似度がこれ未満の論文を除外
+    "min_match_score": 0.60, // クラスタcentroidとのcos類似度がこれ未満の論文を除外
   },
 
   // fetch_daily.py の設定
