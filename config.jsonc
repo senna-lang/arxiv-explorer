@@ -31,7 +31,7 @@
 
   // Cloudflare KV から ratings を取得するURL（recommend.py が使用）
   // 空文字列にすると data/ratings.json にフォールバック
-  "ratings_url": "",
+  "ratings_url": "https://arxiv-newspaper.pages.dev/api/ratings",
 
   // recommend.py のフィルタリング設定
   "recommendation": {

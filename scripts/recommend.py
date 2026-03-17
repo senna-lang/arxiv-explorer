@@ -27,7 +27,7 @@ from zoneinfo import ZoneInfo
 
 import arxiv
 import numpy as np
-from specter2 import Specter2Encoder
+from modal_app import build_encoder
 
 JST = ZoneInfo("Asia/Tokyo")
 ROOT = Path(__file__).parent.parent
@@ -144,7 +144,7 @@ def main(top_clusters: int, top_n: int, log: bool = False) -> None:
     high_rated = [r for r in ratings_data["ratings"] if r["rating"] >= min_rating]
     print(f"[INFO] {len(high_rated)} high-rated papers (rating>={min_rating})")
 
-    enc = Specter2Encoder(model_name)
+    enc = build_encoder(model_name)
 
     # 高評価論文のEmbedding: proximity アダプタ（論文↔論文類似度）
     rated_vecs: list[np.ndarray] = []

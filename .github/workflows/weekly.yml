@@ -1,0 +1,55 @@
+name: Weekly batch
+
+on:
+  schedule:
+    - cron: "30 0 * * 1" # 月曜 09:30 JST (UTC+9)
+  workflow_dispatch:
+
+jobs:
+  recommend-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Set up Modal token
+        run: modal token set --token-id ${{ secrets.MODAL_TOKEN_ID }} --token-secret ${{ secrets.MODAL_TOKEN_SECRET }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Run recommend.py on Modal T4
+        run: USE_MODAL=1 modal run scripts/recommend.py --log
+        env:
+          RATINGS_URL: ${{ secrets.RATINGS_URL }}
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy dist/ --project-name arxiv-newspaper
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Commit generated JSON
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/recommendations.json
+          git diff --cached --quiet || git commit -m "chore: weekly recommend $(date +%Y%m%d)"
+          git push

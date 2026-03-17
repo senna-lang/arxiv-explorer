@@ -27,7 +27,7 @@ from zoneinfo import ZoneInfo
 
 import arxiv
 import numpy as np
-from specter2 import Specter2Encoder
+from modal_app import build_encoder
 
 JST = ZoneInfo("Asia/Tokyo")
 ROOT = Path(__file__).parent.parent
@@ -236,7 +236,7 @@ def main(date_str: str, log: bool = False) -> None:
     high_rated = [r for r in ratings if r.get("rating", 0) >= min_rating]
     print(f"[INFO] {len(high_rated)} high-rated papers (rating>={min_rating})")
 
-    enc = Specter2Encoder(model_name)
+    enc = build_encoder(model_name)
 
     # 論文テキスト: proximity アダプタ（論文↔論文の類似度に最適）
     print(f"[INFO] Embedding {len(candidates)} candidate papers (proximity adapter)...")

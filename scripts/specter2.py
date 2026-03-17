@@ -31,9 +31,13 @@ class Specter2Encoder:
 
     モデルとアダプタは初期化時に一度だけロードする。
     encode() ごとに set_active_adapters() でアダプタを切り替える。
+    device を指定することで CPU / CUDA どちらでも動作する。
     """
 
-    def __init__(self, model_name: str) -> None:
+    def __init__(self, model_name: str, device: str | None = None) -> None:
+        import torch
+
+        self._device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self._tokenizer = AutoTokenizer.from_pretrained(model_name)
         self._model = AutoAdapterModel.from_pretrained(model_name)
 
@@ -44,6 +48,7 @@ class Specter2Encoder:
         self._model.eval()
         # eval() 後にデフォルトアダプタを設定（警告抑制）
         self._model.set_active_adapters("proximity")
+        self._model.to(self._device)
 
     def encode(
         self,
@@ -70,10 +75,11 @@ class Specter2Encoder:
                 return_tensors="pt",
                 return_token_type_ids=False,
             )
+            inputs = {k: v.to(self._device) for k, v in inputs.items()}
             with torch.no_grad():
                 output = self._model(**inputs)
             # CLS トークン（index 0）を論文表現として使用
-            vecs = output.last_hidden_state[:, 0, :].numpy()
+            vecs = output.last_hidden_state[:, 0, :].cpu().numpy()
             all_vecs.append(vecs)
 
         return np.vstack(all_vecs)

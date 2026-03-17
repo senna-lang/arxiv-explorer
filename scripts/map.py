@@ -27,7 +27,7 @@ from zoneinfo import ZoneInfo
 import arxiv
 import numpy as np
 from bertopic import BERTopic
-from specter2 import Specter2Encoder
+from modal_app import build_encoder
 
 JST = ZoneInfo("Asia/Tokyo")
 ROOT = Path(__file__).parent.parent
@@ -145,7 +145,7 @@ def main(max_papers: int, log: bool = False) -> None:
     texts = [f"{r.title} [SEP] {r.summary}" for r in results]
 
     print(f"[INFO] Embedding with {model_name}...")
-    enc = Specter2Encoder(model_name)
+    enc = build_encoder(model_name)
     embeddings: np.ndarray = enc.encode(texts, adapter="proximity", batch_size=32)
 
     # BERTopic の KeyBERTInspired はキーワード抽出時に embedding_model.embed_documents()
