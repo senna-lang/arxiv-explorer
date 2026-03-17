@@ -1,0 +1,12 @@
+# arXiv newspaper batch pipeline dependencies
+arxiv
+numpy
+torch
+sentence-transformers
+adapters
+transformers
+bertopic
+datamapplot
+umap-learn
+hdbscan
+modal
