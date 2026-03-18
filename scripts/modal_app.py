@@ -20,7 +20,7 @@ import numpy as np
 
 app = modal.App("arxiv-newspaper")
 
-# CUDA 対応 image（torch cu118 + specter2 依存）
+# CUDA 対応 image（torch cu118 + specter2 依存 + specter2.py をバンドル）
 image = (
     modal.Image.debian_slim(python_version="3.11")
     .pip_install(
@@ -33,6 +33,7 @@ image = (
         "numpy",
         "sentence-transformers",
     )
+    .add_local_file("scripts/specter2.py", "/root/specter2.py")
 )
 
 # specter2_base（440MB）と各アダプタを永続キャッシュ
@@ -41,18 +42,11 @@ MODEL_CACHE_PATH = "/root/.cache/huggingface"
 
 MODEL_NAME = "allenai/specter2_base"
 
-# specter2.py をコンテナの /root/ に配置する
-specter2_mount = modal.Mount.from_local_file(
-    local_path="scripts/specter2.py",
-    remote_path="/root/specter2.py",
-)
-
 
 @app.cls(
     gpu="T4",
     image=image,
     volumes={MODEL_CACHE_PATH: model_volume},
-    mounts=[specter2_mount],
     timeout=1800,
 )
 class Specter2Modal:
