@@ -41,11 +41,18 @@ MODEL_CACHE_PATH = "/root/.cache/huggingface"
 
 MODEL_NAME = "allenai/specter2_base"
 
+# specter2.py をコンテナの /root/ に配置する
+specter2_mount = modal.Mount.from_local_file(
+    local_path="scripts/specter2.py",
+    remote_path="/root/specter2.py",
+)
+
 
 @app.cls(
     gpu="T4",
     image=image,
     volumes={MODEL_CACHE_PATH: model_volume},
+    mounts=[specter2_mount],
     timeout=1800,
 )
 class Specter2Modal:
@@ -59,9 +66,8 @@ class Specter2Modal:
     @modal.enter()
     def load_model(self) -> None:
         import sys
-        from pathlib import Path
 
-        sys.path.insert(0, str(Path(__file__).parent))
+        sys.path.insert(0, "/root")  # specter2_mount が /root/specter2.py に配置される
         from specter2 import Specter2Encoder
 
         self.enc = Specter2Encoder(MODEL_NAME)
