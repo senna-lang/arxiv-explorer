@@ -6,6 +6,8 @@ sentence-transformers
 adapters
 transformers
 bertopic
+nltk
+scikit-learn
 datamapplot
 umap-learn
 hdbscan
