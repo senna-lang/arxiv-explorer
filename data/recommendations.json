@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-16T19:06:50.251586+09:00",
+  "generated_at": "2026-03-18T22:54:18.477038+09:00",
   "top_clusters": [
     {
       "label": "retrieval & semantic & structured",
-      "score": 0.8949
+      "score": 0.9217
     },
     {
       "label": "reinforcement & reward & agent",
-      "score": 0.894
+      "score": 0.9192
     },
     {
       "label": "attention & corpus & language",
-      "score": 0.8895
+      "score": 0.9125
     }
   ],
   "recommendations": [
