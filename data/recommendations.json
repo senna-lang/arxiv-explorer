@@ -1,199 +1,199 @@
 {
-  "generated_at": "2026-03-18T22:54:18.477038+09:00",
+  "generated_at": "2026-03-18T23:21:03.506755+09:00",
   "top_clusters": [
     {
-      "label": "retrieval & semantic & structured",
-      "score": 0.9217
+      "label": "semantic & ai & agent",
+      "score": 0.927
     },
     {
-      "label": "reinforcement & reward & agent",
-      "score": 0.9192
+      "label": "retrieval & ranking & answering",
+      "score": 0.9196
     },
     {
-      "label": "attention & corpus & language",
-      "score": 0.9125
+      "label": "agent & ai & agentic",
+      "score": 0.9181
     }
   ],
   "recommendations": [
     {
-      "id": "2603.10101",
-      "title": "CLIPO: Contrastive Learning in Policy Optimization Generalizes RLVR",
-      "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) has significantly advanced the reasoning capacity of Large Language Models (LLMs). However, RLVR solely relies on final answers as outcome rewards, neglecting the correctness of intermediate reasoning steps. Training on these process-wrong but outcome-correct rollouts can lead to hallucination and answer-copying, severely undermining the model's generalization and robustness. To address this, we incorporate a Contrastive Learning mechanism into the Policy Optimization (CLIPO) to generalize the RLVR process. By optimizing a contrastive loss over successful rollouts, CLIPO steers the LLM to capture the invariant structure shared across correct reasoning paths. This provides a more robust cross-trajectory regularization than the original single-path supervision in RLVR, effectively mitigating step-level reasoning inconsistencies and suppressing hallucinatory artifacts. In experiments, CLIPO consistently improves multiple RLVR baselines across diverse reasoning benchmarks, demonstrating uniform improvements in generalization and robustness for policy optimization of LLMs. Our code and training recipes are available at https://github.com/Qwen-Applications/CLIPO.",
-      "url": "https://arxiv.org/abs/2603.10101",
-      "match_score": 0.9693,
-      "matched_cluster": "reinforcement & reward & agent",
-      "submitted": "2026-03-10"
+      "id": "2603.08274",
+      "title": "How Much Do LLMs Hallucinate in Document Q&A Scenarios? A 172-Billion-Token Study Across Temperatures, Context Lengths, and Hardware Platforms",
+      "abstract": "How much do large language models actually hallucinate when answering questions grounded in provided documents? Despite the critical importance of this question for enterprise AI deployments, reliable measurement has been hampered by benchmarks that rely on static datasets vulnerable to contamination, LLM-based judges with documented biases, or evaluation scales too small for statistical confidence. We address this gap using RIKER, a ground-truth-first evaluation methodology that enables deterministic scoring without human annotation. Across 35 open-weight models, three context lengths (32K, 128K, and 200K tokens), four temperature settings, and three hardware platforms (NVIDIA H200, AMD MI300X, and Intel Gaudi 3), we conducted over 172 billion tokens of evaluation - an order of magnitude beyond prior work. Our findings reveal that: (1) even the best-performing models fabricate answers at a non-trivial rate - 1.19% at best at 32K, with top-tier models at 5 - 7% - and fabrication rises steeply with context length, nearly tripling at 128K and exceeding 10% for all models at 200K; (2) model selection dominates all other factors, with overall accuracy spanning a 72-percentage-point range and model family predicting fabrication resistance better than model size; (3) temperature effects are nuanced - T=0.0 yields the best overall accuracy in roughly 60% of cases, but higher temperatures reduce fabrication for the majority of models and dramatically reduce coherence loss (infinite generation loops), which can reach 48x higher rates at T=0.0 versus T=1.0; (4) grounding ability and fabrication resistance are distinct capabilities - models that excel at finding facts may still fabricate facts that do not exist; and (5) results are consistent across hardware platforms, confirming that deployment decisions need not be hardware-dependent.",
+      "url": "https://arxiv.org/abs/2603.08274",
+      "match_score": 0.9691,
+      "matched_cluster": "retrieval & ranking & answering",
+      "submitted": "2026-03-09"
     },
     {
-      "id": "2603.11067",
-      "title": "Summarize Before You Speak with ARACH: A Training-Free Inference-Time Plug-In for Enhancing LLMs via Global Attention Reallocation",
-      "abstract": "Large language models (LLMs) achieve remarkable performance, yet further gains often require costly training. This has motivated growing interest in post-training techniques-especially training-free approaches that improve models at inference time without updating weights. Most training-free methods treat the model as a black box and improve outputs via input/output-level interventions, such as prompt design and test-time scaling through repeated sampling, reranking/verification, or search. In contrast, they rarely offer a plug-and-play mechanism to intervene in a model's internal computation. We propose ARACH(Attention Reallocation via an Adaptive Context Hub), a training-free inference-time plug-in that augments LLMs with an adaptive context hub to aggregate context and reallocate attention. Extensive experiments across multiple language modeling tasks show consistent improvements with modest inference overhead and no parameter updates. Attention analyses further suggest that ARACH mitigates the attention sink phenomenon. These results indicate that engineering a model's internal computation offers a distinct inference-time strategy, fundamentally different from both prompt-based test-time methods and training-based post-training approaches.",
-      "url": "https://arxiv.org/abs/2603.11067",
-      "match_score": 0.965,
-      "matched_cluster": "attention & corpus & language",
-      "submitted": "2026-03-10"
+      "id": "2603.16817",
+      "title": "Is Conformal Factuality for RAG-based LLMs Robust? Novel Metrics and Systematic Insights",
+      "abstract": "Large language models (LLMs) frequently hallucinate, limiting their reliability in knowledge-intensive applications. Retrieval-augmented generation (RAG) and conformal factuality have emerged as potential ways to address this limitation. While RAG aims to ground responses in retrieved evidence, it provides no statistical guarantee that the final output is correct. Conformal factuality filtering offers distribution-free statistical reliability by scoring and filtering atomic claims using a threshold calibrated on held-out data, however, the informativeness of the final output is not guaranteed. We systematically analyze the reliability and usefulness of conformal factuality for RAG-based LLMs across generation, scoring, calibration, robustness, and efficiency. We propose novel informativeness-aware metrics that better reflect task utility under conformal filtering. Across three benchmarks and multiple model families, we find that (i) conformal filtering suffers from low usefulness at high factuality levels due to vacuous outputs, (ii) conformal factuality guarantee is not robust to distribution shifts and distractors, highlighting the limitation that requires calibration data to closely match deployment conditions, and (iii) lightweight entailment-based verifiers match or outperform LLM-based model confidence scorers while requiring over $100\\times$ fewer FLOPs. Overall, our results expose factuality-informativeness trade-offs and fragility of conformal filtering framework under distribution shifts and distractors, highlighting the need for new approaches for reliability with robustness and usefulness as key metrics, and provide actionable guidance for building RAG pipelines that are both reliable and computationally efficient.",
+      "url": "https://arxiv.org/abs/2603.16817",
+      "match_score": 0.9688,
+      "matched_cluster": "retrieval & ranking & answering",
+      "submitted": "2026-03-17"
+    },
+    {
+      "id": "2603.13327",
+      "title": "DOVA: Deliberation-First Multi-Agent Orchestration for Autonomous Research Automation",
+      "abstract": "Large language model (LLM) agents have demonstrated remarkable capabilities in tool use, reasoning, and code generation, yet single-agent systems exhibit fundamental limitations when confronted with complex research tasks demanding multi-source synthesis, adversarial verification, and personalized delivery. We present DOVA (Deep Orchestrated Versatile Agent), a multi-agent platform introducing three key innovations: (1) deliberation-first orchestration, where explicit meta-reasoning precedes tool invocation, informed by a persistent user model and entity-aware conversation context; (2) hybrid collaborative reasoning, a composable three-phase pipeline unifying ensemble diversity, blackboard transparency, and iterative refinement; and (3) adaptive multi-tiered thinking, a six-level token-budget allocation scheme that reduces inference cost by 40-60% on simple tasks while preserving deep reasoning capacity. We formalize the core algorithms, present an architectural ablation study across seven system configurations, and analyze the contribution of each component to answer confidence, source coverage, and token efficiency.",
+      "url": "https://arxiv.org/abs/2603.13327",
+      "match_score": 0.9688,
+      "matched_cluster": "agent & ai & agentic",
+      "submitted": "2026-03-04"
     },
     {
       "id": "2603.10143",
       "title": "Reason and Verify: A Framework for Faithful Retrieval-Augmented Generation",
       "abstract": "Retrieval-Augmented Generation (RAG) significantly improves the factuality of Large Language Models (LLMs), yet standard pipelines often lack mechanisms to verify inter- mediate reasoning, leaving them vulnerable to hallucinations in high-stakes domains. To address this, we propose a domain-specific RAG framework that integrates explicit rea- soning and faithfulness verification. Our architecture augments standard retrieval with neural query rewriting, BGE-based cross-encoder reranking, and a rationale generation module that grounds sub-claims in specific evidence spans. We further introduce an eight-category verification taxonomy that enables fine-grained assessment of rationale faithfulness, distinguishing between explicit and implicit support patterns to facilitate structured error diagnosis. We evaluate this framework on the BioASQ and PubMedQA benchmarks, specifically analyzing the impact of dynamic in-context learning and rerank- ing under constrained token budgets. Experiments demonstrate that explicit rationale generation improves accuracy over vanilla RAG baselines, while dynamic demonstration selection combined with robust reranking yields further gains in few-shot settings. Using Llama-3-8B-Instruct, our approach achieves 89.1% on BioASQ-Y/N and 73.0% on Pub- MedQA, competitive with systems using significantly larger models. Additionally, we perform a pilot study combining human expert assessment with LLM-based verification to explore how explicit rationale generation improves system transparency and enables more detailed diagnosis of retrieval failures in biomedical question answering.",
       "url": "https://arxiv.org/abs/2603.10143",
-      "match_score": 0.9646,
-      "matched_cluster": "retrieval & semantic & structured",
+      "match_score": 0.9678,
+      "matched_cluster": "retrieval & ranking & answering",
       "submitted": "2026-03-10"
     },
     {
-      "id": "2603.08655",
-      "title": "OfficeQA Pro: An Enterprise Benchmark for End-to-End Grounded Reasoning",
-      "abstract": "We introduce OfficeQA Pro, a benchmark for evaluating AI agents on grounded, multi-document reasoning over a large and heterogeneous document corpus. The corpus consists of U.S. Treasury Bulletins spanning nearly 100 years, comprising 89,000 pages and over 26 million numerical values. OfficeQA Pro consists of 133 questions that require precise document parsing, retrieval, and analytical reasoning across both unstructured text and tabular data. Frontier LLMs including Claude Opus 4.6, GPT-5.4, and Gemini 3.1 Pro Preview achieve less than 5% accuracy on OfficeQA Pro when relying on parametric knowledge, and less than 12% with additional access to the web. When provided directly with the document corpus, frontier agents still struggle on over half of questions, scoring 34.1% on average. We find that providing agents with a structured document representation produced by Databricks' ai_parse_document yields a 16.1% average relative performance gain across agents. We conduct additional ablations to study the effects of model selection, table representation, retrieval strategy, and test-time scaling on performance. Despite these improvements, significant headroom remains before agents can be considered reliable at enterprise-grade grounded reasoning.",
-      "url": "https://arxiv.org/abs/2603.08655",
-      "match_score": 0.9646,
-      "matched_cluster": "retrieval & semantic & structured",
-      "submitted": "2026-03-09"
+      "id": "2603.06198",
+      "title": "LIT-RAGBench: Benchmarking Generator Capabilities of Large Language Models in Retrieval-Augmented Generation",
+      "abstract": "Retrieval-Augmented Generation (RAG) is a framework in which a Generator, such as a Large Language Model (LLM), produces answers by retrieving documents from an external collection using a Retriever. In practice, Generators must integrate evidence from long contexts, perform multi-step reasoning, interpret tables, and abstain when evidence is missing. However, existing benchmarks for Generators provide limited coverage, with none enabling simultaneous evaluation of multiple capabilities under unified conditions. To bridge the gap between existing evaluations and practical use, we introduce LIT-RAGBench (the Logic, Integration, Table, Reasoning, and Abstention RAG Generator Benchmark), which defines five categories: Integration, Reasoning, Logic, Table, and Abstention, each further divided into practical evaluation aspects. LIT-RAGBench systematically covers patterns combining multiple aspects across categories. By using fictional entities and scenarios, LIT-RAGBench evaluates answers grounded in the provided external documents. The dataset consists of 114 human-constructed Japanese questions and an English version generated by machine translation with human curation. We use LLM-as-a-Judge for scoring and report category-wise and overall accuracy. Across API-based and open-weight models, no model exceeds 90% overall accuracy. By making strengths and weaknesses measurable within each category, LIT-RAGBench serves as a valuable metric for model selection in practical RAG deployments and for building RAG-specialized models. We release LIT-RAGBench, including the dataset and evaluation code, at https://github.com/Koki-Itai/LIT-RAGBench.",
+      "url": "https://arxiv.org/abs/2603.06198",
+      "match_score": 0.9673,
+      "matched_cluster": "retrieval & ranking & answering",
+      "submitted": "2026-03-06"
     },
     {
-      "id": "2603.12180",
-      "title": "Strategic Navigation or Stochastic Search? How Agents and Humans Reason Over Document Collections",
-      "abstract": "Multimodal agents offer a promising path to automating complex document-intensive workflows. Yet, a critical question remains: do these agents demonstrate genuine strategic reasoning, or merely stochastic trial-and-error search? To address this, we introduce MADQA, a benchmark of 2,250 human-authored questions grounded in 800 heterogeneous PDF documents. Guided by Classical Test Theory, we design it to maximize discriminative power across varying levels of agentic abilities. To evaluate agentic behaviour, we introduce a novel evaluation protocol measuring the accuracy-effort trade-off. Using this framework, we show that while the best agents can match human searchers in raw accuracy, they succeed on largely different questions and rely on brute-force search to compensate for weak strategic planning. They fail to close the nearly 20% gap to oracle performance, persisting in unproductive loops. We release the dataset and evaluation harness to help facilitate the transition from brute-force retrieval to calibrated, efficient reasoning.",
-      "url": "https://arxiv.org/abs/2603.12180",
-      "match_score": 0.964,
-      "matched_cluster": "retrieval & semantic & structured",
+      "id": "2603.15594",
+      "title": "OpenSeeker: Democratizing Frontier Search Agents by Fully Open-Sourcing Training Data",
+      "abstract": "Deep search capabilities have become an indispensable competency for frontier Large Language Model (LLM) agents, yet the development of high-performance search agents remains dominated by industrial giants due to a lack of transparent, high-quality training data. This persistent data scarcity has fundamentally hindered the progress of the broader research community in developing and innovating within this domain. To bridge this gap, we introduce OpenSeeker, the first fully open-source search agent (i.e., model and data) that achieves frontier-level performance through two core technical innovations: (1) Fact-grounded scalable controllable QA synthesis, which reverse-engineers the web graph via topological expansion and entity obfuscation to generate complex, multi-hop reasoning tasks with controllable coverage and complexity. (2) Denoised trajectory synthesis, which employs a retrospective summarization mechanism to denoise the trajectory, therefore promoting the teacher LLMs to generate high-quality actions. Experimental results demonstrate that OpenSeeker, trained (a single training run) on only 11.7k synthesized samples, achieves state-of-the-art performance across multiple benchmarks including BrowseComp, BrowseComp-ZH, xbench-DeepSearch, and WideSearch. Notably, trained with simple SFT, OpenSeeker significantly outperforms the second-best fully open-source agent DeepDive (e.g., 29.5% v.s. 15.3% on BrowseComp), and even surpasses industrial competitors such as Tongyi DeepResearch (trained via extensive continual pre-training, SFT, and RL) on BrowseComp-ZH (48.4% v.s. 46.7%). We fully open-source the complete training dataset and the model weights to democratize frontier search agent research and foster a more transparent, collaborative ecosystem.",
+      "url": "https://arxiv.org/abs/2603.15594",
+      "match_score": 0.967,
+      "matched_cluster": "semantic & ai & agent",
+      "submitted": "2026-03-16"
+    },
+    {
+      "id": "2603.05344",
+      "title": "Building Effective AI Coding Agents for the Terminal: Scaffolding, Harness, Context Engineering, and Lessons Learned",
+      "abstract": "The landscape of AI coding assistance is undergoing a fundamental shift from complex IDE plugins to versatile, terminal-native agents. Operating directly where developers manage source control, execute builds, and deploy environments, CLI-based agents offer unprecedented autonomy for long-horizon development tasks. In this paper, we present OPENDEV, an open-source, command-line coding agent written in Rust, engineered specifically for this new paradigm. Effective autonomous assistance requires strict safety controls and highly efficient context management to prevent context bloat and reasoning degradation. OPENDEV overcomes these challenges through a compound AI system architecture with workload-specialized model routing, a dual-agent architecture separating planning from execution, lazy tool discovery, and adaptive context compaction that progressively reduces older observations. Furthermore, it employs an automated memory system to accumulate project-specific knowledge across sessions and counteracts instruction fade-out through event-driven system reminders. By enforcing explicit reasoning phases and prioritizing context efficiency, OPENDEV provides a secure, extensible foundation for terminal-first AI assistance, offering a blueprint for robust autonomous software engineering.",
+      "url": "https://arxiv.org/abs/2603.05344",
+      "match_score": 0.967,
+      "matched_cluster": "agent & ai & agentic",
+      "submitted": "2026-03-05"
+    },
+    {
+      "id": "2603.11082",
+      "title": "Quality-Driven Agentic Reasoning for LLM-Assisted Software Design: Questions-of-Thoughts (QoT) as a Time-Series Self-QA Chain",
+      "abstract": "Recent advances in large language models (LLMs) have accelerated AI-assisted software development, yet practical deployment remains constrained by incomplete implementations, weak modularization, and inconsistent security practices. We introduce Questions-of-Thoughts (QoT), a quality-driven inference-time scaffold that turns a user goal into (i) an ordered sequence of engineering steps and (ii) stepwise self-questioning to verify constraints and reduce omission errors, while maintaining a lightweight reasoning record that stabilizes subsequent design decisions.\n  We evaluate QoT across three representative backend engineering domains: API Design, Data Communication, and File Systems. Each task requires multi-module decomposition and exposes standard failure modes in LLM-generated systems. To enable data-driven comparison, we score generated artifacts using an ISO/IEC-inspired quality rubric that measures Scalability, Completeness, Modularity, and Security. We report domain-wise gains as the change in total quality score, defined as the QoT score minus the NoQoT score. Results show capacity-dependent improvements: QoT yields consistent quality improvements for larger models and more complex domains, while smaller models may exhibit trade-offs under tight context and planning budgets.\n  We release an open artifact with prompts, scoring guidelines, raw generations, and scripts that reproduce the reported tables and figures to support applied AI and data analytics research.",
+      "url": "https://arxiv.org/abs/2603.11082",
+      "match_score": 0.9665,
+      "matched_cluster": "agent & ai & agentic",
+      "submitted": "2026-03-10"
+    },
+    {
+      "id": "2603.00546",
+      "title": "Advancing Multimodal Judge Models through a Capability-Oriented Benchmark and MCTS-Driven Data Generation",
+      "abstract": "Using Multimodal Large Language Models (MLLMs) as judges to achieve precise and consistent evaluations has gradually become an emerging paradigm across various domains. Evaluating the capability and reliability of MLLM-as-a-judge systems is therefore essential for ensuring trustworthy assessment. Existing judge benchmarks categorize samples by task types but fail to capture the fundamental judgment capabilities required for reliable evaluation. In this work, we introduce M-JudgeBench, a ten-dimensional capability-oriented benchmark designed to comprehensively assess the judgment abilities of MLLMs. Our benchmark decomposes evaluation into pairwise Chain-of-Thought (CoT) comparison, length bias avoidance, and process error detection tasks, jointly covering ten fine-grained subtasks. This design enables diagnosis of model reliability across reasoning styles, response lengths, and cross-model variations. Systematic evaluation uncovers the systematic weaknesses in existing MLLM-as-a-judge systems. To address this issue, we further propose Judge-MCTS, a data construction framework generating pairwise reasoning trajectories with various correctness and length. Using Judge-MCTS, we construct an MCTS-augmented dataset and train M-Judger, a series of strong judge models. Extensive experiments demonstrate the superiority of M-Judger on existing judge benchmarks as well as M-JudgeBench. Overall, our work establishes a more principled foundation for evaluating MLLM-as-a-judge through M-JudgeBench and Judge-MCTS framework, paving the way for future research on judge model evaluation and capability-driven judge training.",
+      "url": "https://arxiv.org/abs/2603.00546",
+      "match_score": 0.9648,
+      "matched_cluster": "retrieval & ranking & answering",
+      "submitted": "2026-02-28"
+    },
+    {
+      "id": "2603.14465",
+      "title": "AgentProcessBench: Diagnosing Step-Level Process Quality in Tool-Using Agents",
+      "abstract": "While Large Language Models (LLMs) have evolved into tool-using agents, they remain brittle in long-horizon interactions. Unlike mathematical reasoning where errors are often rectifiable via backtracking, tool-use failures frequently induce irreversible side effects, making accurate step-level verification critical. However, existing process-level benchmarks are predominantly confined to closed-world mathematical domains, failing to capture the dynamic and open-ended nature of tool execution. To bridge this gap, we introduce AgentProcessBench, the first benchmark dedicated to evaluating step-level effectiveness in realistic, tool-augmented trajectories. The benchmark comprises 1,000 diverse trajectories and 8,509 human-labeled step annotations with 89.1% inter-annotator agreement. It features a ternary labeling scheme to capture exploration and an error propagation rule to reduce labeling ambiguity. Extensive experiments reveal key insights: (1) weaker policy models exhibit inflated ratios of correct steps due to early termination; (2) distinguishing neutral and erroneous actions remains a significant challenge for current models; and (3) process-derived signals provide complementary value to outcome supervision, significantly enhancing test-time scaling. We hope AgentProcessBench can foster future research in reward models and pave the way toward general agents. The code and data are available at https://github.com/RUCBM/AgentProcessBench.",
+      "url": "https://arxiv.org/abs/2603.14465",
+      "match_score": 0.9646,
+      "matched_cluster": "agent & ai & agentic",
+      "submitted": "2026-03-15"
+    },
+    {
+      "id": "2603.15676",
+      "title": "Automated Self-Testing as a Quality Gate: Evidence-Driven Release Management for LLM Applications",
+      "abstract": "LLM applications are AI systems whose non-deterministic outputs and evolving model behavior make traditional testing insufficient for release governance. We present an automated self-testing framework that introduces quality gates with evidence-based release decisions (PROMOTE/HOLD/ROLLBACK) across five empirically grounded dimensions: task success rate, research context preservation, P95 latency, safety pass rate, and evidence coverage. We evaluate the framework through a longitudinal case study of an internally deployed multi-agent conversational AI system with specific marketing capabilities in active development, covering 38 evaluation runs across 20+ internal releases. The gate identified two ROLLBACK-grade builds in early runs and supported stable quality evolution over a four-week staging lifecycle while exercising persona-grounded, multi-turn, adversarial, and evidence-required scenarios. Statistical analysis (Mann-Kendall trends, Spearman correlations, bootstrap confidence intervals), gate ablation, and overhead scaling indicate that evidence coverage is the primary severe-regression discriminator and that runtime scales predictably with suite size. A human calibration study (n=60 stratified cases, two independent evaluators, LLM-as-judge cross-validation) reveals complementary multi-modal coverage: LLM-judge disagreements with the system gate (kappa=0.13) are attributable to structural failure modes such as latency violations and routing errors that are invisible in response text alone, while the judge independently surfaces content quality failures missed by structural checks, validating the multi-dimensional gate design. The framework, supplementary pseudocode, and calibration artifacts are provided to support AI-system quality assurance and independent replication.",
+      "url": "https://arxiv.org/abs/2603.15676",
+      "match_score": 0.9644,
+      "matched_cluster": "agent & ai & agentic",
+      "submitted": "2026-03-13"
+    },
+    {
+      "id": "2603.15473",
+      "title": "Agent Lifecycle Toolkit (ALTK): Reusable Middleware Components for Robust AI Agents",
+      "abstract": "As AI agents move from demos into enterprise deployments, their failure modes become consequential: a misinterpreted tool argument can corrupt production data, a silent reasoning error can go undetected until damage is done, and outputs that violate organizational policy can create legal or compliance risk. Yet, most agent frameworks leave builders to handle these failure modes ad hoc, resulting in brittle, one-off safeguards that are hard to reuse or maintain. We present the Agent Lifecycle Toolkit (ALTK), an open-source collection of modular middleware components that systematically address these gaps across the full agent lifecycle.\n  Across the agent lifecycle, we identify opportunities to intervene and improve, namely, post-user-request, pre-LLM prompt conditioning, post-LLM output processing, pre-tool validation, post-tool result checking, and pre-response assembly. ALTK provides modular middleware that detects, repairs, and mitigates common failure modes. It offers consistent interfaces that fit naturally into existing pipelines. It is compatible with low-code and no-code tools such as the ContextForge MCP Gateway and Langflow. Finally, it significantly reduces the effort of building reliable, production-grade agents.",
+      "url": "https://arxiv.org/abs/2603.15473",
+      "match_score": 0.9641,
+      "matched_cluster": "agent & ai & agentic",
+      "submitted": "2026-03-16"
+    },
+    {
+      "id": "2603.16169",
+      "title": "Open-Source Reproduction and Explainability Analysis of Corrective Retrieval Augmented Generation",
+      "abstract": "Corrective Retrieval Augmented Generation (CRAG) improves the robustness of RAG systems by evaluating retrieved document quality and triggering corrective actions. However, the original implementation relies on proprietary components including the Google Search API and closed model weights, limiting reproducibility. In this work, we present a fully open-source reproduction of CRAG, replacing proprietary web search with the Wikipedia API and the original LLaMA-2 generator with Phi-3-mini-4k-instruct. We evaluate on PopQA and ARC-Challenge, demonstrating that our open-source pipeline achieves comparable performance to the original system. Furthermore, we contribute the first explainability analysis of CRAG's T5-based retrieval evaluator using SHAP, revealing that the evaluator primarily relies on named entity alignment rather than semantic similarity. Our analysis identifies key failure modes including domain transfer limitations on science questions. All code and results are available at https://github.com/suryayalavarthi/crag-reproduction.",
+      "url": "https://arxiv.org/abs/2603.16169",
+      "match_score": 0.9639,
+      "matched_cluster": "retrieval & ranking & answering",
+      "submitted": "2026-03-17"
+    },
+    {
+      "id": "2603.13428",
+      "title": "EvoClaw: Evaluating AI Agents on Continuous Software Evolution",
+      "abstract": "With AI agents increasingly deployed as long-running systems, it becomes essential to autonomously construct and continuously evolve customized software to enable interaction within dynamic environments. Yet, existing benchmarks evaluate agents on isolated, one-off coding tasks, neglecting the temporal dependencies and technical debt inherent in real-world software evolution. To bridge this gap, we introduce DeepCommit, an agentic pipeline that reconstructs verifiable Milestone DAGs from noisy commit logs, where milestones are defined as semantically cohesive development goals. These executable sequences enable EvoClaw, a novel benchmark that requires agents to sustain system integrity and limit error accumulation, dimensions of long-term software evolution largely missing from current benchmarks. Our evaluation of 12 frontier models across 4 agent frameworks reveals a critical vulnerability: overall performance scores drop significantly from $>$80% on isolated tasks to at most 38% in continuous settings, exposing agents' profound struggle with long-term maintenance and error propagation.",
+      "url": "https://arxiv.org/abs/2603.13428",
+      "match_score": 0.9637,
+      "matched_cluster": "agent & ai & agentic",
+      "submitted": "2026-03-13"
+    },
+    {
+      "id": "2603.05744",
+      "title": "CodeScout: Contextual Problem Statement Enhancement for Software Agents",
+      "abstract": "Current AI-powered code assistance tools often struggle with poorly-defined problem statements that lack sufficient task context and requirements specification. Recent analysis of software engineering agents reveals that failures on such underspecified requests are highly correlated with longer trajectories involving either over-exploration or repeated attempts at applying the same fix without proper evolution or testing, leading to suboptimal outcomes across software development tasks. We introduce CodeScout, a contextual query refinement approach that systematically converts underspecified user requests into comprehensive, actionable problem statements through lightweight pre-exploration of the target codebase. Our key innovation is demonstrating that structured analysis before task execution can supplement existing agentic capabilities without requiring any modifications to their underlying scaffolds. CodeScout performs targeted context scoping, conducts multi-perspective analysis examining potential fixes and exploration opportunities, then synthesizes these insights into enhanced problem statements with reproduction steps, expected behaviors, and targeted exploration hints. This pre-exploration directly addresses the identified failure patterns by reducing non-converging agent trajectories while clarifying user intent in natural language space. We evaluate CodeScout using state-of-the-art agentic scaffolds and language models on SWEBench-Verified, demonstrating a 20\\% improvement in resolution rates with up to 27 additional issues resolved compared to the default baseline method. Our results suggest that systematic query refinement through contextual analysis represents a promising direction for enhancing AI code assistance capabilities.",
+      "url": "https://arxiv.org/abs/2603.05744",
+      "match_score": 0.9635,
+      "matched_cluster": "agent & ai & agentic",
+      "submitted": "2026-03-05"
+    },
+    {
+      "id": "2603.11513",
+      "title": "Can Small Language Models Use What They Retrieve? An Empirical Study of Retrieval Utilization Across Model Scale",
+      "abstract": "Retrieval augmented generation RAG is widely deployed to improve factual accuracy in language models yet it remains unclear whether smaller models of size 7B parameters or less can effectively utilize retrieved information. To investigate this question we evaluate five model sizes from 360M to 8B across three architecture families SmolLM2 Qwen2.5 and Llama 3.1 under four retrieval conditions including no retrieval BM25 dense retrieval using E5 large v2 and oracle retrieval where the retrieved passage is guaranteed to contain the answer. We introduce a parametric knowledge split that separates questions a model can already answer from those that require external knowledge which allows us to isolate utilization failure from retrieval quality failure. We find three main results. First even with oracle retrieval models of size 7B or smaller fail to extract the correct answer 85 to 100 percent of the time on questions they cannot answer alone which indicates a fundamental utilization bottleneck. Second adding retrieval context destroys 42 to 100 percent of answers the model previously knew suggesting a distraction effect driven by the presence of context rather than its quality. Third an error analysis of 2588 oracle failures shows that the dominant failure mode is irrelevant generation where the model ignores the provided context entirely. These patterns hold across multiple prompt templates and retrieval methods. The results indicate that for models below 7B parameters the main limitation of RAG is context utilization rather than retrieval quality and that deploying RAG at this scale can lead to a net negative trade off under standard evaluation conditions.",
+      "url": "https://arxiv.org/abs/2603.11513",
+      "match_score": 0.9634,
+      "matched_cluster": "retrieval & ranking & answering",
       "submitted": "2026-03-12"
     },
     {
-      "id": "2603.08706",
-      "title": "Agentic Critical Training",
-      "abstract": "Training large language models (LLMs) as autonomous agents often begins with imitation learning, but it only teaches agents what to do without understanding why: agents never contrast successful actions against suboptimal alternatives and thus lack awareness of action quality. Recent approaches attempt to address this by introducing self-reflection supervision derived from contrasts between expert and alternative actions. However, the training paradigm fundamentally remains imitation learning: the model imitates pre-constructed reflection text rather than learning to reason autonomously. We propose Agentic Critical Training (ACT), a reinforcement learning paradigm that trains agents to identify the better action among alternatives. By rewarding whether the model's judgment is correct, ACT drives the model to autonomously develop reasoning about action quality, producing genuine self-reflection rather than imitating it. Across three challenging agent benchmarks, ACT consistently improves agent performance when combined with different post-training methods. It achieves an average improvement of 5.07 points over imitation learning and 4.62 points over reinforcement learning. Compared to approaches that inject reflection capability through knowledge distillation, ACT also demonstrates clear advantages, yielding an average improvement of 2.42 points. Moreover, ACT enables strong out-of-distribution generalization on agentic benchmarks and improves performance on general reasoning benchmarks without any reasoning-specific training data, highlighting the value of our method. These results suggest that ACT is a promising path toward developing more reflective and capable LLM agents.",
-      "url": "https://arxiv.org/abs/2603.08706",
-      "match_score": 0.9625,
-      "matched_cluster": "reinforcement & reward & agent",
-      "submitted": "2026-03-09"
+      "id": "2603.13644",
+      "title": "StatePlane: A Cognitive State Plane for Long-Horizon AI Systems Under Bounded Context",
+      "abstract": "Large language models (LLMs) and small language models (SLMs) operate under strict context window and key-value (KV) cache constraints, fundamentally limiting their ability to reason coherently over long interaction horizons. Existing approaches -- extended context windows, retrieval-augmented generation, summarization, or static documentation -- treat memory as static storage and fail to preserve decision-relevant state under long-running, multi-session tasks. We introduce StatePlane, a model-agnostic cognitive state plane that governs the formation, evolution, retrieval, and decay of episodic, semantic, and procedural state for AI systems operating under bounded context. Grounded in cognitive psychology and systems design, StatePlane formalizes episodic segmentation, selective encoding via information-theoretic constraints, goal-conditioned retrieval with intent routing, reconstructive state synthesis, and adaptive forgetting. We present a formal state model, KV-aware algorithms, security and governance mechanisms including write-path anti-poisoning, enterprise integration pathways, and an evaluation framework with six domain-specific benchmarks. StatePlane demonstrates that long-horizon intelligence can be achieved without expanding context windows or retraining models.",
+      "url": "https://arxiv.org/abs/2603.13644",
+      "match_score": 0.9631,
+      "matched_cluster": "semantic & ai & agent",
+      "submitted": "2026-03-13"
     },
     {
-      "id": "2603.09803",
-      "title": "Good Reasoning Makes Good Demonstrations: Implicit Reasoning Quality Supervision via In-Context Reinforcement Learning",
-      "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) improves reasoning in large language models but treats all correct solutions equally, potentially reinforcing flawed traces that get correct answers by chance. We observe that better reasoning are better teachers: high-quality solutions serve as more effective demonstrations than low-quality ones. We term this teaching ability Demonstration Utility, and show that the policy model's own in-context learning ability provides an efficient way to measure it, yielding a quality signal termed Evidence Gain. To employ this signal during training, we introduce In-Context RLVR. By Bayesian analysis, we show that this objective implicitly reweights rewards by Evidence Gain, assigning higher weights to high-quality traces and lower weights to low-quality ones, without requiring costly computation or external evaluators. Experiments on mathematical benchmarks show improvements in both accuracy and reasoning quality over standard RLVR.",
-      "url": "https://arxiv.org/abs/2603.09803",
+      "id": "2603.15723",
+      "title": "Context-Length Robustness in Question Answering Models: A Comparative Empirical Study",
+      "abstract": "Large language models are increasingly deployed in settings where relevant information is embedded within long and noisy contexts. Despite this, robustness to growing context length remains poorly understood across different question answering tasks. In this work, we present a controlled empirical study of context-length robustness in large language models using two widely used benchmarks: SQuAD and HotpotQA.\n  We evaluate model accuracy as a function of total context length by systematically increasing the amount of irrelevant context while preserving the answer-bearing signal. This allows us to isolate the effect of context length from changes in task difficulty. Our results show a consistent degradation in performance as context length increases, with substantially larger drops observed on multi-hop reasoning tasks compared to single-span extraction tasks. In particular, HotpotQA exhibits nearly twice the accuracy degradation of SQuAD under equivalent context expansions.\n  These findings highlight task-dependent differences in robustness and suggest that multi-hop reasoning is especially vulnerable to context dilution. We argue that context-length robustness should be evaluated explicitly when assessing model reliability, especially for applications involving long documents or retrieval-augmented generation.",
+      "url": "https://arxiv.org/abs/2603.15723",
+      "match_score": 0.9631,
+      "matched_cluster": "retrieval & ranking & answering",
+      "submitted": "2026-03-16"
+    },
+    {
+      "id": "2603.15707",
+      "title": "SEMAG: Self-Evolutionary Multi-Agent Code Generation",
+      "abstract": "Large Language Models (LLMs) have made significant progress in handling complex programming tasks. However, current methods rely on manual model selection and fixed workflows, which limit their ability to adapt to changing task complexities. To address this, we propose SEMAG, a Self-Evolutionary Multi-Agent code Generation framework that mimics human coding practices. It decomposes programming tasks into stages, including planning, coding, debugging, and discussion, while adapting workflows to task difficulty. Its self-evolutionary agents can access the latest models in real time and automatically upgrade the backbone model. SEMAG sets new state-of-the-art Pass@1 accuracy across benchmarks. Using identical backbone models, SEMAG outperforms prior methods by 3.3% on CodeContests. When augmented with self-evolutionary model selection that automatically identifies optimal backbones, SEMAG reaches 52.6%, showcasing both framework effectiveness and adaptability to evolving LLM capabilities.",
+      "url": "https://arxiv.org/abs/2603.15707",
+      "match_score": 0.9631,
+      "matched_cluster": "agent & ai & agentic",
+      "submitted": "2026-03-16"
+    },
+    {
+      "id": "2603.15401",
+      "title": "SWE-Skills-Bench: Do Agent Skills Actually Help in Real-World Software Engineering?",
+      "abstract": "Agent skills, structured procedural knowledge packages injected at inference time, are increasingly used to augment LLM agents on software engineering tasks. However, their real utility in end-to-end development settings remains unclear. We present SWE-Skills-Bench, the first requirement-driven benchmark that isolates the marginal utility of agent skills in real-world software engineering (SWE). It pairs 49 public SWE skills with authentic GitHub repositories pinned at fixed commits and requirement documents with explicit acceptance criteria, yielding approximately 565 task instances across six SWE subdomains. We introduce a deterministic verification framework that maps each task's acceptance criteria to execution-based tests, enabling controlled paired evaluation with and without the skill. Our results show that skill injection benefits are far more limited than rapid adoption suggests: 39 of 49 skills yield zero pass-rate improvement, and the average gain is only +1.2%. Token overhead varies from modest savings to a 451% increase while pass rates remain unchanged. Only seven specialized skills produce meaningful gains (up to +30%), while three degrade performance (up to -10%) due to version-mismatched guidance conflicting with project context. These findings suggest that agent skills are a narrow intervention whose utility depends strongly on domain fit, abstraction level, and contextual compatibility. SWE-Skills-Bench provides a testbed for evaluating the design, selection, and deployment of skills in software engineering agents. SWE-Skills-Bench is available at https://github.com/GeniusHTX/SWE-Skills-Bench.",
+      "url": "https://arxiv.org/abs/2603.15401",
       "match_score": 0.9624,
-      "matched_cluster": "reinforcement & reward & agent",
-      "submitted": "2026-03-10"
-    },
-    {
-      "id": "2603.09065",
-      "title": "Learning Adaptive LLM Decoding",
-      "abstract": "Decoding from large language models (LLMs) typically relies on fixed sampling hyperparameters (e.g., temperature, top-p), despite substantial variation in task difficulty and uncertainty across prompts and individual decoding steps. We propose to learn adaptive decoding policies that dynamically select sampling strategies at inference time, conditioned on available compute resources. Rather than fine-tuning the language model itself, we introduce lightweight decoding adapters trained with reinforcement learning and verifiable terminal rewards (e.g. correctness on math and coding tasks). At the sequence level, we frame decoding as a contextual bandit problem: a policy selects a decoding strategy (e.g. greedy, top-k, min-p) for each prompt, conditioned on the prompt embedding and a parallel sampling budget. At the token level, we model decoding as a partially observable Markov decision process (POMDP), where a policy selects sampling actions at each token step based on internal model features and the remaining token budget. Experiments on the MATH and CodeContests benchmarks show that the learned adapters improve the accuracy-budget tradeoff: on MATH, the token-level adapter improves Pass@1 accuracy by up to 10.2% over the best static baseline under a fixed token budget, while the sequence-level adapter yields 2-3% gains under fixed parallel sampling. Ablation analyses support the contribution of both sequence- and token-level adaptation.",
-      "url": "https://arxiv.org/abs/2603.09065",
-      "match_score": 0.9623,
-      "matched_cluster": "attention & corpus & language",
-      "submitted": "2026-03-10"
-    },
-    {
-      "id": "2603.11881",
-      "title": "Bielik-Minitron-7B: Compressing Large Language Models via Structured Pruning and Knowledge Distillation for the Polish Language",
-      "abstract": "This report details the creation of Bielik-Minitron-7B, a compressed 7.35B parameter version of the Bielik-11B-v3.0 model, specifically optimized for European languages. By leveraging a two-stage compression methodology inspired by the NVIDIA Minitron approach, we combined structured hybrid pruning and knowledge distillation to reduce the model's parameter count by 33.4%, from 11.04B to 7.35B. We utilized the NVIDIA Model Optimizer for structural pruning and the NVIDIA NeMo Framework for logit-based distillation for quality recovery. Following distillation, the model underwent a rigorous alignment pipeline consisting of Supervised Fine-Tuning (SFT), Direct Preference Optimization (DPO-P), and Reinforcement Learning (GRPO). Our final model successfully recovered approximately 90% of the baseline model's performance while providing up to 50% inference speedup. This approach demonstrates an efficient pathway to create language models for less-represented languages, preserving the original model quality while reducing inference deployment costs.",
-      "url": "https://arxiv.org/abs/2603.11881",
-      "match_score": 0.9617,
-      "matched_cluster": "attention & corpus & language",
-      "submitted": "2026-03-12"
-    },
-    {
-      "id": "2603.09341",
-      "title": "TaSR-RAG: Taxonomy-guided Structured Reasoning for Retrieval-Augmented Generation",
-      "abstract": "Retrieval-Augmented Generation (RAG) helps large language models (LLMs) answer knowledge-intensive and time-sensitive questions by conditioning generation on external evidence. However, most RAG systems still retrieve unstructured chunks and rely on one-shot generation, which often yields redundant context, low information density, and brittle multi-hop reasoning. While structured RAG pipelines can improve grounding, they typically require costly and error-prone graph construction or impose rigid entity-centric structures that do not align with the query's reasoning chain.\n  We propose \\textsc{TaSR-RAG}, a taxonomy-guided structured reasoning framework for evidence selection. We represent both queries and documents as relational triples, and constrain entity semantics with a lightweight two-level taxonomy to balance generalization and precision. Given a complex question, \\textsc{TaSR-RAG} decomposes it into an ordered sequence of triple sub-queries with explicit latent variables, then performs step-wise evidence selection via hybrid triple matching that combines semantic similarity over raw triples with structural consistency over typed triples.\n  By maintaining an explicit entity binding table across steps, \\textsc{TaSR-RAG} resolves intermediate variables and reduces entity conflation without explicit graph construction or exhaustive search. Experiments on multiple multi-hop question answering benchmarks show that \\textsc{TaSR-RAG} consistently outperforms strong RAG and structured-RAG baselines by up to 14\\%, while producing clearer evidence attribution and more faithful reasoning traces.",
-      "url": "https://arxiv.org/abs/2603.09341",
-      "match_score": 0.9615,
-      "matched_cluster": "retrieval & semantic & structured",
-      "submitted": "2026-03-10"
-    },
-    {
-      "id": "2603.10588",
-      "title": "Does LLM Alignment Really Need Diversity? An Empirical Study of Adapting RLVR Methods for Moral Reasoning",
-      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has achieved remarkable success in logical reasoning tasks, yet whether large language model (LLM) alignment requires fundamentally different approaches remains unclear. Given the apparent tolerance for multiple valid responses in moral reasoning, a natural hypothesis is that alignment tasks inherently require diversity-seeking distribution-matching algorithms rather than reward-maximizing policy-based methods. We conduct the first comprehensive empirical study comparing both paradigms on MoReBench. To enable stable RLVR training, we build a rubric-grounded reward pipeline by training a Qwen3-1.7B judge model. Contrary to our hypothesis, we find that distribution-matching approaches do not demonstrate significant advantages over reward-maximizing methods as expected on alignment tasks. Through semantic visualization mapping high-reward responses to semantic space, we demonstrate that moral reasoning exhibits more concentrated high-reward distributions than mathematical reasoning, where diverse solution strategies yield similarly high rewards. This counter-intuitive finding explains why mode-seeking optimization proves equally or more effective for alignment tasks. Our results suggest that alignment tasks do not inherently require diversity-preserving algorithms, and standard reward-maximizing RLVR methods can effectively transfer to moral reasoning without explicit diversity mechanisms.",
-      "url": "https://arxiv.org/abs/2603.10588",
-      "match_score": 0.9604,
-      "matched_cluster": "reinforcement & reward & agent",
-      "submitted": "2026-03-11"
-    },
-    {
-      "id": "2603.12191",
-      "title": "Long-Context Encoder Models for Polish Language Understanding",
-      "abstract": "While decoder-only Large Language Models (LLMs) have recently dominated the NLP landscape, encoder-only architectures remain a cost-effective and parameter-efficient standard for discriminative tasks. However, classic encoders like BERT are limited by a short context window, which is insufficient for processing long documents. In this paper, we address this limitation for the Polish by introducing a high-quality Polish model capable of processing sequences of up to 8192 tokens. The model was developed by employing a two-stage training procedure that involves positional embedding adaptation and full parameter continuous pre-training. Furthermore, we propose compressed model variants trained via knowledge distillation. The models were evaluated on 25 tasks, including the KLEJ benchmark, a newly introduced financial task suite (FinBench), and other classification and regression tasks, specifically those requiring long-document understanding. The results demonstrate that our model achieves the best average performance among Polish and multilingual models, significantly outperforming competitive solutions in long-context tasks while maintaining comparable quality on short texts.",
-      "url": "https://arxiv.org/abs/2603.12191",
-      "match_score": 0.9603,
-      "matched_cluster": "attention & corpus & language",
-      "submitted": "2026-03-12"
-    },
-    {
-      "id": "2603.12248",
-      "title": "Matching Features, Not Tokens: Energy-Based Fine-Tuning of Language Models",
-      "abstract": "Cross-entropy (CE) training provides dense and scalable supervision for language models, but it optimizes next-token prediction under teacher forcing rather than sequence-level behavior under model rollouts. We introduce a feature-matching objective for language-model fine-tuning that targets sequence-level statistics of the completion distribution, providing dense semantic feedback without requiring a task-specific verifier or preference model. To optimize this objective efficiently, we propose energy-based fine-tuning (EBFT), which uses strided block-parallel sampling to generate multiple rollouts from nested prefixes concurrently, batches feature extraction over these rollouts, and uses the resulting embeddings to perform an on-policy policy-gradient update. We present a theoretical perspective connecting EBFT to KL-regularized feature-matching and energy-based modeling. Empirically, across Q&A coding, unstructured coding, and translation, EBFT matches RLVR and outperforms SFT on downstream accuracy while achieving a lower validation cross-entropy than both methods.",
-      "url": "https://arxiv.org/abs/2603.12248",
-      "match_score": 0.9603,
-      "matched_cluster": "attention & corpus & language",
-      "submitted": "2026-03-12"
-    },
-    {
-      "id": "2603.10899",
-      "title": "LookaheadKV: Fast and Accurate KV Cache Eviction by Glimpsing into the Future without Generation",
-      "abstract": "Transformer-based large language models (LLMs) rely on key-value (KV) caching to avoid redundant computation during autoregressive inference. While this mechanism greatly improves efficiency, the cache size grows linearly with the input sequence length, quickly becoming a bottleneck for long-context tasks. Existing solutions mitigate this problem by evicting prompt KV that are deemed unimportant, guided by estimated importance scores. Notably, a recent line of work proposes to improve eviction quality by \"glimpsing into the future\", in which a draft generator produces a surrogate future response approximating the target model's true response, and this surrogate is subsequently used to estimate the importance of cached KV more accurately. However, these approaches rely on computationally expensive draft generation, which introduces substantial prefilling overhead and limits their practicality in real-world deployment. To address this challenge, we propose LookaheadKV, a lightweight eviction framework that leverages the strength of surrogate future response without requiring explicit draft generation. LookaheadKV augments transformer layers with parameter-efficient modules trained to predict true importance scores with high accuracy. Our design ensures negligible runtime overhead comparable to existing inexpensive heuristics, while achieving accuracy superior to more costly approximation methods. Extensive experiments on long-context understanding benchmarks, across a wide range of models, demonstrate that our method not only outperforms recent competitive baselines in various long-context understanding tasks, but also reduces the eviction cost by up to 14.5x, leading to significantly faster time-to-first-token. Our code is available at https://github.com/SamsungLabs/LookaheadKV.",
-      "url": "https://arxiv.org/abs/2603.10899",
-      "match_score": 0.9601,
-      "matched_cluster": "attention & corpus & language",
-      "submitted": "2026-03-11"
-    },
-    {
-      "id": "2603.11137",
-      "title": "Scaling Reasoning Efficiently via Relaxed On-Policy Distillation",
-      "abstract": "On-policy distillation is pivotal for transferring reasoning capabilities to capacity-constrained models, yet remains prone to instability and negative transfer. We show that on-policy distillation can be interpreted, both theoretically and empirically, as a form of policy optimization, where the teacher-student log-likelihood ratio acts as a token reward. From this insight, we introduce REOPOLD (Relaxed On-Policy Distillation) a framework that stabilizes optimization by relaxing the strict imitation constraints of standard on-policy distillation. Specifically, REOPOLD temperately and selectively leverages rewards from the teacher through mixture-based reward clipping, entropy-based token-level dynamic sampling, and a unified exploration-to-refinement training strategy. Empirically, REOPOLD surpasses its baselines with superior sample efficiency during training and enhanced test-time scaling at inference, across mathematical, visual, and agentic tool-use reasoning tasks. Specifically, REOPOLD outperforms recent RL approaches achieving 6.7~12x greater sample efficiency and enables a 7B student to match a 32B teacher in visual reasoning with a ~3.32x inference speedup.",
-      "url": "https://arxiv.org/abs/2603.11137",
-      "match_score": 0.9594,
-      "matched_cluster": "reinforcement & reward & agent",
-      "submitted": "2026-03-11"
-    },
-    {
-      "id": "2603.10700",
-      "title": "Structured Linked Data as a Memory Layer for Agent-Orchestrated Retrieval",
-      "abstract": "Retrieval-Augmented Generation (RAG) systems typically treat documents as flat text, ignoring the structured metadata and linked relationships that knowledge graphs provide. In this paper, we investigate whether structured linked data, specifically Schema.org markup and dereferenceable entity pages served by a Linked Data Platform, can improve retrieval accuracy and answer quality in both standard and agentic RAG systems. We conduct a controlled experiment across four domains (editorial, legal, travel, e-commerce) using Vertex AI Vector Search 2.0 for retrieval and the Google Agent Development Kit (ADK) for agentic reasoning. Our experimental design tests seven conditions: three document representations (plain HTML, HTML with JSON-LD, and an enhanced agentic-optimized entity page) crossed with two retrieval modes (standard RAG and agentic RAG with multi-hop link traversal), plus an Enhanced+ condition that adds rich navigational affordances and entity interlinking. Our results reveal that while JSON-LD markup alone provides only modest improvements, our enhanced entity page format, incorporating llms.txt-style agent instructions, breadcrumbs, and neural search capabilities, achieves substantial gains: +29.6% accuracy improvement for standard RAG and +29.8% for the full agentic pipeline. The Enhanced+ variant, with richer navigational affordances, achieves the highest absolute scores (accuracy: 4.85/5, completeness: 4.55/5), though the incremental gain over the base enhanced format is not statistically significant. We release our dataset, evaluation framework, and enhanced entity page templates to support reproducibility.",
-      "url": "https://arxiv.org/abs/2603.10700",
-      "match_score": 0.9584,
-      "matched_cluster": "retrieval & semantic & structured",
-      "submitted": "2026-03-11"
-    },
-    {
-      "id": "2603.10088",
-      "title": "ES-dLLM: Efficient Inference for Diffusion Large Language Models by Early-Skipping",
-      "abstract": "Diffusion large language models (dLLMs) are emerging as a promising alternative to autoregressive models (ARMs) due to their ability to capture bidirectional context and the potential for parallel generation. Despite the advantages, dLLM inference remains computationally expensive as the full input context is processed at every iteration. In this work, we analyze the generation dynamics of dLLMs and find that intermediate representations, including key, value, and hidden states, change only subtly across successive iterations. Leveraging this insight, we propose \\textbf{ES-dLLM}, a training-free inference acceleration framework for dLLM that reduces computation by skipping tokens in early layers based on the estimated importance. Token importance is computed with intermediate tensor variation and confidence scores of previous iterations. Experiments on LLaDA-8B and Dream-7B demonstrate that ES-dLLM achieves throughput of up to 226.57 and 308.51 tokens per second (TPS), respectively, on an NVIDIA H200 GPU, delivering 5.6$\\times$ to 16.8$\\times$ speedup over the vanilla implementation and up to 1.85$\\times$ over the state-of-the-art caching method, while preserving generation quality.",
-      "url": "https://arxiv.org/abs/2603.10088",
-      "match_score": 0.9584,
-      "matched_cluster": "attention & corpus & language",
-      "submitted": "2026-03-10"
-    },
-    {
-      "id": "2603.09527",
-      "title": "Efficiently Aligning Draft Models via Parameter- and Data-Efficient Adaptation",
-      "abstract": "Speculative decoding accelerates LLM inference but suffers from performance degradation when target models are fine-tuned for specific domains. A naive solution is to retrain draft models for every target model, which is costly and inefficient. To address this, we introduce a parameter- and data-efficient framework named Efficient Draft Adaptation, abbreviated as EDA, for efficiently adapting draft models. EDA introduces three innovations: (1) a decoupled architecture that utilizes shared and private components to model the shared and target-specific output distributions separately, enabling parameter-efficient adaptation by updating only the lightweight private component;(2) a data regeneration strategy that utilizes the fine-tuned target model to regenerate training data, thereby improving the alignment between training and speculative decoding, leading to higher average acceptance length;(3) a sample selection mechanism that prioritizes high-value data for efficient adaptation. Our experiments show that EDA effectively restores speculative performance on fine-tuned models, achieving superior average acceptance lengths with significantly reduced training costs compared to full retraining. Code is available at https://github.com/Lyn-Lucy/Efficient-Draft-Adaptation.",
-      "url": "https://arxiv.org/abs/2603.09527",
-      "match_score": 0.9577,
-      "matched_cluster": "attention & corpus & language",
-      "submitted": "2026-03-10"
-    },
-    {
-      "id": "2603.09206",
-      "title": "MM-Zero: Self-Evolving Multi-Model Vision Language Models From Zero Data",
-      "abstract": "Self-evolving has emerged as a key paradigm for improving foundational models such as Large Language Models (LLMs) and Vision Language Models (VLMs) with minimal human intervention. While recent approaches have demonstrated that LLM agents can self-evolve from scratch with little to no data, VLMs introduce an additional visual modality that typically requires at least some seed data, such as images, to bootstrap the self-evolution process. In this work, we present Multi-model Multimodal Zero (MM-Zero), the first RL-based framework to achieve zero-data self-evolution for VLM reasoning. Moving beyond prior dual-role (Proposer and Solver) setups, MM-Zero introduces a multi-role self-evolving training framework comprising three specialized roles: a Proposer that generates abstract visual concepts and formulates questions; a Coder that translates these concepts into executable code (e.g., Python, SVG) to render visual images; and a Solver that performs multimodal reasoning over the generated visual content. All three roles are initialized from the same base model and trained using Group Relative Policy Optimization (GRPO), with carefully designed reward mechanisms that integrate execution feedback, visual verification, and difficulty balancing. Our experiments show that MM-Zero improves VLM reasoning performance across a wide range of multimodal benchmarks. MM-Zero establishes a scalable path toward self-evolving multi-model systems for multimodal models, extending the frontier of self-improvement beyond the conventional two-model paradigm.",
-      "url": "https://arxiv.org/abs/2603.09206",
-      "match_score": 0.9574,
-      "matched_cluster": "reinforcement & reward & agent",
-      "submitted": "2026-03-10"
-    },
-    {
-      "id": "2603.11798",
-      "title": "DocSage: An Information Structuring Agent for Multi-Doc Multi-Entity Question Answering",
-      "abstract": "Multi-document Multi-entity Question Answering inherently demands models to track implicit logic between multiple entities across scattered documents. However, existing Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) frameworks suffer from critical limitations: standard RAG's vector similarity-based coarse-grained retrieval often omits critical facts, graph-based RAG fails to efficiently integrate fragmented complex relationship networks, and both lack schema awareness, leading to inadequate cross-document evidence chain construction and inaccurate entity relationship deduction. To address these challenges, we propose DocSage, an end-to-end agentic framework that integrates dynamic schema discovery, structured information extraction, and schema-aware relational reasoning with error guarantees. DocSage operates through three core modules: (1) A schema discovery module dynamically infers query-specific minimal joinable schemas to capture essential entities and relationships; (2) An extraction module transforms unstructured text into semantically coherent relational tables, enhanced by error-aware correction mechanisms to reduce extraction errors; (3) A reasoning module performs multi-hop relational reasoning over structured tables, leveraging schema awareness to efficiently align cross-document entities and aggregate evidence. This agentic design offers three key advantages: precise fact localization via SQL-powered indexing, natural support for cross-document entity joins through relational tables, and mitigated LLM attention diffusion via structured representation. Evaluations on two MDMEQA benchmarks demonstrate that DocSage significantly outperforms state-of-the-art long-context LLMs and RAG systems, achieving more than 27% accuracy improvements respectively.",
-      "url": "https://arxiv.org/abs/2603.11798",
-      "match_score": 0.9572,
-      "matched_cluster": "retrieval & semantic & structured",
-      "submitted": "2026-03-12"
+      "matched_cluster": "agent & ai & agentic",
+      "submitted": "2026-03-16"
     }
   ]
 }
