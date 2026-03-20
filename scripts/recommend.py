@@ -384,7 +384,7 @@ def main(top_clusters: int, top_n: int, log: bool = False) -> None:
         inline_data=True,
     )
     plot.save(str(html_path))
-    print(f"[INFO] Updated map.html with top_clusters highlighted")
+    print("[INFO] Updated map.html with top_clusters highlighted")
 
 
 @app.local_entrypoint()
