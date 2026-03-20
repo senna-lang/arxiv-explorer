@@ -6,3 +6,11 @@ declare namespace Cloudflare {
     RATINGS_KV: KVNamespace;
   }
 }
+
+declare namespace App {
+  interface Locals {
+    runtime: {
+      env: Cloudflare.Env;
+    };
+  }
+}

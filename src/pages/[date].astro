@@ -9,6 +9,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import PaperCard from "../components/PaperCard.astro";
 import RecommendSection from "../components/RecommendSection.astro";
+import SerendipitySection from "../components/SerendipitySection.astro";
 import { extractDates } from "../lib/data";
 import type { DailyData, RatingsData } from "../lib/types";
 
@@ -92,4 +93,5 @@ const displayDate = `${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}
   ))}
 
   <RecommendSection />
+  <SerendipitySection />
 </MainLayout>

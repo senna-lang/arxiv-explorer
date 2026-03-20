@@ -11,12 +11,11 @@
  */
 export const prerender = false;
 
-import { env } from "cloudflare:workers";
 import type { APIRoute } from "astro";
 import type { RatingsData } from "../../lib/types";
 
-export const GET: APIRoute = async () => {
-  const kv = env.RATINGS_KV;
+export const GET: APIRoute = async ({ locals }) => {
+  const kv = (locals.runtime?.env as Cloudflare.Env).RATINGS_KV;
   const existing = await kv.get("ratings");
   const data: RatingsData = existing ? JSON.parse(existing) : { ratings: [] };
 

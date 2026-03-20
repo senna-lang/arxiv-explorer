@@ -23,13 +23,14 @@ SPECTER2 + BERTopic を用いた arXiv 論文探索 — 埋め込み品質、ト
         │  fetch_daily.py                   │
         │  arXiv API から新着論文を取得     │
         │  → Embedding（SPECTER2）          │
-        │  → interest_profile との類似度    │
+        │  → interest_profile + ratings     │
+        │    の α-blend でスコアリング      │
         │  → score 順に並べて data/ に保存  │
         └───────────────────────────────────┘
                 │
                 │  星をつけて評価を蓄積
                 ▼
-        Cloudflare KV（星評価ストア）
+        Cloudflare KV
         ※ GET /api/ratings でバッチから参照
                 │
                 │
@@ -44,29 +45,11 @@ SPECTER2 + BERTopic を用いた arXiv 論文探索 — 埋め込み品質、ト
 [週次]          ▼
         ┌───────────────────────────────────┐
         │  ratings.json × map.json          │
-        │  → 自分の興味クラスタを特定       │
-        │  → 近傍論文をおすすめ表示         │
+        │  → 自分の興味クラスタを特定           │
+        │  → 近傍論文をおすすめ表示            │
+        │  → 隣接クラスタをセレンディピティ      │
+        │    として表示                       │
         └───────────────────────────────────┘
-```
-
----
-
-## コマンド
-
-```bash
-# フロントエンド
-npm run dev          # 開発サーバー起動
-npm run build        # 本番ビルド
-npm run preview      # ビルド結果をプレビュー
-
-# Pythonパイプライン
-npm run daily        # 新着論文をスコアリングして data/YYYYMMDD.json を生成
-npm run map          # 論文地図を生成（max 1000件）
-npm run map:full     # 論文地図を生成（max 10000件）
-npm run recommend    # おすすめ論文を生成
-
-# KVへのデータ移行
-npx wrangler kv key put "ratings" --namespace-id=797a1d2d28ef40cd86bb25c2bce60fe9 --path=data/ratings.json --remote
 ```
 
 ---
@@ -142,32 +125,26 @@ Cloudflare KV
   └──────────────────────────────────────────────────────┘
         │
         ▼
-  recommendations.json
-  近傍クラスタから論文をおすすめ
+  recommendations.json に2種類の論文リストを生成:
+  - おすすめ（上位3クラスタの代表論文 7件）         → 🔍 過去記事からのおすすめ
+  - こんなのもどう？（隣接3クラスタ 7件 + 末尾2クラスタ 3件）→ 🌱 こんなのもどう？
 ```
 
 ---
 
-## スコアリングの仕組み（日次）
+## スコアリングの仕組み
 
-`fetch_daily.py` が arXiv API から新着論文を取得し、`config.json` に書いた **interest_profile** との意味的近さでスコアをつける。
-
-```
-abstract → Embedding（SPECTER2 proximity）──┐
-                                             ├─ cosine similarity × 7 → 平均 = score（0〜1）
-interest_profile × 7 → Embedding（adhoc_query）─┘
-```
-
-`config.json` の `interest_profile` に興味領域を自然言語で書くだけで自動計算される。
-評価データが蓄積するにつれ、profile ベースから実績ベースへ段階的に移行する。
+デイリー・おすすめ・こんなのもどう？ のすべてで同じ α-blend スコアを使用。
 
 ```
 α = min(1.0, ratings件数 / 50)
-final_score = α × instance_score + (1-α) × profile_score
+match_score = α × cos_sim(論文, 高評価論文群) + (1-α) × cos_sim(論文, interest_profile)
 ```
 
-ratings が少ない初期は `profile_score` が補完し、
-蓄積されるにつれて実際の評価データ（`instance_score`）が主役になる。
+ratings が少ない初期は interest_profile との類似度が主、
+蓄積されるにつれて実際の評価データとの類似度が主になる。
+
+`config.jsonc` の `interest_profile` に興味領域を自然言語で記述する（7項目）。
 
 ### SPECTER2 アダプタの使い分け
 
@@ -175,16 +152,3 @@ ratings が少ない初期は `profile_score` が補完し、
 |---|---|
 | `proximity` | 論文同士の類似度（abstract の Embedding） |
 | `adhoc_query` | クエリ→論文の検索（interest_profile の Embedding） |
-
----
-
-## データの流れ
-
-| ファイル | 内容 | 更新 |
-|---|---|---|
-| `data/YYYYMMDD.json` | 当日の論文 + スコア | 毎朝（`daily`） |
-| `data/ratings.json` | 星評価履歴の初期データ（Cloudflare KVへの移行元） | - |
-| `data/map.json` | arXiv 論文地図（クラスタ + UMAP 2D 座標） | 月次（`map:full`） |
-| `data/recommendations.json` | 近傍クラスタからのおすすめ論文 | 週次（`recommend`） |
-| `public/map.html` | datamapplot 生成のインタラクティブ地図 | 月次・週次 |
-| `.cache/arxiv_YYYYMMDD_*.pkl` | arXiv API レスポンスのキャッシュ | 自動 |

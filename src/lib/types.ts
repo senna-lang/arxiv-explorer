@@ -74,8 +74,13 @@ export type TopCluster = {
   score: number;
 };
 
+/** Recommendation と同じ構造だが意味的に区別するためのエイリアス */
+export type SerendipityPaper = Recommendation;
+
 export type RecommendationsData = {
   generated_at: string;
   top_clusters: TopCluster[];
   recommendations: Recommendation[];
+  serendipity_clusters?: TopCluster[];
+  serendipity?: SerendipityPaper[];
 };

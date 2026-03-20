@@ -83,6 +83,27 @@ def compute_final_score(instance: float, profile: float, alpha: float) -> float:
     return alpha * instance + (1 - alpha) * profile
 
 
+def select_serendipity_papers(
+    papers_with_scores: list[dict],
+    min_score: float,
+    max_score: float,
+    top_n: int,
+    exclude_ids: set[str],
+    filter_key: str = "match_score",
+) -> list[dict]:
+    """
+    filter_key のスコアバンド [min_score, max_score] で絞り込み、上位top_nを返す。
+    exclude_ids に含まれるIDは除外する（recommendationsとの重複防止）。
+    filter_key="centroid_score" を指定するとクラスタ内代表度でフィルタできる。
+    """
+    filtered = [
+        p for p in papers_with_scores
+        if min_score <= p[filter_key] <= max_score and p["id"] not in exclude_ids
+    ]
+    filtered.sort(key=lambda p: p[filter_key], reverse=True)
+    return filtered[:top_n]
+
+
 def rank_clusters(
     clusters: list[dict[str, Any]],
     rated_vecs: list[np.ndarray],
@@ -171,10 +192,18 @@ def main(top_clusters: int, top_n: int, log: bool = False) -> None:
     ranked = rank_clusters(clusters, rated_vecs, profile_vecs, alpha)
     top = ranked[:top_clusters]
 
-    print(f"[INFO] Top {top_clusters} clusters: {[c['label'] for c in top]}")
+    # セレンディピティ: 隣接クラスタ（rank 4〜）と意図的に遠いクラスタ（末尾から）を取得
+    ser_n_clusters: int = rec_config.get("serendipity_clusters", 3)
+    ser_distant_n: int = rec_config.get("serendipity_distant_clusters", 2)
+    ser_top = ranked[top_clusters : top_clusters + ser_n_clusters]
+    ser_distant = ranked[max(top_clusters + ser_n_clusters, len(ranked) - ser_distant_n) :]
 
-    # 上位クラスタ内の論文をarXiv APIで取得し、centroidとのcos類似度でスコアリング
-    # match_score = cos_sim(クラスタcentroid, 論文embedding) → クラスタ中心に近い論文ほど高スコア
+    print(f"[INFO] Top {top_clusters} clusters: {[c['label'] for c in top]}")
+    print(f"[INFO] Serendipity adjacent clusters: {[c['label'] for c in ser_top]}")
+    print(f"[INFO] Serendipity distant clusters: {[c['label'] for c in ser_distant]}")
+
+    # 上位クラスタ内の論文をarXiv APIで取得し、α-blendスコアでスコアリング
+    # match_score = α × cos_sim(論文, 高評価論文) + (1-α) × cos_sim(論文, interest_profile)
     recommendations = []
     for cluster in top:
         papers = fetch_papers_for_cluster(cluster["paper_ids"])
@@ -187,7 +216,10 @@ def main(top_clusters: int, top_n: int, log: bool = False) -> None:
         centroid = np.array(cluster["centroid"])
 
         for paper, vec in zip(papers, paper_vecs):
-            match_score = _cosine_similarity(centroid, vec)
+            centroid_score = _cosine_similarity(centroid, vec)
+            instance = compute_instance_score(vec, rated_vecs)
+            profile = compute_instance_score(vec, profile_vecs)
+            match_score = compute_final_score(instance, profile, alpha)
             arxiv_id = paper.entry_id.split("/")[-1].split("v")[0]
             recommendations.append(
                 {
@@ -196,21 +228,82 @@ def main(top_clusters: int, top_n: int, log: bool = False) -> None:
                     "abstract": paper.summary,
                     "url": f"https://arxiv.org/abs/{arxiv_id}",
                     "match_score": round(match_score, 4),
+                    "centroid_score": round(centroid_score, 4),
                     "matched_cluster": cluster["label"],
                     "submitted": paper.published.strftime("%Y-%m-%d"),
                 }
             )
 
-    # min_match_score未満を除外し、スコア降順で上位top_nに絞る
+    # centroid_score で代表論文を絞り込み（クラスタ内の質担保）、match_score降順で上位top_nに絞る
     min_match: float = rec_config["min_match_score"]
-    recommendations = [r for r in recommendations if r["match_score"] >= min_match]
+    recommendations = [r for r in recommendations if r["centroid_score"] >= min_match]
     recommendations.sort(key=lambda r: r["match_score"], reverse=True)
     recommendations = recommendations[:top_n]
+
+    # セレンディピティ論文: 隣接クラスタ代表論文 + 遠いクラスタ代表論文を混在させる
+    ser_min_match: float = rec_config.get("serendipity_min_match_score", 0.80)
+    ser_top_n: int = rec_config.get("serendipity_top_n", 7)
+    ser_distant_top_n: int = rec_config.get("serendipity_distant_top_n", 3)
+    rec_ids = {r["id"] for r in recommendations}
+
+    def _fetch_cluster_candidates(clusters: list[dict]) -> list[dict]:
+        """クラスタ内論文を取得し、α-blendスコア（ユーザーの興味との類似度）を計算する。
+        match_score = α × cos_sim(論文, 高評価論文平均) + (1-α) × cos_sim(論文, interest_profile平均)
+        クラスタ内代表度ではなくユーザー関連度を表すため、セレンディピティでも意味ある数値になる。
+        """
+        candidates: list[dict] = []
+        for cluster in clusters:
+            papers = fetch_papers_for_cluster(cluster["paper_ids"])
+            if not papers:
+                continue
+            texts = [f"{p.title} [SEP] {p.summary}" for p in papers]
+            vecs: list[np.ndarray] = list(enc.encode(texts, adapter="proximity"))
+            centroid = np.array(cluster["centroid"])
+            for paper, vec in zip(papers, vecs):
+                centroid_score = _cosine_similarity(centroid, vec)
+                # α-blend: ユーザーの興味（rated_vecs/profile_vecs）との類似度
+                instance = compute_instance_score(vec, rated_vecs)
+                profile = compute_instance_score(vec, profile_vecs)
+                user_score = compute_final_score(instance, profile, alpha)
+                arxiv_id = paper.entry_id.split("/")[-1].split("v")[0]
+                candidates.append(
+                    {
+                        "id": arxiv_id,
+                        "title": paper.title,
+                        "abstract": paper.summary,
+                        "url": f"https://arxiv.org/abs/{arxiv_id}",
+                        "match_score": round(user_score, 4),
+                        "centroid_score": round(centroid_score, 4),
+                        "matched_cluster": cluster["label"],
+                        "submitted": paper.published.strftime("%Y-%m-%d"),
+                    }
+                )
+        return candidates
+
+    adjacent = select_serendipity_papers(
+        _fetch_cluster_candidates(ser_top),
+        min_score=ser_min_match, max_score=1.0,
+        top_n=ser_top_n, exclude_ids=rec_ids,
+        filter_key="centroid_score",
+    )
+    distant_exclude = rec_ids | {p["id"] for p in adjacent}
+    distant = select_serendipity_papers(
+        _fetch_cluster_candidates(ser_distant),
+        min_score=ser_min_match, max_score=1.0,
+        top_n=ser_distant_top_n, exclude_ids=distant_exclude,
+        filter_key="centroid_score",
+    )
+    serendipity = adjacent + distant
+    print(f"[INFO] Serendipity papers: {len(adjacent)} adjacent + {len(distant)} distant")
 
     output: dict[str, Any] = {
         "generated_at": datetime.now(JST).isoformat(),
         "top_clusters": [{"label": c["label"], "score": c["score"]} for c in top],
         "recommendations": recommendations,
+        "serendipity_clusters": [
+            {"label": c["label"], "score": c["score"]} for c in ser_top + ser_distant
+        ],
+        "serendipity": serendipity,
     }
 
     out_path = output_dir / "recommendations.json"
@@ -261,6 +354,7 @@ def main(top_clusters: int, top_n: int, log: bool = False) -> None:
     import datamapplot
 
     top_labels = {c["label"] for c in top}
+    ser_labels = {c["label"] for c in ser_top}
     papers = map_data["papers"]
     cluster_label_map = {c["id"]: c["label"] for c in map_data["clusters"]}
 
@@ -268,10 +362,15 @@ def main(top_clusters: int, top_n: int, log: bool = False) -> None:
     point_labels = np.array(
         [cluster_label_map.get(p["cluster_id"], "Unlabelled") for p in papers]
     )
-    # top_clusterはオレンジ、それ以外は青、ノイズはグレー（label_color_mapで指定）
+    # top_clusterはオレンジ、セレンディピティは緑、それ以外は青
     all_labels = {c["label"] for c in map_data["clusters"]}
     label_color_map = {
-        label: ("#f59e0b" if label in top_labels else "#3b82f6") for label in all_labels
+        label: (
+            "#f59e0b" if label in top_labels
+            else "#10b981" if label in ser_labels
+            else "#3b82f6"
+        )
+        for label in all_labels
     }
 
     plot = datamapplot.create_interactive_plot(

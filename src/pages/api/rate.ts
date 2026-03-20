@@ -11,7 +11,6 @@
  */
 export const prerender = false;
 
-import { env } from "cloudflare:workers";
 import type { APIRoute } from "astro";
 import type { Rating, RatingsData } from "../../lib/types";
 
@@ -20,7 +19,7 @@ export const GET: APIRoute = async ({ url }) => {
 	return Response.redirect(next, 302);
 };
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
 	let body: {
 		paper_id: string;
 		title: string;
@@ -50,7 +49,7 @@ export const POST: APIRoute = async ({ request }) => {
 		});
 	}
 
-	const kv = env.RATINGS_KV;
+	const kv = (locals.runtime?.env as Cloudflare.Env).RATINGS_KV;
 	const existing = await kv.get("ratings");
 	const data: RatingsData = existing ? JSON.parse(existing) : { ratings: [] };
 

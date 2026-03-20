@@ -39,6 +39,12 @@
     "top_clusters": 3, // 上位何クラスタからおすすめを生成するか
     "top_n": 20, // 最終的なおすすめ件数の上限
     "min_match_score": 0.60, // クラスタcentroidとのcos類似度がこれ未満の論文を除外
+    // セレンディピティ: 隣接クラスタ（rank 4-6）の代表論文 + 意図的に遠いクラスタの論文を混在
+    "serendipity_clusters": 3,           // 隣接クラスタ数（rank 4〜4+N）
+    "serendipity_top_n": 7,              // 隣接クラスタから取る件数
+    "serendipity_min_match_score": 0.80, // 隣接クラスタ内の代表論文フィルタ
+    "serendipity_distant_clusters": 2,   // さらに遠いクラスタ数（後ろから取る）
+    "serendipity_distant_top_n": 3,      // 遠いクラスタから取る件数
   },
 
   // fetch_daily.py の設定
