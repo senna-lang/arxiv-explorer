@@ -6,6 +6,5 @@ map_pipeline パッケージ — arXiv論文クラスタリングパイプライ
 """
 
 from .aggregation import build_cluster_dict, build_map_output, generate_label
-from .cli import main
 
-__all__ = ["main", "generate_label", "build_cluster_dict", "build_map_output"]
+__all__ = ["generate_label", "build_cluster_dict", "build_map_output"]

@@ -25,7 +25,7 @@ DATA_DIR = ROOT / "data"
 # scripts/ を sys.path に追加してパッケージを import できるようにする
 sys.path.insert(0, str(Path(__file__).parent))
 
-from core.config import JST, load_config
+from core.config import JST, load_config  # noqa: E402
 
 # ── ANSI カラー ──────────────────────────────────────────────────────────────
 GREEN = "\033[32m"

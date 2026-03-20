@@ -6,7 +6,6 @@ scripts/core/config.py のユニットテスト
 - ROOT, CONFIG_PATH, JST: 定数の正当性
 """
 
-import json
 import os
 import sys
 import tempfile

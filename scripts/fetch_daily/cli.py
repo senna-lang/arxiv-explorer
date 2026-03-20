@@ -14,7 +14,6 @@ Usage:
 """
 
 import argparse
-import json
 import time
 from datetime import datetime
 from typing import Any
@@ -130,7 +129,7 @@ def main(date_str: str, log: bool = False) -> None:
             "model": model_name,
         }
         append_jsonl(output_dir / "fetch_daily_runs.jsonl", log_entry)
-        print(f"[INFO] Logged to fetch_daily_runs.jsonl")
+        print("[INFO] Logged to fetch_daily_runs.jsonl")
 
 
 @app.local_entrypoint()
