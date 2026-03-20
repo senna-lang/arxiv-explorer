@@ -3,11 +3,12 @@ id: t-dd92df
 date: 2026-03-20T12:35:39.842915+09:00
 title: 'Phase 3: map_pipeline パッケージ化'
 seq: 3
-status: open
+status: done
 priority: medium
 plan: 20260320-scripts
 tags: []
 assignee: ""
+completed_at: 2026-03-20T21:23:48.815856+09:00
 ---
 
 ## What

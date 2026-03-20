@@ -18,14 +18,14 @@ import sys
 import time
 from datetime import datetime
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).parent.parent
 DATA_DIR = ROOT / "data"
-JST = ZoneInfo("Asia/Tokyo")
 
-# 同ディレクトリの各スクリプトを import できるようにする
+# scripts/ を sys.path に追加してパッケージを import できるようにする
 sys.path.insert(0, str(Path(__file__).parent))
+
+from core.config import JST, load_config
 
 # ── ANSI カラー ──────────────────────────────────────────────────────────────
 GREEN = "\033[32m"
@@ -111,20 +111,10 @@ def _print_map_summary(entry: dict) -> None:
 
 
 def run_recommend() -> dict | None:
-    _header("recommend.py")
+    _header("recommend")
     from recommend import main as recommend_main
 
-    config_path = ROOT / "config.jsonc"
-    import re
-
-    text = config_path.read_text(encoding="utf-8")
-    text = re.sub(
-        r'"[^"\\]*(?:\\.[^"\\]*)*"|//[^\n]*',
-        lambda m: m.group(0) if m.group(0).startswith('"') else "",
-        text,
-    )
-    text = re.sub(r",(\s*[}\]])", r"\1", text)
-    config = json.loads(text)
+    config = load_config()
     rec_cfg = config.get("recommendation", {})
 
     recommend_main(
@@ -145,8 +135,8 @@ def run_fetch_daily() -> dict | None:
 
 
 def run_map(max_papers: int) -> dict | None:
-    _header(f"map.py (max_papers={max_papers})")
-    from map import main as map_main
+    _header(f"map_pipeline (max_papers={max_papers})")
+    from map_pipeline import main as map_main
 
     map_main(max_papers, log=True)
     return _last_entry(DATA_DIR / "map_runs.jsonl")

@@ -18,7 +18,7 @@ import numpy as np
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from fetch_daily import deduplicate, load_seen_ids, score_papers
+from fetch_daily import deduplicate, load_seen_ids, score_papers  # re-exported from fetch_daily package
 
 
 class TestDeduplicate:
