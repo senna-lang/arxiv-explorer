@@ -3,11 +3,12 @@ id: t-8804fa
 date: 2026-03-20T12:35:57.759739+09:00
 title: 'Phase 4: recommend パッケージ化'
 seq: 4
-status: open
+status: done
 priority: medium
 plan: 20260320-scripts
 tags: []
 assignee: ""
+completed_at: 2026-03-20T21:45:42.152712+09:00
 ---
 
 ## What

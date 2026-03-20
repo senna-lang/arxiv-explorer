@@ -3,11 +3,12 @@ id: t-1408b5
 date: 2026-03-20T12:34:59.597653+09:00
 title: 'Phase 1: core/ 共通ユーティリティ抽出'
 seq: 1
-status: open
+status: done
 priority: high
 plan: 20260320-scripts
 tags: []
 assignee: ""
+completed_at: 2026-03-20T21:10:06.716482+09:00
 ---
 
 ## What

@@ -3,11 +3,12 @@ id: t-1024c3
 date: 2026-03-20T12:36:19.279242+09:00
 title: 'Phase 5: benchmark更新 + package.json + 最終確認'
 seq: 5
-status: open
+status: done
 priority: medium
 plan: 20260320-scripts
 tags: []
 assignee: ""
+completed_at: 2026-03-20T22:01:42.143784+09:00
 ---
 
 ## What

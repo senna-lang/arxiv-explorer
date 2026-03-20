@@ -15,7 +15,7 @@ import numpy as np
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from recommend import compute_instance_score, compute_alpha, compute_final_score, rank_clusters
+from recommend import compute_instance_score, compute_alpha, compute_final_score, rank_clusters  # re-exported from recommend package
 
 
 class TestComputeInstanceScore:

@@ -3,11 +3,12 @@ id: t-8f7660
 date: 2026-03-20T12:35:21.382609+09:00
 title: 'Phase 2: fetch_daily パッケージ化'
 seq: 2
-status: open
+status: done
 priority: high
 plan: 20260320-scripts
 tags: []
 assignee: ""
+completed_at: 2026-03-20T21:15:34.920737+09:00
 ---
 
 ## What

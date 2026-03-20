@@ -14,7 +14,7 @@ import numpy as np
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from map import build_cluster_dict, generate_label, build_map_output
+from map_pipeline import build_cluster_dict, build_map_output, generate_label  # re-exported from map_pipeline package
 
 
 SAMPLE_KEYWORDS = ["inference", "latency", "throughput", "serving", "quantization"]
