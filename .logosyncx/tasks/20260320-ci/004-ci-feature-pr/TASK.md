@@ -3,11 +3,12 @@ id: t-f82bd7
 date: 2026-03-20T12:50:07.197176+09:00
 title: 'CI 検証: feature ブランチで PR 作成・動作確認'
 seq: 4
-status: in_progress
+status: done
 priority: high
 plan: 20260320-ci
 tags: []
 assignee: ""
+completed_at: 2026-03-20T13:10:56.045939+09:00
 ---
 
 ## What
