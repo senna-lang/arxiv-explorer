@@ -40,7 +40,7 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Run fetch_daily.py on Modal T4
-        run: USE_MODAL=1 modal run scripts/fetch_daily.py --log
+        run: USE_MODAL=1 modal run scripts/fetch_daily/ --log
         env:
           RATINGS_URL: ${{ secrets.RATINGS_URL }}
 
