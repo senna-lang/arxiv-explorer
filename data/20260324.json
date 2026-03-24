@@ -1,0 +1,391 @@
+{
+  "date": "2026-03-24",
+  "collected_at": "2026-03-24T12:16:20.436636+09:00",
+  "papers": [
+    {
+      "id": "2603.21301",
+      "title": "enhancing reasoning accuracy in large language models during inference time",
+      "authors": [
+        "Vinay Sharma",
+        "Manish Jain"
+      ],
+      "abstract": "Large Language Models (LLMs) often exhibit strong linguistic abilities while remaining unreliable on multi-step reasoning tasks, particularly when deployed without additional training or fine-tuning. In this work, we study inference-time techniques to improve the reasoning accuracy of LLMs. We systematically evaluate three classes of inference-time strategies: (i) self-consistency via stochastic decoding, where the model is sampled multiple times using controlled temperature and nucleus sampling and the most frequent final answer is selected; (ii) dual-model reasoning agreement, where outputs from two independent models are compared and only consistent reasoning traces are trusted; and (iii) self-reflection, where the model critiques and revises its own reasoning. Across all evaluated methods, we employ Chain-of-Thought (CoT) [1] prompting to elicit explicit intermediate reasoning steps before generating final answers. In this work, we provide a controlled comparative evaluation across three inference-time strategies under identical prompting and verification settings. Our experiments on LLM [2] show that self-consistency with nucleus sampling and controlled temperature value yields the substantial gains, achieving a 9% to 15% absolute improvement in accuracy over greedy single-pass decoding, well-suited for low-risk domains, offering meaningful gains with minimal overhead. The dual-model approach provides additional confirmation for model reasoning steps thus more appropriate for moderate-risk domains, where higher reliability justifies additional compute. Self-reflection offers only marginal improvements, suggesting limited effectiveness for smaller non-reasoning models at inference time.",
+      "url": "https://arxiv.org/abs/2603.21301",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-22",
+      "score": 0.9036
+    },
+    {
+      "id": "2603.21520",
+      "title": "Generalizable Self-Evolving Memory for Automatic Prompt Optimization",
+      "authors": [
+        "Guanbao Liang",
+        "Yuanchen Bei",
+        "Sheng Zhou",
+        "Yuheng Qin",
+        "Huan Zhou",
+        "Bingxin Jia",
+        "Bin Li",
+        "Jiajun Bu"
+      ],
+      "abstract": "Automatic prompt optimization is a promising approach for adapting large language models (LLMs) to downstream tasks, yet existing methods typically search for a specific prompt specialized to a fixed task. This paradigm limits generalization across heterogeneous queries and prevents models from accumulating reusable prompting knowledge over time. In this paper, we propose MemAPO, a memory-driven framework that reconceptualizes prompt optimization as generalizable and self-evolving experience accumulation. MemAPO maintains a dual-memory mechanism that distills successful reasoning trajectories into reusable strategy templates while organizing incorrect generations into structured error patterns that capture recurrent failure modes. Given a new prompt, the framework retrieves both relevant strategies and failure patterns to compose prompts that promote effective reasoning while discouraging known mistakes. Through iterative self-reflection and memory editing, MemAPO continuously updates its memory, enabling prompt optimization to improve over time rather than restarting from scratch for each task. Experiments on diverse benchmarks show that MemAPO consistently outperforms representative prompt optimization baselines while substantially reducing optimization cost.",
+      "url": "https://arxiv.org/abs/2603.21520",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-23",
+      "score": 0.8936
+    },
+    {
+      "id": "2603.22016",
+      "title": "ROM: Real-time Overthinking Mitigation via Streaming Detection and Intervention",
+      "authors": [
+        "Xinyan Wang",
+        "Xiaogeng Liu",
+        "Chaowei Xiao"
+      ],
+      "abstract": "Large Reasoning Models (LRMs) achieve strong accuracy on challenging tasks by generating long Chain-of-Thought traces, but suffer from overthinking. Even after reaching the correct answer, they continue generating redundant reasoning steps. This behavior increases latency and compute cost and can also lead to answer drift. Existing mitigation methods either require training-heavy backbone modification or rely on hand-crafted heuristics that do not truly capture overthinking patterns. We propose ROM, the first method that formulates overthinking mitigation as a streaming prediction-and-control problem. ROM attaches a lightweight detection head to the late-layer hidden states of a frozen large language model backbone. It monitors tokens in real time and triggers an early transition to the final answer once overthinking is detected. We also introduce token-level supervision based on solution correctness boundaries and a data augmentation strategy that reduces distilled-data bias. Across seven benchmarks, ROM achieves the highest accuracy (93.51%), the shortest responses (1,159 tokens), and the best response efficiency. Compared with the vanilla baseline, it reduces response length by 47.2% and improves efficiency by 121%. These results show that streaming detection is a promising approach to real-time overthinking mitigation.",
+      "url": "https://arxiv.org/abs/2603.22016",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-23",
+      "score": 0.892
+    },
+    {
+      "id": "2603.21719",
+      "title": "Probing How Scalable Table Data Enhances General Long-Context Reasoning",
+      "authors": [
+        "Huaibing Xie",
+        "Guoliang Zhao",
+        "Yang Liu",
+        "Shihan Dou",
+        "Siming Huang",
+        "Yanling Xiao",
+        "Shaolei Wang",
+        "Yiting Liu",
+        "Cheng Zhang",
+        "Shaofan Liu",
+        "Pluto Zhou"
+      ],
+      "abstract": "As real-world tasks grow increasingly complex, long-context reasoning has become a core capability for Large Language Models (LLMs). However, few studies explore which data types are effective for long-context reasoning and why. We find that structured table data with periodic structures shows strong potential for long-context reasoning. Motivated by this observation, we mathematically analyze tabular dependency structures using mutual information, revealing periodic non-vanishing dependencies in table data. Furthermore, we systematically analyze the capabilities of structured table data, conduct relevant scaling experiments, and validate its underlying mechanisms for enhancing long-context reasoning, yielding several meaningful insights. Leveraging these insights, we propose a simple yet scalable pipeline(TableLong) for synthesizing high-quality, diverse, and verifiable structured table data to boost long-context reasoning via RL. Extensive experimental results demonstrate that table data significantly enhances the long-context reasoning capability of LLMs across multiple long-context benchmarks (+8.24\\% on average), and even improves performance on out-of-domain benchmarks (+8.06\\% on average). We hope that our insights provide practical guidance for effective post-training data to enhance long-context reasoning in LLMs.",
+      "url": "https://arxiv.org/abs/2603.21719",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-23",
+      "score": 0.8901
+    },
+    {
+      "id": "2603.21321",
+      "title": "Improving Coherence and Persistence in Agentic AI for System Optimization",
+      "authors": [
+        "Pantea Karimi",
+        "Kimia Noorbakhsh",
+        "Mohammad Alizadeh",
+        "Hari Balakrishnan"
+      ],
+      "abstract": "Designing high-performance system heuristics is a creative, iterative process requiring experts to form hypotheses and execute multi-step conceptual shifts. While Large Language Models (LLMs) show promise in automating this loop, they struggle with complex system problems due to two critical failure modes: evolutionary neighborhood bias and the coherence ceiling. Evolutionary methods often remain trapped in local optima by relying on scalar benchmark scores, failing when coordinated multi-step changes are required. Conversely, existing agentic frameworks suffer from context degradation over long horizons or fail to accumulate knowledge across independent runs.\n  We present Engram, an agentic researcher architecture that addresses these limitations by decoupling long-horizon exploration from the constraints of a single context window. Engram organizes exploration into a sequence of agents that iteratively design, test, and analyze mechanisms. At the conclusion of each run, an agent stores code snapshots, logs, and results in a persistent Archive and distills high-level modeling insights into a compact, persistent Research Digest. Subsequent agents then begin with a fresh context window, reading the Research Digest to build on prior discoveries.\n  We find that Engram exhibits superior performance across diverse domains including multi-cloud multicast, LLM inference request routing, and optimizing KV cache reuse in databases with natural language queries.",
+      "url": "https://arxiv.org/abs/2603.21321",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-22",
+      "score": 0.8876
+    },
+    {
+      "id": "2603.21415",
+      "title": "Silent Commitment Failure in Instruction-Tuned Language Models: Evidence of Governability Divergence Across Architectures",
+      "authors": [
+        "Gregory M. Ruddell"
+      ],
+      "abstract": "As large language models are deployed as autonomous agents with tool execution privileges, a critical assumption underpins their security architecture: that model errors are detectable at runtime. We present empirical evidence that this assumption fails for two of three instruction-following models evaluable for conflict detection. We introduce governability -- the degree to which a model's errors are detectable before output commitment and correctable once detected -- and demonstrate it varies dramatically across models. In six models across twelve reasoning domains, two of three instruction-following models exhibited silent commitment failure: confident, fluent, incorrect output with zero warning signal. The remaining model produced a detectable conflict signal 57 tokens before commitment under greedy decoding. We show benchmark accuracy does not predict governability, correction capacity varies independently of detection, and identical governance scaffolds produce opposite effects across models. A 2x2 experiment shows a 52x difference in spike ratio between architectures but only +/-0.32x variation from fine-tuning, suggesting governability is fixed at pretraining. We propose a Detection and Correction Matrix classifying model-task combinations into four regimes: Governable, Monitor Only, Steer Blind, and Ungovernable.",
+      "url": "https://arxiv.org/abs/2603.21415",
+      "categories": [
+        "cs.AI",
+        "cs.CR",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-22",
+      "score": 0.8867
+    },
+    {
+      "id": "2603.21636",
+      "title": "Silicon Bureaucracy and AI Test-Oriented Education: Contamination Sensitivity and Score Confidence in LLM Benchmarks",
+      "authors": [
+        "Yiliang Song",
+        "Hongjun An",
+        "Jiangan Chen",
+        "Xuanchen Yan",
+        "Huan Song",
+        "Jiawei Shao",
+        "Xuelong Li"
+      ],
+      "abstract": "Public benchmarks increasingly govern how large language models (LLMs) are ranked, selected, and deployed. We frame this benchmark-centered regime as Silicon Bureaucracy and AI Test-Oriented Education, and argue that it rests on a fragile assumption: that benchmark scores directly reflect genuine generalization. In practice, however, such scores may conflate exam-oriented competence with principled capability, especially when contamination and semantic leakage are difficult to exclude from modern training pipelines. We therefore propose an audit framework for analyzing contamination sensitivity and score confidence in LLM benchmarks. Using a router-worker setup, we compare a clean-control condition with noisy conditions in which benchmark problems are systematically deleted, rewritten, and perturbed before being passed downstream. For a genuinely clean benchmark, noisy conditions should not consistently outperform the clean-control baseline. Yet across multiple models, we find widespread but heterogeneous above-baseline gains under noisy conditions, indicating that benchmark-related cues may be reassembled and can reactivate contamination-related memory. These results suggest that similar benchmark scores may carry substantially different levels of confidence. Rather than rejecting benchmarks altogether, we argue that benchmark-based evaluation should be supplemented with explicit audits of contamination sensitivity and score confidence.",
+      "url": "https://arxiv.org/abs/2603.21636",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-23",
+      "score": 0.8861
+    },
+    {
+      "id": "2603.21705",
+      "title": "Data-Free Layer-Adaptive Merging via Fisher Information for Long-to-Short Reasoning LLMs",
+      "authors": [
+        "Tian Xia"
+      ],
+      "abstract": "Model merging has emerged as a practical approach to combine capabilities of specialized large language models (LLMs) without additional training. In the Long-to-Short (L2S) scenario, merging a base model with a long-chain-of-thought reasoning model aims to preserve reasoning accuracy while reducing output length. Existing methods rely on Task Arithmetic and its variants, which implicitly assume that model outputs vary linearly with the merging coefficient -- an assumption we show is systematically violated in L2S settings. We provide the first theoretical justification for layer-adaptive merging: we prove that merging error is bounded by a term proportional to the per-layer Hessian norm (Proposition~1), and establish that the Fisher Information Matrix (FIM) is a principled, computable proxy for this bound via the Fisher-Hessian equivalence at local optima. Building on this theory, we propose \\textbf{FIM-Merging}, which computes diagonal FIM using only random token inputs (no domain-specific calibration data required) and uses it to assign per-layer merging coefficients. On the 7B L2S benchmark, FIM-TIES achieves state-of-the-art performance on five out of six evaluation benchmarks, including a \\textbf{+6.2} point gain on MATH500 over ACM-TIES (90.2 vs.\\ 84.0), while requiring no calibration data. On the 1.5B benchmark, FIM-TIES achieves an average accuracy of \\textbf{47.3}, surpassing the previous best ACM-TIES (43.3) by \\textbf{+3.9} points, while reducing average response length by \\textbf{91.9\\%} relative to the long-CoT model. Our framework also provides a unified theoretical explanation for why existing layer-adaptive methods such as ACM empirically outperform uniform merging.",
+      "url": "https://arxiv.org/abs/2603.21705",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-03-23",
+      "score": 0.886
+    },
+    {
+      "id": "2603.22184",
+      "title": "Revisiting Quantum Code Generation: Where Should Domain Knowledge Live?",
+      "authors": [
+        "Oscar Novo",
+        "Oscar Bastidas-Jossa",
+        "Alberto Calvo",
+        "Antonio Peris",
+        "Carlos Kuchkovsky"
+      ],
+      "abstract": "Recent advances in large language models (LLMs) have enabled the automation of an increasing number of programming tasks, including code generation for scientific and engineering domains. In rapidly evolving software ecosystems such as quantum software development, where frameworks expose complex abstractions, a central question is how best to incorporate domain knowledge into LLM-based assistants while preserving maintainability as libraries evolve.\n  In this work, we study specialization strategies for Qiskit code generation using the Qiskit-HumanEval benchmark. We compare a parameter-specialized fine-tuned baseline introduced in prior work against a range of recent general-purpose LLMs enhanced with retrieval-augmented generation (RAG) and agent-based inference with execution feedback.\n  Our results show that modern general-purpose LLMs consistently outperform the parameter-specialized baseline. While the fine-tuned model achieves approximately 47% pass@1 on Qiskit-HumanEval, recent general-purpose models reach 60-65% under zero-shot and retrieval-augmented settings, and up to 85% for the strongest evaluated model when combined with iterative execution-feedback agents -representing an improvement of more than 20% over zero-shot general-purpose performance and more than 35% over the parameter-specialized baseline.\n  Agentic execution feedback yields the most consistent improvements, albeit at increased runtime cost, while RAG provides modest and model-dependent gains. These findings indicate that performance gains can be achieved without domain-specific fine-tuning, instead relying on inference-time augmentation, thereby enabling a more flexible and maintainable approach to LLM-assisted quantum software development.",
+      "url": "https://arxiv.org/abs/2603.22184",
+      "categories": [
+        "cs.LG",
+        "quant-ph"
+      ],
+      "submitted": "2026-03-23",
+      "score": 0.8858
+    },
+    {
+      "id": "2603.21440",
+      "title": "KG-Hopper: Empowering Compact Open LLMs with Knowledge Graph Reasoning via Reinforcement Learning",
+      "authors": [
+        "Shuai Wang",
+        "Yinan Yu"
+      ],
+      "abstract": "Large Language Models (LLMs) demonstrate impressive natural language capabilities but often struggle with knowledge-intensive reasoning tasks. Knowledge Base Question Answering (KBQA), which leverages structured Knowledge Graphs (KGs) exemplifies this challenge due to the need for accurate multi-hop reasoning. Existing approaches typically perform sequential reasoning steps guided by predefined pipelines, restricting flexibility and causing error cascades due to isolated reasoning at each step. To address these limitations, we propose KG-Hopper, a novel Reinforcement Learning (RL) framework that empowers compact open LLMs with the ability to perform integrated multi-hop KG reasoning within a single inference round. Rather than reasoning step-by-step, we train a Reasoning LLM that embeds the entire KG traversal and decision process into a unified ``thinking'' stage, enabling global reasoning over cross-step dependencies and dynamic path exploration with backtracking. Experimental results on eight KG reasoning benchmarks show that KG-Hopper, based on a 7B-parameter LLM, consistently outperforms larger multi-step systems (up to 70B) and achieves competitive performance with proprietary models such as GPT-3.5-Turbo and GPT-4o-mini, while remaining compact, open, and data-efficient. The code is publicly available at: https://github.com/Wangshuaiia/KG-Hopper.",
+      "url": "https://arxiv.org/abs/2603.21440",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-22",
+      "github_url": "https://github.com/Wangshuaiia/KG-Hopper.",
+      "score": 0.8857
+    },
+    {
+      "id": "2603.21563",
+      "title": "Counterfactual Credit Policy Optimization for Multi-Agent Collaboration",
+      "authors": [
+        "Zhongyi Li",
+        "Wan Tian",
+        "Yikun Ban",
+        "Jinju Chen",
+        "Huiming Zhang",
+        "Yang Liu",
+        "Fuzhen Zhuang"
+      ],
+      "abstract": "Collaborative multi-agent large language models (LLMs) can solve complex reasoning tasks by decomposing roles and aggregating diverse hypotheses. Yet, reinforcement learning (RL) for such systems is often undermined by credit assignment: a shared global reward obscures individual contributions, inflating update variance and encouraging free-riding. We introduce Counterfactual Credit Policy Optimization (CCPO), a framework that assigns agent-specific learning signals by estimating each agent's marginal contribution through counterfactual trajectories. CCPO builds dynamic counterfactual baselines that simulate outcomes with an agent's contribution removed, yielding role-sensitive advantages for policy optimization. To further improve stability under heterogeneous tasks and data distributions, we propose a global-history-aware normalization scheme that calibrates advantages using global rollout statistics. We evaluate CCPO on two collaboration topologies: a sequential Think--Reason dyad and multi-agent voting. Across mathematical and logical reasoning benchmarks, CCPO mitigates free-riding and outperforms strong multi-agent RL baselines, yielding finer-grained and more effective credit assignment for collaborative LLM training. Our code is available at https://github.com/bhai114/ccpo.",
+      "url": "https://arxiv.org/abs/2603.21563",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-23",
+      "github_url": "https://github.com/bhai114/ccpo.",
+      "score": 0.885
+    },
+    {
+      "id": "2603.22214",
+      "title": "Evaluating the Reliability and Fidelity of Automated Judgment Systems of Large Language Models",
+      "authors": [
+        "Tom Biskupski",
+        "Stephan Kleber"
+      ],
+      "abstract": "A Large Language Model (LLM) as judge evaluates the quality of victim Machine Learning (ML) models, specifically LLMs, by analyzing their outputs. An LLM as judge is the combination of one model and one specifically engineered judge prompt that contains the criteria for the analysis. The resulting automation of the analysis scales up the complex evaluation of the victim models' free-form text outputs by faster and more consistent judgments compared to human reviewers. Thus, quality and security assessments of LLMs can cover a wide range of the victim models' use cases. Being a comparably new technique, LLMs as judges lack a thorough investigation for their reliability and agreement to human judgment.\n  Our work evaluates the applicability of LLMs as automated quality assessors of victim LLMs. We test the efficacy of 37 differently sized conversational LLMs in combination with 5 different judge prompts, the concept of a second-level judge, and 5 models fine-tuned for the task as assessors. As assessment objective, we curate datasets for eight different categories of judgment tasks and the corresponding ground-truth labels based on human assessments. Our empirical results show a high correlation of LLMs as judges with human assessments, when combined with a suitable prompt, in particular for GPT-4o, several open-source models with $\\geqslant$ 32B parameters, and a few smaller models like Qwen2.5 14B.",
+      "url": "https://arxiv.org/abs/2603.22214",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-23",
+      "score": 0.8843
+    },
+    {
+      "id": "2603.21630",
+      "title": "EnterpriseLab: A Full-Stack Platform for developing and deploying agents in Enterprises",
+      "authors": [
+        "Ankush Agarwal",
+        "Harsh Vishwakarma",
+        "Suraj Nagaje",
+        "Chaitanya Devaguptapu"
+      ],
+      "abstract": "Deploying AI agents in enterprise environments requires balancing capability with data sovereignty and cost constraints. While small language models offer privacy-preserving alternatives to frontier models, their specialization is hindered by fragmented development pipelines that separate tool integration, data generation, and training. We introduce EnterpriseLab, a full-stack platform that unifies these stages into a closed-loop framework. EnterpriseLab provides (1) a modular environment exposing enterprise applications via Model Context Protocol, enabling seamless integration of proprietary and open-source tools; (2) automated trajectory synthesis that programmatically generates training data from environment schemas; and (3) integrated training pipelines with continuous evaluation. We validate the platform through EnterpriseArena, an instantiation with 15 applications and 140+ tools across IT, HR, sales, and engineering domains. Our results demonstrate that 8B-parameter models trained within EnterpriseLab match GPT-4o's performance on complex enterprise workflows while reducing inference costs by 8-10x, and remain robust across diverse enterprise benchmarks, including EnterpriseBench (+10%) and CRMArena (+10%). EnterpriseLab provides enterprises a practical path to deploying capable, privacy-preserving agents without compromising operational capability.",
+      "url": "https://arxiv.org/abs/2603.21630",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-23",
+      "score": 0.8843
+    },
+    {
+      "id": "2603.21357",
+      "title": "AgentHER: Hindsight Experience Replay for LLM Agent Trajectory Relabeling",
+      "authors": [
+        "Liang Ding"
+      ],
+      "abstract": "LLM agents fail on the majority of real-world tasks -- GPT-4o succeeds on fewer than 15% of WebArena navigation tasks and below 55% pass@1 on ToolBench (Zhou et al., 2024; Qin et al., 2024) -- yet every failed trajectory is routinely discarded, wasting the dominant source of collected experience. We introduce AgentHER, a framework that recovers this lost training signal by adapting the Hindsight Experience Replay (HER; Andrychowicz et al., 2017) principle to natural-language agent trajectories for offline data augmentation. The key insight is simple: a trajectory that fails goal A is often a correct demonstration for some achievable alternative goal B. AgentHER realises this idea through a four-stage pipeline -- failure classification, outcome extraction, LLM-guided prompt relabeling with confidence gating, and data packaging -- that converts discarded failures into high-quality SFT, DPO, and ShareGPT training data, with both zero-cost rule-based and LLM-judge implementations. On WebArena (Zhou et al., 2024) and ToolBench (Qin et al., 2024), AgentHER improves over success-only SFT by +7.1-11.7 pp across four model families (GPT-4o, Qwen2.5-72B/7B, LLaMA-3.1-8B), while achieving 2x data efficiency -- matching baseline performance with only 50% of successful demonstrations. Gains are consistent from 1.5B to 72B parameters (+5.8-9.2 pp) and compound under iterative redeployment (+2.1 pp over additional rounds). Human evaluation confirms 97.7% relabeling precision under multi-judge verification.",
+      "url": "https://arxiv.org/abs/2603.21357",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-22",
+      "score": 0.8835
+    },
+    {
+      "id": "2603.22213",
+      "title": "SPA: A Simple but Tough-to-Beat Baseline for Knowledge Injection",
+      "authors": [
+        "Kexian Tang",
+        "Jiani Wang",
+        "Shaowen Wang",
+        "Kaifeng Lyu"
+      ],
+      "abstract": "While large language models (LLMs) are pretrained on massive amounts of data, their knowledge coverage remains incomplete in specialized, data-scarce domains, motivating extensive efforts to study synthetic data generation for knowledge injection. We propose SPA (Scaling Prompt-engineered Augmentation), a simple but tough-to-beat baseline that uses a small set of carefully designed prompts to generate large-scale synthetic data for knowledge injection. Through systematic comparisons, we find that SPA outperforms several strong baselines. Furthermore, we identify two key limitations of prior approaches: (1) while RL-based methods may improve the token efficiency of LLM-based data augmentation at small scale, they suffer from diversity collapse as data scales, leading to diminishing returns; and (2) while multi-stage prompting may outperform simple augmentation methods, their advantages can disappear after careful prompt tuning. Our results suggest that, for knowledge injection, careful prompt design combined with straightforward large-scale augmentation can be surprisingly effective, and we hope SPA can serve as a strong baseline for future studies in this area. Our code is available at https://github.com/Tangkexian/SPA.",
+      "url": "https://arxiv.org/abs/2603.22213",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-23",
+      "github_url": "https://github.com/Tangkexian/SPA.",
+      "score": 0.8833
+    },
+    {
+      "id": "2603.22117",
+      "title": "On the Direction of RLVR Updates for LLM Reasoning: Identification and Exploitation",
+      "authors": [
+        "Kexin Huang",
+        "Haoming Meng",
+        "Junkang Wu",
+        "Jinda Lu",
+        "Chiyu Ma",
+        "Ziqian Chen",
+        "Xue Wang",
+        "Bolin Ding",
+        "Jiancan Wu",
+        "Xiang Wang",
+        "Xiangnan He",
+        "Guoyin Wang",
+        "Jingren Zhou"
+      ],
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has substantially improved the reasoning capabilities of large language models. While existing analyses identify that RLVR-induced changes are sparse, they primarily focus on the \\textbf{magnitude} of these updates, largely overlooking their \\textbf{direction}. In this work, we argue that the direction of updates is a more critical lens for understanding RLVR's effects, which can be captured by the signed, token-level log probability difference $Δ\\log p$ between the base and final RLVR models. Through statistical analysis and token-replacement interventions, we demonstrate that $Δ\\log p$ more effectively identifies sparse, yet reasoning-critical updates than magnitude-based metrics (\\eg divergence or entropy). Building on this insight, we propose two practical applications: (1) a \\textit{test-time extrapolation} method that amplifies the policy along the learned $Δ\\log p$ direction to improve reasoning accuracy without further training; (2) a \\textit{training-time reweighting} method that focuses learning on low-probability (corresponding to higher $Δ\\log p$) tokens, which improves reasoning performance across models and benchmarks. Our work establishes the direction of change as a key principle for analyzing and improving RLVR.",
+      "url": "https://arxiv.org/abs/2603.22117",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-23",
+      "score": 0.8823
+    },
+    {
+      "id": "2603.21524",
+      "title": "CatRAG: Functor-Guided Structural Debiasing with Retrieval Augmentation for Fair LLMs",
+      "authors": [
+        "Ravi Ranjan",
+        "Utkarsh Grover",
+        "Mayur Akewar",
+        "Xiaomin Lin",
+        "Agoritsa Polyzou"
+      ],
+      "abstract": "Large Language Models (LLMs) are deployed in high-stakes settings but can show demographic, gender, and geographic biases that undermine fairness and trust. Prior debiasing methods, including embedding-space projections, prompt-based steering, and causal interventions, often act at a single stage of the pipeline, resulting in incomplete mitigation and brittle utility trade-offs under distribution shifts. We propose CatRAG Debiasing, a dual-pronged framework that integrates functor with Retrieval-Augmented Generation (RAG) guided structural debiasing. The functor component leverages category-theoretic structure to induce a principled, structure-preserving projection that suppresses bias-associated directions in the embedding space while retaining task-relevant semantics. On the Bias Benchmark for Question Answering (BBQ) across three open-source LLMs (Meta Llama-3, OpenAI GPT-OSS, and Google Gemma-3), CatRAG achieves state-of-the-art results, improving accuracy by up to 40% over the corresponding base models and by more than 10% over prior debiasing methods, while reducing bias scores to near zero (from 60% for the base models) across gender, nationality, race, and intersectional subgroups.",
+      "url": "https://arxiv.org/abs/2603.21524",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-23",
+      "score": 0.8823
+    },
+    {
+      "id": "2603.21454",
+      "title": "Cross-Context Verification: Hierarchical Detection of Benchmark Contamination through Session-Isolated Analysis",
+      "authors": [
+        "Tae-Eun Song"
+      ],
+      "abstract": "LLM coding benchmarks face a credibility crisis: widespread solution leakage and test quality issues undermine SWE-bench Verified, while existing detection methods--paraphrase consistency, n-gram overlap, perplexity analysis--never directly observe whether a model reasons or recalls. Meanwhile, simply repeating verification degrades accuracy: multi-turn review generates false positives faster than it discovers true errors, suggesting that structural approaches are needed.\n  We introduce Cross-Context Verification (CCV), a black-box method that solves the same benchmark problem in N independent sessions and measures solution diversity, combined with the Hierarchical Cross-Context Architecture (HCCA), a multi-agent analysis framework that prevents confirmation bias through intentional information restriction across specialized analytical roles.\n  On 9 SWE-bench Verified problems (45 trials, Claude Opus 4.6, temperature 0), CCV achieves perfect separation between contaminated and genuine reasoning (Mann-Whitney U=0, p approx 0.012, r = 1.0). Key findings: (1) contamination is binary--models either recall perfectly or not at all; (2) reasoning absence is a perfect discriminator; (3) 33% of prior contamination labels are false positives; (4) HCCA's independent analysis structure discovers contamination-flaw composite cases that single-analyst approaches miss. A pilot experiment extending HCCA to multi-stage verification (Worker to Verifier to Director) yields a negative result--100% sycophantic confirmation--providing further evidence that information restriction, not structural complexity, is the key mechanism. We release all code and data.",
+      "url": "https://arxiv.org/abs/2603.21454",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-03-23",
+      "score": 0.882
+    },
+    {
+      "id": "2603.21289",
+      "title": "When Models Judge Themselves: Unsupervised Self-Evolution for Multimodal Reasoning",
+      "authors": [
+        "Zhengxian Wu",
+        "Kai Shi",
+        "Chuanrui Zhang",
+        "Zirui Liao",
+        "Jun Yang",
+        "Ni Yang",
+        "Qiuying Peng",
+        "Luyuan Zhang",
+        "Hangrui Xu",
+        "Tianhuang Su",
+        "Zhenyu Yang",
+        "Haonan Lu",
+        "Haoqian Wang"
+      ],
+      "abstract": "Recent progress in multimodal large language models has led to strong performance on reasoning tasks, but these improvements largely rely on high-quality annotated data or teacher-model distillation, both of which are costly and difficult to scale.To address this, we propose an unsupervised self-evolution training framework for multimodal reasoning that achieves stable performance improvements without using human-annotated answers or external reward models. For each input, we sample multiple reasoning trajectories and jointly model their within group structure.We use the Actor's self-consistency signal as a training prior, and introduce a bounded Judge based modulation to continuously reweight trajectories of different quality.We further model the modulated scores as a group level distribution and convert absolute scores into relative advantages within each group, enabling more robust policy updates. Trained with Group Relative Policy Optimization (GRPO) on unlabeled data, our method consistently improves reasoning performance and generalization on five mathematical reasoning benchmarks, offering a scalable path toward self-evolving multimodal models.The code are available at https://dingwu1021.github.io/SelfJudge/.",
+      "url": "https://arxiv.org/abs/2603.21289",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-22",
+      "score": 0.8819
+    },
+    {
+      "id": "2603.21676",
+      "title": "Thinking Deeper, Not Longer: Depth-Recurrent Transformers for Compositional Generalization",
+      "authors": [
+        "Hung-Hsuan Chen"
+      ],
+      "abstract": "Standard Transformers have a fixed computational depth, fundamentally limiting their ability to generalize to tasks requiring variable-depth reasoning, such as multi-hop graph traversal or nested logic. We propose a depth-recurrent Transformer that decouples computational depth from parameter count by iteratively applying a shared-weight Transformer block in latent space -- enabling the model to trade recurrence steps for deeper reasoning at inference time. Our architecture incorporates three mechanisms to make deep recurrence (20+ steps) stable: (1) a silent thinking objective that supervises only the final output, forcing genuine multi-step reasoning rather than intermediate heuristic shortcuts; (2) LayerScale initialization to protect fragile reasoning states from untrained layer noise; and (3) an identity-biased recurrence that creates a gradient highway across many steps. We evaluate on three compositional reasoning domains with decreasing inductive biases: graph reachability (strict adjacency masking), nested boolean logic (relative positioning), and unstructured relational text (where sequence position provides no structural hints). Across all tasks, we observe a clear \\emph{computational frontier} -- a boundary where performance transitions from chance to near-perfect as thinking steps scale with task complexity. Moreover, these tasks reveal qualitatively different generalization behaviors: precise but brittle (graph), approximate but robust (logic), and autonomous latent routing without structural hints (text). This progression illuminates how the interplay between a task-invariant recurrent reasoning core and task-specific perceptual interfaces shapes out-of-distribution (OOD) generalization, offering a mechanistic perspective on vertical chain-of-thought that complements the prevailing horizontal token-generation paradigm.",
+      "url": "https://arxiv.org/abs/2603.21676",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-23",
+      "score": 0.8817
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "source": "fetch_daily",
+    "n_candidates": 300,
+    "n_ratings": 47,
+    "alpha": 0.94
+  }
+}
