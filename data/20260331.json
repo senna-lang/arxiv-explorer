@@ -1,0 +1,507 @@
+{
+  "date": "2026-03-31",
+  "collected_at": "2026-03-31T11:56:51.264015+09:00",
+  "papers": [
+    {
+      "id": "2603.28376",
+      "title": "Marco DeepResearch: Unlocking Efficient Deep Research Agents via Verification-Centric Design",
+      "authors": [
+        "Bin Zhu",
+        "Qianghuai Jia",
+        "Tian Lan",
+        "Junyang Ren",
+        "Feng Gu",
+        "Feihu Jiang",
+        "Longyue Wang",
+        "Zhao Xu",
+        "Weihua Luo"
+      ],
+      "abstract": "Deep research agents autonomously conduct open-ended investigations, integrating complex information retrieval with multi-step reasoning across diverse sources to solve real-world problems. To sustain this capability on long-horizon tasks, reliable verification is critical during both training and inference. A major bottleneck in existing paradigms stems from the lack of explicit verification mechanisms in QA data synthesis, trajectory construction, and test-time scaling. Errors introduced at each stage propagate downstream and degrade the overall agent performance. To address this, we present Marco DeepResearch, a deep research agent optimized with a verification-centric framework design at three levels: \\textbf{(1)~QA Data Synthesis:} We introduce verification mechanisms to graph-based and agent-based QA synthesis to control question difficulty while ensuring answers are unique and correct; \\textbf{(2)~Trajectory Construction:} We design a verification-driven trajectory synthesis method that injects explicit verification patterns into training trajectories; and \\textbf{(3)~Test-time scaling:} We use Marco DeepResearch itself as a verifier at inference time and effectively improve performance on challenging questions. Extensive experimental results demonstrate that our proposed Marco DeepResearch agent significantly outperforms 8B-scale deep research agents on most challenging benchmarks, such as BrowseComp and BrowseComp-ZH. Crucially, under a maximum budget of 600 tool calls, Marco DeepResearch even surpasses or approaches several 30B-scale agents, like Tongyi DeepResearch-30B.",
+      "url": "https://arxiv.org/abs/2603.28376",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-30",
+      "score": 0.8975
+    },
+    {
+      "id": "2603.28052",
+      "title": "Meta-Harness: End-to-End Optimization of Model Harnesses",
+      "authors": [
+        "Yoonho Lee",
+        "Roshen Nair",
+        "Qizheng Zhang",
+        "Kangwook Lee",
+        "Omar Khattab",
+        "Chelsea Finn"
+      ],
+      "abstract": "The performance of large language model (LLM) systems depends not only on model weights, but also on their harness: the code that determines what information to store, retrieve, and present to the model. Yet harnesses are still designed largely by hand, and existing text optimizers are poorly matched to this setting because they compress feedback too aggressively. We introduce Meta-Harness, an outer-loop system that searches over harness code for LLM applications. It uses an agentic proposer that accesses the source code, scores, and execution traces of all prior candidates through a filesystem. On online text classification, Meta-Harness improves over a state-of-the-art context management system by 7.7 points while using 4x fewer context tokens. On retrieval-augmented math reasoning, a single discovered harness improves accuracy on 200 IMO-level problems by 4.7 points on average across five held-out models. On agentic coding, discovered harnesses surpass the best hand-engineered baselines on TerminalBench-2. Together, these results show that richer access to prior experience can enable automated harness engineering.",
+      "url": "https://arxiv.org/abs/2603.28052",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-30",
+      "score": 0.8964
+    },
+    {
+      "id": "2603.27752",
+      "title": "Retromorphic Testing with Hierarchical Verification for Hallucination Detection in RAG",
+      "authors": [
+        "Boxi Yu",
+        "Yuzhong Zhang",
+        "Liting Lin",
+        "Lionel Briand",
+        "Emir Muñoz"
+      ],
+      "abstract": "Large language models (LLMs) continue to hallucinate in retrieval-augmented generation (RAG), producing claims that are unsupported by or conflict with the retrieved context. Detecting such errors remains challenging when faithfulness is evaluated solely with respect to the retrieved context. Existing approaches either provide coarse-grained, answer-level scores or focus on open-domain factuality, often lacking fine-grained, evidence-grounded diagnostics.\n  We present RT4CHART, a retromorphic testing framework for context-faithfulness assessment. RT4CHART decomposes model outputs into independently verifiable claims and performs hierarchical, local-to-global verification against the retrieved context. Each claim is assigned one of three labels: entailed, contradicted, or baseless. Furthermore, RT4CHART maps claim-level decisions back to specific answer spans and retrieves explicit supporting or refuting evidence from the context, enabling fine-grained and interpretable auditing.\n  We evaluate RT4CHART on RAGTruth++ (408 samples) and RAGTruth-Enhance (2,675 samples), a newly re-annotated benchmark. RT4CHART achieves the best answer-level hallucination detection F1 among all baselines. On RAGTruth++, it reaches an F1 score of 0.776, outperforming the strongest baseline by 83%. On RAGTruth-Enhance, it achieves a span-level F1 of 47.5%.\n  Ablation studies show that the hierarchical verification design is the primary driver of performance gains. Finally, our re-annotation reveals 1.68x more hallucination cases than the original labels, suggesting that existing benchmarks substantially underestimate the prevalence of hallucinations.",
+      "url": "https://arxiv.org/abs/2603.27752",
+      "categories": [
+        "cs.CL",
+        "cs.SE"
+      ],
+      "submitted": "2026-03-29",
+      "score": 0.8915
+    },
+    {
+      "id": "2603.28361",
+      "title": "Deep Research of Deep Research: From Transformer to Agent, From AI to AI for Science",
+      "authors": [
+        "Yipeng Yu"
+      ],
+      "abstract": "With the advancement of large language models (LLMs) in their knowledge base and reasoning capabilities, their interactive modalities have evolved from pure text to multimodality and further to agentic tool use. Consequently, their applications have broadened from question answering to AI assistants and now to general-purpose agents. Deep research (DR) represents a prototypical vertical application for general-purpose agents, which represents an ideal approach for intelligent information processing and assisting humans in discovering and solving problems, with the goal of reaching or even surpassing the level of top human scientists. This paper provides a deep research of deep research. We articulate a clear and precise definition of deep research and unify perspectives from industry's deep research and academia's AI for Science (AI4S) within a developmental framework. We position LLMs and Stable Diffusion as the twin pillars of generative AI, and lay out a roadmap evolving from the Transformer to agents. We examine the progress of AI4S across various disciplines. We identify the predominant paradigms of human-AI interaction and prevailing system architectures, and discuss the major challenges and fundamental research issues that remain. AI supports scientific innovation, and science also can contribute to AI growth (Science for AI, S4AI). We hope this paper can help bridge the gap between the AI and AI4S communities.",
+      "url": "https://arxiv.org/abs/2603.28361",
+      "categories": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "submitted": "2026-03-30",
+      "score": 0.8901
+    },
+    {
+      "id": "2603.27703",
+      "title": "KAT-Coder-V2 Technical Report",
+      "authors": [
+        "Fengxiang Li",
+        "Han Zhang",
+        "Haoyang Huang",
+        "Jinghui Wang",
+        "Jinhua Hao",
+        "Kun Yuan",
+        "Mengtong Li",
+        "Minglei Zhang",
+        "Pengcheng Xu",
+        "Wenhao Zhuang",
+        "Yizhen Shao",
+        "Zongxian Feng",
+        "Can Tang",
+        "Chao Wang",
+        "Chengxiao Tong",
+        "Fan Yang",
+        "Gang Xiong",
+        "Haixuan Gao",
+        "Han Gao",
+        "Hao Wang",
+        "Haochen Liu",
+        "Hongliang Sun",
+        "Jiabao Li",
+        "Jingwen Chang",
+        "Jun Du",
+        "Junyi Peng",
+        "Leizhen Cui",
+        "Meimei Jing",
+        "Mingqi Wu",
+        "Shangpeng Yan",
+        "Shaotong Qi",
+        "Suzhe Xu",
+        "Wenxuan Zhao",
+        "Xianda Sun",
+        "Xuan Xie",
+        "Yanbo Wang",
+        "Yao Xia",
+        "Yinghan Cui",
+        "Yingpeng Chen",
+        "Yong Wang",
+        "Yuze Shi",
+        "Zhiwei Shen",
+        "Ziyu Wang",
+        "Ming Sun",
+        "Lin Ye",
+        "Bin Chen"
+      ],
+      "abstract": "We present KAT-Coder-V2, an agentic coding model developed by the KwaiKAT team at Kuaishou. KAT-Coder-V2 adopts a \"Specialize-then-Unify\" paradigm that decomposes agentic coding into five expert domains - SWE, WebCoding, Terminal, WebSearch, and General - each undergoing independent supervised fine-tuning and reinforcement learning, before being consolidated into a single model via on-policy distillation. We develop KwaiEnv, a modular infrastructure sustaining tens of thousands of concurrent sandbox instances, and scale RL training along task complexity, intent alignment, and scaffold generalization. We further propose MCLA for stabilizing MoE RL training and Tree Training for eliminating redundant computation over tree-structured trajectories with up to 6.2x speedup. KAT-Coder-V2 achieves 79.6% on SWE-bench Verified (vs. Claude Opus 4.6 at 80.8%), 88.7 on PinchBench (surpassing GLM-5 and MiniMax M2.7), ranks first across all three frontend aesthetics scenarios, and maintains strong generalist scores on Terminal-Bench Hard (46.8) and tau^2-Bench (93.9). Our model is publicly available at https://streamlake.com/product/kat-coder.",
+      "url": "https://arxiv.org/abs/2603.27703",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-29",
+      "score": 0.8889
+    },
+    {
+      "id": "2603.28371",
+      "title": "Coherent Without Grounding, Grounded Without Success: Observability and Epistemic Failure",
+      "authors": [
+        "Camilo Chacón Sartori"
+      ],
+      "abstract": "When an agent can articulate why something works, we typically take this as evidence of genuine understanding. This presupposes that effective action and correct explanation covary, and that coherent explanation reliably signals both. I argue that this assumption fails for contemporary Large Language Models (LLMs). I introduce what I call the Bidirectional Coherence Paradox: competence and grounding not only dissociate but invert across epistemic conditions. In low-observability domains, LLMs often act successfully while misidentifying the mechanisms that produce their success. In high-observability domains, they frequently generate explanations that accurately track observable causal structure yet fail to translate those diagnoses into effective intervention. In both cases, explanatory coherence remains intact, obscuring the underlying dissociation. Drawing on experiments in compiler optimization and hyperparameter tuning, I develop the Epistemic Triangle, a model of how priors, signals, and domain knowledge interact under varying observability. The results suggest that neither behavioral success nor explanatory accuracy alone suffices for attributing understanding. I argue that evaluating artificial epistemic agents requires a tripartite framework -- coherence, grounding, and a proper basing relation linking explanation to action. The systematic separation of knowing-that and knowing-how in LLMs thus challenges assumptions inherited from both epistemology and current AI evaluation practice.",
+      "url": "https://arxiv.org/abs/2603.28371",
+      "categories": [
+        "cs.CY",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-30",
+      "score": 0.8877
+    },
+    {
+      "id": "2603.28618",
+      "title": "Seeing with You: Perception-Reasoning Coevolution for Multimodal Reasoning",
+      "authors": [
+        "Ziqi Miao",
+        "Haonan Jia",
+        "Lijun Li",
+        "Chen Qian",
+        "Yuan Xiong",
+        "Wenting Yan",
+        "Jing Shao"
+      ],
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has substantially enhanced the reasoning capabilities of multimodal large language models (MLLMs). However, existing RLVR approaches typically rely on outcome-driven optimization that updates both perception and reasoning using a shared reward based solely on the final answer. This shared reward blurs credit assignment, frequently improving reasoning patterns while failing to reliably enhance the accuracy of upstream visual evidence extraction. To address this perception bottleneck, we introduce PRCO (Perception-Reasoning Coevolution), a dual-role RLVR framework with a shared policy. PRCO consists of two cooperative roles: an Observer that generates an evidence caption tailored to the question and a Solver that predicts the final answer based on this caption. Crucially, PRCO employs role-specific reward signals: the Solver is optimized using verifiable outcome rewards on the final answer, while the Observer receives a utility reward derived from the Solver's downstream success. Extensive experiments across eight challenging multimodal reasoning benchmarks demonstrate that PRCO yields consistent improvements across model scales by over 7 points on average accuracy compared to the base model, outperforming prior open-source RL-tuned baselines.",
+      "url": "https://arxiv.org/abs/2603.28618",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-30",
+      "score": 0.8867
+    },
+    {
+      "id": "2603.28590",
+      "title": "MonitorBench: A Comprehensive Benchmark for Chain-of-Thought Monitorability in Large Language Models",
+      "authors": [
+        "Han Wang",
+        "Yifan Sun",
+        "Brian Ko",
+        "Mann Talati",
+        "Jiawen Gong",
+        "Zimeng Li",
+        "Naicheng Yu",
+        "Xucheng Yu",
+        "Wei Shen",
+        "Vedant Jolly",
+        "Huan Zhang"
+      ],
+      "abstract": "Large language models (LLMs) can generate chains of thought (CoTs) that are not always causally responsible for their final outputs. When such a mismatch occurs, the CoT no longer faithfully reflects the decision-critical factors driving the model's behavior, leading to the reduced CoT monitorability problem. However, a comprehensive and fully open-source benchmark for studying CoT monitorability remains lacking. To address this gap, we propose MonitorBench, a systematic benchmark for evaluating CoT monitorability in LLMs. MonitorBench provides: (1) a diverse set of 1,514 test instances with carefully designed decision-critical factors across 19 tasks spanning 7 categories to characterize when CoTs can be used to monitor the factors driving LLM behavior; and (2) two stress-test settings to quantify the extent to which CoT monitorability can be degraded. Extensive experiments across multiple popular LLMs with varying capabilities show that CoT monitorability is higher when producing the final target response requires structural reasoning through the decision-critical factor. Closed-source LLMs generally show lower monitorability, and there exists a negative relationship between monitorability and model capability. Moreover, both open- and closed-source LLMs can intentionally reduce monitorability under stress-tests, with monitorability dropping by up to 30% in some tasks that do not require structural reasoning over the decision-critical factors. Beyond these empirical insights, MonitorBench provides a basis for further research on evaluating future LLMs, studying advanced stress-test monitorability techniques, and developing new monitoring approaches.",
+      "url": "https://arxiv.org/abs/2603.28590",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-30",
+      "score": 0.8865
+    },
+    {
+      "id": "2603.27905",
+      "title": "ATLAS-RTC: Closing the Loop on LLM Agent Output with Token-Level Runtime Control",
+      "authors": [
+        "Christopher Cruz"
+      ],
+      "abstract": "We present ATLAS-RTC, a runtime control system for autoregressive language models that enforces structured output during decoding. ATLAS-RTC monitors generation at each step, detects drift from output contracts using lightweight signals, and applies targeted interventions such as biasing, masking, and rollback. Unlike post-hoc validation or static constrained decoding, it operates in a closed loop, enabling correction before errors materialize. Across structured generation and tool-calling tasks, ATLAS-RTC improves first-attempt success rates by 20 to 37.8 percentage points, with up to 88% latency reduction in failure-dominated settings. Results show that many failures arise from decoding artifacts rather than task misunderstanding, motivating runtime control as a distinct layer in LLM systems.",
+      "url": "https://arxiv.org/abs/2603.27905",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-03-29",
+      "score": 0.8862
+    },
+    {
+      "id": "2603.28407",
+      "title": "MiroEval: Benchmarking Multimodal Deep Research Agents in Process and Outcome",
+      "authors": [
+        "Fangda Ye",
+        "Yuxin Hu",
+        "Pengxiang Zhu",
+        "Yibo Li",
+        "Ziqi Jin",
+        "Yao Xiao",
+        "Yibo Wang",
+        "Lei Wang",
+        "Zhen Zhang",
+        "Lu Wang",
+        "Yue Deng",
+        "Bin Wang",
+        "Yifan Zhang",
+        "Liangcai Su",
+        "Xinyu Wang",
+        "He Zhao",
+        "Chen Wei",
+        "Qiang Ren",
+        "Bryan Hooi",
+        "An Bo",
+        "Shuicheng Yan",
+        "Lidong Bing"
+      ],
+      "abstract": "Recent progress in deep research systems has been impressive, but evaluation still lags behind real user needs. Existing benchmarks predominantly assess final reports using fixed rubrics, failing to evaluate the underlying research process. Most also offer limited multimodal coverage, rely on synthetic tasks that do not reflect real-world query complexity, and cannot be refreshed as knowledge evolves. To address these gaps, we introduce MiroEval, a benchmark and evaluation framework for deep research systems. The benchmark comprises 100 tasks (70 text-only, 30 multimodal), all grounded in real user needs and constructed via a dual-path pipeline that supports periodic updates, enabling a live and evolving setting. The proposed evaluation suite assesses deep research systems along three complementary dimensions: adaptive synthesis quality evaluation with task-specific rubrics, agentic factuality verification via active retrieval and reasoning over both web sources and multimodal attachments, and process-centric evaluation audits how the system searches, reasons, and refines throughout its investigation. Evaluation across 13 systems yields three principal findings: the three evaluation dimensions capture complementary aspects of system capability, with each revealing distinct strengths and weaknesses across systems; process quality serves as a reliable predictor of overall outcome while revealing weaknesses invisible to output-level metrics; and multimodal tasks pose substantially greater challenges, with most systems declining by 3 to 10 points. The MiroThinker series achieves the most balanced performance, with MiroThinker-H1 ranking the highest overall in both settings. Human verification and robustness results confirm the reliability of the benchmark and evaluation framework. MiroEval provides a holistic diagnostic tool for the next generation of deep research agents.",
+      "url": "https://arxiv.org/abs/2603.28407",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-30",
+      "score": 0.8858
+    },
+    {
+      "id": "2603.27910",
+      "title": "GAAMA: Graph Augmented Associative Memory for Agents",
+      "authors": [
+        "Swarna Kamal Paul",
+        "Shubhendu Sharma",
+        "Nitin Sareen"
+      ],
+      "abstract": "AI agents that interact with users across multiple sessions require persistent long-term memory to maintain coherent, personalized behavior. Current approaches either rely on flat retrieval-augmented generation (RAG), which loses structural relationships between memories, or use memory compression and vector retrieval that cannot capture the associative structure of multi-session conversations. There are few graph based techniques proposed in the literature, however they still suffer from hub dominated retrieval and poor hierarchical reasoning over evolving memory. We propose GAAMA, a graph-augmented associative memory system that constructs a concept-mediated hierarchical knowledge graph through a three-step pipeline: (1)~verbatim episode preservation from raw conversations, (2)~LLM-based extraction of atomic facts and topic-level concept nodes, and (3)~synthesis of higher-order reflections. The resulting graph uses four node types (episode, fact, reflection, concept) connected by five structural edge types, with concept nodes providing cross-cutting traversal paths that complement semantic similarity. Retrieval combines cosine-similarity-based $k$-nearest neighbor search with edge-type-aware Personalized PageRank (PPR) through an additive scoring function. On the LoCoMo-10 benchmark (1,540 questions across 10 multi-session conversations), GAAMA achieves 78.9\\% mean reward, outperforming a tuned RAG baseline (75.0\\%), HippoRAG (69.9\\%), A-Mem (47.2\\%), and Nemori (52.1\\%). Ablation analysis shows that augmenting graph-traversal-based ranking (Personalized PageRank) with semantic search consistently improves over pure semantic search on graph nodes (+1.0 percentage point overall).",
+      "url": "https://arxiv.org/abs/2603.27910",
+      "categories": [
+        "cs.AI",
+        "cs.IR",
+        "cs.MA"
+      ],
+      "submitted": "2026-03-29",
+      "score": 0.8857
+    },
+    {
+      "id": "2603.27646",
+      "title": "PRBench: End-to-end Paper Reproduction in Physics Research",
+      "authors": [
+        "Shi Qiu",
+        "Junyi Deng",
+        "Yiwei Deng",
+        "Haoran Dong",
+        "Jieyu Fu",
+        "Mao Li",
+        "Zeyu Li",
+        "Zhaolong Zhang",
+        "Huiwen Zheng",
+        "Leidong Bao",
+        "Anqi Lv",
+        "Zihan Mo",
+        "Yadi Niu",
+        "Yiyang Peng",
+        "Yu Tian",
+        "Yili Wang",
+        "Ziyu Wang",
+        "Zi-Yu Wang",
+        "Jiashen Wei",
+        "Liuheng Wu",
+        "Aoran Xue",
+        "Leyi Yang",
+        "Guanglu Yuan",
+        "Xiarui Zhan",
+        "Jingjun Zhang",
+        "Zifan Zheng",
+        "Pengfei Liu",
+        "Linrui Zhen",
+        "Kaiyang Li",
+        "Qichang Li",
+        "Ziheng Zhou",
+        "Guo-En Nian",
+        "Yunwei Xiao",
+        "Qing-Hong Cao",
+        "Linjie Dai",
+        "Xu Feng",
+        "Peng Gao",
+        "Ying Gu",
+        "Chang Liu",
+        "Jia Liu",
+        "Ming-xing Luo",
+        "Yan-Qing Ma",
+        "Liang-You Peng",
+        "Huichao Song",
+        "Shufeng Wang",
+        "Chenxu Wang",
+        "Tao Wang",
+        "Yi-Nan Wang",
+        "Chengyin Wu",
+        "Pengwei Zhao",
+        "Hua Xing Zhu"
+      ],
+      "abstract": "AI agents powered by large language models exhibit strong reasoning and problem-solving capabilities, enabling them to assist scientific research tasks such as formula derivation and code generation. However, whether these agents can reliably perform end-to-end reproduction from real scientific papers remains an open question. We introduce PRBench, a benchmark of 30 expert-curated tasks spanning 11 subfields of physics. Each task requires an agent to comprehend the methodology of a published paper, implement the corresponding algorithms from scratch, and produce quantitative results matching the original publication. Agents are provided only with the task instruction and paper content, and operate in a sandboxed execution environment. All tasks are contributed by domain experts from over 20 research groups at the School of Physics, Peking University, each grounded in a real published paper and validated through end-to-end reproduction with verified ground-truth results and detailed scoring rubrics. Using an agentified assessment pipeline, we evaluate a set of coding agents on PRBench and analyze their capabilities across key dimensions of scientific reasoning and execution. The best-performing agent, OpenAI Codex powered by GPT-5.3-Codex, achieves a mean overall score of 34%. All agents exhibit a zero end-to-end callback success rate, with particularly poor performance in data accuracy and code correctness. We further identify systematic failure modes, including errors in formula implementation, inability to debug numerical simulations, and fabrication of output data. Overall, PRBench provides a rigorous benchmark for evaluating progress toward autonomous scientific research.",
+      "url": "https://arxiv.org/abs/2603.27646",
+      "categories": [
+        "cs.CL",
+        "hep-lat",
+        "hep-ph",
+        "physics.comp-ph",
+        "physics.optics"
+      ],
+      "submitted": "2026-03-29",
+      "score": 0.8851
+    },
+    {
+      "id": "2603.28038",
+      "title": "Beyond the Answer: Decoding the Behavior of LLMs as Scientific Reasoners",
+      "authors": [
+        "Rohan Pandey",
+        "Eric Ye",
+        "Michael Li"
+      ],
+      "abstract": "As Large Language Models (LLMs) achieve increasingly sophisticated performance on complex reasoning tasks, current architectures serve as critical proxies for the internal heuristics of frontier models. Characterizing emergent reasoning is vital for long-term interpretability and safety. Furthermore, understanding how prompting modulates these processes is essential, as natural language will likely be the primary interface for interacting with AGI systems. In this work, we use a custom variant of Genetic Pareto (GEPA) to systematically optimize prompts for scientific reasoning tasks, and analyze how prompting can affect reasoning behavior. We investigate the structural patterns and logical heuristics inherent in GEPA-optimized prompts, and evaluate their transferability and brittleness. Our findings reveal that gains in scientific reasoning often correspond to model-specific heuristics that fail to generalize across systems, which we call \"local\" logic. By framing prompt optimization as a tool for model interpretability, we argue that mapping these preferred reasoning structures for LLMs is an important prerequisite for effectively collaborating with superhuman intelligence.",
+      "url": "https://arxiv.org/abs/2603.28038",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-03-30",
+      "score": 0.883
+    },
+    {
+      "id": "2603.28204",
+      "title": "ERPO: Token-Level Entropy-Regulated Policy Optimization for Large Reasoning Models",
+      "authors": [
+        "Song Yu",
+        "Li Li"
+      ],
+      "abstract": "Reinforcement learning from verifiable rewards (RLVR) has significantly advanced the reasoning capabilities of large language models. However, standard Group Relative Policy Optimization (GRPO) typically assigns a uniform, sequence-level advantage to all tokens, thereby overlooking the intrinsic information heterogeneity along reasoning chains. We show that this coarse-grained credit assignment leads to premature entropy collapse and encourages the model to generate redundant, low-quality reasoning paths. Through systematic empirical analysis, we identify Critical Decision Pivots (CDPs): transient high-entropy states where the policy's trajectory is most sensitive to perturbations. These pivots represent the \"forks in the road\" where effective multi-path exploration is most crucial yet often suppressed by uniform advantage signals. Building on these insights, we propose Entropy-Regulated Policy Optimization (ERPO), which transitions the optimization focus from coarse sequences to fine-grained token dynamics. ERPO introduces three synergistic components: (i) Entropy-aware Gating, which adaptively amplifies exploration at CDPs to facilitate diverse path discovery; (ii) Bucket-based Implicit Normalization, which mitigates difficulty bias by aligning token progress windows; and (iii) Result-anchored Advantage Synthesis, which re-weights token-level signals via outcome-driven anchors. Extensive experiments on competitive mathematical benchmarks (e.g., MATH, AIME) demonstrate that ERPO significantly outperforms GRPO. Notably, ERPO not only boosts reasoning accuracy but also yields significantly more concise and robust derivation paths, establishing a new efficiency-accuracy frontier for large reasoning models.",
+      "url": "https://arxiv.org/abs/2603.28204",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-30",
+      "score": 0.8825
+    },
+    {
+      "id": "2603.27850",
+      "title": "EffiSkill: Agent Skill Based Automated Code Efficiency Optimization",
+      "authors": [
+        "Zimu Wang",
+        "Yuling Shi",
+        "Mengfan Li",
+        "Zijun Liu",
+        "Jie M. Zhang",
+        "Chengcheng Wan",
+        "Xiaodong Gu"
+      ],
+      "abstract": "Code efficiency is a fundamental aspect of software quality, yet how to harness large language models (LLMs) to optimize programs remains challenging. Prior approaches have sought for one-shot rewriting, retrieved exemplars, or prompt-based search, but they do not explicitly distill reusable optimization knowledge, which limits generalization beyond individual instances.\n  In this paper, we present EffiSkill, a framework for code-efficiency optimization that builds a portable optimization toolbox for LLM-based agents. The key idea is to model recurring slow-to-fast transformations as reusable agent skills that capture both concrete transformation mechanisms and higher-level optimization strategies. EffiSkill adopts a two-stage design: Stage I mines Operator and Meta Skills from large-scale slow/fast program pairs to build a skill library; Stage II applies this library to unseen programs through execution-free diagnosis, skill retrieval, plan composition, and candidate generation, without runtime feedback.\n  Results on EffiBench-X show that EffiSkill achieves higher optimization success rates, improving over the strongest baseline by 3.69 to 12.52 percentage points across model and language settings. These findings suggest that mechanism-level skill reuse provides a useful foundation for execution-free code optimization, and that the resulting skill library can serve as a reusable resource for broader agent workflows.",
+      "url": "https://arxiv.org/abs/2603.27850",
+      "categories": [
+        "cs.SE",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-29",
+      "score": 0.8825
+    },
+    {
+      "id": "2603.28295",
+      "title": "Evaluating LLMs for Answering Student Questions in Introductory Programming Courses",
+      "authors": [
+        "Thomas Van Mullem",
+        "Bart Mesuere",
+        "Peter Dawyndt"
+      ],
+      "abstract": "The rapid emergence of Large Language Models (LLMs) presents both opportunities and challenges for programming education. While students increasingly use generative AI tools, direct access often hinders the learning process by providing complete solutions rather than pedagogical hints. Concurrently, educators face significant workload and scalability challenges when providing timely, personalized feedback. This study investigates the capabilities of LLMs to safely and effectively assist educators in answering student questions within a CS1 programming course. To achieve this, we established a rigorous, reproducible evaluation process by curating a benchmark dataset of 170 authentic student questions from a learning management system, paired with ground-truth responses authored by subject matter experts. Because traditional text-matching metrics are insufficient for evaluating open-ended educational responses, we developed and validated a custom LLM-as-a-Judge metric optimized for assessing pedagogical accuracy. Our findings demonstrate that models, such as Gemini 3 flash, can surpass the quality baseline of typical educator responses, achieving high alignment with expert pedagogical standards. To mitigate persistent risks like hallucination and ensure alignment with course-specific context, we advocate for a \"teacher-in-the-loop\" implementation. Finally, we abstract our methodology into a task-agnostic evaluation framework, advocating for a shift in the development of educational LLM tools from ad-hoc, post-deployment testing to a quantifiable, pre-deployment validation process.",
+      "url": "https://arxiv.org/abs/2603.28295",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-03-30",
+      "score": 0.8816
+    },
+    {
+      "id": "2603.28444",
+      "title": "Entropic Claim Resolution: Uncertainty-Driven Evidence Selection for RAG",
+      "authors": [
+        "Davide Di Gioia"
+      ],
+      "abstract": "Current Retrieval-Augmented Generation (RAG) systems predominantly rely on relevance-based dense retrieval, sequentially fetching documents to maximize semantic similarity with the query. However, in knowledge-intensive and real-world scenarios characterized by conflicting evidence or fundamental query ambiguity, relevance alone is insufficient for resolving epistemic uncertainty. We introduce Entropic Claim Resolution (ECR), a novel inference-time algorithm that reframes RAG reasoning as entropy minimization over competing semantic answer hypotheses. Unlike action-driven agentic frameworks (e.g., ReAct) or fixed-pipeline RAG architectures, ECR sequentially selects atomic evidence claims by maximizing Expected Entropy Reduction (EER), a decision-theoretic criterion for the value of information. The process dynamically terminates when the system reaches a mathematically defined state of epistemic sufficiency (H <= epsilon, subject to epistemic coherence). We integrate ECR into a production-grade multi-strategy retrieval pipeline (CSGR++) and analyze its theoretical properties. Our framework provides a rigorous foundation for uncertainty-aware evidence selection, shifting the paradigm from retrieving what is most relevant to retrieving what is most discriminative.",
+      "url": "https://arxiv.org/abs/2603.28444",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-03-30",
+      "score": 0.8798
+    },
+    {
+      "id": "2603.27991",
+      "title": "ViviDoc: Generating Interactive Documents through Human-Agent Collaboration",
+      "authors": [
+        "Yinghao Tang",
+        "Yupeng Xie",
+        "Yingchaojie Feng",
+        "Tingfeng Lan",
+        "Jiale Lao",
+        "Yue Cheng",
+        "Wei Chen"
+      ],
+      "abstract": "Interactive documents help readers engage with complex ideas through dynamic visualization, interactive animations, and exploratory interfaces. However, creating such documents remains costly, as it requires both domain expertise and web development skills. Recent Large Language Model (LLM)-based agents can automate content creation, but directly applying them to interactive document generation often produces outputs that are difficult to control. To address this, we present ViviDoc, to the best of our knowledge the first work to systematically address interactive document generation. ViviDoc introduces a multi-agent pipeline (Planner, Styler, Executor, Evaluator). To make the generation process controllable, we provide three levels of human control: (1) the Document Specification (DocSpec) with SRTC Interaction Specifications (State, Render, Transition, Constraint) for structured planning, (2) a content-aware Style Palette for customizing writing and interaction styles, and (3) chat-based editing for iterative refinement. We also construct ViviBench, a benchmark of 101 topics derived from real-world interactive documents across 11 domains, along with a taxonomy of 8 interaction types and a 4-dimensional automated evaluation framework validated against human ratings (Pearson r > 0.84). Experiments show that ViviDoc achieves the highest content richness and interaction quality in both automated and human evaluation. A 12-person user study confirms that the system is easy to use, provides effective control over the generation process, and produces documents that satisfy users.",
+      "url": "https://arxiv.org/abs/2603.27991",
+      "categories": [
+        "cs.HC",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-30",
+      "score": 0.8797
+    },
+    {
+      "id": "2603.27490",
+      "title": "AgentSwing: Adaptive Parallel Context Management Routing for Long-Horizon Web Agents",
+      "authors": [
+        "Zhaopeng Feng",
+        "Liangcai Su",
+        "Zhen Zhang",
+        "Xinyu Wang",
+        "Xiaotian Zhang",
+        "Xiaobin Wang",
+        "Runnan Fang",
+        "Qi Zhang",
+        "Baixuan Li",
+        "Shihao Cai",
+        "Rui Ye",
+        "Hui Chen",
+        "Jiang Yong",
+        "Joey Tianyi Zhou",
+        "Chenxiong Qian",
+        "Pengjun Xie",
+        "Bryan Hooi",
+        "Zuozhu Liu",
+        "Jingren Zhou"
+      ],
+      "abstract": "As large language models (LLMs) evolve into autonomous agents for long-horizon information-seeking, managing finite context capacity has become a critical bottleneck. Existing context management methods typically commit to a single fixed strategy throughout the entire trajectory. Such static designs may work well in some states, but they cannot adapt as the usefulness and reliability of the accumulated context evolve during long-horizon search. To formalize this challenge, we introduce a probabilistic framework that characterizes long-horizon success through two complementary dimensions: search efficiency and terminal precision. Building on this perspective, we propose AgentSwing, a state-aware adaptive parallel context management routing framework. At each trigger point, AgentSwing expands multiple context-managed branches in parallel and uses lookahead routing to select the most promising continuation. Experiments across diverse benchmarks and agent backbones show that AgentSwing consistently outperforms strong static context management methods, often matching or exceeding their performance with up to $3\\times$ fewer interaction turns while also improving the ultimate performance ceiling of long-horizon web agents. Beyond the empirical gains, the proposed probabilistic framework provides a principled lens for analyzing and designing future context management strategies for long-horizon agents.",
+      "url": "https://arxiv.org/abs/2603.27490",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.MA"
+      ],
+      "submitted": "2026-03-29",
+      "score": 0.8797
+    },
+    {
+      "id": "2603.28488",
+      "title": "Courtroom-Style Multi-Agent Debate with Progressive RAG and Role-Switching for Controversial Claim Verification",
+      "authors": [
+        "Masnun Nuha Chowdhury",
+        "Nusrat Jahan Beg",
+        "Umme Hunny Khan",
+        "Syed Rifat Raiyan",
+        "Md Kamrul Hasan",
+        "Hasan Mahmud"
+      ],
+      "abstract": "Large language models (LLMs) remain unreliable for high-stakes claim verification due to hallucinations and shallow reasoning. While retrieval-augmented generation (RAG) and multi-agent debate (MAD) address this, they are limited by one-pass retrieval and unstructured debate dynamics. We propose a courtroom-style multi-agent framework, PROClaim, that reformulates verification as a structured, adversarial deliberation. Our approach integrates specialized roles (e.g., Plaintiff, Defense, Judge) with Progressive RAG (P-RAG) to dynamically expand and refine the evidence pool during the debate. Furthermore, we employ evidence negotiation, self-reflection, and heterogeneous multi-judge aggregation to enforce calibration, robustness, and diversity. In zero-shot evaluations on the Check-COVID benchmark, PROClaim achieves 81.7% accuracy, outperforming standard multi-agent debate by 10.0 percentage points, with P-RAG driving the primary performance gains (+7.5 pp). We ultimately demonstrate that structural deliberation and model heterogeneity effectively mitigate systematic biases, providing a robust foundation for reliable claim verification. Our code and data are publicly available at https://github.com/mnc13/PROClaim.",
+      "url": "https://arxiv.org/abs/2603.28488",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.MA"
+      ],
+      "submitted": "2026-03-30",
+      "github_url": "https://github.com/mnc13/PROClaim.",
+      "score": 0.8791
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "source": "fetch_daily",
+    "n_candidates": 300,
+    "n_ratings": 47,
+    "alpha": 0.94
+  }
+}
