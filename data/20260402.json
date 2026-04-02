@@ -1,0 +1,396 @@
+{
+  "date": "2026-04-02",
+  "collected_at": "2026-04-02T11:53:32.115921+09:00",
+  "papers": [
+    {
+      "id": "2604.01220",
+      "title": "Universal YOCO for Efficient Depth Scaling",
+      "authors": [
+        "Yutao Sun",
+        "Li Dong",
+        "Tianzhu Ye",
+        "Shaohan Huang",
+        "Jianyong Wang",
+        "Furu Wei"
+      ],
+      "abstract": "The rise of test-time scaling has remarkably boosted the reasoning and agentic proficiency of Large Language Models (LLMs). Yet, standard Transformers struggle to scale inference-time compute efficiently, as conventional looping strategies suffer from high computational overhead and a KV cache that inflates alongside model depth. We present Universal YOCO (YOCO-U), which combines the YOCO decoder-decoder architecture with recursive computation to achieve a synergistic effect greater than either alone. Built on the YOCO framework, YOCO-U implements a Universal Self-Decoder that performs multiple iterations via parameter sharing, while confining the iterative process to shallow, efficient-attention layers. This combination yields a favorable capability-efficiency tradeoff that neither YOCO nor recursion achieves independently. The YOCO architecture provides a constant global KV cache and linear pre-filling, while partial recursion enhances representational depth with limited overhead. Together, YOCO-U improves token utility and scaling behavior while maintaining efficient inference. Empirical results confirm that YOCO-U remains highly competitive in general and long-context benchmarks, demonstrating that the integration of efficient-attention architectures and recursive computation is a promising direction for scalable LLMs.",
+      "url": "https://arxiv.org/abs/2604.01220",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8972
+    },
+    {
+      "id": "2604.00478",
+      "title": "The Silicon Mirror: Dynamic Behavioral Gating for Anti-Sycophancy in LLM Agents",
+      "authors": [
+        "Harshee Jignesh Shah"
+      ],
+      "abstract": "Large Language Models (LLMs) increasingly prioritize user validation over epistemic accuracy-a phenomenon known as sycophancy. We present The Silicon Mirror, an orchestration framework that dynamically detects user persuasion tactics and adjusts AI behavior to maintain factual integrity. Our architecture introduces three components: (1) a Behavioral Access Control (BAC) system that restricts context layer access based on real-time sycophancy risk scores, (2) a Trait Classifier that identifies persuasion tactics across multi-turn dialogues, and (3) a Generator-Critic loop where an auditor vetoes sycophantic drafts and triggers rewrites with \"Necessary Friction.\" In a live evaluation on 50 TruthfulQA adversarial scenarios using Claude Sonnet 4 with an independent LLM judge, we observe vanilla Claude sycophancy at 12.0% (6/50), static guardrails at 4.0% (2/50), and the Silicon Mirror at 2.0% (1/50)-an 83.3% relative reduction (p = 0.112, Fisher's exact test). A cross-model evaluation on Gemini 2.5 Flash reveals a higher baseline sycophancy rate (46.0%) and a statistically significant 69.6% reduction under the Silicon Mirror (p < 0.001). We characterize the validation-before-correction pattern as a distinct failure mode of RLHF-trained models.",
+      "url": "https://arxiv.org/abs/2604.00478",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8966
+    },
+    {
+      "id": "2604.00715",
+      "title": "To Memorize or to Retrieve: Scaling Laws for RAG-Considerate Pretraining",
+      "authors": [
+        "Karan Singh",
+        "Michael Yu",
+        "Varun Gangal",
+        "Zhuofu Tao",
+        "Sachin Kumar",
+        "Emmy Liu",
+        "Steven Y. Feng"
+      ],
+      "abstract": "Retrieval-augmented generation (RAG) improves language model (LM) performance by providing relevant context at test time for knowledge-intensive situations. However, the relationship between parametric knowledge acquired during pretraining and non-parametric knowledge accessed via retrieval remains poorly understood, especially under fixed data budgets. In this work, we systematically study the trade-off between pretraining corpus size and retrieval store size across a wide range of model and data scales. We train OLMo-2-based LMs ranging from 30M to 3B parameters on up to 100B tokens of DCLM data, while varying both pretraining data scale (1-150x the number of parameters) and retrieval store size (1-20x), and evaluate performance across a diverse suite of benchmarks spanning reasoning, scientific QA, and open-domain QA. We find that retrieval consistently improves performance over parametric-only baselines across model scales and introduce a three-dimensional scaling framework that models performance as a function of model size, pretraining tokens, and retrieval corpus size. This scaling manifold enables us to estimate optimal allocations of a fixed data budget between pretraining and retrieval, revealing that the marginal utility of retrieval depends strongly on model scale, task type, and the degree of pretraining saturation. Our results provide a quantitative foundation for understanding when and how retrieval should complement pretraining, offering practical guidance for allocating data resources in the design of scalable language modeling systems.",
+      "url": "https://arxiv.org/abs/2604.00715",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8955
+    },
+    {
+      "id": "2604.01152",
+      "title": "Brainstacks: Cross-Domain Cognitive Capabilities via Frozen MoE-LoRA Stacks for Continual LLM Learning",
+      "authors": [
+        "Mohammad R. Abu Ayyash"
+      ],
+      "abstract": "We present Brainstacks, a modular architecture for continual multi-domain fine-tuning of large language models that packages domain expertise as frozen adapter stacks composing additively on a shared frozen base at inference. Five interlocking components: (1) MoE-LoRA with Shazeer-style noisy top-2 routing across all seven transformer projections under QLoRA 4-bit quantization with rsLoRA scaling; (2) an inner loop performing residual boosting by freezing trained stacks and adding new ones; (3) an outer loop training sequential domain-specific stacks with curriculum-ordered dependencies; (4) null-space projection via randomized SVD constraining new stacks to subspaces orthogonal to prior directions, achieving zero forgetting in isolation; (5) an outcome-based sigmoid meta-router trained on empirically discovered domain-combination targets that selectively weights stacks, enabling cross-domain composition. Two boundary experiments: (6) PSN pretraining on a randomly initialized model; (7) per-domain RL (DPO/GRPO) validating compatibility with post-SFT alignment. Validated on TinyLlama-1.1B (4 domains, 9 stacks) and Gemma 3 12B IT (5 domains, 10 stacks), MoE-LoRA achieves 2.5x faster convergence than parameter-matched single LoRA, residual boosting breaks through the single-stack ceiling, and the routed system recovers generation quality destroyed by ungated stack accumulation. The central finding: the outcome-based router discovers that domain stacks encode transferable cognitive primitives (instruction-following clarity, numerical reasoning, procedural logic, chain-of-thought structure) rather than domain-specific knowledge, with medical prompts routing to chat+math stacks in 97% of cases despite zero medical data in those stacks.",
+      "url": "https://arxiv.org/abs/2604.01152",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8932
+    },
+    {
+      "id": "2604.01195",
+      "title": "ORBIT: Scalable and Verifiable Data Generation for Search Agents on a Tight Budget",
+      "authors": [
+        "Nandan Thakur",
+        "Zijian Chen",
+        "Xueguang Ma",
+        "Jimmy Lin"
+      ],
+      "abstract": "Search agents, which integrate language models (LMs) with web search, are becoming crucial for answering complex user queries. Constructing training datasets for deep research tasks, involving multi-step retrieval and reasoning, remains challenging due to expensive human annotation, or cumbersome prerequisites. In this work, we introduce ORBIT, a training dataset with 20K reasoning-intensive queries with short verifiable answers, generated using a frugal framework without relying on paid API services. The modular framework relies on four stages: seed creation, question--answer pair generation, and two stages of verification: self and external. ORBIT spans 15 domains and each training pair requires 4--5 reasoning steps, with external search verification required from the complete web. We train Qwen3-4B as the base model on ORBIT using GRPO and evaluate it on Wikipedia question answering tasks. Extensive experiment results demonstrate that ORBIT-4B achieves strong performance among sub-4B LLMs as search agents, proving the utility of synthetic datasets. Our framework, code and datasets are open-sourced and available publicly.",
+      "url": "https://arxiv.org/abs/2604.01195",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.IR"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8923
+    },
+    {
+      "id": "2604.00375",
+      "title": "Locally Confident, Globally Stuck: The Quality-Exploration Dilemma in Diffusion Language Models",
+      "authors": [
+        "Liancheng Fang",
+        "Aiwei Liu",
+        "Henry Peng Zou",
+        "Yankai Chen",
+        "Enze Ma",
+        "Leyi Pan",
+        "Chunyu Miao",
+        "Wei-Chieh Huang",
+        "Xue Liu",
+        "Philip S. Yu"
+      ],
+      "abstract": "Diffusion large language models (dLLMs) theoretically permit token decoding in arbitrary order, a flexibility that could enable richer exploration of reasoning paths than autoregressive (AR) LLMs. In practice, however, random-order decoding often hurts generation quality. To mitigate this, low-confidence remasking improves single-sample quality (e.g., Pass@$1$) by prioritizing confident tokens, but it also suppresses exploration and limits multi-sample gains (e.g., Pass@$k$), creating a fundamental quality--exploration dilemma. In this paper, we provide a unified explanation of this dilemma. We show that low-confidence remasking improves a myopic proxy for quality while provably constraining the entropy of the induced sequence distribution. To overcome this limitation, we characterize the optimal distribution that explicitly balances quality and exploration, and develop a simple Independent Metropolis--Hastings sampler that approximately targets this distribution during decoding. Experiments across a range of reasoning benchmarks including MATH500, AIME24/25, HumanEval, and MBPP show that our approach yields better exploration-quality tradeoff than both random and low-confidence remasking.",
+      "url": "https://arxiv.org/abs/2604.00375",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8885
+    },
+    {
+      "id": "2604.01161",
+      "title": "Reasoning Shift: How Context Silently Shortens LLM Reasoning",
+      "authors": [
+        "Gleb Rodionov"
+      ],
+      "abstract": "Large language models (LLMs) exhibiting test-time scaling behavior, such as extended reasoning traces and self-verification, have demonstrated remarkable performance on complex, long-term reasoning tasks. However, the robustness of these reasoning behaviors remains underexplored. To investigate this, we conduct a systematic evaluation of multiple reasoning models across three scenarios: (1) problems augmented with lengthy, irrelevant context; (2) multi-turn conversational settings with independent tasks; and (3) problems presented as a subtask within a complex task. We observe an interesting phenomenon: reasoning models tend to produce much shorter reasoning traces (up to 50%) for the same problem under different context conditions compared to the traces produced when the problem is presented in isolation. A finer-grained analysis reveals that this compression is associated with a decrease in self-verification and uncertainty management behaviors, such as double-checking. While this behavioral shift does not compromise performance on straightforward problems, it might affect performance on more challenging tasks. We hope our findings draw additional attention to both the robustness of reasoning models and the problem of context management for LLMs and LLM-based agents.",
+      "url": "https://arxiv.org/abs/2604.01161",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8882
+    },
+    {
+      "id": "2604.00790",
+      "title": "RefineRL: Advancing Competitive Programming with Self-Refinement Reinforcement Learning",
+      "authors": [
+        "Shaopeng Fu",
+        "Xingxing Zhang",
+        "Li Dong",
+        "Di Wang",
+        "Furu Wei"
+      ],
+      "abstract": "While large language models (LLMs) have demonstrated strong performance on complex reasoning tasks such as competitive programming (CP), existing methods predominantly focus on single-attempt settings, overlooking their capacity for iterative refinement. In this paper, we present RefineRL, a novel approach designed to unleash the self-refinement capabilities of LLMs for CP problem solving. RefineRL introduces two key innovations: (1) Skeptical-Agent, an iterative self-refinement agent equipped with local execution tools to validate generated solutions against public test cases of CP problems. This agent always maintains a skeptical attitude towards its own outputs and thereby enforces rigorous self-refinement even when validation suggests correctness. (2) A reinforcement learning (RL) solution to incentivize LLMs to self-refine with only standard RLVR data (i.e., problems paired with their verifiable answers). Extensive experiments on Qwen3-4B and Qwen3-4B-2507 demonstrate that our method yields substantial gains: after our RL training, these compact 4B models integrated with the Skeptical-Agent not only outperform much larger 32B models but also approach the single-attempt performance of 235B models. These findings suggest that self-refinement holds considerable promise for scaling LLM reasoning, with significant potential for further advancement.",
+      "url": "https://arxiv.org/abs/2604.00790",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8882
+    },
+    {
+      "id": "2604.01221",
+      "title": "HippoCamp: Benchmarking Contextual Agents on Personal Computers",
+      "authors": [
+        "Zhe Yang",
+        "Shulin Tian",
+        "Kairui Hu",
+        "Shuai Liu",
+        "Hoang-Nhat Nguyen",
+        "Yichi Zhang",
+        "Zujin Guo",
+        "Mengying Yu",
+        "Zinan Zhang",
+        "Jingkang Yang",
+        "Chen Change Loy",
+        "Ziwei Liu"
+      ],
+      "abstract": "We present HippoCamp, a new benchmark designed to evaluate agents' capabilities on multimodal file management. Unlike existing agent benchmarks that focus on tasks like web interaction, tool use, or software automation in generic settings, HippoCamp evaluates agents in user-centric environments to model individual user profiles and search massive personal files for context-aware reasoning. Our benchmark instantiates device-scale file systems over real-world profiles spanning diverse modalities, comprising 42.4 GB of data across over 2K real-world files. Building upon the raw files, we construct 581 QA pairs to assess agents' capabilities in search, evidence perception, and multi-step reasoning. To facilitate fine-grained analysis, we provide 46.1K densely annotated structured trajectories for step-wise failure diagnosis. We evaluate a wide range of state-of-the-art multimodal large language models (MLLMs) and agentic methods on HippoCamp. Our comprehensive experiments reveal a significant performance gap: even the most advanced commercial models achieve only 48.3% accuracy in user profiling, struggling particularly with long-horizon retrieval and cross-modal reasoning within dense personal file systems. Furthermore, our step-wise failure diagnosis identifies multimodal perception and evidence grounding as the primary bottlenecks. Ultimately, HippoCamp exposes the critical limitations of current agents in realistic, user-centric environments and provides a robust foundation for developing next-generation personal AI assistants.",
+      "url": "https://arxiv.org/abs/2604.01221",
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8879
+    },
+    {
+      "id": "2604.00344",
+      "title": "Agent Q-Mix: Selecting the Right Action for LLM Multi-Agent Systems through Reinforcement Learning",
+      "authors": [
+        "Eric Hanchen Jiang",
+        "Levina Li",
+        "Rui Sun",
+        "Xiao Liang",
+        "Yubei Li",
+        "Yuchen Wu",
+        "Haozheng Luo",
+        "Hengli Li",
+        "Zhi Zhang",
+        "Zhaolu Kang",
+        "Kai-Wei Chang",
+        "Ying Nian Wu"
+      ],
+      "abstract": "Large Language Models (LLMs) have shown remarkable performance in completing various tasks. However, solving complex problems often requires the coordination of multiple agents, raising a fundamental question: how to effectively select and interconnect these agents. In this paper, we propose \\textbf{Agent Q-Mix}, a reinforcement learning framework that reformulates topology selection as a cooperative Multi-Agent Reinforcement Learning (MARL) problem. Our method learns decentralized communication decisions using QMIX value factorization, where each agent selects from a set of communication actions that jointly induce a round-wise communication graph. At its core, Agent Q-Mix combines a topology-aware GNN encoder, GRU memory, and per-agent Q-heads under a Centralized Training with Decentralized Execution (CTDE) paradigm. The framework optimizes a reward function that balances task accuracy with token cost. Across seven core benchmarks in coding, reasoning, and mathematics, Agent Q-Mix achieves the highest average accuracy compared to existing methods while demonstrating superior token efficiency and robustness against agent failure. Notably, on the challenging Humanity's Last Exam (HLE) using Gemini-3.1-Flash-Lite as a backbone, Agent Q-Mix achieves 20.8\\% accuracy, outperforming Microsoft Agent Framework (19.2\\%) and LangGraph (19.2\\%), followed by AutoGen and Lobster by OpenClaw. These results underscore the effectiveness of learned, decentralized topology optimization in pushing the boundaries of multi-agent reasoning.",
+      "url": "https://arxiv.org/abs/2604.00344",
+      "categories": [
+        "cs.CL",
+        "stat.AP"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8878
+    },
+    {
+      "id": "2604.00438",
+      "title": "TR-ICRL: Test-Time Rethinking for In-Context Reinforcement Learning",
+      "authors": [
+        "Wenxuan Jiang",
+        "Yuxin Zuo",
+        "Zijian Zhang",
+        "Xuecheng Wu",
+        "Zining Fan",
+        "Wenxuan Liu",
+        "Li Chen",
+        "Xiaoyu Li",
+        "Xuezhi Cao",
+        "Xiaolong Jin",
+        "Ninghao Liu"
+      ],
+      "abstract": "In-Context Reinforcement Learning (ICRL) enables Large Language Models (LLMs) to learn online from external rewards directly within the context window. However, a central challenge in ICRL is reward estimation, as models typically lack access to ground-truths during inference. To address this limitation, we propose Test-Time Rethinking for In-Context Reinforcement Learning (TR-ICRL), a novel ICRL framework designed for both reasoning and knowledge-intensive tasks. TR-ICRL operates by first retrieving the most relevant instances from an unlabeled evaluation set for a given query. During each ICRL iteration, LLM generates a set of candidate answers for every retrieved instance. Next, a pseudo-label is derived from this set through majority voting. This label then serves as a proxy to give reward messages and generate formative feedbacks, guiding LLM through iterative refinement. In the end, this synthesized contextual information is integrated with the original query to form a comprehensive prompt, with the answer determining through a final round of majority voting. TR-ICRL is evaluated on mainstream reasoning and knowledge-intensive tasks, where it demonstrates significant performance gains. Remarkably, TR-ICRL improves Qwen2.5-7B by 21.23% on average on MedQA and even 137.59% on AIME2024. Extensive ablation studies and analyses further validate the effectiveness and robustness of our approach. Our code is available at https://github.com/pangpang-xuan/TR_ICRL.",
+      "url": "https://arxiv.org/abs/2604.00438",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-01",
+      "github_url": "https://github.com/pangpang-xuan/TR_ICRL.",
+      "score": 0.8876
+    },
+    {
+      "id": "2604.00555",
+      "title": "Ontology-Constrained Neural Reasoning in Enterprise Agentic Systems: A Neurosymbolic Architecture for Domain-Grounded AI Agents",
+      "authors": [
+        "Thanh Luong Tuan"
+      ],
+      "abstract": "Enterprise adoption of Large Language Models (LLMs) is constrained by hallucination, domain drift, and the inability to enforce regulatory compliance at the reasoning level. We present a neurosymbolic architecture implemented within the Foundation AgenticOS (FAOS) platform that addresses these limitations through ontology-constrained neural reasoning. Our approach introduces a three-layer ontological framework--Role, Domain, and Interaction ontologies--that provides formal semantic grounding for LLM-based enterprise agents. We formalize the concept of asymmetric neurosymbolic coupling, wherein symbolic ontological knowledge constrains agent inputs (context assembly, tool discovery, governance thresholds) while proposing mechanisms for extending this coupling to constrain agent outputs (response validation, reasoning verification, compliance checking). We evaluate the architecture through a controlled experiment (600 runs across five industries: FinTech, Insurance, Healthcare, Vietnamese Banking, and Vietnamese Insurance), finding that ontology-coupled agents significantly outperform ungrounded agents on Metric Accuracy (p < .001, W = .460), Regulatory Compliance (p = .003, W = .318), and Role Consistency (p < .001, W = .614), with improvements greatest where LLM parametric knowledge is weakest--particularly in Vietnam-localized domains. Our contributions include: (1) a formal three-layer enterprise ontology model, (2) a taxonomy of neurosymbolic coupling patterns, (3) ontology-constrained tool discovery via SQL-pushdown scoring, (4) a proposed framework for output-side ontological validation, (5) empirical evidence for the inverse parametric knowledge effect that ontological grounding value is inversely proportional to LLM training data coverage of the domain, and (6) a production system serving 21 industry verticals with 650+ agents.",
+      "url": "https://arxiv.org/abs/2604.00555",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.SE"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8872
+    },
+    {
+      "id": "2604.00304",
+      "title": "Asymmetric Actor-Critic for Multi-turn LLM Agents",
+      "authors": [
+        "Shuli Jiang",
+        "Zhaoyang Zhang",
+        "Yi Zhang",
+        "Shuo Yang",
+        "Wei Xia",
+        "Stefano Soatto"
+      ],
+      "abstract": "Large language models (LLMs) exhibit strong reasoning and conversational abilities, but ensuring reliable behavior in multi-turn interactions remains challenging. In many real-world applications, agents must succeed in one-shot settings where retries are impossible. Existing approaches either rely on reflection or post-hoc evaluation, which require additional attempts, or assume fully trainable models that cannot leverage proprietary LLMs. We propose an asymmetric actor-critic framework for reliable conversational agents. A powerful proprietary LLM acts as the actor, while a smaller open-source critic provides runtime supervision, monitoring the actor's actions and intervening within the same interaction trajectory. Unlike training-based actor-critic methods, our framework supervises a fixed actor operating in open-ended conversational environments. The design leverages a generation-verification asymmetry: while high-quality generation requires large models, effective oversight can often be achieved by smaller ones. We further introduce a data generation pipeline that produces supervision signals for critic fine-tuning without modifying the actor. Experiments on $τ$-bench and UserBench show that our approach significantly improves reliability and task success over strong single-agent baselines. Moreover, lightweight open-source critics rival or surpass larger proprietary models in the critic role, and critic fine-tuning yields additional gains over several state-of-the-art methods.",
+      "url": "https://arxiv.org/abs/2604.00304",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-03-31",
+      "score": 0.8864
+    },
+    {
+      "id": "2604.00716",
+      "title": "CircuitProbe: Predicting Reasoning Circuits in Transformers via Stability Zone Detection",
+      "authors": [
+        "Rajkiran Panuganti"
+      ],
+      "abstract": "Transformer language models contain localized reasoning circuits, contiguous layer blocks that improve reasoning when duplicated at inference time. Finding these circuits currently requires brute-force sweeps costing 25 GPU hours per model. We propose CircuitProbe, which predicts circuit locations from activation statistics in under 5 minutes on CPU, providing a speedup of three to four orders of magnitude. We find that reasoning circuits come in two types: stability circuits in early layers, detected through the derivative of representation change, and magnitude circuits in late layers, detected through anomaly scoring. We validate across 9 models spanning 6 architectures, including 2025 models, confirming that CircuitProbe top predictions match or are within 2 layers of the optimal circuit in all validated cases. A scaling experiment across the Qwen 2.5 family reveals that layer duplication consistently benefits models under 3B parameters but degrades performance in 7B+ models, making this a practical scaling technique for small language models. CircuitProbe requires as few as 10 calibration examples and its predictions are stable across English, Hindi, Chinese, and French.",
+      "url": "https://arxiv.org/abs/2604.00716",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8859
+    },
+    {
+      "id": "2604.01029",
+      "title": "Revision or Re-Solving? Decomposing Second-Pass Gains in Multi-LLM Pipelines",
+      "authors": [
+        "Jingjie Ning",
+        "Xueqi Li",
+        "Chengyu Yu"
+      ],
+      "abstract": "Multi-LLM revision pipelines, in which a second model reviews and improves a draft produced by a first, are widely assumed to derive their gains from genuine error correction. We question this assumption with a controlled decomposition experiment that uses four matched conditions to separate second-pass gains into three additive components: re-solving, scaffold, and content. We evaluate this design across two model pairs on three benchmarks spanning knowledge-intensive MCQ and competitive programming. Our results show that the gains of multi-LLM revision are not monolithic, but depend on task structure, draft quality, and the type of draft information. On MCQ tasks, where the answer space is constrained and drafts provide little structural guidance, most gains are consistent with stronger-model re-solving, and directly routing queries to the stronger model can be more effective than revising a weak draft. On code generation tasks, however, two-stage prompting remains useful because even semantically null drafts can provide substantial structural scaffolding, while weak draft content can be harmful. Finally, role-reversed experiments show that strong drafts clearly benefit weak reviewers. Ultimately, our findings demonstrate that the utility of multi-LLM revision is dynamically bottlenecked by task structure and draft quality, necessitating more targeted pipeline designs rather than blanket revision strategies.",
+      "url": "https://arxiv.org/abs/2604.01029",
+      "categories": [
+        "cs.SE",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8855
+    },
+    {
+      "id": "2604.01168",
+      "title": "S0 Tuning: Zero-Overhead Adaptation of Hybrid Recurrent-Attention Models",
+      "authors": [
+        "Jack Young"
+      ],
+      "abstract": "Using roughly 48 execution-verified HumanEval training solutions, tuning a single initial state matrix per recurrent layer, with zero inference overhead, outperforms LoRA by +10.8 pp (p < 0.001) on HumanEval. The method, which we call S0 tuning, optimizes one state matrix per recurrent layer while freezing all model weights. On Qwen3.5-4B (GatedDeltaNet hybrid), S0 tuning improves greedy pass@1 by +23.6 +/- 1.7 pp (10 seeds). On FalconH1-7B (Mamba-2 hybrid), S0 reaches 71.8% +/- 1.3 and LoRA reaches 71.4% +/- 2.4 (3 seeds), statistically indistinguishable at this sample size while requiring no weight merging. Cross-domain transfer is significant on MATH-500 (+4.8 pp, p = 0.00002, 8 seeds) and GSM8K (+2.8 pp, p = 0.0003, 10 seeds); a text-to-SQL benchmark (Spider) shows no transfer, consistent with the trajectory-steering mechanism. A prefix-tuning control on a pure Transformer (Qwen2.5-3B) degrades performance by -13.9 pp under all nine configurations tested. On Qwen3.5, a per-step state-offset variant reaches +27.1 pp, above both S0 and LoRA but with per-step inference cost. Taken together, the results show that recurrent state initialization is a strong zero-inference-overhead PEFT surface for hybrid language models when verified supervision is scarce. The tuned state is a ~48 MB file; task switching requires no weight merging or model reload. Code and library: https://github.com/jackyoung27/s0-tuning.",
+      "url": "https://arxiv.org/abs/2604.01168",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-01",
+      "github_url": "https://github.com/jackyoung27/s0-tuning.",
+      "score": 0.8849
+    },
+    {
+      "id": "2604.01193",
+      "title": "Embarrassingly Simple Self-Distillation Improves Code Generation",
+      "authors": [
+        "Ruixiang Zhang",
+        "Richard He Bai",
+        "Huangjie Zheng",
+        "Navdeep Jaitly",
+        "Ronan Collobert",
+        "Yizhe Zhang"
+      ],
+      "abstract": "Can a large language model (LLM) improve at code generation using only its own raw outputs, without a verifier, a teacher model, or reinforcement learning? We answer in the affirmative with simple self-distillation (SSD): sample solutions from the model with certain temperature and truncation configurations, then fine-tune on those samples with standard supervised fine-tuning. SSD improves Qwen3-30B-Instruct from 42.4% to 55.3% pass@1 on LiveCodeBench v6, with gains concentrating on harder problems, and it generalizes across Qwen and Llama models at 4B, 8B, and 30B scale, including both instruct and thinking variants. To understand why such a simple method can work, we trace these gains to a precision-exploration conflict in LLM decoding and show that SSD reshapes token distributions in a context-dependent way, suppressing distractor tails where precision matters while preserving useful diversity where exploration matters. Taken together, SSD offers a complementary post-training direction for improving LLM code generation.",
+      "url": "https://arxiv.org/abs/2604.01193",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8845
+    },
+    {
+      "id": "2604.01020",
+      "title": "OrgAgent: Organize Your Multi-Agent System like a Company",
+      "authors": [
+        "Yiru Wang",
+        "Xinyue Shen",
+        "Yaohui Han",
+        "Michael Backes",
+        "Pin-Yu Chen",
+        "Tsung-Yi Ho"
+      ],
+      "abstract": "While large language model-based multi-agent systems have shown strong potential for complex reasoning, how to effectively organize multiple agents remains an open question. In this paper, we introduce OrgAgent, a company-style hierarchical multi-agent framework that separates collaboration into governance, execution, and compliance layers. OrgAgent decomposes multi-agent reasoning into three layers: a governance layer for planning and resource allocation, an execution layer for task solving and review, and a compliance layer for final answer control. By evaluating the framework across reasoning tasks, LLMs, execution modes, and execution policies, we find that multi-agent systems organized in a company-style hierarchy generally outperform other organizational structures. Besides, hierarchical coordination also reduces token consumption relative to flat collaboration in most settings. For example, for GPT-OSS-120B, the hierarchical setting improves performance over flat multi-agent system by 102.73% while reducing token usage by 74.52% on SQuAD 2.0. Further analysis shows that hierarchy helps most when tasks benefit from stable skill assignment, controlled information flow, and layered verification. Overall, our findings highlight organizational structure as an important factor in multi-agent reasoning, shaping not only effectiveness and cost, but also coordination behavior.",
+      "url": "https://arxiv.org/abs/2604.01020",
+      "categories": [
+        "cs.MA",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8832
+    },
+    {
+      "id": "2604.01039",
+      "title": "Automated Framework to Evaluate and Harden LLM System Instructions against Encoding Attacks",
+      "authors": [
+        "Anubhab Sahu",
+        "Diptisha Samanta",
+        "Reza Soosahabi"
+      ],
+      "abstract": "System Instructions in Large Language Models (LLMs) are commonly used to enforce safety policies, define agent behavior, and protect sensitive operational context in agentic AI applications. These instructions may contain sensitive information such as API credentials, internal policies, and privileged workflow definitions, making system instruction leakage a critical security risk highlighted in the OWASP Top 10 for LLM Applications. Without incurring the overhead costs of reasoning models, many LLM applications rely on refusal-based instructions that block direct requests for system instructions, implicitly assuming that prohibited information can only be extracted through explicit queries. We introduce an automated evaluation framework that tests whether system instructions remain confidential when extraction requests are re-framed as encoding or structured output tasks. Across four common models and 46 verified system instructions, we observe high attack success rates (> 0.7) for structured serialization where models refuse direct extraction requests but disclose protected content in the requested serialization formats. We further demonstrate a mitigation strategy based on one-shot instruction reshaping using a Chain-of-Thought reasoning model, indicating that even subtle changes in wording and structure of system instructions can significantly reduce attack success rate without requiring model retraining.",
+      "url": "https://arxiv.org/abs/2604.01039",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8825
+    },
+    {
+      "id": "2604.00442",
+      "title": "Execution-Verified Reinforcement Learning for Optimization Modeling",
+      "authors": [
+        "Runda Guan",
+        "Xiangqing Shen",
+        "Jiajun Zhang",
+        "Yifan Zhang",
+        "Jian Cheng",
+        "Rui Xia"
+      ],
+      "abstract": "Automating optimization modeling with LLMs is a promising path toward scalable decision intelligence, but existing approaches either rely on agentic pipelines built on closed-source LLMs with high inference latency, or fine-tune smaller LLMs using costly process supervision that often overfits to a single solver API. Inspired by reinforcement learning with verifiable rewards, we propose Execution-Verified Optimization Modeling (EVOM), an execution-verified learning framework that treats a mathematical programming solver as a deterministic, interactive verifier. Given a natural-language problem and a target solver, EVOM generates solver-specific code, executes it in a sandboxed harness, and converts execution outcomes into scalar rewards, optimized with GRPO and DAPO in a closed-loop generate-execute-feedback-update process. This outcome-only formulation removes the need for process-level supervision, and enables cross-solver generalization by switching the verification environment rather than reconstructing solver-specific datasets. Experiments on NL4OPT, MAMO, IndustryOR, and OptiBench across Gurobi, OR-Tools, and COPT show that EVOM matches or outperforms process-supervised SFT, supports zero-shot solver transfer, and achieves effective low-cost solver adaptation by continuing training under the target solver backend.",
+      "url": "https://arxiv.org/abs/2604.00442",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-01",
+      "score": 0.8825
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "source": "fetch_daily",
+    "n_candidates": 299,
+    "n_ratings": 47,
+    "alpha": 0.94
+  }
+}
