@@ -1,0 +1,404 @@
+{
+  "date": "2026-04-07",
+  "collected_at": "2026-04-07T11:58:33.452363+09:00",
+  "papers": [
+    {
+      "id": "2604.04651",
+      "title": "Search, Do not Guess: Teaching Small Language Models to Be Effective Search Agents",
+      "authors": [
+        "Yizhou Liu",
+        "Qi Sun",
+        "Yulin Chen",
+        "Siyue Zhang",
+        "Chen Zhao"
+      ],
+      "abstract": "Agents equipped with search tools have emerged as effective solutions for knowledge-intensive tasks. While Large Language Models (LLMs) exhibit strong reasoning capabilities, their high computational cost limits practical deployment for search agents. Consequently, recent work has focused on distilling agentic behaviors from LLMs into Small Language Models (SLMs). Through comprehensive evaluation on complex multi-hop reasoning tasks, we find that despite possessing less parametric knowledge, SLMs invoke search tools less frequently and are more prone to hallucinations. To address this issue, we propose \\policy, a lightweight fine-tuning approach that explicitly trains SLMs to reliably retrieve and generate answers grounded in retrieved evidence. Compared to agent distillation from LLMs, our approach improves performance by 17.3 scores on Bamboogle and 15.3 scores on HotpotQA, achieving LLM-level results across benchmarks. Our further analysis reveals that adaptive search strategies in SLMs often degrade performance, highlighting the necessity of consistent search behavior for reliable reasoning.",
+      "url": "https://arxiv.org/abs/2604.04651",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.9011
+    },
+    {
+      "id": "2604.04869",
+      "title": "Optimizing LLM Prompt Engineering with DSPy Based Declarative Learning",
+      "authors": [
+        "Shiek Ruksana",
+        "Sailesh Kiran Kurra",
+        "Thipparthi Sanjay Baradwaj"
+      ],
+      "abstract": "Large Language Models (LLMs) have shown strong performance across a wide range of natural language processing tasks; however, their effectiveness is highly dependent on prompt design, structure, and embedded reasoning signals. Conventional prompt engineering methods largely rely on heuristic trial-and-error processes, which limits scalability, reproducibility, and generalization across tasks. DSPy, a declarative framework for optimizing text-processing pipelines, offers an alternative approach by enabling automated, modular, and learnable prompt construction for LLM-based systems.This paper presents a systematic study of DSPy-based declarative learning for prompt optimization, with emphasis on prompt synthesis, correction, calibration, and adaptive reasoning control. We introduce a unified DSPy LLM architecture that combines symbolic planning, gradient free optimization, and automated module rewriting to reduce hallucinations, improve factual grounding, and avoid unnecessary prompt complexity. Experimental evaluations conducted on reasoning tasks, retrieval-augmented generation, and multi-step chain-of-thought benchmarks demonstrate consistent gains in output reliability, efficiency, and generalization across models. The results show improvements of up to 30 to 45% in factual accuracy and a reduction of approximately 25% in hallucination rates. Finally, we outline key limitations and discuss future research directions for declarative prompt optimization frameworks.",
+      "url": "https://arxiv.org/abs/2604.04869",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.8945
+    },
+    {
+      "id": "2604.04853",
+      "title": "MemMachine: A Ground-Truth-Preserving Memory System for Personalized AI Agents",
+      "authors": [
+        "Shu Wang",
+        "Edwin Yu",
+        "Oscar Love",
+        "Tom Zhang",
+        "Tom Wong",
+        "Steve Scargall",
+        "Charles Fan"
+      ],
+      "abstract": "Large Language Model (LLM) agents require persistent memory to maintain personalization, factual continuity, and long-horizon reasoning, yet standard context-window and retrieval-augmented generation (RAG) pipelines degrade over multi-session interactions. We present MemMachine, an open-source memory system that integrates short-term, long-term episodic, and profile memory within a ground-truth-preserving architecture that stores entire conversational episodes and reduces lossy LLM-based extraction. MemMachine uses contextualized retrieval that expands nucleus matches with surrounding context, improving recall when relevant evidence spans multiple dialogue turns. Across benchmarks, MemMachine achieves strong accuracy-efficiency tradeoffs: on LoCoMo it reaches 0.9169 using gpt4.1-mini; on LongMemEvalS (ICLR 2025), a six-dimension ablation yields 93.0 percent accuracy, with retrieval-stage optimizations -- retrieval depth tuning (+4.2 percent), context formatting (+2.0 percent), search prompt design (+1.8 percent), and query bias correction (+1.4 percent) -- outperforming ingestion-stage gains such as sentence chunking (+0.8 percent). GPT-5-mini exceeds GPT-5 by 2.6 percent when paired with optimized prompts, making it the most cost-efficient setup. Compared to Mem0, MemMachine uses roughly 80 percent fewer input tokens under matched conditions. A companion Retrieval Agent adaptively routes queries among direct retrieval, parallel decomposition, or iterative chain-of-query strategies, achieving 93.2 percent on HotpotQA-hard and 92.6 percent on WikiMultiHop under randomized-noise conditions. These results show that preserving episodic ground truth while layering adaptive retrieval yields robust, efficient long-term memory for personalized LLM agents.",
+      "url": "https://arxiv.org/abs/2604.04853",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.8933
+    },
+    {
+      "id": "2604.04131",
+      "title": "Profile-Then-Reason: Bounded Semantic Complexity for Tool-Augmented Language Agents",
+      "authors": [
+        "Paulo Akira F. Enabe"
+      ],
+      "abstract": "Large language model agents that use external tools are often implemented through reactive execution, in which reasoning is repeatedly recomputed after each observation, increasing latency and sensitivity to error propagation. This work introduces Profile--Then--Reason (PTR), a bounded execution framework for structured tool-augmented reasoning, in which a language model first synthesizes an explicit workflow, deterministic or guarded operators execute that workflow, a verifier evaluates the resulting trace, and repair is invoked only when the original workflow is no longer reliable. A mathematical formulation is developed in which the full pipeline is expressed as a composition of profile, routing, execution, verification, repair, and reasoning operators; under bounded repair, the number of language-model calls is restricted to two in the nominal case and three in the worst case. Experiments against a ReAct baseline on six benchmarks and four language models show that PTR achieves the pairwise exact-match advantage in 16 of 24 configurations. The results indicate that PTR is particularly effective on retrieval-centered and decomposition-heavy tasks, whereas reactive execution remains preferable when success depends on substantial online adaptation.",
+      "url": "https://arxiv.org/abs/2604.04131",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-05",
+      "score": 0.8933
+    },
+    {
+      "id": "2604.04720",
+      "title": "What Makes Good Multilingual Reasoning? Disentangling Reasoning Traces with Measurable Features",
+      "authors": [
+        "Dayeon Ki",
+        "Kevin Duh",
+        "Marine Carpuat"
+      ],
+      "abstract": "Large Reasoning Models (LRMs) still exhibit large performance gaps between English and other languages, yet much current work assumes these gaps can be closed simply by making reasoning in every language resemble English reasoning. This work challenges this assumption by asking instead: what actually characterizes effective reasoning in multilingual settings, and to what extent do English-derived reasoning features genuinely help in other languages? We first define a suite of measurable reasoning features spanning multilingual alignment, reasoning step, and reasoning flow aspects of reasoning traces, and use logistic regression to quantify how each feature associates with final answer accuracy. We further train sparse autoencoders over multilingual traces to automatically discover latent reasoning concepts that instantiate or extend these features. Finally, we use the features as test-time selection policies to examine whether they can steer models toward stronger multilingual reasoning. Across two mathematical reasoning benchmarks, four LRMs, and 10 languages, we find that most features are positively associated with accuracy, but the strength of association varies considerably across languages and can even reverse in some. Our findings challenge English-centric reward designs and point toward adaptive objectives that accommodate language-specific reasoning patterns, with concrete implications for multilingual benchmark and reward design.",
+      "url": "https://arxiv.org/abs/2604.04720",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.8912
+    },
+    {
+      "id": "2604.04791",
+      "title": "How Far Are We? Systematic Evaluation of LLMs vs. Human Experts in Mathematical Contest in Modeling",
+      "authors": [
+        "Yuhang Liu",
+        "Heyan Huang",
+        "Yizhe Yang",
+        "Hongyan Zhao",
+        "Zhizhuo Zeng",
+        "Yang Gao"
+      ],
+      "abstract": "Large language models (LLMs) have achieved strong performance on reasoning benchmarks, yet their ability to solve real-world problems requiring end-to-end workflows remains unclear. Mathematical modeling competitions provide a stringent testbed for evaluating such end-to-end problem-solving capability. We propose a problem-oriented, stage-wise evaluation framework that assesses LLM performance across modeling stages using expert-verified criteria. We validate the framework's reliability by comparing automatic scores with independent human expert judgments on problems from the China Postgraduate Mathematical Contest in Modeling, demonstrating substantially stronger alignment than existing evaluation schemes. Using this framework, we reveal a comprehension-execution gap in state-of-the-art LLMs: while they perform well in early stages such as problem identification and formulation, they exhibit persistent deficiencies in execution-oriented stages including model solving, code implementation, and result analysis. These gaps persist even with increased model scale. We further trace these failures to insufficient specification, missing verification, and lack of validation, with errors propagating across stages without correction. Our findings suggest that bridging this gap requires approaches beyond model scaling, offering insights for applying LLMs to complex real-world problem solving.",
+      "url": "https://arxiv.org/abs/2604.04791",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.8901
+    },
+    {
+      "id": "2604.04565",
+      "title": "PassiveQA: A Three-Action Framework for Epistemically Calibrated Question Answering via Supervised Finetuning",
+      "authors": [
+        "Madhav S Baidya"
+      ],
+      "abstract": "Large Language Models (LLMs) have achieved strong performance in question answering and retrieval-augmented generation (RAG), yet they implicitly assume that user queries are fully specified and answerable. In real-world settings, queries are often incomplete, ambiguous, or missing critical variables, leading models to produce overconfident or hallucinated responses.\n  In this work, we study decision-aware query resolution under incomplete information, where a model must determine whether to Answer, Ask for clarification, or Abstain. We show that standard and enhanced RAG systems do not reliably exhibit such epistemic awareness, defaulting to answer generation even when information is insufficient.\n  To address this, we propose PassiveQA, a three-action framework that aligns model behaviour with information sufficiency through supervised finetuning. Our approach integrates structured information-state representations, knowledge graph-grounded context, and a finetuned planner that explicitly models missing variables and decision reasoning.\n  Experiments across multiple QA datasets show that the finetuned planner achieves significant improvements in macro F1 and abstention recall while reducing hallucination rates, under a compute-constrained training regime.\n  These results provide strong empirical evidence that epistemic decision-making must be learned during training rather than imposed at inference time.",
+      "url": "https://arxiv.org/abs/2604.04565",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.8897
+    },
+    {
+      "id": "2604.04120",
+      "title": "Shorter, but Still Trustworthy? An Empirical Study of Chain-of-Thought Compression",
+      "authors": [
+        "Lingjie Zeng",
+        "Xiaofan Chen",
+        "Yanbo Wang",
+        "Xiuying Chen"
+      ],
+      "abstract": "Long chain-of-thought (Long-CoT) reasoning models have motivated a growing body of work on compressing reasoning traces to reduce inference cost, yet existing evaluations focus almost exclusively on task accuracy and token savings. Trustworthiness properties, whether acquired or reinforced through post-training, are encoded in the same parameter space that compression modifies. This means preserving accuracy does not, a priori, guarantee preserving trustworthiness. We conduct the first systematic empirical study of how CoT compression affects model trustworthiness, evaluating multiple models of different scales along three dimensions: safety, hallucination resistance, and multilingual robustness. Under controlled comparisons, we find that CoT compression frequently introduces trustworthiness regressions and that different methods exhibit markedly different degradation profiles across dimensions. To enable fair comparison across bases, we propose a normalized efficiency score for each dimension that reveals how naïve scalar metrics can obscure trustworthiness trade-offs. As an existence proof, we further introduce an alignment-aware DPO variant that reduces CoT length by 19.3\\% on reasoning benchmarks with substantially smaller trustworthiness loss. Our findings suggest that CoT compression should be optimized not only for efficiency but also for trustworthiness, treating both as equally important design constraints.",
+      "url": "https://arxiv.org/abs/2604.04120",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-05",
+      "score": 0.889
+    },
+    {
+      "id": "2604.04804",
+      "title": "SkillX: Automatically Constructing Skill Knowledge Bases for Agents",
+      "authors": [
+        "Chenxi Wang",
+        "Zhuoyun Yu",
+        "Xin Xie",
+        "Wuguannan Yao",
+        "Runnan Fang",
+        "Shuofei Qiao",
+        "Kexin Cao",
+        "Guozhou Zheng",
+        "Xiang Qi",
+        "Peng Zhang",
+        "Shumin Deng"
+      ],
+      "abstract": "Learning from experience is critical for building capable large language model (LLM) agents, yet prevailing self-evolving paradigms remain inefficient: agents learn in isolation, repeatedly rediscover similar behaviors from limited experience, resulting in redundant exploration and poor generalization. To address this problem, we propose SkillX, a fully automated framework for constructing a \\textbf{plug-and-play skill knowledge base} that can be reused across agents and environments. SkillX operates through a fully automated pipeline built on three synergistic innovations: \\textit{(i) Multi-Level Skills Design}, which distills raw trajectories into three-tiered hierarchy of strategic plans, functional skills, and atomic skills; \\textit{(ii) Iterative Skills Refinement}, which automatically revises skills based on execution feedback to continuously improve library quality; and \\textit{(iii) Exploratory Skills Expansion}, which proactively generates and validates novel skills to expand coverage beyond seed training data. Using a strong backbone agent (GLM-4.6), we automatically build a reusable skill library and evaluate its transferability on challenging long-horizon, user-interactive benchmarks, including AppWorld, BFCL-v3, and $τ^2$-Bench. Experiments show that SkillKB consistently improves task success and execution efficiency when plugged into weaker base agents, highlighting the importance of structured, hierarchical experience representations for generalizable agent learning. Our code will be publicly available soon at https://github.com/zjunlp/SkillX.",
+      "url": "https://arxiv.org/abs/2604.04804",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.IR",
+        "cs.LG",
+        "cs.MA"
+      ],
+      "submitted": "2026-04-06",
+      "github_url": "https://github.com/zjunlp/SkillX.",
+      "score": 0.8876
+    },
+    {
+      "id": "2604.04247",
+      "title": "Combee: Scaling Prompt Learning for Self-Improving Language Model Agents",
+      "authors": [
+        "Hanchen Li",
+        "Runyuan He",
+        "Qizheng Zhang",
+        "Changxiu Ji",
+        "Qiuyang Mang",
+        "Xiaokun Chen",
+        "Lakshya A Agrawal",
+        "Wei-Liang Liao",
+        "Eric Yang",
+        "Alvin Cheung",
+        "James Zou",
+        "Kunle Olukotun",
+        "Ion Stoica",
+        "Joseph E. Gonzalez"
+      ],
+      "abstract": "Recent advances in prompt learning allow large language model agents to acquire task-relevant knowledge from inference-time context without parameter changes. For example, existing methods (like ACE or GEPA) can learn system prompts to improve accuracy based on previous agent runs. However, these methods primarily focus on single-agent or low-parallelism settings. This fundamentally limits their ability to efficiently learn from a large set of collected agentic traces. It would be efficient and beneficial to run prompt learning in parallel to accommodate the growing trend of learning from many agentic traces or parallel agent executions. Yet without a principled strategy for scaling, current methods suffer from quality degradation with high parallelism. To improve both the efficiency and quality of prompt learning, we propose Combee, a novel framework to scale parallel prompt learning for self-improving agents. Combee speeds up learning and enables running many agents in parallel while learning from their aggregate traces without quality degradation. To achieve this, Combee leverages parallel scans and employs an augmented shuffle mechanism; Combee also introduces a dynamic batch size controller to balance quality and delay. Evaluations on AppWorld, Terminal-Bench, Formula, and FiNER demonstrate that Combee achieves up to 17x speedup over previous methods with comparable or better accuracy and equivalent cost.",
+      "url": "https://arxiv.org/abs/2604.04247",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-05",
+      "score": 0.8875
+    },
+    {
+      "id": "2604.04385",
+      "title": "How Alignment Routes: Localizing, Scaling, and Controlling Policy Circuits in Language Models",
+      "authors": [
+        "Gregory N. Frank"
+      ],
+      "abstract": "We identify a recurring sparse routing mechanism in alignment-trained language models: a gate attention head reads detected content and triggers downstream amplifier heads that boost the signal toward refusal. Using political censorship and safety refusal as natural experiments, we trace this mechanism across 9 models from 6 labs, all validated on corpora of 120 prompt pairs. The gate head passes necessity and sufficiency interchange tests (p < 0.001, permutation null), and core amplifier heads are stable under bootstrap resampling (Jaccard 0.92-1.0). Three same-generation scaling pairs show that routing distributes at scale (ablation up to 17x weaker) while remaining detectable by interchange. By modulating the detection-layer signal, we continuously control policy strength from hard refusal through steering to factual compliance, with routing thresholds that vary by topic. The circuit also reveals a structural separation between intent recognition and policy routing: under cipher encoding, the gate head's routing contribution collapses (78% in Phi-4 at n=120) while the model responds with puzzle-solving rather than refusal. The routing mechanism never fires, even though probe scores at deeper layers indicate the model begins to represent the harmful content. This asymmetry is consistent with different robustness properties of pretraining and post-training: broad semantic understanding versus narrower policy binding that generalizes less well under input transformation.",
+      "url": "https://arxiv.org/abs/2604.04385",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.8871
+    },
+    {
+      "id": "2604.04503",
+      "title": "Memory Intelligence Agent",
+      "authors": [
+        "Jingyang Qiao",
+        "Weicheng Meng",
+        "Yu Cheng",
+        "Zhihang Lin",
+        "Zhizhong Zhang",
+        "Xin Tan",
+        "Jingyu Gong",
+        "Kun Shao",
+        "Yuan Xie"
+      ],
+      "abstract": "Deep research agents (DRAs) integrate LLM reasoning with external tools. Memory systems enable DRAs to leverage historical experiences, which are essential for efficient reasoning and autonomous evolution. Existing methods rely on retrieving similar trajectories from memory to aid reasoning, while suffering from key limitations of ineffective memory evolution and increasing storage and retrieval costs. To address these problems, we propose a novel Memory Intelligence Agent (MIA) framework, consisting of a Manager-Planner-Executor architecture. Memory Manager is a non-parametric memory system that can store compressed historical search trajectories. Planner is a parametric memory agent that can produce search plans for questions. Executor is another agent that can search and analyze information guided by the search plan. To build the MIA framework, we first adopt an alternating reinforcement learning paradigm to enhance cooperation between the Planner and the Executor. Furthermore, we enable the Planner to continuously evolve during test-time learning, with updates performed on-the-fly alongside inference without interrupting the reasoning process. Additionally, we establish a bidirectional conversion loop between parametric and non-parametric memories to achieve efficient memory evolution. Finally, we incorporate a reflection and an unsupervised judgment mechanisms to boost reasoning and self-evolution in the open world. Extensive experiments across eleven benchmarks demonstrate the superiority of MIA.",
+      "url": "https://arxiv.org/abs/2604.04503",
+      "categories": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.8859
+    },
+    {
+      "id": "2604.04450",
+      "title": "Conversational Control with Ontologies for Large Language Models: A Lightweight Framework for Constrained Generation",
+      "authors": [
+        "Barbara Gendron",
+        "Gaël Guibon",
+        "Mathieu d'Aquin"
+      ],
+      "abstract": "Conversational agents based on Large Language Models (LLMs) have recently emerged as powerful tools for human-computer interaction. Nevertheless, their black-box nature implies challenges in predictability and a lack of personalization, both of which can be addressed by controlled generation. This work proposes an end-to-end method to obtain modular and explainable control over LLM outputs through ontological definitions of aspects related to the conversation. Key aspects are modeled and used as constraints; we then further fine-tune the LLM to generate content accordingly. To validate our approach, we explore two tasks that tackle two key conversational aspects: the English proficiency level and the polarity profile of the content. Using a hybrid fine-tuning procedure on seven state-of-the-art, open-weight conversational LLMs, we show that our method consistently outperforms pre-trained baselines, even on smaller models. Beyond quantitative gains, the framework remains model-agnostic, lightweight, and interpretable, enabling reusable control strategies that can be extended to new domains and interaction goals. This approach enhances alignment with strategy instructions and demonstrates the effectiveness of ontology-driven control in conversational systems.",
+      "url": "https://arxiv.org/abs/2604.04450",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.8844
+    },
+    {
+      "id": "2604.04043",
+      "title": "Emergent Inference-Time Semantic Contamination via In-Context Priming",
+      "authors": [
+        "Marcin Abram"
+      ],
+      "abstract": "Recent work has shown that fine-tuning large language models (LLMs) on insecure code or culturally loaded numeric codes can induce emergent misalignment, causing models to produce harmful content in unrelated downstream tasks. The authors of that work concluded that $k$-shot prompting alone does not induce this effect. We revisit this conclusion and show that inference-time semantic drift is real and measurable; however, it requires models of large-enough capability. Using a controlled experiment in which five culturally loaded numbers are injected as few-shot demonstrations before a semantically unrelated prompt, we find that models with richer cultural-associative representations exhibit significant distributional shifts toward darker, authoritarian, and stigmatized themes, while a simpler/smaller model does not. We additionally find that structurally inert demonstrations (nonsense strings) perturb output distributions, suggesting two separable mechanisms: structural format contamination and semantic content contamination. Our results map the boundary conditions under which inference-time contamination occurs, and carry direct implications for the security of LLM-based applications that use few-shot prompting.",
+      "url": "https://arxiv.org/abs/2604.04043",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-05",
+      "score": 0.8841
+    },
+    {
+      "id": "2604.04872",
+      "title": "Synthetic Sandbox for Training Machine Learning Engineering Agents",
+      "authors": [
+        "Yuhang Zhou",
+        "Lizhu Zhang",
+        "Yifan Wu",
+        "Jiayi Liu",
+        "Xiangjun Fan",
+        "Zhuokai Zhao",
+        "Hong Yan"
+      ],
+      "abstract": "As large language model agents advance beyond software engineering (SWE) tasks toward machine learning engineering (MLE), verifying agent behavior becomes orders of magnitude more expensive: while SWE tasks can be verified via fast-executing unit tests, MLE verification requires running full ML pipelines -- data preprocessing, model training, and metric evaluation -- on large datasets at each rollout step, rendering trajectory-wise on-policy reinforcement learning (RL) prohibitively slow. Existing approaches retreat to supervised fine-tuning (SFT) or offline proxy rewards, sacrificing the exploration and generalization benefits of on-policy RL. We observe that sandbox data size is the primary source of this bottleneck. Based on this insight, we introduce SandMLE, a multi-agent framework that generates diverse, verifiable synthetic MLE environments from a small number of seed tasks, preserving the structural and technical complexity of real-world problems while constraining datasets to micro-scale (each task is paired with only 50-200 training samples). Through extensive experiments, we show that SandMLE reduces execution time by over 13 times, enabling large-scale, on-policy trajectory-wise RL for the first time in the MLE domain. On MLE-bench-lite, SandMLE yields significant gains over SFT baselines across Qwen3-8B, 14B, and 30B-A3B, with relative medal rate improvements ranging from 20.3% to 66.9%. Furthermore, the trained policy generalizes across unseen agentic scaffolds, achieving up to 32.4% better HumanRank score on MLE-Dojo.",
+      "url": "https://arxiv.org/abs/2604.04872",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.8828
+    },
+    {
+      "id": "2604.04255",
+      "title": "Towards Unveiling Vulnerabilities of Large Reasoning Models in Machine Unlearning",
+      "authors": [
+        "Aobo Chen",
+        "Chenxu Zhao",
+        "Chenglin Miao",
+        "Mengdi Huai"
+      ],
+      "abstract": "Large language models (LLMs) possess strong semantic understanding, driving significant progress in data mining applications. This is further enhanced by large reasoning models (LRMs), which provide explicit multi-step reasoning traces. On the other hand, the growing need for the right to be forgotten has driven the development of machine unlearning techniques, which aim to eliminate the influence of specific data from trained models without full retraining. However, unlearning may also introduce new security vulnerabilities by exposing additional interaction surfaces. Although many studies have investigated unlearning attacks, there is no prior work on LRMs. To bridge the gap, we first in this paper propose LRM unlearning attack that forces incorrect final answers while generating convincing but misleading reasoning traces. This objective is challenging due to non-differentiable logical constraints, weak optimization effect over long rationales, and discrete forget set selection. To overcome these challenges, we introduce a bi-level exact unlearning attack that incorporates a differentiable objective function, influential token alignment, and a relaxed indicator strategy. To demonstrate the effectiveness and generalizability of our attack, we also design novel optimization frameworks and conduct comprehensive experiments in both white-box and black-box settings, aiming to raise awareness of the emerging threats to LRM unlearning pipelines.",
+      "url": "https://arxiv.org/abs/2604.04255",
+      "categories": [
+        "cs.LG",
+        "cs.CR"
+      ],
+      "submitted": "2026-04-05",
+      "score": 0.8824
+    },
+    {
+      "id": "2604.04815",
+      "title": "LiveFact: A Dynamic, Time-Aware Benchmark for LLM-Driven Fake News Detection",
+      "authors": [
+        "Cheng Xu",
+        "Changhong Jin",
+        "Yingjie Niu",
+        "Nan Yan",
+        "Yuke Mei",
+        "Shuhao Guan",
+        "Liming Chen",
+        "M-Tahar Kechadi"
+      ],
+      "abstract": "The rapid development of Large Language Models (LLMs) has transformed fake news detection and fact-checking tasks from simple classification to complex reasoning. However, evaluation frameworks have not kept pace. Current benchmarks are static, making them vulnerable to benchmark data contamination (BDC) and ineffective at assessing reasoning under temporal uncertainty. To address this, we introduce LiveFact a continuously updated benchmark that simulates the real-world \"fog of war\" in misinformation detection. LiveFact uses dynamic, temporal evidence sets to evaluate models on their ability to reason with evolving, incomplete information rather than on memorized knowledge. We propose a dual-mode evaluation: Classification Mode for final verification and Inference Mode for evidence-based reasoning, along with a component to monitor BDC explicitly. Tests with 22 LLMs show that open-source Mixture-of-Experts models, such as Qwen3-235B-A22B, now match or outperform proprietary state-of-the-art systems. More importantly, our analysis finds a significant \"reasoning gap.\" Capable models exhibit epistemic humility by recognizing unverifiable claims in early data slices-an aspect traditional static benchmarks overlook. LiveFact sets a sustainable standard for evaluating robust, temporally aware AI verification.",
+      "url": "https://arxiv.org/abs/2604.04815",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.8821
+    },
+    {
+      "id": "2604.04373",
+      "title": "Decocted Experience Improves Test-Time Inference in LLM Agents",
+      "authors": [
+        "Maohao Shen",
+        "Kaiwen Zha",
+        "Zexue He",
+        "Zhang-Wei Hong",
+        "Siru Ouyang",
+        "J. Jon Ryu",
+        "Prasanna Sattigeri",
+        "Suhas Diggavi",
+        "Gregory Wornell"
+      ],
+      "abstract": "There is growing interest in improving LLMs without updating model parameters. One well-established direction is test-time scaling, where increased inference-time computation (e.g., longer reasoning, sampling, or search) is used to improve performance. However, for complex reasoning and agentic tasks, naively scaling test-time compute can substantially increase cost and still lead to wasted budget on suboptimal exploration. In this paper, we explore \\emph{context} as a complementary scaling axis for improving LLM performance, and systematically study how to construct better inputs that guide reasoning through \\emph{experience}. We show that effective context construction critically depends on \\emph{decocted experience}. We present a detailed analysis of experience-augmented agents, studying how to derive context from experience, how performance scales with accumulated experience, what characterizes good context, and which data structures best support context construction. We identify \\emph{decocted experience} as a key mechanism for effective context construction: extracting essence from experience, organizing it coherently, and retrieving salient information to build effective context. We validate our findings across reasoning and agentic tasks, including math reasoning, web browsing, and software engineering.",
+      "url": "https://arxiv.org/abs/2604.04373",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.8812
+    },
+    {
+      "id": "2604.04323",
+      "title": "How Well Do Agentic Skills Work in the Wild: Benchmarking LLM Skill Usage in Realistic Settings",
+      "authors": [
+        "Yujian Liu",
+        "Jiabao Ji",
+        "Li An",
+        "Tommi Jaakkola",
+        "Yang Zhang",
+        "Shiyu Chang"
+      ],
+      "abstract": "Agent skills, which are reusable, domain-specific knowledge artifacts, have become a popular mechanism for extending LLM-based agents, yet formally benchmarking skill usage performance remains scarce. Existing skill benchmarking efforts focus on overly idealized conditions, where LLMs are directly provided with hand-crafted, narrowly-tailored task-specific skills for each task, whereas in many realistic settings, the LLM agent may have to search for and select relevant skills on its own, and even the closest matching skills may not be well-tailored for the task. In this paper, we conduct the first comprehensive study of skill utility under progressively challenging realistic settings, where agents must retrieve skills from a large collection of 34k real-world skills and may not have access to any hand-curated skills. Our findings reveal that the benefits of skills are fragile: performance gains degrade consistently as settings become more realistic, with pass rates approaching no-skill baselines in the most challenging scenarios. To narrow this gap, we study skill refinement strategies, including query-specific and query-agnostic approaches, and we show that query-specific refinement substantially recovers lost performance when the initial skills are of reasonable relevance and quality. We further demonstrate the generality of retrieval and refinement on Terminal-Bench 2.0, where they improve the pass rate of Claude Opus 4.6 from 57.7% to 65.5%. Our results, consistent across multiple models, highlight both the promise and the current limitations of skills for LLM-based agents. Our code is available at https://github.com/UCSB-NLP-Chang/Skill-Usage.",
+      "url": "https://arxiv.org/abs/2604.04323",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-06",
+      "github_url": "https://github.com/UCSB-NLP-Chang/Skill-Usage.",
+      "score": 0.8807
+    },
+    {
+      "id": "2604.04921",
+      "title": "TriAttention: Efficient Long Reasoning with Trigonometric KV Compression",
+      "authors": [
+        "Weian Mao",
+        "Xi Lin",
+        "Wei Huang",
+        "Yuxin Xie",
+        "Tianfu Fu",
+        "Bohan Zhuang",
+        "Song Han",
+        "Yukang Chen"
+      ],
+      "abstract": "Extended reasoning in large language models (LLMs) creates severe KV cache memory bottlenecks. Leading KV cache compression methods estimate KV importance using attention scores from recent post-RoPE queries. However, queries rotate with position during RoPE, making representative queries very few, leading to poor top-key selection and unstable reasoning. To avoid this issue, we turn to the pre-RoPE space, where we observe that Q and K vectors are highly concentrated around fixed non-zero centers and remain stable across positions -- Q/K concentration. We show that this concentration causes queries to preferentially attend to keys at specific distances (e.g., nearest keys), with the centers determining which distances are preferred via a trigonometric series. Based on this, we propose TriAttention to estimate key importance by leveraging these centers. Via the trigonometric series, we use the distance preference characterized by these centers to score keys according to their positions, and also leverage Q/K norms as an additional signal for importance estimation. On AIME25 with 32K-token generation, TriAttention matches Full Attention reasoning accuracy while achieving 2.5x higher throughput or 10.7x KV memory reduction, whereas leading baselines achieve only about half the accuracy at the same efficiency. TriAttention enables OpenClaw deployment on a single consumer GPU, where long context would otherwise cause out-of-memory with Full Attention.",
+      "url": "https://arxiv.org/abs/2604.04921",
+      "categories": [
+        "cs.CL",
+        "cs.CV"
+      ],
+      "submitted": "2026-04-06",
+      "score": 0.8803
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "source": "fetch_daily",
+    "n_candidates": 300,
+    "n_ratings": 47,
+    "alpha": 0.94
+  }
+}
