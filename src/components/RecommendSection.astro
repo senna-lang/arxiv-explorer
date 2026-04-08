@@ -18,7 +18,7 @@ if (!data || data.recommendations.length === 0) {
     <h2 class="section-title">Recommended</h2>
 
     <div class="top-clusters">
-      <span class="clusters-label">あなたの近傍クラスタ:</span>
+      <span class="clusters-label">top clusters:</span>
       {data.top_clusters.map((c) => (
         <span class="cluster-tag">
           {c.label} ({Math.round(c.score * 100)}%)
@@ -31,7 +31,7 @@ if (!data || data.recommendations.length === 0) {
         <article class="recommend-card">
           <div class="rec-meta">
             <span class="matched-cluster">{rec.matched_cluster}</span>
-            <span class="match-score">マッチ度 {Math.round(rec.match_score * 100)}%</span>
+            <span class="match-score">match {Math.round(rec.match_score * 100)}%</span>
           </div>
           <h3 class="rec-title">
             <a href={rec.url} target="_blank" rel="noopener noreferrer">
@@ -54,12 +54,12 @@ if (!data || data.recommendations.length === 0) {
               data-rating="0"
             >
               {[1, 2, 3].map((n) => (
-                <button class="star" data-value={n} aria-label={`${n}星`}>★</button>
+                <button class="star" data-value={n} aria-label={`${n} star`}>★</button>
               ))}
             </div>
           </div>
           <details class="rec-abstract">
-            <summary>abstract を読む ▼</summary>
+            <summary>abstract</summary>
             <p>{rec.abstract}</p>
           </details>
         </article>

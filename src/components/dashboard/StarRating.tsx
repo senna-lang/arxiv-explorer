@@ -22,7 +22,7 @@ export function StarRating({ rating, onRate, size = "md" }: Props) {
 						e.stopPropagation();
 						onRate(n);
 					}}
-					aria-label={`${n}星`}
+					aria-label={`${n} star`}
 					className={`star-rating__btn ${n <= rating ? "star-rating__btn--active" : ""}`}
 					style={{ fontSize, color: n <= rating ? undefined : "#ddd" }}
 				>
