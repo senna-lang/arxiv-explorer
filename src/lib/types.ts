@@ -52,11 +52,41 @@ export type Cluster = {
   umap_y: number;
 };
 
+/** map.json 内の個別論文エントリ（座標 + クラスタID） */
+export type MapPaper = {
+  id: string;
+  title?: string;
+  abstract?: string;
+  umap_x: number;
+  umap_y: number;
+  cluster_id: number | null;
+};
+
 export type MapData = {
   generated_at: string;
   total_papers: number;
   model: string;
   clusters: Cluster[];
+  papers: MapPaper[];
+};
+
+/** ダッシュボードで表示する論文の統合型（map座標 + 日次データの詳細） */
+export type DashboardPaper = MapPaper & {
+  /** 日次JSONからマージされた詳細情報（存在する場合のみ） */
+  abstract?: string;
+  authors?: string[];
+  url: string;
+  categories?: string[];
+  submitted?: string;
+  score?: number;
+  github_url?: string;
+};
+
+/** ダッシュボードのフィルタ状態 */
+export type FilterState = {
+  keyword: string;
+  scoreRange: [number, number];
+  selectedClusterIds: Set<number>;
 };
 
 export type Recommendation = {
