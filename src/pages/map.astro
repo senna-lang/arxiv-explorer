@@ -1,48 +1,79 @@
 ---
 /**
- * arXiv論文地図ページ
+ * arXiv論文ダッシュボードページ
  *
- * datamapplotが生成した map.html を iframe で表示する。
- * 近傍クラスタのハイライトは recommend.py が map.html を再生成することで反映される。
+ * deck.gl ベースのインタラクティブ地図 + 詳細パネル + いいね一覧。
+ * map.json の座標データと日次JSONの論文詳細をビルド時にマージして
+ * React アイランドに渡す。
  */
 import MainLayout from "../layouts/MainLayout.astro";
+import { Dashboard } from "../components/dashboard/Dashboard";
+import { buildDashboardPapers } from "../lib/map-data";
+import type { MapData, RatingsData } from "../lib/types";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
+// Vite の制約: import.meta.glob は各ページファイルで直接呼ぶ必要がある
+const mapGlob = import.meta.glob("/data/map.json", { eager: true });
+const dailyGlob = import.meta.glob("/data/????????.json", { eager: true });
+
+const mapMod = Object.values(mapGlob)[0] as { default?: MapData } & MapData;
+const mapData = (mapMod?.default ?? mapMod) as MapData;
+
+const papers = buildDashboardPapers(mapData, dailyGlob);
+const clusters = mapData.clusters;
+
+// ビルド時にratings.jsonを読んでフォールバックとして渡す
+let initialRatings: RatingsData["ratings"] = [];
+try {
+  const raw = readFileSync(join(process.cwd(), "data/ratings.json"), "utf-8");
+  initialRatings = (JSON.parse(raw) as RatingsData).ratings;
+} catch {
+  // ratings.json がなくても動作する
+}
 ---
 
-<MainLayout title="arXiv 論文地図">
-  <style slot="head">
-    header {
+<MainLayout title="arxiv compass">
+  <style is:global>
+    body {
+      background: #fff !important;
+      color: #1a1a1a !important;
+      padding: 0.6rem 0.75rem !important;
+    }
+    .dashboard-header {
       display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
     }
-    h1 { font-size: 1.3rem; margin: 0; }
-    .back { font-size: 0.85rem; color: #1a0dab; text-decoration: none; }
-    .back:hover { text-decoration: underline; }
-    .map-frame {
-      width: 100%;
-      height: 80vh;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background: #fff;
+    .dashboard-header h1 {
+      font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 0;
+      color: #1a1a1a;
+      letter-spacing: -0.01em;
     }
-    .no-data {
-      text-align: center;
-      padding: 3rem;
-      color: #888;
+    .dashboard-header .back {
+      font-size: 0.72rem;
+      color: #999;
+      text-decoration: none;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .dashboard-header .back:hover {
+      color: #555;
     }
   </style>
 
-  <header>
-    <h1>🗺 arXiv 論文地図</h1>
-    <a class="back" href="/">← 新聞に戻る</a>
+  <header class="dashboard-header">
+    <h1>arxiv compass</h1>
+    <a class="back" href="/">← daily</a>
   </header>
 
-  <iframe
-    class="map-frame"
-    src="/map.html"
-    title="arXiv Paper Map"
-    sandbox="allow-scripts allow-same-origin"
-  ></iframe>
+  <Dashboard
+    client:only="react"
+    papers={papers}
+    clusters={clusters}
+    initialRatings={initialRatings}
+  />
 </MainLayout>

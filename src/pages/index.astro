@@ -13,16 +13,9 @@ const dates = extractDates(files);
 const latestDate = dates.length > 0 ? dates[dates.length - 1] : null;
 ---
 
-<MainLayout title="arXiv新聞">
+<MainLayout title="arxiv compass">
   {latestDate && <meta http-equiv="refresh" content={`0; url=/${latestDate}`} slot="head" />}
-  {
-    latestDate ? (
-      <p>Redirecting to <a href={`/${latestDate}`}>{latestDate}</a>...</p>
-    ) : (
-      <>
-        <h1>📰 arXiv新聞</h1>
-        <p>まだデータがありません。<code>python scripts/parse.py</code> を実行してください。</p>
-      </>
-    )
-  }
+  {!latestDate && (
+    <p>No data yet. Run <code>npm run daily</code> first.</p>
+  )}
 </MainLayout>
