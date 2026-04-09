@@ -568,3 +568,141 @@
   font-size: 0.75rem;
   font-family: var(--db-mono);
 }
+
+/* ─── Mobile overlay close (hidden on desktop) ─── */
+.mobile-overlay-close {
+  display: none;
+}
+
+/* ─── Tablet (768px – 1024px) ─── */
+@media (max-width: 1024px) {
+  .filter-results {
+    width: 240px;
+  }
+  .detail-panel {
+    width: 300px;
+  }
+  .filter-bar__search {
+    width: 140px;
+  }
+  .filter-bar__chips {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filter-bar__chips::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-bar__chip {
+    flex-shrink: 0;
+  }
+}
+
+/* ─── Mobile (< 768px) ─── */
+@media (max-width: 767px) {
+  .dashboard-root {
+    height: calc(100vh - 2.5rem);
+    height: calc(100dvh - 2.5rem);
+    border: none;
+  }
+
+  /* FilterBar: 縦積み、chips横スクロール */
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    padding: 0.35rem 0.5rem;
+  }
+  .filter-bar__search {
+    width: 100%;
+  }
+  .filter-bar__chips {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .filter-bar__chips::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-bar__chip {
+    flex-shrink: 0;
+  }
+
+  /* Main: 相対配置でオーバーレイの基準にする */
+  .dashboard-main {
+    position: relative;
+  }
+
+  /* FilterResults: フルスクリーン オーバーレイ */
+  .filter-results {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    width: 100%;
+    border-right: none;
+    animation: mobile-slide-up 0.2s ease;
+  }
+
+  /* DetailPanel: フルスクリーン オーバーレイ */
+  .detail-panel {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    width: 100%;
+    border-left: none;
+    animation: mobile-slide-up 0.2s ease;
+  }
+
+  /* モバイル用閉じボタン表示 */
+  .mobile-overlay-close {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--db-bg);
+    border: none;
+    border-bottom: 1px solid var(--db-border);
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-family: var(--db-mono);
+    color: var(--db-text-secondary);
+    width: 100%;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .mobile-overlay-close:hover {
+    color: var(--db-text);
+    background: var(--db-bg-subtle);
+  }
+
+  /* DetailPanel の既存 close ボタンを非表示にし、モバイル版を使う */
+  .detail-panel__close {
+    display: none;
+  }
+
+  /* LikedDrawer */
+  .liked-drawer__content {
+    max-height: 50vh;
+  }
+
+  /* タッチ操作向け: タップターゲットを拡大 */
+  .filter-results__item {
+    padding: 0.7rem 0.75rem;
+  }
+  .detail-panel__nearby-item {
+    padding: 0.5rem 0;
+  }
+  .star-rating__btn {
+    padding: 0.2rem;
+  }
+}
+
+@keyframes mobile-slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

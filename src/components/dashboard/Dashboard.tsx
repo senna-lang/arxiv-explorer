@@ -108,6 +108,10 @@ export function Dashboard({ papers, clusters, initialRatings }: Props) {
 		}
 	}, [paperMap]);
 
+	const handleClearFilter = useCallback(() => {
+		setFilter(INITIAL_FILTER);
+	}, []);
+
 	const handleRate = useCallback(
 		(paperId: string, title: string, abstract: string, ratingValue: 1 | 2 | 3) => {
 			rate(paperId, title, abstract, ratingValue);
@@ -132,6 +136,7 @@ export function Dashboard({ papers, clusters, initialRatings }: Props) {
 						selectedId={selectedId}
 						onSelectPaper={handleNavigateToPaper}
 						onRate={handleRate}
+						onClose={handleClearFilter}
 					/>
 				)}
 

@@ -33,6 +33,9 @@ export function DetailPanel({
 
 	return (
 		<div className="detail-panel">
+			<button onClick={onClose} className="mobile-overlay-close">
+				← Back to map
+			</button>
 			<button onClick={onClose} className="detail-panel__close">
 				✕
 			</button>

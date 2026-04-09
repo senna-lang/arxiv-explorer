@@ -16,6 +16,7 @@ type Props = {
 	selectedId: string | null;
 	onSelectPaper: (id: string) => void;
 	onRate: (paperId: string, title: string, abstract: string, rating: 1 | 2 | 3) => void;
+	onClose?: () => void;
 };
 
 export function FilterResults({
@@ -25,6 +26,7 @@ export function FilterResults({
 	selectedId,
 	onSelectPaper,
 	onRate,
+	onClose,
 }: Props) {
 	const filtered = useMemo(() => {
 		return papers.filter((p) => filteredIds.has(p.id));
@@ -32,6 +34,11 @@ export function FilterResults({
 
 	return (
 		<div className="filter-results">
+			{onClose && (
+				<button onClick={onClose} className="mobile-overlay-close">
+					← Back to map
+				</button>
+			)}
 			<div className="filter-results__header">
 				<span className="filter-results__count">{filtered.length} results</span>
 			</div>
