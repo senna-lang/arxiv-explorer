@@ -1,0 +1,422 @@
+{
+  "date": "2026-04-16",
+  "collected_at": "2026-04-16T12:32:25.719023+09:00",
+  "papers": [
+    {
+      "id": "2604.13759",
+      "title": "The cognitive companion: a lightweight parallel monitoring architecture for detecting and recovering from reasoning degradation in LLM agents",
+      "authors": [
+        "Rafflesia Khan",
+        "Nafiul Islam Khan"
+      ],
+      "abstract": "Large language model (LLM) agents on multi-step tasks suffer reasoning degradation, looping, drift, stuck states, at rates up to 30% on hard tasks. Current solutions include hard step limits (abrupt) or LLM-as-judge monitoring (10-15% overhead per step). This paper introduces the Cognitive Companion, a parallel monitoring architecture with two implementations: an LLM-based Companion and a novel zero-overhead Probe-based Companion. We report a three-batch feasibility study centered on Gemma 4 E4B, with an additional exploratory small-model analysis on Qwen 2.5 1.5B and Llama 3.2 1B. In our experiments, the LLM-based Companion reduced repetition on loop-prone tasks by 52-62% with approximately 11% overhead. The Probe-based Companion, trained on hidden states from layer 28, showed a mean effect size of +0.471 at zero measured inference overhead; its strongest probe result achieved cross-validated AUROC 0.840 on a small proxy-labeled dataset. A key empirical finding is that companion benefit appears task-type dependent: companions are most helpful on loop-prone and open-ended tasks, while effects are neutral or negative on more structured tasks. Our small-model experiments also suggest a possible scale boundary: companions did not improve the measured quality proxy on 1B-1.5B models, even when interventions fired. Overall, the paper should be read as a feasibility study rather than a definitive validation. The results provide encouraging evidence that sub-token monitoring may be useful, identify task-type sensitivity as a practical design constraint, and motivate selective companion activation as a promising direction for future work.",
+      "url": "https://arxiv.org/abs/2604.13759",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-15",
+      "score": 0.8966
+    },
+    {
+      "id": "2604.13349",
+      "title": "When Less Latent Leads to Better Relay: Information-Preserving Compression for Latent Multi-Agent LLM Collaboration",
+      "authors": [
+        "Yiping Li",
+        "Zhiyu An",
+        "Wan Du"
+      ],
+      "abstract": "Communication in Large Language Model (LLM)-based multi-agent systems is moving beyond discrete tokens to preserve richer context. Recent work such as LatentMAS enables agents to exchange latent messages through full key-value (KV) caches. However, full KV relay incurs high memory and communication cost. We adapt eviction-style KV compression to this setting and introduce Orthogonal Backfill (OBF) to mitigate information loss from hard eviction. OBF injects a low-rank orthogonal residual from discarded KV states into the retained KV states. We evaluate proposed method against full KV relay on nine standard benchmarks spanning mathematical reasoning, coding, and knowledge-intensive QA. It achieves performance comparable to full KV relay while reducing communication cost by 79.8%--89.4%. OBF further improves the performance and achieves the best results on 7 of the 9 benchmarks. This suggests that more information does not necessarily lead to better communication; preserving the most useful information matters more. Our codebase is publicly available on https://github.com/markli404/When-Less-Latent-Leads-to-Better-Relay.",
+      "url": "https://arxiv.org/abs/2604.13349",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-04-14",
+      "github_url": "https://github.com/markli404/When-Less-Latent-Leads-to-Better-Relay.",
+      "score": 0.8903
+    },
+    {
+      "id": "2604.13413",
+      "title": "Dataset-Level Metrics Attenuate Non-Determinism: A Fine-Grained Non-Determinism Evaluation in Diffusion Language Models",
+      "authors": [
+        "Zhengyu Fang",
+        "Zhimeng Jiang",
+        "Huiyuan Chen",
+        "Xiaoge Zhang",
+        "Tianyi Li",
+        "Kaiyu Tang",
+        "Xiao Li",
+        "Jing Li"
+      ],
+      "abstract": "Diffusion language models (DLMs) have emerged as a promising paradigm for large language models (LLMs), yet the non-deterministic behavior of DLMs remains poorly understood. The existing non-determinism evaluations for LLMs predominantly rely on dataset-level metrics under fixed inference configurations, providing limited insight into how model behavior varies across runs and evaluation conditions. In this work, we show that dataset-level metrics systematically attenuate non-determinism in diffusion language models by aggregating sample-level prediction quality across different runs. As a result, configurations with similar aggregate performance can exhibit substantially different behaviors on individual inputs, leaving fine-grained instability and distinct error patterns uncharacterized. To address this limitation, we conduct a fine-grained evaluation of non-determinism based on sample-level prediction differences across a range of model-related factors-including guidance scale, diffusion steps, and Monte Carlo sampling-as well as system-related factors such as batch size, hardware, and numerical precision. Our analysis reveals that non-determinism in DLMs is pervasive and structured, with code generation exhibiting markedly higher sensitivity to factor-level choices than question answering. To attribute sources of non-determinism evaluation, we introduce Factor Variance Attribution (FVA), a cross-factor analysis metric that decomposes observed non-determinism into variance attributable to different evaluation factor settings. Our findings highlight the need for fine-grained, factor-aware evaluation to enable reliable non-determinism assessment of diffusion language models.",
+      "url": "https://arxiv.org/abs/2604.13413",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-04-15",
+      "score": 0.8901
+    },
+    {
+      "id": "2604.13519",
+      "title": "ToolSpec: Accelerating Tool Calling via Schema-Aware and Retrieval-Augmented Speculative Decoding",
+      "authors": [
+        "Heming Xia",
+        "Yongqi Li",
+        "Cunxiao Du",
+        "Mingbo Song",
+        "Wenjie Li"
+      ],
+      "abstract": "Tool calling has greatly expanded the practical utility of large language models (LLMs) by enabling them to interact with external applications. As LLM capabilities advance, effective tool use increasingly involves multi-step, multi-turn interactions to solve complex tasks. However, the resulting growth in tool interactions incurs substantial latency, posing a key challenge for real-time LLM serving. Through empirical analysis, we find that tool-calling traces are highly structured, conform to constrained schemas, and often exhibit recurring invocation patterns. Motivated by this, we propose ToolSpec, a schema-aware, retrieval-augmented speculative decoding method for accelerating tool calling. ToolSpec exploits predefined tool schemas to generate accurate drafts, using a finite-state machine to alternate between deterministic schema token filling and speculative generation for variable fields. In addition, ToolSpec retrieves similar historical tool invocations and reuses them as drafts to further improve efficiency. ToolSpec presents a plug-and-play solution that can be seamlessly integrated into existing LLM workflows. Experiments across multiple benchmarks demonstrate that ToolSpec achieves up to a 4.2x speedup, substantially outperforming existing training-free speculative decoding methods.",
+      "url": "https://arxiv.org/abs/2604.13519",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-15",
+      "score": 0.8889
+    },
+    {
+      "id": "2604.14116",
+      "title": "TREX: Automating LLM Fine-tuning via Agent-Driven Tree-based Exploration",
+      "authors": [
+        "Zerun Ma",
+        "Guoqiang Wang",
+        "Xinchen Xie",
+        "Yicheng Chen",
+        "He Du",
+        "Bowen Li",
+        "Yanan Sun",
+        "Wenran Liu",
+        "Kai Chen",
+        "Yining Li"
+      ],
+      "abstract": "While Large Language Models (LLMs) have empowered AI research agents to perform isolated scientific tasks, automating complex, real-world workflows, such as LLM training, remains a significant challenge. In this paper, we introduce TREX, a multi-agent system that automates the entire LLM training life-cycle. By orchestrating collaboration between two core modules-the Researcher and the Executor-the system seamlessly performs requirement analysis, open-domain literature and data research, formulation of training strategies, preparation of data recipes, and model training and evaluation. The multi-round experimental process is modeled as a search tree, enabling the system to efficiently plan exploration paths, reuse historical results, and distill high-level insights from iterative trials. To evaluate the capability of automated LLM training, we construct FT-Bench, a benchmark comprising 10 tasks derived from real-world scenarios, ranging from optimizing fundamental model capabilities to enhancing performance on domain-specific tasks. Experimental results demonstrate that the TREX agent consistently optimizes model performance on target tasks.",
+      "url": "https://arxiv.org/abs/2604.14116",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-15",
+      "score": 0.8885
+    },
+    {
+      "id": "2604.13356",
+      "title": "Peer-Predictive Self-Training for Language Model Reasoning",
+      "authors": [
+        "Shi Feng",
+        "Hanlin Zhang",
+        "Fan Nie",
+        "Sham Kakade",
+        "Yiling Chen"
+      ],
+      "abstract": "Mechanisms for continued self-improvement of language models without external supervision remain an open challenge. We propose Peer-Predictive Self-Training (PST), a label-free fine-tuning framework in which multiple language models improve collaboratively by leveraging a cross-model aggregated response as an internal training signal. Given a prompt question, the models generate responses sequentially; the final aggregated answer, often more reliable than individual responses in practice, serves as an internal target for learning. We measure how informative each intermediate response is about the aggregate using pointwise mutual information (PMI), and use this signal to scale self-training updates. Responses already aligned with the aggregate are updated less, while less informative or misaligned responses are updated more. On mathematical reasoning benchmarks (SimulEq, Math500, and MultiArith), PST improves exact-match accuracy by 2.2 to 4.3 percentage points across Gemma-2-2B, LLaMA-3.2-1B, and Qwen-2.5-1.5B, and reduces the average generator-verifier gap (GV-Gap) by 26 to 40 percent, while requiring no external supervision or teacher-student hierarchy and relying solely on cross-model interactions. These results suggest that cross-model generations and peer-predictive feedback can serve as an effective approach for self-supervised training.",
+      "url": "https://arxiv.org/abs/2604.13356",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.GT"
+      ],
+      "submitted": "2026-04-14",
+      "score": 0.8882
+    },
+    {
+      "id": "2604.14140",
+      "title": "LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning",
+      "authors": [
+        "Sumeet Ramesh Motwani",
+        "Daniel Nichols",
+        "Charles London",
+        "Peggy Li",
+        "Fabio Pizzati",
+        "Acer Blake",
+        "Hasan Hammoud",
+        "Tavish McDonald",
+        "Akshat Naik",
+        "Alesia Ivanova",
+        "Vignesh Baskaran",
+        "Ivan Laptev",
+        "Ruben Glatt",
+        "Tal Ben-Nun",
+        "Philip Torr",
+        "Natasha Jaques",
+        "Ameya Prabhu",
+        "Brian Bartoldson",
+        "Bhavya Kailkhura",
+        "Christian Schroeder de Witt"
+      ],
+      "abstract": "As language models are increasingly deployed for complex autonomous tasks, their ability to reason accurately over longer horizons becomes critical. An essential component of this ability is planning and managing a long, complex chain-of-thought (CoT). We introduce LongCoT, a scalable benchmark of 2,500 expert-designed problems spanning chemistry, mathematics, computer science, chess, and logic to isolate and directly measure the long-horizon CoT reasoning capabilities of frontier models. Problems consist of a short input with a verifiable answer; solving them requires navigating a graph of interdependent steps that span tens to hundreds of thousands of reasoning tokens. Each local step is individually tractable for frontier models, so failures reflect long-horizon reasoning limitations. At release, the best models achieve <10% accuracy (GPT 5.2: 9.8%; Gemini 3 Pro: 6.1%) on LongCoT, revealing a substantial gap in current capabilities. Overall, LongCoT provides a rigorous measure of long-horizon reasoning, tracking the ability of frontier models to reason reliably over extended periods.",
+      "url": "https://arxiv.org/abs/2604.14140",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-15",
+      "score": 0.8868
+    },
+    {
+      "id": "2604.13833",
+      "title": "Robust Reward Modeling for Large Language Models via Causal Decomposition",
+      "authors": [
+        "Yunsheng Lu",
+        "Zijiang Yang",
+        "Licheng Pan",
+        "Zhixuan Chu"
+      ],
+      "abstract": "Reward models are central to aligning large language models, yet they often overfit to spurious cues such as response length and overly agreeable tone. Most prior work weakens these cues directly by penalizing or controlling specific artifacts, but it does not explicitly encourage the model to ground preferences in the prompt's intent. We learn a decoder that maps a candidate answer to the latent intent embedding of the input. The reconstruction error is used as a signal to regularize the reward model training. We provide theoretical evidence that this signal emphasizes prompt-dependent information while suppressing prompt-independent shortcuts. Across math, helpfulness, and safety benchmarks, the decoder selects shorter and less sycophantic candidates with 0.877 accuracy. Incorporating this signal into RM training in Gemma-2-2B-it and Gemma-2-9B-it increases RewardBench accuracy from 0.832 to 0.868. For Best-of-N selection, our framework increases length-controlled win rates while producing shorter outputs, and remains robust to lengthening and mild off-topic drift in controlled rewrite tests.",
+      "url": "https://arxiv.org/abs/2604.13833",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-15",
+      "score": 0.8867
+    },
+    {
+      "id": "2604.13634",
+      "title": "Calibrated Speculative Decoding: Frequency-Guided Candidate Selection for Efficient Inference",
+      "authors": [
+        "Xuwen Zhou",
+        "Fangxin Liu",
+        "Chao Wang",
+        "Xiao Zheng",
+        "Hao Zheng",
+        "Min He",
+        "Li Jiang",
+        "Haibing Guan"
+      ],
+      "abstract": "Speculative decoding accelerates autoregressive generation by letting draft tokens bypass full verification, but conventional frameworks suffer from frequent false rejections, particularly when draft models produce semantically correct but lexically divergent outputs. In this paper, we present Calibrated Speculative Decoding (CSD), a training-free framework that recovers valid tokens discarded by standard verification. Guided by the principle of \"Frequency-Guided Candidate Selection and Probability-Guarded Acceptance,\" CSD incorporates two lightweight modules: Online Correction Memory, which aggregates historical rejections to propose recurring divergence patterns as rescue candidates, and Semantic Consistency Gating, which verifies candidate admissibility using probability ratios instead of exact token matching. Our evaluation across diverse large language models demonstrates that CSD outperforms existing methods, achieving a peak throughput speedup of 2.33x. CSD preserves model accuracy across all tasks while further boosting performance on complex reasoning datasets. These results establish CSD as a highly effective, lightweight solution for practical LLM deployments.",
+      "url": "https://arxiv.org/abs/2604.13634",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-15",
+      "score": 0.8865
+    },
+    {
+      "id": "2604.13318",
+      "title": "WebXSkill: Skill Learning for Autonomous Web Agents",
+      "authors": [
+        "Zhaoyang Wang",
+        "Qianhui Wu",
+        "Xuchao Zhang",
+        "Chaoyun Zhang",
+        "Wenlin Yao",
+        "Fazle Elahi Faisal",
+        "Baolin Peng",
+        "Si Qin",
+        "Suman Nath",
+        "Qingwei Lin",
+        "Chetan Bansal",
+        "Dongmei Zhang",
+        "Saravan Rajmohan",
+        "Jianfeng Gao",
+        "Huaxiu Yao"
+      ],
+      "abstract": "Autonomous web agents powered by large language models (LLMs) have shown promise in completing complex browser tasks, yet they still struggle with long-horizon workflows. A key bottleneck is the grounding gap in existing skill formulations: textual workflow skills provide natural language guidance but cannot be directly executed, while code-based skills are executable but opaque to the agent, offering no step-level understanding for error recovery or adaptation. We introduce WebXSkill, a framework that bridges this gap with executable skills, each pairing a parameterized action program with step-level natural language guidance, enabling both direct execution and agent-driven adaptation. WebXSkill operates in three stages: skill extraction mines reusable action subsequences from readily available synthetic agent trajectories and abstracts them into parameterized skills, skill organization indexes skills into a URL-based graph for context-aware retrieval, and skill deployment exposes two complementary modes, grounded mode for fully automated multi-step execution and guided mode where skills serve as step-by-step instructions that the agent follows with its native planning. On WebArena and WebVoyager, WebXSkill improves task success rate by up to 9.8 and 12.9 points over the baseline, respectively, demonstrating the effectiveness of executable skills for web agents. The code is publicly available at https://github.com/aiming-lab/WebXSkill.",
+      "url": "https://arxiv.org/abs/2604.13318",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-14",
+      "github_url": "https://github.com/aiming-lab/WebXSkill.",
+      "score": 0.8861
+    },
+    {
+      "id": "2604.13201",
+      "title": "InfiniteScienceGym: An Unbounded, Procedurally-Generated Benchmark for Scientific Analysis",
+      "authors": [
+        "Oliver Bentham",
+        "Vivek Srikumar"
+      ],
+      "abstract": "Large language models are emerging as scientific assistants, but evaluating their ability to reason from empirical data remains challenging. Benchmarks derived from published studies and human annotations inherit publication bias, known-knowledge bias, label noise, and substantial storage requirements. We present InfiniteScienceGym, a procedurally generated benchmark of scientific repositories paired with a verifiable question-answering task. From a seed, the simulator deterministically generates a self-contained repository with realistic directory structure, files, and tabular data, and a privileged QA generator produces both answerable and unanswerable questions with exact ground truth. This makes it possible to evaluate evidence-grounded reasoning, abstention, and tool-mediated analysis in a controlled setting without distributing a large static corpus. InfiniteScienceGym complements real scientific benchmarks by targeting blind spots and failure modes that are hard to evaluate using published datasets alone. Evaluating both proprietary and open-weight models, we find that none achieve more than 45% accuracy overall, that recognizing unanswerable questions remains a major weakness, and that stronger models tend to use tools more effectively rather than simply consuming more tokens.",
+      "url": "https://arxiv.org/abs/2604.13201",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-14",
+      "score": 0.8856
+    },
+    {
+      "id": "2604.13787",
+      "title": "ToolOmni: Enabling Open-World Tool Use via Agentic learning with Proactive Retrieval and Grounded Execution",
+      "authors": [
+        "Shouzheng Huang",
+        "Meishan Zhang",
+        "Baotian Hu",
+        "Min Zhang"
+      ],
+      "abstract": "Large Language Models (LLMs) enhance their problem-solving capability by utilizing external tools. However, in open-world scenarios with massive and evolving tool repositories, existing methods relying on static embedding retrieval or parameter memorization of tools struggle to align user intent with tool semantics or generalize to unseen tools, respectively, leading to suboptimal accuracy of open-world tool retrieval and execution. To address these, we present ToolOmni, a unified agentic framework that enables LLMs for open-world tool use by proactive retrieval and grounded execution within a reasoning loop. First, we construct a cold-start multi-turn interaction dataset to instill foundational agentic capabilities via Supervised Fine-Tuning (SFT). Then, we introduce open-world tool learning based on a Decoupled Multi-Objective GRPO algorithm, which simultaneously optimizes LLMs for both tool retrieval accuracy and execution efficacy in online environments. Extensive experiments demonstrate that ToolOmni achieves state-of-the-art performance both in retrieval and execution, surpassing strong baselines by a significant margin of +10.8% in end-to-end execution success rate, while exhibiting exceptional robustness and generalization capabilities.",
+      "url": "https://arxiv.org/abs/2604.13787",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-15",
+      "score": 0.8851
+    },
+    {
+      "id": "2604.13777",
+      "title": "From Anchors to Supervision: Memory-Graph Guided Corpus-Free Unlearning for Large Language Models",
+      "authors": [
+        "Wenxuan Li",
+        "Zhenfei Zhang",
+        "Mi Zhang",
+        "Geng Hong",
+        "Mi Wen",
+        "Xiaoyu You",
+        "Min Yang"
+      ],
+      "abstract": "Large language models (LLMs) may memorize sensitive or copyrighted content, raising significant privacy and legal concerns. While machine unlearning has emerged as a potential remedy, prevailing paradigms rely on user-provided forget sets, making unlearning requests difficult to audit and exposing systems to secondary leakage and malicious abuse. We propose MAGE, a Memory-grAph Guided Erasure framework for user-minimized, corpus-free unlearning. Given only a lightweight user anchor that identifies a target entity, MAGE probes the target LLM to recover target-related memorization, organizes it into a weighted local memory graph, and synthesizes scoped supervision for unlearning. MAGE is model-agnostic, can be plugged into standard unlearning methods, and requires no access to the original training corpus. Experiments on two benchmarks, TOFU and RWKU, demonstrate that MAGE's self-generated supervision achieves effective unlearning performance comparable to supervision generated with external reference, while preserving overall utility. These results support a practical and auditable unlearning workflow driven by minimal anchors rather than user-supplied forget corpora.",
+      "url": "https://arxiv.org/abs/2604.13777",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-15",
+      "score": 0.8847
+    },
+    {
+      "id": "2604.13515",
+      "title": "SFT-GRPO Data Overlap as a Post-Training Hyperparameter for Autoformalization",
+      "authors": [
+        "Xiaole Su",
+        "Kasey Zhang",
+        "Andy Lyu"
+      ],
+      "abstract": "Supervised fine-tuning (SFT) followed by Group Relative Policy Optimization (GRPO) is a common post-training recipe. We conduct a controlled ablation over SFT-GRPO data overlap, evaluating Qwen3-8B (thinking disabled) post-trained for Lean 4 autoformalization under six conditions that differ solely in training recipe: a base model, SFT-only, GRPO-only, and three SFT+GRPO configurations where 0 percent, 30 percent, or 100 percent of the GRPO prompts coincide with the SFT corpus. Keeping SFT and GRPO data disjoint consistently outperforms full overlap at zero additional compute cost. Evaluating on Gaokao-Formal and PutnamBench under both compile pass at k and semantic pass at k assessed by an LLM judge, we find that lower overlap is monotonically associated with higher compilation and semantic accuracy. At 0 percent overlap, GRPO yields a 10.4 percentage point semantic gain over SFT alone on Gaokao, while at 100 percent overlap both metrics remain flat, rendering the GRPO stage effectively redundant. We further show that dual-metric evaluation reveals compile semantic gaps exceeding 30 percentage points for the highest compiling models, a disparity invisible under compile-only benchmarking. To our knowledge, this is the first controlled investigation of SFT-GRPO data overlap as a post-training hyperparameter, demonstrating how model behavior varies based on the degree of data sharing between training stages.",
+      "url": "https://arxiv.org/abs/2604.13515",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.LO"
+      ],
+      "submitted": "2026-04-15",
+      "score": 0.8846
+    },
+    {
+      "id": "2604.13010",
+      "title": "Lightning OPD: Efficient Post-Training for Large Reasoning Models with Offline On-Policy Distillation",
+      "authors": [
+        "Yecheng Wu",
+        "Song Han",
+        "Hai Cai"
+      ],
+      "abstract": "On-policy distillation (OPD) has emerged as an efficient post-training paradigm for large language models. However, standard OPD requires a live teacher inference server throughout training, resulting in substantial infrastructure overhead. In this work, we investigate whether on-policy distillation can be performed offline. A natural approach is to precompute teacher log-probabilities once over SFT rollouts and reuse them during training. In practice, however, this offline variant fails to reliably match the performance of standard OPD. To understand this discrepancy, we identify a previously overlooked condition that is critical for any OPD pipeline, which we term teacher consistency. This condition requires that the same teacher model be used for both supervised fine-tuning and OPD. We show that violating teacher consistency introduces an irreducible gradient bias, causing both offline and online OPD to converge to a suboptimal fixed point regardless of training duration. Building on this insight, we propose Lightning OPD, an offline on-policy distillation framework that enforces teacher consistency by precomputing teacher log-probabilities over SFT rollouts. This design eliminates the need for a live teacher server entirely. We further show that, under teacher consistency, Lightning OPD shares the same optimum as standard OPD, with bounded gradient discrepancy and an implicit regularization effect that helps prevent policy drift. Extensive experiments on mathematical reasoning and code generation demonstrate that Lightning OPD achieves state-of-the-art performance with significantly improved efficiency. Starting from an SFT-initialized Qwen3-8B-Base model, Lightning OPD reaches 69.9% on AIME 2024 in just 30 GPU hours, achieving a 4.0x speedup over standard OPD and substantially lowering the barrier to entry for academic research on LLM post-training.",
+      "url": "https://arxiv.org/abs/2604.13010",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-14",
+      "score": 0.8845
+    },
+    {
+      "id": "2604.12955",
+      "title": "Modeling Co-Pilots for Text-to-Model Translation",
+      "authors": [
+        "Serdar Kadioglu",
+        "Karthik Uppuluri",
+        "Akash Singirikonda"
+      ],
+      "abstract": "There is growing interest in leveraging large language models (LLMs) for text-to-model translation and optimization tasks. This paper aims to advance this line of research by introducing \\textsc{Text2Model} and \\textsc{Text2Zinc}. \\textsc{Text2Model} is a suite of co-pilots based on several LLM strategies with varying complexity, along with an online leaderboard. \\textsc{Text2Zinc} is a cross-domain dataset for capturing optimization and satisfaction problems specified in natural language, along with an interactive editor with built-in AI assistant. While there is an emerging literature on using LLMs for translating combinatorial problems into formal models, our work is the first attempt to integrate \\textit{both} satisfaction and optimization problems within a \\textit{unified architecture} and \\textit{dataset}. Moreover, our approach is \\textit{solver-agnostic} unlike existing work that focuses on translation to a solver-specific model. To achieve this, we leverage \\textsc{MiniZinc}'s solver-and-paradigm-agnostic modeling capabilities to formulate combinatorial problems. We conduct comprehensive experiments to compare execution and solution accuracy across several single- and multi-call strategies, including; zero-shot prompting, chain-of-thought reasoning, intermediate representations via knowledge-graphs, grammar-based syntax encoding, and agentic approaches that decompose the model into sequential sub-tasks. Our co-pilot strategies are competitive, and in parts improve, recent research in this domain. Our findings indicate that while LLMs are promising they are not yet a push-button technology for combinatorial modeling. We contribute \\textsc{Text2Model} co-pilots and leaderboard, and \\textsc{Text2Zinc} and interactive editor to open-source to support closing this performance gap.",
+      "url": "https://arxiv.org/abs/2604.12955",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-14",
+      "score": 0.8844
+    },
+    {
+      "id": "2604.13552",
+      "title": "Training-Free Test-Time Contrastive Learning for Large Language Models",
+      "authors": [
+        "Kaiwen Zheng",
+        "Kai Zhou",
+        "Jinwu Hu",
+        "Te Gu",
+        "Mingkai Peng",
+        "Fei Liu"
+      ],
+      "abstract": "Large language models (LLMs) demonstrate strong reasoning capabilities, but their performance often degrades under distribution shift. Existing test-time adaptation (TTA) methods rely on gradient-based updates that require white-box access and need substantial overhead, while training-free alternatives are either static or depend on external guidance. In this paper, we propose Training-Free Test-Time Contrastive Learning TF-TTCL, a training-free adaptation framework that enables a frozen LLM to improve online by distilling supervision from its own inference experiences. Specifically, TF-TTCL implements a dynamic \"Explore-Reflect-Steer\" loop through three core modules: 1) Semantic Query Augmentation first diversifies problem views via multi-agent role-playing to generate different reasoning trajectories; 2) Contrastive Experience Distillation then captures the semantic gap between superior and inferior trajectories, distilling them into explicit textual rules; and 3) Contextual Rule Retrieval finally activates these stored rules during inference to dynamically steer the frozen LLM toward robust reasoning patterns while avoiding observed errors. Extensive experiments on closed-ended reasoning tasks and open-ended evaluation tasks demonstrate that TF-TTCL consistently outperforms strong zero-shot baselines and representative TTA methods under online evaluation. Code is available at https://github.com/KevinSCUTer/TF-TTCL.",
+      "url": "https://arxiv.org/abs/2604.13552",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-15",
+      "github_url": "https://github.com/KevinSCUTer/TF-TTCL.",
+      "score": 0.8841
+    },
+    {
+      "id": "2604.12988",
+      "title": "ROSE: An Intent-Centered Evaluation Metric for NL2SQL",
+      "authors": [
+        "Wenqi Pei",
+        "Shizheng Hou",
+        "Boyan Li",
+        "Han Chen",
+        "Zhichao Shi",
+        "Yuyu Luo"
+      ],
+      "abstract": "Execution Accuracy (EX), the widely used metric for evaluating the effectiveness of Natural Language to SQL (NL2SQL) solutions, is becoming increasingly unreliable. It is sensitive to syntactic variation, ignores that questions may admit multiple interpretations, and is easily misled by erroneous ground-truth SQL. To address this, we introduce ROSE, an intent-centered metric that focuses on whether the predicted SQL answers the question, rather than consistency with the ground-truth SQL under the reference-dependent paradigm. ROSE employs an adversarial Prover-Refuter cascade: SQL Prover assesses the semantic correctness of a predicted SQL against the user's intent independently, while Adversarial Refuter uses the ground-truth SQL as evidence to challenge and refine this judgment. On our expert-aligned validation set ROSE-VEC, ROSE achieves the best agreement with human experts, outperforming the next-best metric by nearly 24% in Cohen's Kappa. We also conduct a largescale re-evaluation of 19 NL2SQL methods, revealing four valuable insights. We release ROSE and ROSE-VEC to facilitate more reliable NL2SQL research.",
+      "url": "https://arxiv.org/abs/2604.12988",
+      "categories": [
+        "cs.DB",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-14",
+      "score": 0.884
+    },
+    {
+      "id": "2604.13006",
+      "title": "One Token Away from Collapse: The Fragility of Instruction-Tuned Helpfulness",
+      "authors": [
+        "Erfan Baghaei Potraghloo",
+        "Seyedarmin Azizi",
+        "Souvik Kundu",
+        "Massoud Pedram"
+      ],
+      "abstract": "Instruction-tuned large language models produce helpful, structured responses, but how robust is this helpfulness when trivially constrained? We show that simple lexical constraints (banning a single punctuation character or common word) cause instruction-tuned LLMs to collapse their responses, losing 14--48% of comprehensiveness in pairwise evaluation across three open-weight model families and one closed-weight model (GPT-4o-mini). The baseline response is preferred in 77--100% of 1,920 pairwise comparisons judged by GPT-4o-mini and GPT-4o. Notably, GPT-4o-mini suffers 31% comprehensiveness loss (99% baseline win rate), demonstrating that the fragility extends to commercially deployed closed-weight models, contrary to prior findings on format-level constraints. Through mechanistic analysis, we identify this as a planning failure: two-pass generation (free generation followed by constrained rewriting) recovers 59--96% of response length, and linear probes on prompt representations predict response length with $R^2 = 0.51$--$0.93$ before generation begins, with $R^2$ tracking collapse severity across models. The same probes yield negative $R^2$ on base models, confirming that instruction tuning creates the representational structure encoding the collapse decision. Crucially, base models show no systematic collapse under identical constraints, with effects that are small, noisy, and bidirectional, demonstrating that instruction tuning creates this fragility by coupling task competence to narrow surface-form templates. The effect replicates on MT-Bench across all eight task categories. We further show that standard independent LLM-as-judge evaluation detects only a 3.5% average quality drop where pairwise evaluation reveals 23%, exposing a methodological blind spot in how constrained generation is assessed.",
+      "url": "https://arxiv.org/abs/2604.13006",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-14",
+      "score": 0.8838
+    },
+    {
+      "id": "2604.13902",
+      "title": "DiPO: Disentangled Perplexity Policy Optimization for Fine-grained Exploration-Exploitation Trade-Off",
+      "authors": [
+        "Xiaofan Li",
+        "Ming Yang",
+        "Zhiyuan Ma",
+        "Shichao Ma",
+        "Jintao Du",
+        "Yu Cheng",
+        "Weiqiang Wang",
+        "Zhizhong Zhang",
+        "Xin Tan",
+        "Yanyun Qu",
+        "Lizhuang Ma",
+        "Yuan Xie"
+      ],
+      "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) has catalyzed significant advances in the reasoning capabilities of Large Language Models (LLMs). However, effectively managing the exploration and exploitation trade-off remains a critical challenge. In this paper, we fully analyze the exploration and exploitation dilemma of extremely hard and easy samples during the training and propose a new fine-grained trade-off mechanism. Concretely, we introduce a perplexity space disentangling strategy that divides the sample space into distinct exploration (high perplexity) and exploitation (low perplexity) subspaces, thereby mining fine-grained samples requiring exploration-exploitation trade-off. Subsequently, we propose a bidirectional reward allocation mechanism with a minimum impact on verification rewards to implement perplexity-guided exploration and exploitation, enabling more stable policy optimization. Finally, we have evaluated our method on two mainstream tasks: mathematical reasoning and function calling, and experimental results demonstrate the superiority of the proposed method, confirming its effectiveness in enhancing LLM performance by fine-grained exploration-exploitation trade-off.",
+      "url": "https://arxiv.org/abs/2604.13902",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-04-15",
+      "score": 0.8837
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "source": "fetch_daily",
+    "n_candidates": 296,
+    "n_ratings": 47,
+    "alpha": 0.94
+  }
+}
