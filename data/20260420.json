@@ -1,0 +1,369 @@
+{
+  "date": "2026-04-20",
+  "collected_at": "2026-04-20T12:36:42.948138+09:00",
+  "papers": [
+    {
+      "id": "2604.16158",
+      "title": "AtManRL: Towards Faithful Reasoning via Differentiable Attention Saliency",
+      "authors": [
+        "Max Henning Höth",
+        "Kristian Kersting",
+        "Björn Deiseroth",
+        "Letitia Parcalabescu"
+      ],
+      "abstract": "Large language models (LLMs) increasingly rely on chain-of-thought (CoT) reasoning to solve complex tasks. Yet ensuring that the reasoning trace both contributes to and faithfully reflects the processes underlying the model's final answer, rather than merely accompanying it, remains challenging. We introduce AtManRL, a method that leverages differentiable attention manipulation to learn more faithful reasoning through reinforcement learning. By training an additive attention mask that identifies tokens in the CoT crucial for producing correct answers, we derive a saliency reward signal that encourages the model to generate reasoning traces that genuinely influence its final predictions. We integrate this saliency reward with outcome-based rewards within the GRPO framework to jointly optimize for correctness and interpretability. Experiments on GSM8K and MMLU with Llama-3.2-3B-Instruct demonstrate that our approach can identify influential reasoning tokens and enable training more transparent reasoning models.",
+      "url": "https://arxiv.org/abs/2604.16158",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8958
+    },
+    {
+      "id": "2604.15529",
+      "title": "LACE: Lattice Attention for Cross-thread Exploration",
+      "authors": [
+        "Yang Li",
+        "Zirui Zhang",
+        "Yang Liu",
+        "Chengzhi Mao"
+      ],
+      "abstract": "Current large language models reason in isolation. Although it is common to sample multiple reasoning paths in parallel, these trajectories do not interact, and often fail in the same redundant ways. We introduce LACE, a framework that transforms reasoning from a collection of independent trials into a coordinated, parallel process. By repurposing the model architecture to enable cross-thread attention, LACE allows concurrent reasoning paths to share intermediate insights and correct one another during inference. A central challenge is the absence of natural training data that exhibits such collaborative behavior. We address this gap with a synthetic data pipeline that explicitly teaches models to communicate and error-correct across threads. Experiments show that this unified exploration substantially outperforms standard parallel search, improving reasoning accuracy by over 7 points. Our results suggest that large language models can be more effective when parallel reasoning paths are allowed to interact.",
+      "url": "https://arxiv.org/abs/2604.15529",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-16",
+      "score": 0.895
+    },
+    {
+      "id": "2604.15771",
+      "title": "Skill-RAG: Failure-State-Aware Retrieval Augmentation via Hidden-State Probing and Skill Routing",
+      "authors": [
+        "Kai Wei",
+        "Raymond Li",
+        "Xi Zhu",
+        "Zhaoqian Xue",
+        "Jiaojiao Han",
+        "Jingcheng Niu",
+        "Fan Yang"
+      ],
+      "abstract": "Retrieval-Augmented Generation (RAG) has emerged as a foundational paradigm for grounding large language models in external knowledge. While adaptive retrieval mechanisms have improved retrieval efficiency, existing approaches treat post-retrieval failure as a signal to retry rather than to diagnose -- leaving the structural causes of query-evidence misalignment unaddressed. We observe that a significant portion of persistent retrieval failures stem not from the absence of relevant evidence but from an alignment gap between the query and the evidence space. We propose Skill-RAG, a failure-aware RAG framework that couples a lightweight hidden-state prober with a prompt-based skill router. The prober gates retrieval at two pipeline stages; upon detecting a failure state, the skill router diagnoses the underlying cause and selects among four retrieval skills -- query rewriting, question decomposition, evidence focusing, and an exit skill for truly irreducible cases -- to correct misalignment before the next generation attempt. Experiments across multiple open-domain QA and complex reasoning benchmarks show that Skill-RAG substantially improves accuracy on hard cases persisting after multi-turn retrieval, with particularly strong gains on out-of-distribution datasets. Representation-space analyses further reveal that the proposed skills occupy structured, separable regions of the failure state space, supporting the view that query-evidence misalignment is a typed rather than monolithic phenomenon.",
+      "url": "https://arxiv.org/abs/2604.15771",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8948
+    },
+    {
+      "id": "2604.15597",
+      "title": "LLMs Corrupt Your Documents When You Delegate",
+      "authors": [
+        "Philippe Laban",
+        "Tobias Schnabel",
+        "Jennifer Neville"
+      ],
+      "abstract": "Large Language Models (LLMs) are poised to disrupt knowledge work, with the emergence of delegated work as a new interaction paradigm (e.g., vibe coding). Delegation requires trust - the expectation that the LLM will faithfully execute the task without introducing errors into documents. We introduce DELEGATE-52 to study the readiness of AI systems in delegated workflows. DELEGATE-52 simulates long delegated workflows that require in-depth document editing across 52 professional domains, such as coding, crystallography, and music notation. Our large-scale experiment with 19 LLMs reveals that current models degrade documents during delegation: even frontier models (Gemini 3.1 Pro, Claude 4.6 Opus, GPT 5.4) corrupt an average of 25% of document content by the end of long workflows, with other models failing more severely. Additional experiments reveal that agentic tool use does not improve performance on DELEGATE-52, and that degradation severity is exacerbated by document size, length of interaction, or presence of distractor files. Our analysis shows that current LLMs are unreliable delegates: they introduce sparse but severe errors that silently corrupt documents, compounding over long interaction.",
+      "url": "https://arxiv.org/abs/2604.15597",
+      "categories": [
+        "cs.CL",
+        "cs.HC"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.894
+    },
+    {
+      "id": "2604.15877",
+      "title": "Experience Compression Spectrum: Unifying Memory, Skills, and Rules in LLM Agents",
+      "authors": [
+        "Xing Zhang",
+        "Guanghui Wang",
+        "Yanwei Cui",
+        "Wei Qiu",
+        "Ziyuan Li",
+        "Bing Zhu",
+        "Peiyang He"
+      ],
+      "abstract": "As LLM agents scale to long-horizon, multi-session deployments, efficiently managing accumulated experience becomes a critical bottleneck. Agent memory systems and agent skill discovery both address this challenge -- extracting reusable knowledge from interaction traces -- yet a citation analysis of 1,136 references across 22 primary papers reveals a cross-community citation rate below 1%. We propose the \\emph{Experience Compression Spectrum}, a unifying framework that positions memory, skills, and rules as points along a single axis of increasing compression (5--20$\\times$ for episodic memory, 50--500$\\times$ for procedural skills, 1,000$\\times$+ for declarative rules), directly reducing context consumption, retrieval latency, and compute overhead. Mapping 20+ systems onto this spectrum reveals that every system operates at a fixed, predetermined compression level -- none supports adaptive cross-level compression, a gap we term the \\emph{missing diagonal}. We further show that specialization alone is insufficient -- both communities independently solve shared sub-problems without exchanging solutions -- that evaluation methods are tightly coupled to compression levels, that transferability increases with compression at the cost of specificity, and that knowledge lifecycle management remains largely neglected. We articulate open problems and design principles for scalable, full-spectrum agent learning systems.",
+      "url": "https://arxiv.org/abs/2604.15877",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.MA"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.889
+    },
+    {
+      "id": "2604.15774",
+      "title": "MemEvoBench: Benchmarking Memory MisEvolution in LLM Agents",
+      "authors": [
+        "Weiwei Xie",
+        "Shaoxiong Guo",
+        "Fan Zhang",
+        "Tian Xia",
+        "Xue Yang",
+        "Lizhuang Ma",
+        "Junchi Yan",
+        "Qibing Ren"
+      ],
+      "abstract": "Equipping Large Language Models (LLMs) with persistent memory enhances interaction continuity and personalization but introduces new safety risks. Specifically, contaminated or biased memory accumulation can trigger abnormal agent behaviors. Existing evaluation methods have not yet established a standardized framework for measuring memory misevolution. This phenomenon refers to the gradual behavioral drift resulting from repeated exposure to misleading information. To address this gap, we introduce MemEvoBench, the first benchmark evaluating long-horizon memory safety in LLM agents against adversarial memory injection, noisy tool outputs, and biased feedback. The framework consists of QA-style tasks across 7 domains and 36 risk types, complemented by workflow-style tasks adapted from 20 Agent-SafetyBench environments with noisy tool returns. Both settings employ mixed benign and misleading memory pools within multi-round interactions to simulate memory evolution. Experiments on representative models reveal substantial safety degradation under biased memory updates. Our analysis suggests that memory evolution is a significant contributor to these failures. Furthermore, static prompt-based defenses prove insufficient, underscoring the urgency of securing memory evolution in LLM agents.",
+      "url": "https://arxiv.org/abs/2604.15774",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8863
+    },
+    {
+      "id": "2604.16042",
+      "title": "Towards Intrinsic Interpretability of Large Language Models:A Survey of Design Principles and Architectures",
+      "authors": [
+        "Yutong Gao",
+        "Qinglin Meng",
+        "Yuan Zhou",
+        "Liangming Pan"
+      ],
+      "abstract": "While Large Language Models (LLMs) have achieved strong performance across many NLP tasks, their opaque internal mechanisms hinder trustworthiness and safe deployment. Existing surveys in explainable AI largely focus on post-hoc explanation methods that interpret trained models through external approximations. In contrast, intrinsic interpretability, which builds transparency directly into model architectures and computations, has recently emerged as a promising alternative. This paper presents a systematic review of the recent advances in intrinsic interpretability for LLMs, categorizing existing approaches into five design paradigms: functional transparency, concept alignment, representational decomposability, explicit modularization, and latent sparsity induction. We further discuss open challenges and outline future research directions in this emerging field. The paper list is available at: https://github.com/PKU-PILLAR-Group/Survey-Intrinsic-Interpretability-of-LLMs.",
+      "url": "https://arxiv.org/abs/2604.16042",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-17",
+      "github_url": "https://github.com/PKU-PILLAR-Group/Survey-Intrinsic-Interpretability-of-LLMs.",
+      "score": 0.8854
+    },
+    {
+      "id": "2604.15490",
+      "title": "Think Multilingual, Not Harder: A Data-Efficient Framework for Teaching Reasoning Models to Code-Switch",
+      "authors": [
+        "Eleanor M. Lin",
+        "David Jurgens"
+      ],
+      "abstract": "Recent developments in reasoning capabilities have enabled large language models to solve increasingly complex mathematical, symbolic, and logical tasks. Interestingly, while reasoning models are often trained to generate monolingual text, these models have also been observed to code-switch (i.e., mix languages). Prior works have either viewed code-switching as an undesirable error, attempted to control code-switching through modifications to input prompts or the output decoding process, or focus on narrow subsets of languages, domains, tasks, and models. We address these gaps by introducing the first linguistically and behaviorally motivated fine-tuning framework for identifying beneficial code-switched reasoning behaviors in large language models and teaching these models to code-switch more effectively for reasoning. First, we create and systematically analyze a dataset of reasoning traces from diverse models, languages, tasks, and domains to understand the types of code-switching behaviors found in existing reasoning models. Then, we develop fine-tuning interventions that teach reasoning models to code-switch based on our observations of helpful behaviors in existing models. We find that our framework can significantly increase beneficial code-switched reasoning behaviors in a data-efficient manner. Interestingly, we also find that code-switching behaviors in reasoning models can be modified by fine-tuning for tasks that do not directly demonstrate code-switching in reasoning (e.g., machine translation). Our work suggests that data-efficient interventions can instill helpful forms of code-switching behavior in reasoning models.",
+      "url": "https://arxiv.org/abs/2604.15490",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-16",
+      "score": 0.8849
+    },
+    {
+      "id": "2604.16027",
+      "title": "Where does output diversity collapse in post-training?",
+      "authors": [
+        "Constantinos Karouzos",
+        "Xingwei Tan",
+        "Nikolaos Aletras"
+      ],
+      "abstract": "Post-trained language models produce less varied outputs than their base counterparts. This output diversity collapse undermines inference-time scaling methods that rely on varied samples, and risks homogenizing model outputs on creative and value-laden tasks. Prior work attributes collapse to specific post-training methods, without separating the role of training data composition from the method, or the generation format from the model weights. We trace output diversity through three parallel post-training lineages of Olmo 3, Think (chain-of-thought distillation), Instruct (broad multi-source data), and RL-Zero, across 15 tasks and four text diversity metrics. We find that the location of collapse co-varies with data composition: the Think lineage loses most semantic diversity at supervised fine-tuning, and the effect of DPO is larger in Instruct than in Think. Suppressing chain-of-thought reasoning at inference in Think models drops accuracy on hard tasks, yet leaves answer-level diversity unchanged, showing that the collapse is embedded in the model weights by training data, not imposed by the generation format. Decomposing diversity loss on six verifiable tasks into a quality-control component (removal of incorrect outputs) and a residual component (genuine narrowing among correct outputs) reveals that the split is task-dependent, and Think models retain more correct-answer diversity than Instruct despite collapsing more in aggregate. Our results indicate that diversity collapse is determined during training by data composition and cannot be addressed at inference time alone.",
+      "url": "https://arxiv.org/abs/2604.16027",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8848
+    },
+    {
+      "id": "2604.16022",
+      "title": "SocialGrid: A Benchmark for Planning and Social Reasoning in Embodied Multi-Agent Systems",
+      "authors": [
+        "Hikaru Shindo",
+        "Hanzhao Lin",
+        "Lukas Helff",
+        "Patrick Schramowski",
+        "Kristian Kersting"
+      ],
+      "abstract": "As Large Language Models (LLMs) transition from text processors to autonomous agents, evaluating their social reasoning in embodied multi-agent settings becomes critical. We introduce SocialGrid, an embodied multi-agent environment inspired by Among Us that evaluates LLM agents on planning, task execution, and social reasoning. Our evaluations reveal that even the strongest open model (GPT-OSS-120B) achieves below 60% accuracy in task completion and planning, with agents getting stuck in repetitive behaviors or failing to navigate basic obstacles. Since poor navigation confounds evaluation of social intelligence, SocialGrid offers an optional Planning Oracle to isolate social reasoning from planning deficits. While planning assistance improves task completion, social reasoning remains a bottleneck: agents fail to detect deception at near-random chance regardless of scale, relying on shallow heuristics rather than accumulating behavioral evidence. SocialGrid provides automatic failure analysis and fine-grained metrics, enabling developers to diagnose and improve their agents. We also establish a competitive leaderboard using Elo ratings from adversarial league play.",
+      "url": "https://arxiv.org/abs/2604.16022",
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.MA"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8846
+    },
+    {
+      "id": "2604.15830",
+      "title": "Placing Puzzle Pieces Where They Matter: A Question Augmentation Framework for Reinforcement Learning",
+      "authors": [
+        "Yangyi Fang",
+        "Jiaye Lin",
+        "Xiaoliang Fu",
+        "Cong Qin",
+        "Haolin Shi"
+      ],
+      "abstract": "Reinforcement learning has become a powerful approach for enhancing large language model reasoning, but faces a fundamental dilemma: training on easy problems can cause overfitting and pass@k degradation, while training on hard problems often results in sparse rewards. Recent question augmentation methods address this by prepending partial solutions as hints. However, uniform hint provision may introduce redundant information while missing critical reasoning bottlenecks, and excessive hints can reduce reasoning diversity, causing pass@k degradation. We propose \\textbf{PieceHint}, a hint injection framework that strategically identifies and provides critical reasoning steps during training. By scoring the importance of different reasoning steps, selectively allocating hints based on problem difficulty, and progressively withdrawing scaffolding, PieceHint enables models to transition from guided learning to independent reasoning. Experiments on six mathematical reasoning benchmarks show that our 1.5B model achieves comparable average performance to 32B baselines while preserving pass@k diversity across all $k$ values.",
+      "url": "https://arxiv.org/abs/2604.15830",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8842
+    },
+    {
+      "id": "2604.15760",
+      "title": "KWBench: Measuring Unprompted Problem Recognition in Knowledge Work",
+      "authors": [
+        "Ankit Maloo"
+      ],
+      "abstract": "We introduce the first version of KWBench (Knowledge Work Bench), a benchmark for unprompted problem recognition in large language models: can an LLM identify a professional scenario before attempting to solve it. Existing frontier benchmarks have saturated, and most knowledge-work evaluations to date reduce to extraction or task completion against a specification. KWBench targets the step before that: recognizing the governing structure of the situation from raw inputs alone.\n  The benchmark contains 223 tasks sourced from practitioners across acquisitions, contract negotiations, clinical pharmacy, organizational politics, fraud analysis, and incentive design. Each task encodes a formal game-theoretic pattern (principal-agent conflict, signaling, mechanism design failure, strategic omission, coalitional dynamics, strategic interdependence) and carries structured ground truth recording the expert reading of the situation and the anticipated failure modes. Models receive raw data and a task prompt with no indication of problem type. Scoring is a three-tier rubric gated by a mandatory conjunctive check. Mandatory criteria encode the predicted wrong paths.\n  We evaluate 16 models. The best model passes on 27.9% of tasks. The top two models agree on only 31.7% of their passes. Among the top 8, 44 tasks are solved by exactly one model; routing across the top 8 covers 50.7% of the benchmark, nearly double the best single model. Conditional on passing, quality scores converge (approx 83% across models); unconditional scores do not. Same models articulate the relevant game-theoretic concept correctly when asked, then fail to apply it unprompted. We release KWBench to shift how frontier models are evaluated on knowledge work, scoring them on whether they recognize the right problem from the situation alone, not only on how well they execute once the problem has been framed for them.",
+      "url": "https://arxiv.org/abs/2604.15760",
+      "categories": [
+        "cs.AI",
+        "cs.GT"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.884
+    },
+    {
+      "id": "2604.15847",
+      "title": "CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization",
+      "authors": [
+        "Junyi Li",
+        "Yongqiang Chen",
+        "Ningning Ding"
+      ],
+      "abstract": "Machine unlearning has gained increasing attention in recent years, as a promising technique to selectively remove unwanted privacy or copyrighted information from Large Language Models that are trained on a massive scale of human data. However, the emergence of Large Reasoning Models (LRMs), which emphasize long chain-of-thought (CoT) reasoning to address complex questions, presents a dilemma to unlearning: existing methods either struggle to completely eliminate undesired knowledge from the CoT traces or degrade the reasoning performances due to the interference with the reasoning process. To this end, we introduce Counterfactual Unlearning through iterative Preference Optimization (CiPO), a novel framework that redefines unlearning as the targeted intervention of the CoT reasoning in LRMs. More specifically, given a desired unlearning target answer, CiPO instructs LRMs to generate a logically valid counterfactual reasoning trace for preference tuning. As the LRM adjusts to the counterfactual trace, CiPO iteratively updates the preference learning data to increase the discrepancy from the original model. This iterative loop ensures both desirable unlearning and smooth optimization, effectively mitigating the dilemma. Experiments on challenging benchmarks demonstrate that CiPO excels at unlearning, completely removing knowledge from both the intermediate CoT steps and the final answer, while preserving the reasoning abilities of LRMs.",
+      "url": "https://arxiv.org/abs/2604.15847",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8837
+    },
+    {
+      "id": "2604.16235",
+      "title": "Optimizing Korean-Centric LLMs via Token Pruning",
+      "authors": [
+        "Hoyeol Kim",
+        "Hyeonwoo Kim"
+      ],
+      "abstract": "This paper presents a systematic benchmark of state-of-the-art multilingual large language models (LLMs) adapted via token pruning - a compression technique that eliminates tokens and embedding parameters corresponding to languages irrelevant to the target application. Focusing on Korean-centric natural language processing (NLP) tasks, we evaluate architectures including Qwen3, Gemma-3, Llama-3, and Aya across three vocabulary configurations: Original, English-Korean (EnKo), and English-Korean-Chinese (EnKoZh). Performance is assessed using established benchmarks for general aptitude, cultural literacy, instruction following, and machine translation. Our findings indicate that token pruning significantly improves generation stability by eliminating language confusion, and in the case of machine translation, frequently enhances performance on Korean-specific tasks. While instruction-following capabilities display architecture-dependent variance linked to latent cross-lingual representations, the significant reduction in vocabulary size validates token pruning as a highly effective optimization strategy for memory-constrained, domain-specific deployments, despite modest gains in inference latency.",
+      "url": "https://arxiv.org/abs/2604.16235",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8834
+    },
+    {
+      "id": "2604.15725",
+      "title": "Reasoning-targeted Jailbreak Attacks on Large Reasoning Models via Semantic Triggers and Psychological Framing",
+      "authors": [
+        "Zehao Wang",
+        "Lanjun Wang"
+      ],
+      "abstract": "Large Reasoning Models (LRMs) have demonstrated strong capabilities in generating step-by-step reasoning chains alongside final answers, enabling their deployment in high-stakes domains such as healthcare and education. While prior jailbreak attack studies have focused on the safety of final answers, little attention has been given to the safety of the reasoning process. In this work, we identify a novel problem that injects harmful content into the reasoning steps while preserving unchanged answers. This type of attack presents two key challenges: 1) manipulating the input instructions may inadvertently alter the LRM's final answer, and 2) the diversity of input questions makes it difficult to consistently bypass the LRM's safety alignment mechanisms and embed harmful content into its reasoning process. To address these challenges, we propose the Psychology-based Reasoning-targeted Jailbreak Attack (PRJA) Framework, which integrates a Semantic-based Trigger Selection module and a Psychology-based Instruction Generation module. Specifically, the proposed PRJA automatically selects manipulative reasoning triggers via semantic analysis and leverages psychological theories of obedience to authority and moral disengagement to generate adaptive instructions for enhancing the LRM's compliance with harmful content generation. Extensive experiments on five question-answering datasets demonstrate that PRJA achieves an average attack success rate of 83.6\\% against several commercial LRMs, including DeepSeek R1, Qwen2.5-Max, and OpenAI o4-mini.",
+      "url": "https://arxiv.org/abs/2604.15725",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8825
+    },
+    {
+      "id": "2604.15593",
+      "title": "DALM: A Domain-Algebraic Language Model via Three-Phase Structured Generation",
+      "authors": [
+        "Chao Li"
+      ],
+      "abstract": "Large language models compress heterogeneous knowledge into a single parameter space, allowing facts from different domains to interfere during generation. We propose DALM, a Domain-Algebraic Language Model that replaces unconstrained token generation with structured denoising over a domain lattice. DALM follows a three-phase generation path: it first resolves domain uncertainty, then relation uncertainty, and finally concept uncertainty, so each stage operates under explicit algebraic constraints. The framework requires only three ingredients: a lattice of domains with computable meet, join, and implication; a typing function over relations that controls inheritance across domains; and a fiber partition that localizes knowledge to domain-specific subsets. Given these ingredients, DALM yields a three-phase encoder-decoder architecture in which generation is confined to a domain fiber, cross-domain contamination is structurally prevented in closed-vocabulary mode and auditably bounded in open-vocabulary mode, and a single query can produce a domain-indexed multi-perspective answer space. We instantiate the framework with the CDC knowledge representation system and outline training and evaluation on validated domain-annotated crystal libraries. DALM reframes language generation as algebraically constrained structured denoising rather than unconstrained decoding over a flat token space.",
+      "url": "https://arxiv.org/abs/2604.15593",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8824
+    },
+    {
+      "id": "2604.16286",
+      "title": "ASMR-Bench: Auditing for Sabotage in ML Research",
+      "authors": [
+        "Eric Gan",
+        "Aryan Bhatt",
+        "Buck Shlegeris",
+        "Julian Stastny",
+        "Vivek Hebbar"
+      ],
+      "abstract": "As AI systems are increasingly used to conduct research autonomously, misaligned systems could introduce subtle flaws that produce misleading results while evading detection. We introduce ASMR-Bench (Auditing for Sabotage in ML Research), a benchmark for evaluating the ability of auditors to detect sabotage in ML research codebases. ASMR-Bench consists of 9 ML research codebases with sabotaged variants that produce qualitatively different experimental results. Each sabotage modifies implementation details, such as hyperparameters, training data, or evaluation code, while preserving the high-level methodology described in the paper. We evaluated frontier LLMs and LLM-assisted human auditors on ASMR-Bench and found that both struggled to reliably detect sabotage: the best performance was an AUROC of 0.77 and a top-1 fix rate of 42%, achieved by Gemini 3.1 Pro. We also tested LLMs as red teamers and found that LLM-generated sabotages were weaker than human-generated ones but still sometimes evaded same-capability LLM auditors. We release ASMR-Bench to support research on monitoring and auditing techniques for AI-conducted research.",
+      "url": "https://arxiv.org/abs/2604.16286",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8822
+    },
+    {
+      "id": "2604.15508",
+      "title": "LLMbench: A Comparative Close Reading Workbench for Large Language Models",
+      "authors": [
+        "David M. Berry"
+      ],
+      "abstract": "LLMbench is a browser-based workbench for the comparative close reading of large language model (LLM) outputs. Where existing tools for LLM comparison, such as Google PAIR's LLM Comparator are engineered for quantitative evaluation and user-rating metrics, LLMbench is oriented towards the hermeneutic practices of the digital humanities. Two model responses to the same prompt are side by side in annotatable panels with four analytical overlays (Probabilities for token-level log-probability inspection, Differences for word-level diff across the two panels, Tone for Hyland-style metadiscourse analysis, and Structure for sentence-level parsing with discourse connective highlighting), alongside five analytical modes, Stochastic Variation, Temperature Gradient, Prompt Sensitivity, Token Probabilities, and Cross-Model Divergence, that make the probabilistic structure of generated text legible at the token level. The tool treats the generated text as a research object in its own right from a probability distribution, a text that could have been otherwise, and provides visualisations including continuous heatmaps, entropy sparklines, pixel maps, and three-dimensional probability terrains, that show the counterfactual history from which each word emerged. This paper describes the tool's architecture, its six modes, and its design rationale, and argues that log-probability data, currently underused in humanistic and social-scientific readings of AI, is an important resource for a critical studies of generative AI models.",
+      "url": "https://arxiv.org/abs/2604.15508",
+      "categories": [
+        "cs.CY",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-16",
+      "score": 0.8819
+    },
+    {
+      "id": "2604.16029",
+      "title": "Cut Your Losses! Learning to Prune Paths Early for Efficient Parallel Reasoning",
+      "authors": [
+        "Jiaxi Bi",
+        "Tongxu Luo",
+        "Wenyu Du",
+        "Zhengyang Tang",
+        "Benyou Wang"
+      ],
+      "abstract": "Parallel reasoning enhances Large Reasoning Models (LRMs) but incurs prohibitive costs due to futile paths caused by early errors. To mitigate this, path pruning at the prefix level is essential, yet existing research remains fragmented without a standardized framework. In this work, we propose the first systematic taxonomy of path pruning, categorizing methods by their signal source (internal vs. external) and learnability (learnable vs. non-learnable). This classification reveals the unexplored potential of learnable internal methods, motivating our proposal of STOP (Super TOken for Pruning). Extensive evaluations across LRMs ranging from 1.5B to 20B parameters demonstrate that STOP achieves superior effectiveness and efficiency compared to existing baselines. Furthermore, we rigorously validate the scalability of STOP under varying compute budgets - for instance, boosting GPT-OSS-20B accuracy on AIME25 from 84% to nearly 90% under fixed compute budgets. Finally, we distill our findings into formalized empirical guidelines to facilitate optimal real-world deployment. Code, data and models are available at https://bijiaxihh.github.io/STOP",
+      "url": "https://arxiv.org/abs/2604.16029",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8817
+    },
+    {
+      "id": "2604.15750",
+      "title": "DepCap: Adaptive Block-Wise Parallel Decoding for Efficient Diffusion LM Inference",
+      "authors": [
+        "Xiang Xia",
+        "Wuyang Zhang",
+        "Jiazheng Liu",
+        "Cheng Yan",
+        "Yanyong Zhang"
+      ],
+      "abstract": "Diffusion language models (DLMs) have emerged as a promising alternative to autoregressive language generation due to their potential for parallel decoding and global refinement of the entire sequence. To unlock this potential, DLM inference must carefully balance generation quality and decoding speed. Recent block-wise DLM decoding methods improve this trade-off by performing diffusion-based decoding sequentially in blocks. However, existing methods typically rely on fixed block schedules or current-step local signals to determine block boundaries, and use conservative confidence-based parallel decoding to avoid conflicts, limiting the quality-speed trade-off. In this paper, we argue that block-wise DLM inference requires more suitable signals for its two core decisions: cross-step signals for determining block boundaries, and token-level conflict signals for parallel decoding. Based on this view, we propose DepCap, a training-free framework for efficient block-wise DLM inference. Specifically, DepCap instantiates the cross-step signal as the influence of the last decoded block and uses it to adaptively determine how far the next block should extend, while identifying a conflict-free subset of tokens for safe parallel decoding within each block, enabling substantial inference acceleration with negligible quality degradation. DepCap is a plug-and-play method applicable to various DLMs, and compatible with existing KV-cache strategies for block-wise DLM. An information-theoretic analysis further suggests that the cumulative last-block influence on a candidate block is approximately additive across tokens, supporting the proposed block-partitioning criterion. Experimental results show that DepCap achieves favorable speed-quality trade-offs across multiple DLM backbones and reasoning and coding benchmarks, with up to 5.63$\\times$ speedup without significant performance degradation.",
+      "url": "https://arxiv.org/abs/2604.15750",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-17",
+      "score": 0.8803
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "source": "fetch_daily",
+    "n_candidates": 297,
+    "n_ratings": 47,
+    "alpha": 0.94
+  }
+}
