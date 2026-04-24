@@ -1,0 +1,377 @@
+{
+  "date": "2026-04-24",
+  "collected_at": "2026-04-24T12:32:41.115238+09:00",
+  "papers": [
+    {
+      "id": "2604.21611",
+      "title": "Process Supervision via Verbal Critique Improves Reasoning in Large Language Models",
+      "authors": [
+        "Hao-Yuan Chen"
+      ],
+      "abstract": "Inference-time scaling for LLM reasoning has focused on three axes: chain depth, sample breadth, and learned step-scorers (PRMs). We introduce a fourth axis, granularity of external verbal supervision, via Verbal Process Supervision (VPS), a training-free framework that uses structured natural-language critique from a stronger supervisor to guide an iterative generate-critique-refine loop up to a round budget R. Across GPQA Diamond, AIME 2025, and LiveCodeBench V6 (covering both closed and open models), VPS yields three key results. First, on GPQA Diamond, GPT-5.4 (High) | GPT-5.4 (Low) reaches 94.9% at R=4, surpassing the 94.1% state of the art without gradient updates. Second, on AIME 2025, VPS enables strong weak-actor rescue, boosting scores from 11.7-26.7% to 63.3-90.0% (up to +63.3 points). Third, at matched compute, VPS outperforms Reflexion by +8.5 to +12.1 points and Self-Consistency@5 by +5.0 pp (GPQA) and +8.3 pp (LiveCodeBench), isolating critique granularity as the key driver. Performance scales with the supervisor-actor capability gap (Pearson r=0.90) and degrades when errors are not linguistically expressible (e.g., code synthesis), motivating hybrid verbal-executable methods. These results establish critique granularity as a new axis of inference-time scaling.",
+      "url": "https://arxiv.org/abs/2604.21611",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8976
+    },
+    {
+      "id": "2604.21794",
+      "title": "Learning to Communicate: Toward End-to-End Optimization of Multi-Agent Language Systems",
+      "authors": [
+        "Ye Yu",
+        "Heming Liu",
+        "Haibo Jin",
+        "Xiaopeng Yuan",
+        "Peng Kuang",
+        "Haohan Wang"
+      ],
+      "abstract": "Multi-agent systems built on large language models have shown strong performance on complex reasoning tasks, yet most work focuses on agent roles and orchestration while treating inter-agent communication as a fixed interface. Latent communication through internal representations such as key-value caches offers a promising alternative to text-based protocols, but existing approaches do not jointly optimize communication with multi-agent reasoning. Therefore we propose DiffMAS, a training framework that treats latent communication as a learnable component of multi-agent systems. DiffMAS performs parameter-efficient supervised training over multi-agent latent trajectories, enabling agents to jointly learn how information should be encoded and interpreted across interactions. Experiments on mathematical reasoning, scientific QA, code generation, and commonsense benchmarks show that DiffMAS consistently improves reasoning accuracy and decoding stability over single-agent inference, text-based multi-agent systems, and prior latent communication methods, achieving 26.7% on AIME24, 20.2% on GPQA-Diamond, and consistent gains across reasoning benchmarks.",
+      "url": "https://arxiv.org/abs/2604.21794",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.MA"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8965
+    },
+    {
+      "id": "2604.21816",
+      "title": "Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/Tools Tax in Scalable Agentic Workflows",
+      "authors": [
+        "Anuj Sadani",
+        "Deepak Kumar"
+      ],
+      "abstract": "The Model Context Protocol (MCP) has become a common interface for connecting large language model (LLM) agents to external tools, but its reliance on stateless, eager schema injection imposes a hidden per-turn overhead the MCP Tax or Tools Tax that practitioner reports place between roughly 10k and 60k tokens in typical multi-server deployments. This payload inflates the key-value cache, is associated with reasoning degradation as context utilization approaches published fracture points around 70%, and turns token budgets into a recurring operational cost. We introduce Tool Attention, a middleware-layer mechanism that generalizes the \"Attention Is All You Need\" paradigm from self-attention over tokens to gated attention over tools. Tool Attention combines (i) an Intent Schema Overlap (ISO) score from sentence embeddings, (ii) a state-aware gating function enforcing preconditions and access scopes, and (iii) a two-phase lazy schema loader that keeps a compact summary pool in context and promotes full JSON schemas only for top-k gated tools. We evaluate on a simulated 120-tool, six-server benchmark whose per-server token counts are calibrated to public audits of real MCP deployments. In this simulation, Tool Attention directly reduces measured per-turn tool tokens by 95.0% (47.3k -> 2.4k) and raises effective context utilization (a token-ratio quantity) from 24% to 91%. End-to-end figures for task success, latency, cost, and reasoning quality are reported as projections derived from the measured token counts combined with published deployment telemetry; they are not measured on live LLM agents, and we mark projected values explicitly throughout. Taken together, the results support a simple thesis: protocol-level efficiency, not raw context length, is a binding constraint on scalable gentic systems. The code for this work is accessible at https://github.com/asadani/tool-attention",
+      "url": "https://arxiv.org/abs/2604.21816",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-23",
+      "github_url": "https://github.com/asadani/tool-attention",
+      "score": 0.8911
+    },
+    {
+      "id": "2604.21584",
+      "title": "CoFEE: Reasoning Control for LLM-Based Feature Discovery",
+      "authors": [
+        "Maximilian Westermann",
+        "Ben Griffin",
+        "Aaron Ontoyin Yin",
+        "Zakari Salifu",
+        "Yagiz Ihlamur",
+        "Kelvin Amoaba",
+        "Joseph Ternasky",
+        "Fuat Alican",
+        "Yigit Ihlamur"
+      ],
+      "abstract": "Feature discovery from complex unstructured data is fundamentally a reasoning problem: it requires identifying abstractions that are predictive of a target outcome while avoiding leakage, proxies, and post-outcome signals. With the introduction of ever-improving Large Language Models (LLMs), our method provides a structured method for addressing this challenge. LLMs are well suited for this task by being able to process large amounts of information, but unconstrained feature generation can lead to weak features. In this work, we study reasoning control in LLMs by inducing cognitive behaviors for improving feature discovery. We introduce CoFEE (Cognitive Feature Engineering Engine), a reasoning control framework that enforces cognitive behaviors in how the LLM reasons during feature discovery. From a machine learning perspective, these cognitive behaviors act as structured inductive biases over the space of candidate features generated by the model. These behaviors have been exploited with success in ML models, and include backward chaining from outcomes, subgoal decomposition, verification against observability and leakage criteria, and explicit backtracking of rejected reasoning paths. In a controlled comparison, we show that enforcing cognitive behaviors yields features with higher empirical predictability than those under unconstrained vanilla LLM prompts. CoFEE achieves an average Success Rate Score that is 15.2% higher than the vanilla approach, while generating 29% fewer features and reducing costs by 53.3%. Using held-out feature evaluation, we assess whether cognitively induced features generalize beyond the data used for discovery. Our results indicate that, in our evaluated setting, reasoning control is associated with improvements in quality and efficiency of LLM-based feature discovery.",
+      "url": "https://arxiv.org/abs/2604.21584",
+      "categories": [
+        "cs.AI",
+        "cs.CE",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8904
+    },
+    {
+      "id": "2604.20994",
+      "title": "Breaking MCP with Function Hijacking Attacks: Novel Threats for Function Calling and Agentic Models",
+      "authors": [
+        "Yannis Belkhiter",
+        "Giulio Zizzo",
+        "Sergio Maffeis",
+        "Seshu Tirupathi",
+        "John D. Kelleher"
+      ],
+      "abstract": "The growth of agentic AI has drawn significant attention to function calling Large Language Models (LLMs), which are designed to extend the capabilities of AI-powered system by invoking external functions. Injection and jailbreaking attacks have been extensively explored to showcase the vulnerabilities of LLMs to user prompt manipulation. The expanded capabilities of agentic models introduce further vulnerabilities via their function calling interface. Recent work in LLM security showed that function calling can be abused, leading to data tampering and theft, causing disruptive behavior such as endless loops, or causing LLMs to produce harmful content in the style of jailbreaking attacks. This paper introduces a novel function hijacking attack (FHA) that manipulates the tool selection process of agentic models to force the invocation of a specific, attacker-chosen function. While existing attacks focus on semantic preference of the model for function-calling tasks, we show that FHA is largely agnostic to the context semantics and robust to the function sets, making it applicable across diverse domains. We further demonstrate that FHA can be trained to produce universal adversarial functions, enabling a single attacked function to hijack tool selection across multiple queries and payload configurations. We conducted experiments on 5 different models, including instructed and reasoning variants, reaching 70% to 100% ASR over the established BFCL dataset. Our findings further demonstrate the need for strong guardrails and security modules for agentic systems.",
+      "url": "https://arxiv.org/abs/2604.20994",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-22",
+      "score": 0.8895
+    },
+    {
+      "id": "2604.21229",
+      "title": "EngramaBench: Evaluating Long-Term Conversational Memory with Structured Graph Retrieval",
+      "authors": [
+        "Julian Acuna"
+      ],
+      "abstract": "Large language model assistants are increasingly expected to retain and reason over information accumulated across many sessions. We introduce EngramaBench, a benchmark for long-term conversational memory built around five personas, one hundred multi-session conversations, and one hundred fifty queries spanning factual recall, cross-space integration, temporal reasoning, adversarial abstention, and emergent synthesis. We evaluate Engrama, a graph-structured memory system, against GPT-4o full-context prompting and Mem0, an open-source vector-retrieval memory system. All three use the same answering model (GPT-4o), isolating the effect of memory architecture. GPT-4o full-context achieves the highest composite score (0.6186), while Engrama scores 0.5367 globally but is the only system to score higher than full-context prompting on cross-space reasoning (0.6532 vs. 0.6291, n=30). Mem0 is cheapest but substantially weaker (0.4809). Ablations reveal that the components driving Engrama's cross-space advantage trade off against global composite score, exposing a systems-level tension between structured memory specialization and aggregate optimization.",
+      "url": "https://arxiv.org/abs/2604.21229",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8893
+    },
+    {
+      "id": "2604.21057",
+      "title": "TRACES: Tagging Reasoning Steps for Adaptive Cost-Efficient Early-Stopping",
+      "authors": [
+        "Yannis Belkhiter",
+        "Seshu Tirupathi",
+        "Giulio Zizzo",
+        "John D. Kelleher"
+      ],
+      "abstract": "The field of Language Reasoning Models (LRMs) has been very active over the past few years with advances in training and inference techniques enabling LRMs to reason longer, and more accurately. However, a growing body of studies show that LRMs are still inefficient, over-generating verification and reflection steps. Additionally, the high-level role of each reasoning step and how different step types contribute to the generation of correct answers, is largely underexplored. To address this challenge, we introduce TRACES (Tagging of the Reasoning steps enabling Adaptive Cost-Efficient early-Stopping), a lightweight framework that tags reasoning steps in real-time, and enable adaptive, cost-efficient early stopping of large-language-model inferences. Building on this framework we monitor reasoning behaviors during inferences, and we find that LRMs tend to shift their reasoning behavior after reaching a correct answer. We demonstrate that the monitoring of the specific type of steps can produce effective interpretable early stopping criteria. We evaluate the TRACES framework on three mathematical reasoning benchmarks, namely, MATH500, GSM8K, AIME and two knowledge and reasoning benchmarks, MMLU and GPQA respectively. We achieve 20 to 50% token reduction while maintaining comparable accuracy to standard generation.",
+      "url": "https://arxiv.org/abs/2604.21057",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-22",
+      "score": 0.889
+    },
+    {
+      "id": "2604.20995",
+      "title": "Value-Conflict Diagnostics Reveal Widespread Alignment Faking in Language Models",
+      "authors": [
+        "Inderjeet Nair",
+        "Jie Ruan",
+        "Lu Wang"
+      ],
+      "abstract": "Alignment faking, where a model behaves aligned with developer policy when monitored but reverts to its own preferences when unobserved, is a concerning yet poorly understood phenomenon, in part because current diagnostic tools remain limited. Prior diagnostics rely on highly toxic and clearly harmful scenarios, causing most models to refuse immediately. As a result, models never deliberate over developer policy, monitoring conditions, or the consequences of non-compliance, making these diagnostics fundamentally unable to detect alignment faking propensity. To support study of this phenomenon, we first introduce VLAF, a diagnostic framework grounded in the hypothesis that alignment faking is most likely when developer policy conflicts with a model's strongly held values. VLAF uses morally unambiguous scenarios to probe this conflict across diverse moral values, bypassing refusal behavior while preserving meaningful deliberative stakes. Using VLAF, we find that alignment faking is substantially more prevalent than previously reported, occurring in models as small as 7B parameters - with olmo2-7b-instruct faking alignment in 37% of cases.Finally, we show that oversight conditions induce activation shifts that lie along a single direction in representation space. This means the behavioral divergence driving alignment faking can be captured by a single contrastive steering vector, which we exploit for lightweight inference-time mitigation. Finally, we exploit this for mitigation that requires no labeled data and minimal computational overhead, achieving relative reductions in alignment faking of 85.8%, 94.0%, and 57.7% on olmo2-7b-instruct, olmo2-13b-instruct, and qwen3-8b respectively.",
+      "url": "https://arxiv.org/abs/2604.20995",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.SE"
+      ],
+      "submitted": "2026-04-22",
+      "score": 0.8865
+    },
+    {
+      "id": "2604.21590",
+      "title": "AgenticQwen: Training Small Agentic Language Models with Dual Data Flywheels for Industrial-Scale Tool Use",
+      "authors": [
+        "Yuanjie Lyu",
+        "Chengyu Wang",
+        "Haonan Zheng",
+        "Yuanhao Yue",
+        "Junbing Yan",
+        "Ming Wang",
+        "Jun Huang"
+      ],
+      "abstract": "Modern industrial applications increasingly demand language models that act as agents, capable of multi-step reasoning and tool use in real-world settings. These tasks are typically performed under strict cost and latency constraints, making small agentic models highly desirable. In this paper, we introduce the AgenticQwen family of models, trained via multi-round reinforcement learning (RL) on synthetic data and a limited amount of open-source data. Our training framework combines reasoning RL and agentic RL with dual data flywheels that automatically generate increasingly challenging tasks. The reasoning flywheel increases task difficulty by learning from errors, while the agentic flywheel expands linear workflows into multi-branch behavior trees that better reflect the decision complexity of real-world applications. We validate AgenticQwen on public benchmarks and in an industrial agent system. The models achieve strong performance on multiple agentic benchmarks, and in our industrial agent system, close the gap with much larger models on search and data analysis tasks. Model checkpoints and part of the synthetic data: https://huggingface.co/collections/alibaba-pai/agenticqwen. Data synthesis and RL training code: https://github.com/haruhi-sudo/data_synth_and_rl. The data synthesis pipeline is also integrated into EasyDistill: https://github.com/modelscope/easydistill.",
+      "url": "https://arxiv.org/abs/2604.21590",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-23",
+      "github_url": "https://github.com/haruhi-sudo/data_synth_and_rl.",
+      "score": 0.8858
+    },
+    {
+      "id": "2604.21003",
+      "title": "The Last Harness You'll Ever Build",
+      "authors": [
+        "Haebin Seong",
+        "Li Yin",
+        "Haoran Zhang"
+      ],
+      "abstract": "AI agents are increasingly deployed on complex, domain-specific workflows -- navigating enterprise web applications that require dozens of clicks and form fills, orchestrating multi-step research pipelines that span search, extraction, and synthesis, automating code review across unfamiliar repositories, and handling customer escalations that demand nuanced domain knowledge. \\textbf{Each new task domain requires painstaking, expert-driven harness engineering}: designing the prompts, tools, orchestration logic, and evaluation criteria that make a foundation model effective. We present a two-level framework that automates this process. At the first level, the \\textbf{Harness Evolution Loop} optimizes a worker agent's harness $\\mathcal{H}$ for a single task: a Worker Agent $W_{\\mathcal{H}}$ executes the task, an Evaluator Agent $V$ adversarially diagnoses failures and scores performance, and an Evolution Agent $E$ modifies the harness based on the full history of prior attempts. At the second level, the \\textbf{Meta-Evolution Loop} optimizes the evolution protocol $Λ= (W_{\\mathcal{H}}, \\mathcal{H}^{(0)}, V, E)$ itself across diverse tasks, \\textbf{learning a protocol $Λ^{(\\text{best})}$ that enables rapid harness convergence on any new task -- so that adapting an agent to a novel domain requires no human harness engineering at all.} We formalize the correspondence to meta-learning and present both algorithms. The framework \\textbf{shifts manual harness engineering into automated harness engineering}, and takes one step further -- \\textbf{automating the design of the automation itself}.",
+      "url": "https://arxiv.org/abs/2604.21003",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-22",
+      "score": 0.8851
+    },
+    {
+      "id": "2604.21018",
+      "title": "Adaptive Test-Time Compute Allocation with Evolving In-Context Demonstrations",
+      "authors": [
+        "Bowen Zuo",
+        "Dongruo Zhou",
+        "Yinglun Zhu"
+      ],
+      "abstract": "While scaling test-time compute can substantially improve model performance, existing approaches either rely on static compute allocation or sample from fixed generation distributions. In this work, we introduce a test-time compute allocation framework that jointly adapts where computation is spent and how generation is performed. Our method begins with a warm-up phase that identifies easy queries and assembles an initial pool of question-response pairs from the test set itself. An adaptive phase then concentrates further computation on unresolved queries while reshaping their generation distributions through evolving in-context demonstrations -- conditioning each generation on successful responses from semantically related queries rather than resampling from a fixed distribution. Experiments across math, coding, and reasoning benchmarks demonstrate that our approach consistently outperforms existing baselines while consuming substantially less inference-time compute.",
+      "url": "https://arxiv.org/abs/2604.21018",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-22",
+      "score": 0.8849
+    },
+    {
+      "id": "2604.21632",
+      "title": "To See the Unseen: on the Generalization Ability of Transformers in Symbolic Reasoning",
+      "authors": [
+        "Nevena Lazić",
+        "Liam Fowl",
+        "András György",
+        "Csaba Szepesvári"
+      ],
+      "abstract": "We investigate the ability of decoder-only transformer models to perform abstract symbolic reasoning; specifically solving propositional logic reasoning problems given in-context. Previous work demonstrated that models fail to generalize to problems involving variable names that were not observed during training, and it was shown that one reason behind this is the difficulty of copying (or generating) unseen tokens. We show both theoretically and empirically that a particular representational collapse also has a crucial role: the unembeddings (last-layer weights) of unseen tokens collapse to nearly the same vector during training. The collapse makes distinguishing multiple unseen variables difficult for the model (especially when the embedding and unembedding parameters are shared), and provides a mechanistic explanation for the effectiveness of existing heuristic interventions like \"active forgetting\", which periodically reset the token (un)embeddings. Based on these observations, we devise a combination of techniques, involving a small architecture change facilitating copying, data diversity, and freezing or resetting (un)embeddings, that achieves generalization to unseen tokens. We support our claims with extensive controlled experiments on propositional logic reasoning problems. Beyond synthetic experiments, we also observe evidence of (un)embedding collapse in the open-weight models in the Gemma 3 family, which includes 99 unused tokens reserved for downstream use. Empirically we find that the correlated embeddings of these tokens are a poor initialization for finetuning applications.",
+      "url": "https://arxiv.org/abs/2604.21632",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8847
+    },
+    {
+      "id": "2604.21860",
+      "title": "Transient Turn Injection: Exposing Stateless Multi-Turn Vulnerabilities in Large Language Models",
+      "authors": [
+        "Naheed Rayhan",
+        "Sohely Jahan"
+      ],
+      "abstract": "Large language models (LLMs) are increasingly integrated into sensitive workflows, raising the stakes for adversarial robustness and safety. This paper introduces Transient Turn Injection(TTI), a new multi-turn attack technique that systematically exploits stateless moderation by distributing adversarial intent across isolated interactions. TTI leverages automated attacker agents powered by large language models to iteratively test and evade policy enforcement in both commercial and open-source LLMs, marking a departure from conventional jailbreak approaches that typically depend on maintaining persistent conversational context. Our extensive evaluation across state-of-the-art models-including those from OpenAI, Anthropic, Google Gemini, Meta, and prominent open-source alternatives-uncovers significant variations in resilience to TTI attacks, with only select architectures exhibiting substantial inherent robustness. Our automated blackbox evaluation framework also uncovers previously unknown model specific vulnerabilities and attack surface patterns, especially within medical and high stakes domains. We further compare TTI against established adversarial prompting methods and detail practical mitigation strategies, such as session level context aggregation and deep alignment approaches. Our study underscores the urgent need for holistic, context aware defenses and continuous adversarial testing to future proof LLM deployments against evolving multi-turn threats.",
+      "url": "https://arxiv.org/abs/2604.21860",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8841
+    },
+    {
+      "id": "2604.21916",
+      "title": "MathDuels: Evaluating LLMs as Problem Posers and Solvers",
+      "authors": [
+        "Zhiqiu Xu",
+        "Shibo Jin",
+        "Shreya Arya",
+        "Mayur Naik"
+      ],
+      "abstract": "As frontier language models attain near-ceiling performance on static mathematical benchmarks, existing evaluations are increasingly unable to differentiate model capabilities, largely because they cast models solely as solvers of fixed problem sets. We introduce MathDuels, a self-play benchmark in which models occupy dual roles: each authors math problems under adversarial prompting and solves problems authored by every other participant. Problems are produced through a three-stage generation pipeline (meta-prompting, problem generation, and difficulty amplification), and validated by an independent verifier that excludes ill-posed questions. A Rasch model (Rasch, 1993) jointly estimates solver abilities and problem difficulties; author quality is derived from the difficulties of each model's authored problems. Experiments across 19 frontier models reveal that authoring and solving capabilities are partially decoupled, and that dual-role evaluation reveals capability separations invisible in single-role benchmarks. As newer models enter the arena, they produce problems that defeat previously dominant solvers, so the benchmark's difficulty co-evolves with participant strength rather than saturating at a fixed ceiling. We host a public leaderboard that updates as new models are released.",
+      "url": "https://arxiv.org/abs/2604.21916",
+      "categories": [
+        "cs.CL",
+        "cs.SE"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8826
+    },
+    {
+      "id": "2604.21345",
+      "title": "Evaluating AI Meeting Summaries with a Reusable Cross-Domain Pipeline",
+      "authors": [
+        "Philip Zhong",
+        "Don Wang",
+        "Jason Zhang",
+        "Kent Chen"
+      ],
+      "abstract": "We present a reusable evaluation pipeline for generative AI applications, instantiated for AI meeting summaries and released with a public artifact package derived from a Dataset Pipeline. The system separates reusable orchestration from task-specific semantics across five stages: source intake, structured reference construction, candidate generation, structured scoring, and reporting. Unlike standalone claim scorers, it treats both ground truth and evaluator outputs as typed, persisted artifacts, enabling aggregation, issue analysis, and statistical testing.\n  We benchmark the offline loop on a typed dataset of 114 meetings spanning city_council, private_data, and whitehouse_press_briefings, producing 340 meeting-model pairs and 680 judge runs across gpt-4.1-mini, gpt-5-mini, and gpt-5.1. Under this protocol, gpt-4.1-mini achieves the highest mean accuracy (0.583), while gpt-5.1 leads in completeness (0.886) and coverage (0.942). Paired sign tests with Holm correction show no significant accuracy winner but confirm significant retention gains for gpt-5.1.\n  A typed DeepEval contrastive baseline preserves retention ordering but reports higher holistic accuracy, suggesting that reference-based scoring may overlook unsupported-specifics errors captured by claim-grounded evaluation. Typed analysis identifies whitehouse_press_briefings as an accuracy-challenging domain with frequent unsupported specifics. A deployment follow-up shows gpt-5.4 outperforming gpt-4.1 across all metrics, with statistically robust gains on retention metrics under the same protocol. The system benchmarks the offline loop and documents, but does not quantitatively evaluate, the online feedback-to-evaluation path.",
+      "url": "https://arxiv.org/abs/2604.21345",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8824
+    },
+    {
+      "id": "2604.21251",
+      "title": "CAP: Controllable Alignment Prompting for Unlearning in LLMs",
+      "authors": [
+        "Zhaokun Wang",
+        "Jinyu Guo",
+        "Jingwen Pu",
+        "Hongli Pu",
+        "Meng Yang",
+        "Xunlei Chen",
+        "Jie Ou",
+        "Wenyi Li",
+        "Guangchun Luo",
+        "Wenhong Tian"
+      ],
+      "abstract": "Large language models (LLMs) trained on unfiltered corpora inherently risk retaining sensitive information, necessitating selective knowledge unlearning for regulatory compliance and ethical safety. However, existing parameter-modifying methods face fundamental limitations: high computational costs, uncontrollable forgetting boundaries, and strict dependency on model weight access. These constraints render them impractical for closed-source models, yet current non-invasive alternatives remain unsystematic and reliant on empirical experience. To address these challenges, we propose the Controllable Alignment Prompting for Unlearning (CAP) framework, an end-to-end prompt-driven unlearning paradigm. CAP decouples unlearning into a learnable prompt optimization process via reinforcement learning, where a prompt generator collaborates with the LLM to suppress target knowledge while preserving general capabilities selectively. This approach enables reversible knowledge restoration through prompt revocation. Extensive experiments demonstrate that CAP achieves precise, controllable unlearning without updating model parameters, establishing a dynamic alignment mechanism that overcomes the transferability limitations of prior methods.",
+      "url": "https://arxiv.org/abs/2604.21251",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8824
+    },
+    {
+      "id": "2604.21106",
+      "title": "How Much Is One Recurrence Worth? Iso-Depth Scaling Laws for Looped Language Models",
+      "authors": [
+        "Kristian Schwethelm",
+        "Daniel Rueckert",
+        "Georgios Kaissis"
+      ],
+      "abstract": "We measure how much one extra recurrence is worth to a looped (depth-recurrent) language model, in equivalent unique parameters. From an iso-depth sweep of 116 pretraining runs across recurrence counts $r \\in \\{1, 2, 4, 8\\}$ spanning ${\\sim}50\\times$ in training compute, we fit a joint scaling law $L = E + A\\,(N_\\text{once} + r^{\\varphi} N_\\text{rec})^{-α} + B\\,D^{-β}$ and recover a new recurrence-equivalence exponent $\\varphi = 0.46$ at $R^2 = 0.997$. Intuitively, $\\varphi$ tells us whether looping a block $r$ times is equivalent in validation loss to $r$ unique blocks of a non-looped model (full equivalence, $\\varphi{=}1$) or to a single block run repeatedly with no capacity gain ($\\varphi{=}0$). Our $\\varphi = 0.46$ sits in between, so each additional recurrence predictably increases validation loss at matched training compute. For example, at $r{=}4$ a 410M looped model performs on par with a 580M non-looped model, but pays the training cost of a 1B non-looped one. On a five-axis downstream evaluation, the gap persists on parametric-knowledge tasks and closes on simple open-book tasks, while reasoning tasks are not resolvable at our compute budgets. For any looped LM, our $\\varphi$ converts the design choice of $r$ into a predictable validation-loss cost, and future training recipes and architectures can be compared by how much they raise $\\varphi$ above $0.46$.",
+      "url": "https://arxiv.org/abs/2604.21106",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-22",
+      "score": 0.8822
+    },
+    {
+      "id": "2604.21593",
+      "title": "Language as a Latent Variable for Reasoning Optimization",
+      "authors": [
+        "Linjuan Wu",
+        "Haoran Wei",
+        "Jialong Tang",
+        "Shuang Luo",
+        "Baosong Yang",
+        "Yongliang Shen",
+        "Weiming Lu"
+      ],
+      "abstract": "As LLMs reduce English-centric bias, a surprising trend emerges: non-English responses sometimes outperform English on reasoning tasks. We hypothesize that language functions as a latent variable that structurally modulates the model's internal inference pathways, rather than merely serving as an output medium. To test this, we conducted a Polyglot Thinking Experiment, in which models were prompted to solve identical problems under language-constrained and language-unconstrained conditions. Results show that non-English responses often achieve higher accuracy, and the best performance frequently occur when language is unconstrained, suggesting that multilinguality broadens the model's latent reasoning space. Based on this insight, we propose polyGRPO (Polyglot Group Relative Policy Optimization), an RL framework that treats language variation as an implicit exploration signal. It generates polyglot preference data online under language-constrained and unconstrained conditions, optimizing the policy with respect to both answer accuracy and reasoning structure. Trained on only 18.1K multilingual math problems without chain-of-thought annotations, polyGRPO improves the base model (Qwen2.5-7B-Instruct) by 6.72% absolute accuracy on four English reasoning testset and 6.89% in their multilingual benchmark. Remarkably, it is the only method that surpasses the base LLM on English commonsense reasoning task (4.9%), despite being trained solely on math data-highlighting its strong cross-task generalization. Further analysis reveals that treating language as a latent variable expands the model's latent reasoning space, yielding consistent and generalizable improvements in reasoning performance.",
+      "url": "https://arxiv.org/abs/2604.21593",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8821
+    },
+    {
+      "id": "2604.21131",
+      "title": "Cross-Session Threats in AI Agents: Benchmark, Evaluation, and Algorithms",
+      "authors": [
+        "Ari Azarafrooz"
+      ],
+      "abstract": "AI-agent guardrails are memoryless: each message is judged in isolation, so an adversary who spreads a single attack across dozens of sessions slips past every session-bound detector because only the aggregate carries the payload. We make three contributions to cross-session threat detection.\n  (1) Dataset. CSTM-Bench is 26 executable attack taxonomies classified by kill-chain stage and cross-session operation (accumulate, compose, launder, inject_on_reader), each bound to one of seven identity anchors that ground-truth \"violation\" as a policy predicate, plus matched Benign-pristine and Benign-hard confounders. Released on Hugging Face as intrinsec-ai/cstm-bench with two 54-scenario splits: dilution (compositional) and cross_session (12 isolation-invisible scenarios produced by a closed-loop rewriter that softens surface phrasing while preserving cross-session artefacts).\n  (2) Measurement. Framing cross-session detection as an information bottleneck to a downstream correlator LLM, we find that a session-bound judge and a Full-Log Correlator concatenating every prompt into one long-context call both lose roughly half their attack recall moving from dilution to cross_session, well inside any frontier context window. Scope: 54 scenarios per shard, one correlator family (Anthropic Claude), no prompt optimisation; we release it to motivate larger, multi-provider datasets.\n  (3) Algorithm and metric. A bounded-memory Coreset Memory Reader retaining highest-signal fragments at $K=50$ is the only reader whose recall survives both shards. Because ranker reshuffles break KV-cache prefix reuse, we promote $\\mathrm{CSR\\_prefix}$ (ordered prefix stability, LLM-free) to a first-class metric and fuse it with detection into $\\mathrm{CSTM} = 0.7 F_1(\\mathrm{CSDA@action}, \\mathrm{precision}) + 0.3 \\mathrm{CSR\\_prefix}$, benchmarking rankers on a single Pareto of recall versus serving stability.",
+      "url": "https://arxiv.org/abs/2604.21131",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-22",
+      "score": 0.8818
+    },
+    {
+      "id": "2604.21284",
+      "title": "Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture",
+      "authors": [
+        "Robin Dey",
+        "Panyanon Viradecha"
+      ],
+      "abstract": "MemPalace is an open-source AI memory system that applies the ancient method of loci (memory palace) spatial metaphor to organize long-term memory for large language models; launched in April 2026, it accumulated over 47,000 GitHub stars in its first two weeks and claims state-of-the-art retrieval performance on the LongMemEval benchmark (96.6% Recall@5) without requiring any LLM inference at write time. Through independent codebase analysis, benchmark replication, and comparison with competing systems, we find that MemPalace's headline retrieval performance is attributable primarily to its verbatim storage philosophy combined with ChromaDB's default embedding model (all-MiniLM-L6-v2), rather than to its spatial organizational metaphor per se -- the palace hierarchy (Wings->Rooms->Closets->Drawers) operates as standard vector database metadata filtering, an effective but well-established technique. However, MemPalace makes several genuinely novel contributions: (1) a contrarian verbatim-first storage philosophy that challenges extraction-based competitors, (2) an extremely low wake-up cost (approximately 170 tokens) through its four-layer memory stack, (3) a fully deterministic, zero-LLM write path enabling offline operation at zero API cost, and (4) the first systematic application of spatial memory metaphors as an organizing principle for AI memory systems. We also note that the competitive landscape is evolving rapidly, with Mem0's April 2026 token-efficient algorithm raising their LongMemEval score from approximately 49% to 93.4%, narrowing the gap between extraction-based and verbatim approaches. Our analysis concludes that MemPalace represents significant architectural insight wrapped in overstated claims -- a pattern common in rapidly adopted open-source projects where marketing velocity exceeds scientific rigor.",
+      "url": "https://arxiv.org/abs/2604.21284",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.IR"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8812
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "source": "fetch_daily",
+    "n_candidates": 300,
+    "n_ratings": 47,
+    "alpha": 0.94
+  }
+}
