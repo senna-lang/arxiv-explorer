@@ -141,6 +141,13 @@ const firstCategory = paper.categories[0] ?? "";
     transition-delay: 0.3s;
   }
 
+  /* タブレット・モバイルでは details アコーディオンで代用するためポップアップを非表示 */
+  @media (max-width: 1024px) {
+    .abstract-popup {
+      display: none;
+    }
+  }
+
   .paper-title {
     font-size: 1.02rem;
     font-weight: 600;
