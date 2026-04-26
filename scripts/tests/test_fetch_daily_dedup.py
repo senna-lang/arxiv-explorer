@@ -9,10 +9,12 @@ scripts/fetch_daily/dedup.py のユニットテスト
 import json
 import os
 import sys
+from datetime import datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
+from core.config import JST
 from fetch_daily.dedup import deduplicate, load_seen_ids
 
 
@@ -45,9 +47,12 @@ class TestDeduplicate:
 
 class TestLoadSeenIds:
     def test_collects_ids_from_json_files(self, tmp_path: Path):
+        today = datetime.now(JST).date()
+        recent_a = today.strftime("%Y%m%d")
+        recent_b = (today - timedelta(days=1)).strftime("%Y%m%d")
         data = {"papers": [{"id": "2603.00001"}, {"id": "2603.00002"}]}
-        (tmp_path / "20260314.json").write_text(json.dumps(data), encoding="utf-8")
-        (tmp_path / "20260313.json").write_text(
+        (tmp_path / f"{recent_a}.json").write_text(json.dumps(data), encoding="utf-8")
+        (tmp_path / f"{recent_b}.json").write_text(
             json.dumps({"papers": [{"id": "2603.00003"}]}), encoding="utf-8"
         )
 
@@ -57,9 +62,10 @@ class TestLoadSeenIds:
         assert "2603.00003" in ids
 
     def test_non_date_files_ignored(self, tmp_path: Path):
+        today_str = datetime.now(JST).date().strftime("%Y%m%d")
         (tmp_path / "map.json").write_text(json.dumps({"papers": [{"id": "9999.99999"}]}))
         (tmp_path / "ratings.json").write_text(json.dumps({"ratings": []}))
-        (tmp_path / "20260314.json").write_text(
+        (tmp_path / f"{today_str}.json").write_text(
             json.dumps({"papers": [{"id": "2603.00001"}]})
         )
 
@@ -72,12 +78,16 @@ class TestLoadSeenIds:
         assert ids == set()
 
     def test_days_limit_excludes_old_files(self, tmp_path: Path):
-        (tmp_path / "20260315.json").write_text(
+        today = datetime.now(JST).date()
+        today_str = today.strftime("%Y%m%d")
+        old_str = (today - timedelta(days=120)).strftime("%Y%m%d")
+        (tmp_path / f"{today_str}.json").write_text(
             json.dumps({"papers": [{"id": "new.00001"}]})
         )
-        (tmp_path / "20260101.json").write_text(
+        (tmp_path / f"{old_str}.json").write_text(
             json.dumps({"papers": [{"id": "old.00001"}]})
         )
 
         ids = load_seen_ids(tmp_path, days=0)
         assert "old.00001" not in ids
+        assert "new.00001" in ids
