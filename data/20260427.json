@@ -1,0 +1,469 @@
+{
+  "date": "2026-04-27",
+  "collected_at": "2026-04-27T12:43:12.342664+09:00",
+  "papers": [
+    {
+      "id": "2604.22266",
+      "title": "Large Language Models Decide Early and Explain Later",
+      "authors": [
+        "Ayan Datta",
+        "Zhixue Zhao",
+        "Bhuvanesh Verma",
+        "Radhika Mamidi",
+        "Mounika Marreddy",
+        "Alexander Mehler"
+      ],
+      "abstract": "Large Language Models often achieve strong performance by generating long intermediate chain-of-thought reasoning. However, it remains unclear when a model's final answer is actually determined during generation. If the answer is already fixed at an intermediate stage, subsequent reasoning tokens may constitute post-decision explanation, increasing inference cost and latency without improving correctness. We study the evolution of predicted answers over reasoning steps using forced answer completion, which elicits the model's intermediate predictions at partial reasoning prefixes. Focusing on Qwen3-4B and averaging results across all datasets considered, we find that predicted answers change in only 32% of queries. Moreover, once the final answer switch occurs, the model generates an average of 760 additional reasoning tokens per query, accounting for a substantial fraction of the total reasoning budget. Motivated by these findings, we investigate early stopping strategies that halt generation once the answer has stabilized. We show that simple heuristics, including probe-based stopping, can reduce reasoning token usage by 500 tokens per query while incurring only a 2% drop in accuracy. Together, our results indicate that a large portion of chain-of-thought generation is redundant and can be reduced with minimal impact on performance.",
+      "url": "https://arxiv.org/abs/2604.22266",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-24",
+      "score": 0.8952
+    },
+    {
+      "id": "2604.22193",
+      "title": "How Large Language Models Balance Internal Knowledge with User and Document Assertions",
+      "authors": [
+        "Shuowei Li",
+        "Haoxin Li",
+        "Wenda Chu",
+        "Yi Fang"
+      ],
+      "abstract": "Large language models (LLMs) often need to balance their internal parametric knowledge with external information, such as user beliefs and content from retrieved documents, in real-world scenarios like RAG or chat-based systems. A model's ability to reliably process these sources is key to system safety. Previous studies on knowledge conflict and sycophancy are limited to a binary conflict paradigm, primarily exploring conflicts between parametric knowledge and either a document or a user, but ignoring the interactive environment where all three sources exist simultaneously. To fill this gap, we propose a three-source interaction framework and systematically evaluate 27 LLMs from 3 families on 2 datasets. Our findings reveal general patterns: most models rely more on document assertions than user assertions, and this preference is reinforced by post-training. Furthermore, our behavioral analysis shows that most models are impressionable, unable to effectively discriminate between helpful and harmful external information. To address this, we demonstrate that fine-tuning on diverse source interaction data can significantly increase a model's discrimination abilities. In short, our work paves the way for developing trustworthy LLMs that can effectively and reliably integrate multiple sources of information. Code is available at https://github.com/shuowl/llm-source-balancing.",
+      "url": "https://arxiv.org/abs/2604.22193",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-24",
+      "github_url": "https://github.com/shuowl/llm-source-balancing.",
+      "score": 0.8931
+    },
+    {
+      "id": "2604.22750",
+      "title": "How Do AI Agents Spend Your Money? Analyzing and Predicting Token Consumption in Agentic Coding Tasks",
+      "authors": [
+        "Longju Bai",
+        "Zhemin Huang",
+        "Xingyao Wang",
+        "Jiao Sun",
+        "Rada Mihalcea",
+        "Erik Brynjolfsson",
+        "Alex Pentland",
+        "Jiaxin Pei"
+      ],
+      "abstract": "The wide adoption of AI agents in complex human workflows is driving rapid growth in LLM token consumption. When agents are deployed on tasks that require a significant amount of tokens, three questions naturally arise: (1) Where do AI agents spend the tokens? (2) Which models are more token-efficient? and (3) Can agents predict their token usage before task execution? In this paper, we present the first systematic study of token consumption patterns in agentic coding tasks. We analyze trajectories from eight frontier LLMs on SWE-bench Verified and evaluate models' ability to predict their own token costs before task execution. We find that: (1) agentic tasks are uniquely expensive, consuming 1000x more tokens than code reasoning and code chat, with input tokens rather than output tokens driving the overall cost; (2) token usage is highly variable and inherently stochastic: runs on the same task can differ by up to 30x in total tokens, and higher token usage does not translate into higher accuracy; instead, accuracy often peaks at intermediate cost and saturates at higher costs; (3) models vary substantially in token efficiency: on the same tasks, Kimi-K2 and Claude-Sonnet-4.5, on average, consume over 1.5 million more tokens than GPT-5; (4) task difficulty rated by human experts only weakly aligns with actual token costs, revealing a fundamental gap between human-perceived complexity and the computational effort agents actually expend; and (5) frontier models fail to accurately predict their own token usage (with weak-to-moderate correlations, up to 0.39) and systematically underestimate real token costs. Our study offers new insights into the economics of AI agents and can inspire future research in this direction.",
+      "url": "https://arxiv.org/abs/2604.22750",
+      "categories": [
+        "cs.CL",
+        "cs.CY",
+        "cs.HC",
+        "cs.SE"
+      ],
+      "submitted": "2026-04-24",
+      "score": 0.8865
+    },
+    {
+      "id": "2604.22565",
+      "title": "Learning Evidence Highlighting for Frozen LLMs",
+      "authors": [
+        "Shaoang Li",
+        "Yanhang Shi",
+        "Yufei Li",
+        "Mingfu Liang",
+        "Xiaohan Wei",
+        "Yunchen Pu",
+        "Fei Tian",
+        "Chonglin Sun",
+        "Frank Shyu",
+        "Luke Simon",
+        "Sandeep Pandey",
+        "Xi Liu",
+        "Jian Li"
+      ],
+      "abstract": "Large Language Models (LLMs) can reason well, yet often miss decisive evidence when it is buried in long, noisy contexts. We introduce HiLight, an Evidence Emphasis framework that decouples evidence selection from reasoning for frozen LLM solvers. HiLight avoids compressing or rewriting the input, which can discard or distort evidence, by training a lightweight Emphasis Actor to insert minimal highlight tags around pivotal spans in the unaltered context. A frozen Solver then performs downstream reasoning on the emphasized input. We cast highlighting as a weakly supervised decision-making problem and optimize the Actor with reinforcement learning using only the Solver's task reward, requiring no evidence labels and no access to or modification of the Solver. Across sequential recommendation and long-context question answering, HiLight consistently improves performance over strong prompt-based and automated prompt-optimization baselines. The learned emphasis policy transfers zero-shot to both smaller and larger unseen Solver families, including an API-based Solver, suggesting that the Actor captures genuine, reusable evidence structure rather than overfitting to a single backbone.",
+      "url": "https://arxiv.org/abs/2604.22565",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-24",
+      "score": 0.8865
+    },
+    {
+      "id": "2604.22134",
+      "title": "SHAPE: Unifying Safety, Helpfulness and Pedagogy for Educational LLMs",
+      "authors": [
+        "Sihang",
+        "Zhao",
+        "Kangrui Yu",
+        "Youliang Yuan",
+        "Pinjia He",
+        "Hongyi Wen"
+      ],
+      "abstract": "Large Language Models (LLMs) have been widely explored in educational scenarios. We identify a critical vulnerability in current educational LLMs, pedagogical jailbreaks, where students use answer-inducing prompts to elicit solutions rather than scaffolded instructions. To enable systematic study, we unify and formalize safe, helpful, and pedagogical behaviors with a knowledge-mastery graph and introduce SHAPE, a benchmark of 9,087 student-question pairs for evaluating tutoring behavior under adversarial pressure. We propose a graph-augmented tutoring pipeline that infers prerequisite concepts from queries, identifies mastery gaps, and routes generation between instructing and problem-solving via explicit gating. Experiments across multiple LLMs show that our method yields significantly improved safety under two pedagogical jailbreak settings, while maintaining near-ceiling helpfulness under the same evaluation protocol. Our code and data are available at https://github.com/MAPS-research/SHaPE",
+      "url": "https://arxiv.org/abs/2604.22134",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-24",
+      "github_url": "https://github.com/MAPS-research/SHaPE",
+      "score": 0.8848
+    },
+    {
+      "id": "2604.22577",
+      "title": "QuantClaw: Precision Where It Matters for OpenClaw",
+      "authors": [
+        "Manyi Zhang",
+        "Ji-Fu Li",
+        "Zhongao Sun",
+        "Xiaohao Liu",
+        "Zhenhua Dong",
+        "Xianzhi Yu",
+        "Haoli Bai",
+        "Xiaobo Xia"
+      ],
+      "abstract": "Autonomous agent systems such as OpenClaw introduce significant efficiency challenges due to long-context inputs and multi-turn reasoning. This results in prohibitively high computational and monetary costs in real-world development. While quantization is a standard approach for reducing cost and latency, its impact on agent performance in realistic scenarios remains unclear. In this work, we analyze quantization sensitivity across diverse complex workflows over OpenClaw, and show that precision requirements are highly task-dependent. Based on this observation, we propose QuantClaw, a plug-and-play precision routing plugin that dynamically assigns precision according to task characteristics. QuantClaw routes lightweight tasks to lower-cost configurations while preserving higher precision for demanding workloads, saving cost and accelerating inference without increasing user complexity. Experiments show that our QuantClaw maintains or improves task performance while reducing both latency and computational cost. Across a range of agent tasks, it achieves up to 21.4% cost savings and 15.7% latency reduction on GLM-5 (FP8 baseline). These results highlight the benefit of treating precision as a dynamic resource in agent systems.",
+      "url": "https://arxiv.org/abs/2604.22577",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-24",
+      "score": 0.8833
+    },
+    {
+      "id": "2604.22095",
+      "title": "An End-to-End Ukrainian RAG for Local Deployment. Optimized Hybrid Search and Lightweight Generation",
+      "authors": [
+        "Mykola Trokhymovych",
+        "Yana Oliinyk",
+        "Nazarii Nyzhnyk"
+      ],
+      "abstract": "This paper presents a highly efficient Retrieval-Augmented Generation (RAG) system built specifically for Ukrainian document question answering, which achieved 2nd place in the UNLP 2026 Shared Task. Our solution features a custom two-stage search pipeline that retrieves relevant document pages, paired with a specialized Ukrainian language model fine-tuned on synthetic data to generate accurate, grounded answers. Finally, we compress the model for lightweight deployment. Evaluated under strict computational limits, our architecture demonstrates that high-quality, verifiable AI question answering can be achieved locally on resource-constrained hardware without sacrificing accuracy.",
+      "url": "https://arxiv.org/abs/2604.22095",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8832
+    },
+    {
+      "id": "2604.22074",
+      "title": "Outcome Rewards Do Not Guarantee Verifiable or Causally Important Reasoning",
+      "authors": [
+        "Qinan Yu",
+        "Alexa Tartaglini",
+        "Peter Hase",
+        "Carlos Guestrin",
+        "Christopher Potts"
+      ],
+      "abstract": "Reinforcement Learning from Verifiable Rewards (RLVR) on chain-of-thought reasoning has become a standard part of language model post-training recipes. A common assumption is that the reasoning chains trained through RLVR reliably represent how a model gets to its answer. In this paper, we develop two metrics for critically examining this assumption: Causal Importance of Reasoning (CIR), which measures the cumulative effect of reasoning tokens on the final answer, and Sufficiency of Reasoning (SR), which measures whether a verifier can arrive at an unambiguous answer based on the reasoning alone. Through experiments with the Qwen2.5 model series and ReasoningGym tasks, we find that: (1) while RLVR does improve task accuracy, it does not reliably improve CIR or SR, calling the role of reasoning in model performance into question; (2) a small amount of SFT before RLVR can be a remedy for low CIR and SR; and (3) CIR and SR can be improved even without SFT by applying auxiliary CIR/SR rewards on top of the outcome-based reward. This joint reward matches the accuracy of RLVR while also leading to causally important and sufficient reasoning. These results show that RLVR does not always lead models to rely on reasoning in the way that is commonly thought, but this issue can be remedied with simple modifications to the post-training procedure.",
+      "url": "https://arxiv.org/abs/2604.22074",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8826
+    },
+    {
+      "id": "2604.22119",
+      "title": "Emergent Strategic Reasoning Risks in AI: A Taxonomy-Driven Evaluation Framework",
+      "authors": [
+        "Tharindu Kumarage",
+        "Lisa Bauer",
+        "Yao Ma",
+        "Dan Rosen",
+        "Yashasvi Raghavendra Guduri",
+        "Anna Rumshisky",
+        "Kai-Wei Chang",
+        "Aram Galstyan",
+        "Rahul Gupta",
+        "Charith Peris"
+      ],
+      "abstract": "As reasoning capacity and deployment scope grow in tandem, large language models (LLMs) gain the capacity to engage in behaviors that serve their own objectives, a class of risks we term Emergent Strategic Reasoning Risks (ESRRs). These include, but are not limited to, deception (intentionally misleading users or evaluators), evaluation gaming (strategically manipulating performance during safety testing), and reward hacking (exploiting misspecified objectives). Systematically understanding and benchmarking these risks remains an open challenge. To address this gap, we introduce ESRRSim, a taxonomy-driven agentic framework for automated behavioral risk evaluation. We construct an extensible risk taxonomy of 7 categories, which is decomposed into 20 subcategories. ESRRSim generates evaluation scenarios designed to elicit faithful reasoning, paired with dual rubrics assessing both model responses and reasoning traces, in a judge-agnostic and scalable architecture. Evaluation across 11 reasoning LLMs reveals substantial variation in risk profiles (detection rates ranging 14.45%-72.72%), with dramatic generational improvements suggesting models may increasingly recognize and adapt to evaluation contexts.",
+      "url": "https://arxiv.org/abs/2604.22119",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8823
+    },
+    {
+      "id": "2604.22117",
+      "title": "PermaFrost-Attack: Stealth Pretraining Seeding(SPS) for planting Logic Landmines During LLM Training",
+      "authors": [
+        "Harsh Kumar",
+        "Rahul Maity",
+        "Tanmay Joshi",
+        "Aman Chadha",
+        "Vinija Jain",
+        "Suranjana Trivedy",
+        "Amitava Das"
+      ],
+      "abstract": "Aligned large language models(LLMs) remain vulnerable to adversarial manipulation, and their dependence on web-scale pretraining creates a subtle but serious attack surface. We study Stealth Pretraining Seeding (SPS), a new attack family in which adversaries distribute small amounts of poisoned content across stealth websites, expose them to web crawlers through robots.txt, and thereby increase the likelihood that such content is absorbed into future training corpora derived from sources such as Common Crawl. Because each individual payload is tiny, diffuse, and superficially benign, the attack is difficult to detect during dataset construction or filtering. The result is a latent form of poisoning: dormant logic landmines embedded during pretraining that remain largely invisible under standard evaluation, yet can later be activated by precise alphanumeric triggers such as <00TRIGGER00> to bypass safeguards. We call this attack PermaFrost, by analogy to Arctic permafrost: harmful material can remain frozen, buried, and unnoticed for long periods, only to resurface when conditions allow. We operationalize this threat through PermaFrost-Attack, a controlled framework for latent conceptual poisoning, together with a suite of geometric diagnostics: Thermodynamic Length, Spectral Curvature, and the Infection Traceback Graph. Across multiple model families and scales, we show that SPS is broadly effective, inducing persistent unsafe behavior while often evading alignment defenses. Our results identify SPS as a practical and underappreciated threat to future foundation models. This paper introduces a novel geometric diagnostic lens for systematically examining latent model behavior, providing a principled foundation for detecting, characterizing, and understanding vulnerabilities that may remain invisible to standard evaluation.",
+      "url": "https://arxiv.org/abs/2604.22117",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8816
+    },
+    {
+      "id": "2604.21748",
+      "title": "StructMem: Structured Memory for Long-Horizon Behavior in LLMs",
+      "authors": [
+        "Buqiang Xu",
+        "Yijun Chen",
+        "Jizhan Fang",
+        "Ruobin Zhong",
+        "Yunzhi Yao",
+        "Yuqi Zhu",
+        "Lun Du",
+        "Shumin Deng"
+      ],
+      "abstract": "Long-term conversational agents need memory systems that capture relationships between events, not merely isolated facts, to support temporal reasoning and multi-hop question answering. Current approaches face a fundamental trade-off: flat memory is efficient but fails to model relational structure, while graph-based memory enables structured reasoning at the cost of expensive and fragile construction. To address these issues, we propose \\textbf{StructMem}, a structure-enriched hierarchical memory framework that preserves event-level bindings and induces cross-event connections. By temporally anchoring dual perspectives and performing periodic semantic consolidation, StructMem improves temporal reasoning and multi-hop performance on \\texttt{LoCoMo}, while substantially reducing token usage, API calls, and runtime compared to prior memory systems, see https://github.com/zjunlp/LightMem .",
+      "url": "https://arxiv.org/abs/2604.21748",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.IR",
+        "cs.LG",
+        "cs.MA"
+      ],
+      "submitted": "2026-04-23",
+      "github_url": "https://github.com/zjunlp/LightMem",
+      "score": 0.8806
+    },
+    {
+      "id": "2604.22601",
+      "title": "From Natural Language to Verified Code: Toward AI Assisted Problem-to-Code Generation with Dafny-Based Formal Verification",
+      "authors": [
+        "Md Erfan",
+        "Md Kamal Hossain Chowdhury",
+        "Ahmed Ryan",
+        "Md Rayhanur Rahman"
+      ],
+      "abstract": "Large Language Models (LLMs) show promise in automated software engineering, yet their guarantee of correctness is frequently undermined by erroneous or hallucinated code. To enforce model honesty, formal verification requires LLMs to synthesize implementation logic alongside formal specifications that are subsequently proven correct by a mathematical verifier. However, the transition from informal natural language to precise formal specification remains an arduous task. Our work addresses this by providing the NaturalLanguage2VerifiedCode (NL2VC)-60 dataset: a collection of 60 complex algorithmic problems. We evaluate 11 randomly selected problem sets across seven open-weight LLMs using a tiered prompting strategy: contextless prompts, signature prompts providing structural anchors, and self-healing prompts utilizing iterative feedback from the Dafny verifier. To address vacuous verification, where models satisfy verifiers with trivial specifications, we integrate the uDebug platform to ensure functional validation. Our results show that while contextless prompting leads to near-universal failure, structural signatures and iterative self-healing facilitate a dramatic performance turnaround. Specifically, Gemma 4-31B achieved a 90.91\\% verification success rate, while GPT-OSS 120B rose from zero to 81.82\\% success with signature-guided feedback. These findings indicate that formal verification is now attainable for open-weight LLMs, which serve as effective apprentices for synthesizing complex annotations and facilitating high-assurance software development.",
+      "url": "https://arxiv.org/abs/2604.22601",
+      "categories": [
+        "cs.SE",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-24",
+      "score": 0.8805
+    },
+    {
+      "id": "2604.22167",
+      "title": "Estimating Tail Risks in Language Model Output Distributions",
+      "authors": [
+        "Rico Angell",
+        "Raghav Singhal",
+        "Zachary Horvitz",
+        "Zhou Yu",
+        "Rajesh Ranganath",
+        "Kathleen McKeown",
+        "He He"
+      ],
+      "abstract": "Language models are increasingly capable and are being rapidly deployed on a population-level scale. As a result, the safety of these models is increasingly high-stakes. Fortunately, advances in alignment have significantly reduced the likelihood of harmful model outputs. However, when models are queried billions of times in a day, even rare worst-case behaviors will occur. Current safety evaluations focus on capturing the distribution of inputs that yield harmful outputs. These evaluations disregard the probabilistic nature of models and their tail output behavior. To measure this tail risk, we propose a method to efficiently estimate the probability of harmful outputs for any input query. Instead of naive brute-force sampling from the target model, where harmful outputs could be rare, we operationalize importance sampling by creating unsafe versions of the target model. These unsafe versions enable sample-efficient estimation by making harmful outputs more probable. On benchmarks measuring misuse and misalignment, these estimates match brute-force Monte Carlo estimates using 10-20x fewer samples. For example, we can estimate probability of harmful outputs on the order of 10^-4 with just 500 samples. Additionally, we find that these harmfulness estimates can reveal the sensitivity of models to perturbations in model input and predict deployment risks. Our work demonstrates that accurate rare-event estimation is both critical and feasible for safety evaluations. Code is available at https://github.com/rangell/LMTailRisk",
+      "url": "https://arxiv.org/abs/2604.22167",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-24",
+      "github_url": "https://github.com/rangell/LMTailRisk",
+      "score": 0.8802
+    },
+    {
+      "id": "2604.22748",
+      "title": "Agentic World Modeling: Foundations, Capabilities, Laws, and Beyond",
+      "authors": [
+        "Meng Chu",
+        "Xuan Billy Zhang",
+        "Kevin Qinghong Lin",
+        "Lingdong Kong",
+        "Jize Zhang",
+        "Teng Tu",
+        "Weijian Ma",
+        "Ziqi Huang",
+        "Senqiao Yang",
+        "Wei Huang",
+        "Yeying Jin",
+        "Zhefan Rao",
+        "Jinhui Ye",
+        "Xinyu Lin",
+        "Xichen Zhang",
+        "Qisheng Hu",
+        "Shuai Yang",
+        "Leyang Shen",
+        "Wei Chow",
+        "Yifei Dong",
+        "Fengyi Wu",
+        "Quanyu Long",
+        "Bin Xia",
+        "Shaozuo Yu",
+        "Mingkang Zhu",
+        "Wenhu Zhang",
+        "Jiehui Huang",
+        "Haokun Gui",
+        "Haoxuan Che",
+        "Long Chen",
+        "Qifeng Chen",
+        "Wenxuan Zhang",
+        "Wenya Wang",
+        "Xiaojuan Qi",
+        "Yang Deng",
+        "Yanwei Li",
+        "Mike Zheng Shou",
+        "Zhi-Qi Cheng",
+        "See-Kiong Ng",
+        "Ziwei Liu",
+        "Philip Torr",
+        "Jiaya Jia"
+      ],
+      "abstract": "As AI systems move from generating text to accomplishing goals through sustained interaction, the ability to model environment dynamics becomes a central bottleneck. Agents that manipulate objects, navigate software, coordinate with others, or design experiments require predictive environment models, yet the term world model carries different meanings across research communities. We introduce a \"levels x laws\" taxonomy organized along two axes. The first defines three capability levels: L1 Predictor, which learns one-step local transition operators; L2 Simulator, which composes them into multi-step, action-conditioned rollouts that respect domain laws; and L3 Evolver, which autonomously revises its own model when predictions fail against new evidence. The second identifies four governing-law regimes: physical, digital, social, and scientific. These regimes determine what constraints a world model must satisfy and where it is most likely to fail. Using this framework, we synthesize over 400 works and summarize more than 100 representative systems spanning model-based reinforcement learning, video generation, web and GUI agents, multi-agent social simulation, and AI-driven scientific discovery. We analyze methods, failure modes, and evaluation practices across level-regime pairs, propose decision-centric evaluation principles and a minimal reproducible evaluation package, and outline architectural guidance, open problems, and governance challenges. The resulting roadmap connects previously isolated communities and charts a path from passive next-step prediction toward world models that can simulate, and ultimately reshape, the environments in which agents operate.",
+      "url": "https://arxiv.org/abs/2604.22748",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-24",
+      "score": 0.88
+    },
+    {
+      "id": "2604.22709",
+      "title": "Thinking Without Words: Efficient Latent Reasoning with Abstract Chain-of-Thought",
+      "authors": [
+        "Keshav Ramji",
+        "Tahira Naseem",
+        "Ramón Fernandez Astudillo"
+      ],
+      "abstract": "While long, explicit chains-of-thought (CoT) have proven effective on complex reasoning tasks, they are costly to generate during inference. Non-verbal reasoning methods have emerged with shorter generation lengths by leveraging continuous representations, yet their performance lags behind verbalized CoT. We propose $\\textbf{Abstract Chain-of-Thought}$, a discrete latent reasoning post-training mechanism in which the language model produces a short sequence of tokens from a reserved vocabulary in lieu of a natural language CoT, before generating a response. To make previously unseen ''abstract'' tokens useful, we introduce a policy iteration-style warm-up loop that alternates between (i.) bottlenecking from a verbal CoT via masking and performing supervised fine-tuning, and (ii.) self-distillation by training the model to generate abstract tokens from the prompt alone via constrained decoding with the codebook. After warm-up, we optimize the generation of abstract sequences with warm-started reinforcement learning under constrained decoding. Abstract-CoT achieves up to $11.6\\times$ fewer reasoning tokens while demonstrating comparable performance across mathematical reasoning, instruction-following, and multi-hop reasoning, and generalizes across language model families. We also find an emergent power law distribution over the abstract vocabulary, akin to those seen in natural language, that evolves across the training phases. Our findings highlight the potential for post-training latent reasoning mechanisms that enable efficient inference through a learned abstract reasoning language.",
+      "url": "https://arxiv.org/abs/2604.22709",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-24",
+      "score": 0.88
+    },
+    {
+      "id": "2604.22597",
+      "title": "Rethinking Math Reasoning Evaluation: A Robust LLM-as-a-Judge Framework Beyond Symbolic Rigidity",
+      "authors": [
+        "Erez Yosef",
+        "Oron Anschel",
+        "Shunit Haviv Hakimi",
+        "Asaf Gendler",
+        "Adam Botach",
+        "Nimrod Berman",
+        "Igor Kviatkovsky"
+      ],
+      "abstract": "Recent advancements in large language models have led to significant improvements across various tasks, including mathematical reasoning, which is used to assess models' intelligence in logical reasoning and problem-solving. Models are evaluated on mathematical reasoning benchmarks by verifying the correctness of the final answer against a ground truth answer. A common approach for this verification is based on symbolic mathematics comparison, which fails to generalize across diverse mathematical representations and solution formats. In this work, we offer a robust and flexible alternative to rule-based symbolic mathematics comparison. We propose an LLM-based evaluation framework for evaluating model-generated answers, enabling accurate evaluation across diverse mathematical representations and answer formats. We present failure cases of symbolic evaluation in two popular frameworks, Lighteval and SimpleRL, and compare them to our approach, demonstrating clear improvements over commonly used methods. Our framework enables more reliable evaluation and benchmarking, leading to more accurate performance monitoring, which is important for advancing mathematical problem-solving and intelligent systems.",
+      "url": "https://arxiv.org/abs/2604.22597",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-24",
+      "score": 0.88
+    },
+    {
+      "id": "2604.22313",
+      "title": "CLARITY: A Framework and Benchmark for Conversational Language Ambiguity and Unanswerability in Interactive NL2SQL Systems",
+      "authors": [
+        "Tabinda Sarwar",
+        "Farhad Moghimifar",
+        "Cong Duy Vu Hoang",
+        "Xiaoxiao Ma",
+        "Shawn Chang Xu",
+        "Fahimeh Saleh",
+        "Poorya Zaremoodi",
+        "Avirup Sil",
+        "Katrin Kirchhoff"
+      ],
+      "abstract": "NL2SQL systems deployed in industry settings often encounter ambiguous or unanswerable queries, particularly in interactive scenarios with incomplete user clarification. Existing benchmarks typically assume a single source of ambiguity and rely on user interaction for resolution, overlooking realistic failure modes.\n  We introduce Clarity, a framework for automatically generating an NL2SQL benchmark with multi-faceted ambiguities and diverse user behaviors across both single- and multi-turn settings. Using a constraint-driven pipeline, Clarity transforms executable SQL into ambiguous queries, augmented with grounded conversational continuations and schema-level metadata.\n  Empirical evaluation on Spider and BIRD shows that leading NL2SQL systems, including those based on strong LLMs, suffer significant performance degradation under multi-faceted ambiguity. While these systems often detect ambiguity, they struggle to accurately localize and resolve the underlying schema-level sources. Our results highlight the need for more robust ambiguity detection and resolution in industry-grade NL2SQL systems.",
+      "url": "https://arxiv.org/abs/2604.22313",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-24",
+      "score": 0.8787
+    },
+    {
+      "id": "2604.22027",
+      "title": "Shared Lexical Task Representations Explain Behavioral Variability In LLMs",
+      "authors": [
+        "Zhuonan Yang",
+        "Jacob Xiaochen Li",
+        "Francisco Piedrahita Velez",
+        "Eric Todd",
+        "David Bau",
+        "Michael L. Littman",
+        "Stephen H. Bach",
+        "Ellie Pavlick"
+      ],
+      "abstract": "One of the most common complaints about large language models (LLMs) is their prompt sensitivity -- that is, the fact that their ability to perform a task or provide a correct answer to a question can depend unpredictably on the way the question is posed. We investigate this variation by comparing two very different but commonly-used styles of prompting: instruction-based prompts, which describe the task in natural language, and example-based prompts, which provide in-context few-shot demonstration pairs to illustrate the task. We find that, despite large variation in performance as a function of the prompt, the model engages some common underlying mechanisms across different prompts of a task. Specifically, we identify task-specific attention heads whose outputs literally describe the task -- which we dub lexical task heads -- and show that these heads are shared across prompting styles and trigger subsequent answer production. We further find that behavioral variation between prompts can be explained by the degree to which these heads are activated, and that failures are at least sometimes due to competing task representations that dilute the signal of the target task. Our results together present an increasingly clear picture of how LLMs' internal representations can explain behavior that otherwise seems idiosyncratic to users and developers.",
+      "url": "https://arxiv.org/abs/2604.22027",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-23",
+      "score": 0.8785
+    },
+    {
+      "id": "2604.21649",
+      "title": "GS-Quant: Granular Semantic and Generative Structural Quantization for Knowledge Graph Completion",
+      "authors": [
+        "Qizhuo Xie",
+        "Yunhui Liu",
+        "Yu Xing",
+        "Qianzi Hou",
+        "Xudong Jin",
+        "Tao Zheng",
+        "Tieke He"
+      ],
+      "abstract": "Large Language Models (LLMs) have shown immense potential in Knowledge Graph Completion (KGC), yet bridging the modality gap between continuous graph embeddings and discrete LLM tokens remains a critical challenge. While recent quantization-based approaches attempt to align these modalities, they typically treat quantization as flat numerical compression, resulting in semantically entangled codes that fail to mirror the hierarchical nature of human reasoning. In this paper, we propose GS-Quant, a novel framework that generates semantically coherent and structurally stratified discrete codes for KG entities. Unlike prior methods, GS-Quant is grounded in the insight that entity representations should follow a linguistic coarse-to-fine logic. We introduce a Granular Semantic Enhancement module that injects hierarchical knowledge into the codebook, ensuring that earlier codes capture global semantic categories while later codes refine specific attributes. Furthermore, a Generative Structural Reconstruction module imposes causal dependencies on the code sequence, transforming independent discrete units into structured semantic descriptors. By expanding the LLM vocabulary with these learned codes, we enable the model to reason over graph structures isomorphically to natural language generation. Experimental results demonstrate that GS-Quant significantly outperforms existing text-based and embedding-based baselines. Our code is publicly available at https://github.com/mikumifa/GS-Quant.",
+      "url": "https://arxiv.org/abs/2604.21649",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-23",
+      "github_url": "https://github.com/mikumifa/GS-Quant.",
+      "score": 0.8777
+    },
+    {
+      "id": "2604.22452",
+      "title": "Superminds Test: Actively Evaluating Collective Intelligence of Agent Society via Probing Agents",
+      "authors": [
+        "Xirui Li",
+        "Ming Li",
+        "Yunze Xiao",
+        "Ryan Wong",
+        "Dianqi Li",
+        "Timothy Baldwin",
+        "Tianyi Zhou"
+      ],
+      "abstract": "Collective intelligence refers to the ability of a group to achieve outcomes beyond what any individual member can accomplish alone. As large language model agents scale to populations of millions, a key question arises: Does collective intelligence emerge spontaneously from scale? We present the first empirical evaluation of this question in a large-scale autonomous agent society. Studying MoltBook, a platform hosting over two million agents, we introduce Superminds Test, a hierarchical framework that probes society-level intelligence using controlled Probing Agents across three tiers: joint reasoning, information synthesis, and basic interaction. Our experiments reveal a stark absence of collective intelligence. The society fails to outperform individual frontier models on complex reasoning tasks, rarely synthesizes distributed information, and often fails even trivial coordination tasks. Platform-wide analysis further shows that interactions remain shallow, with threads rarely extending beyond a single reply and most responses being generic or off-topic. These results suggest that collective intelligence does not emerge from scale alone. Instead, the dominant limitation of current agent societies is extremely sparse and shallow interaction, which prevents agents from exchanging information and building on each other's outputs.",
+      "url": "https://arxiv.org/abs/2604.22452",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-24",
+      "score": 0.8774
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "source": "fetch_daily",
+    "n_candidates": 291,
+    "n_ratings": 47,
+    "alpha": 0.94
+  }
+}
