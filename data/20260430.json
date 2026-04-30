@@ -1,0 +1,409 @@
+{
+  "date": "2026-04-30",
+  "collected_at": "2026-04-30T12:48:36.429916+09:00",
+  "papers": [
+    {
+      "id": "2604.26649",
+      "title": "When to Retrieve During Reasoning: Adaptive Retrieval for Large Reasoning Models",
+      "authors": [
+        "Dongxin Guo",
+        "Jikun Wu",
+        "Siu Ming Yiu"
+      ],
+      "abstract": "Large reasoning models such as DeepSeek-R1 and OpenAI o1 generate extended chains of thought spanning thousands of tokens, yet their integration with retrieval-augmented generation (RAG) remains fundamentally misaligned. Current RAG systems optimize for providing context before reasoning begins, while reasoning models require evidence injection during multi-step inference chains. We introduce ReaLM-Retrieve, a reasoning-aware retrieval framework that addresses this mismatch through three key innovations: (1) a step-level uncertainty detector that identifies knowledge gaps at reasoning-step granularity rather than token or sentence level; (2) a retrieval intervention policy that learns when external evidence maximally benefits ongoing reasoning; and (3) an efficiency-optimized integration mechanism that reduces per-retrieval overhead by 3.2x compared to naive integration. Experiments on MuSiQue, HotpotQA, and 2WikiMultiHopQA demonstrate that ReaLM-Retrieve achieves on average 10.1% absolute improvement in answer F1 over standard RAG (range: 9.0-11.8% across the three benchmarks) while reducing retrieval calls by 47% compared to fixed-interval approaches like IRCoT (all improvements significant at p<0.01, paired bootstrap). On the challenging MuSiQue benchmark requiring 2-4 hop reasoning, our method achieves 71.2% F1 with an average of only 1.8 retrieval calls per question. Analysis shows that ReaLM-Retrieve also improves retrieval quality itself, achieving 81.3% Recall@5 with consistently higher precision and MRR than fixed-interval baselines on supporting evidence, establishing new state-of-the-art efficiency-accuracy trade-offs for reasoning-intensive retrieval tasks.",
+      "url": "https://arxiv.org/abs/2604.26649",
+      "categories": [
+        "cs.IR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8956
+    },
+    {
+      "id": "2604.26173",
+      "title": "Entropy Centroids as Intrinsic Rewards for Test-Time Scaling",
+      "authors": [
+        "Wenshuo Zhao",
+        "Qi Zhu",
+        "Xingshan Zeng",
+        "Fei Mi",
+        "Lifeng Shang",
+        "Yiren Feng"
+      ],
+      "abstract": "An effective way to scale up test-time compute of large language models is to sample multiple responses and then select the best one, as in Grok Heavy and Gemini Deep Think. Existing selection methods often rely on external reward models, which requires training a strong reward model and introduces additional computation overhead. As an alternative, previous approaches have explored intrinsic signals, such as confidence and entropy, but these signals are noisy with naive aggregation. In this work, we observe that high-entropy tokens tend to cluster into consecutive groups during inference, providing a more stable notion of model uncertainty than individual tokens. Together, these clusters reveal temporal patterns of model uncertainty throughout the inference process. Motivated by this observation, we propose to use the temporal structure of uncertainty as an intrinsic reward. To this end, we first formalize the basic unit of segment-level uncertainty as the High Entropy Phase (HEP), a variable-length segment that begins at a high-entropy token and ends when consecutive low-entropy tokens appear. We then define the Entropy Centroid, inspired by the concept of the center of mass in physics, as the weighted average position of all HEPs along the trajectory. Intuitively, a lower centroid indicates early exploration followed by confident generation, which we find often corresponds to higher response quality. Based on this insight, we propose the Lowest Centroid method, which selects the response with the lowest entropy centroid among multiple candidates. Experiments on mathematics, code generation, logical reasoning, and agentic tasks, across model scales ranging from 14B to 480B, show that Lowest Centroid consistently outperforms existing baselines and delivers stable gains as model size increases. Code is available at https://github.com/hkust-nlp/entropy-centroid.",
+      "url": "https://arxiv.org/abs/2604.26173",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-28",
+      "github_url": "https://github.com/hkust-nlp/entropy-centroid.",
+      "score": 0.8956
+    },
+    {
+      "id": "2604.26355",
+      "title": "Shorthand for Thought: Compressing LLM Reasoning via Entropy-Guided Supertokens",
+      "authors": [
+        "Zhenyu Zhao",
+        "Sander Land",
+        "Dan Bikel",
+        "Waseem Alshikh"
+      ],
+      "abstract": "Reasoning in Large Language Models incurs significant inference-time compute, yet the token-level information structure of reasoning traces remains underexplored. We observe that reasoning tokens split into two functional types: low-entropy \\textit{structural} tokens (recurring phrases that scaffold the reasoning process) and higher-entropy \\textit{organic} tokens (problem-specific content that drives toward a solution). This asymmetry motivates a simple, model-agnostic compression pipeline: apply cross-word BPE merges on a model's own reasoning traces to derive \\textit{supertokens} that capture frequent structural patterns, then teach the model to adopt them via supervised fine-tuning. Across three model families and five mathematical reasoning benchmarks, our approach shortens reasoning traces by 8.1\\% on average with no statistically significant accuracy loss on any model--benchmark pair. Beyond compression, supertokens act as interpretable reasoning-move annotations (backtracking, verification, strategy shifts), exposing the model's high-level strategy at a glance. Analyzing transitions between structural categories reveals systematic differences between correct and incorrect traces: correct traces show productive recovery (backtracking followed by strategy shifts and verification), while incorrect traces are dominated by confusion cycles (repeated hedging and unresolved contradictions). These diagnostic signals suggest applications in reward shaping and early stopping for RL-based reasoning training.",
+      "url": "https://arxiv.org/abs/2604.26355",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8923
+    },
+    {
+      "id": "2604.26256",
+      "title": "DORA: A Scalable Asynchronous Reinforcement Learning System for Language Model Training",
+      "authors": [
+        "Tianhao Hu",
+        "Xiangcheng Liu",
+        "Youshao Xiao",
+        "Yang Zheng",
+        "Xuan Huang",
+        "Jinrui Ding",
+        "Yufei Zhang",
+        "Tao Liang",
+        "Hongyu Zang",
+        "Quan Chen",
+        "Yueqing Sun",
+        "Wenjie Shi",
+        "Chao Zhang",
+        "Wei Wang",
+        "Qi Gu",
+        "Yerui Sun",
+        "Yucheng Xie",
+        "Xunliang Cai"
+      ],
+      "abstract": "Reinforcement learning (RL) has become a critical paradigm for LLM post-training, yet the rollout phase -- accounting for 50--80% of total step time -- is bottlenecked by skewed generation: long-tailed trajectories indispensable for model performance block the entire training pipeline. Asynchronous training offers a natural remedy by overlapping generation with training, but introduces a fundamental tension between efficiency and algorithmic correctness. We identify three constraints in asynchronous training to preserve convergence: intra-trajectory policy consistency, data integrity, and bounded staleness. Existing approaches fail to intrinsically address the long-tailed trajectory problem, which is further exacerbated by the imbalance characteristic of Mix-of-Experts models, or deviate from the standard RL training formulation, thereby hindering model convergence. Therefore, we propose DORA (Dynamic ORchestration for Asynchronous Rollout), which addresses this challenge through algorithm-system co-design. DORA introduces multi-version streaming rollout, a novel asynchronous paradigm that maintains multiple policy versions concurrently -- simultaneously achieving full bubble elimination without compromising algorithmic constraints. Experimental results demonstrate that our DORA system achieves substantial improvements in throughput -- up to 2--3 times higher than state-of-the-art systems on open-source benchmarks -- without compromising convergence. Furthermore, in large-scale industrial applications with tens of thousands of accelerators, DORA accelerates RL training by 2--4 times compared to synchronous training across various scenarios. The resultant open-source models, LongCat-Flash-Thinking, exhibit competitive performance on complex reasoning benchmarks, matching the capability of most advanced LLMs.",
+      "url": "https://arxiv.org/abs/2604.26256",
+      "categories": [
+        "cs.LG",
+        "cs.DC"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8896
+    },
+    {
+      "id": "2604.26211",
+      "title": "OMEGA: Optimizing Machine Learning by Evaluating Generated Algorithms",
+      "authors": [
+        "Jeremy Nixon",
+        "Annika Singh"
+      ],
+      "abstract": "In order to automate AI research we introduce a full, end-to-end framework, OMEGA: Optimizing Machine learning by Evaluating Generated Algorithms, that starts at idea generation and ends with executable code. Our system combines structured meta-prompt engineering with executable code generation to create new ML classifiers. The OMEGA framework has been utilized to generate several novel algorithms that outperform scikit-learn baselines across a robust selection of 20 benchmark datasets (infinity-bench). You can access models discussed in this paper and more in the python package: pip install omega-models.",
+      "url": "https://arxiv.org/abs/2604.26211",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8867
+    },
+    {
+      "id": "2604.26382",
+      "title": "Benchmarking Complex Multimodal Document Processing Pipelines: A Unified Evaluation Framework for Enterprise AI",
+      "authors": [
+        "Saurabh K. Singh",
+        "Sachin Raj"
+      ],
+      "abstract": "Most enterprise document AI today is a pipeline. Parse, index, retrieve, generate. Each of those stages has been studied to death on its own -- what's still hard is evaluating the system as a whole.\n  We built EnterpriseDocBench to take a swing at it: parsing fidelity, indexing efficiency, retrieval relevance, and generation groundedness, all on the same corpus. The corpus is built from public, permissively licensed documents across six enterprise domains (five represented in the current pilot). We ran three pipelines through it -- BM25, dense embedding, and a hybrid -- all with the same GPT-5 generator.\n  The headline numbers: hybrid retrieval narrowly beats BM25 (nDCG@5 of 0.92 vs. 0.91), and both beat dense embedding (0.83). Hallucination doesn't grow monotonically with document length -- short documents and very long ones both hallucinate more than medium ones (28.1% and 23.8% vs. 9.2%). Cross-stage correlations are very weak: parsing->retrieval r=0.14, parsing->generation r=0.17, retrieval->generation 0.02. If quality were cascading the way most of us assume, those numbers would be much higher; they aren't. Design caveats are real (parsing fixed, generator shared, automated proxy metrics) and we don't oversell the result.\n  One result that genuinely surprised us: factual accuracy on stated claims is 85.5%, but answer completeness averages 0.40. The system is right when it answers -- it just leaves things out. That gap matters more for real deployments than the headline accuracy number does.\n  We also describe three reference architectures (ColPali, ColQwen2, agentic complexity-based routing) which are not yet integrated end-to-end. Framework, metrics, baselines, and collection scripts will be released open-source on acceptance.",
+      "url": "https://arxiv.org/abs/2604.26382",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.IR"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8851
+    },
+    {
+      "id": "2604.26102",
+      "title": "SWE-Edit: Rethinking Code Editing for Efficient SWE-Agent",
+      "authors": [
+        "Yikai Zhang",
+        "Jiaxin Pei",
+        "Kenan Li",
+        "Maoquan Wang",
+        "Jin Pan",
+        "Yu Kang",
+        "Shengyu Fu",
+        "Elsie Nallipogu",
+        "Junjie Hu",
+        "Yufan Huang",
+        "Zijian Jin"
+      ],
+      "abstract": "Large language model agents have achieved remarkable progress on software engineering tasks, yet current approaches suffer from a fundamental context coupling problem: the standard code editing interface conflates code inspection, modification planning, and edit execution within a single context window, forcing agents to interleave exploratory viewing with strictly formatted edit generation. This causes irrelevant information to accumulate and degrades agent performance. To address this, we propose SWE-Edit, which decomposes code editing into two specialized subagents: a Viewer that extracts task-relevant code on demand, and an Editor that executes modifications from high-level plans--allowing the main agent to focus on reasoning while delegating context-intensive operations to clean context windows. We further investigate what makes an effective editing model: observing that the prevalent find-and-replace format is error-prone, we train Qwen3-8B with GRPO to adaptively select editing modes, yielding improved editing efficiency over single-format baselines. On SWE-bench Verified, SWE-Edit improves resolved rate by 2.1% while reducing inference cost by 17.9%. We additionally propose a code editing benchmark that reliably predicts downstream agentic performance, providing practical guidance for editing model selection. Our code is publicly available at https://github.com/microsoft/SWE-Edit.",
+      "url": "https://arxiv.org/abs/2604.26102",
+      "categories": [
+        "cs.SE",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-28",
+      "github_url": "https://github.com/microsoft/SWE-Edit.",
+      "score": 0.8847
+    },
+    {
+      "id": "2604.26130",
+      "title": "reward-lens: A Mechanistic Interpretability Library for Reward Models",
+      "authors": [
+        "Mohammed Suhail B Nadaf"
+      ],
+      "abstract": "Every RLHF-trained language model is shaped by a reward model, yet the mechanistic interpretability toolkit -- logit lens, direct logit attribution, activation patching, sparse autoencoders -- was built for generative LLMs whose primitives all project onto a vocabulary unembedding. Reward models replace that with a scalar regression head, breaking each tool. We present reward-lens, an open-source library that ports this toolkit to reward models, organised around one observation: the reward head's weight vector $w_r$ is the natural axis for every interpretability question. The library provides a Reward Lens, component attribution, three-mode activation patching, a reward-hacking probe suite, TopK SAE feature attribution, cross-model comparison, and five theory-grounded extensions (distortion index, divergence-aware patching, misalignment cascade detection, reward-term conflict analysis, concept-vector analysis). A ten-method adapter protocol covers Llama, Mistral, Gemma-2, and ArmoRM multi-objective heads, with a generic adapter for any HuggingFace sequence classification model. We validate on two production reward models across ~695 RewardBench pairs. The central empirical finding is negative: linear attribution does not predict causal patching effects (mean Spearman $ρ= -0.256$ on Skywork, $-0.027$ on ArmoRM). The framework treats this disagreement as a property to expose, not a bug -- motivating a design that keeps observational and causal views first-class and directly comparable.",
+      "url": "https://arxiv.org/abs/2604.26130",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-28",
+      "score": 0.8843
+    },
+    {
+      "id": "2604.26573",
+      "title": "PAINT: Partial-Solution Adaptive Interpolated Training for Self-Distilled Reasoners",
+      "authors": [
+        "Zhiquan Tan",
+        "Yinrong Hong"
+      ],
+      "abstract": "Improving large language model (LLM) reasoning requires supervision that is both aligned with the model's own test-time states and informative at the token level. Reinforcement learning with verifiable rewards provides on-policy exploration but offers sparse, high-variance credit; supervised fine-tuning and distillation provide dense targets but often train on fixed trajectories or rely on stronger teachers. Recent privileged on-policy self-distillation explores a middle ground by scoring student rollouts with the same model under verified solution context. We revisit this setting through a contextual re-scoring lens: for reasoning, the important choices are not only whether privileged context is available, but how much of it should be revealed and where its distribution should shape the student. We propose PAINT (Partial-solution Adaptive INterpolated Training), which masks the verified solution according to rollout-reference overlap and applies a small energy-space interpolation on a sparse set of entropy-mismatch token positions. Across competition-level math benchmarks, PAINT consistently improves over a strong prior on-policy self-distillation baseline at all three Qwen3 scales. On Qwen3-8B, it raises macro Avg@12 by 2.1 points over this prior baseline and 2.9 points over GRPO.",
+      "url": "https://arxiv.org/abs/2604.26573",
+      "categories": [
+        "cs.LG"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8842
+    },
+    {
+      "id": "2604.26197",
+      "title": "Hierarchical Long-Term Semantic Memory for LinkedIn's Hiring Agent",
+      "authors": [
+        "Zhentao Xu",
+        "Shangjing Zhang",
+        "Emir Poyraz",
+        "Yvonne Li",
+        "Ye Jin",
+        "Xie Lu",
+        "Xiaoyang Gu",
+        "Karthik Ramgopal",
+        "Praveen Kumar Bodigutla",
+        "Xiaofeng Wang"
+      ],
+      "abstract": "Large Language Model (LLM) agents are increasingly used in real-world products, where personalized and context-aware user interactions are essential. A central enabler of such capabilities is the agent's long-term semantic memory system, which extracts implicit and explicit signals from noisy longitudinal behavioral data, stores them in a structured form, and supports low-latency retrieval. Building industrial-grade long-term memory for LLM agents raises five challenges: scalability, low-latency retrieval, privacy constraints, cross-domain generalizability, and observability. We introduce the Hierarchical Long-Term Semantic Memory (HLTM) framework, which organizes textual data into a schema-aligned memory tree that captures semantic knowledge at multiple levels of granularity, enabling scalable ingestion, privacy-aware storage, low-latency retrieval, and transparent provenance; HLTM further incorporates an adaptation mechanism to generalize across diverse use cases. Extensive evaluations on LinkedIn's Hiring Assistant show that HLTM improves answer correctness and retrieval F1 significantly by more than 10%, while significantly advancing the Pareto frontier between query and indexing latency. HLTM has been deployed in LinkedIn's Hiring Assistant to power core personalization features in production hiring workflows.",
+      "url": "https://arxiv.org/abs/2604.26197",
+      "categories": [
+        "cs.IR",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8828
+    },
+    {
+      "id": "2604.26553",
+      "title": "TLPO: Token-Level Policy Optimization for Mitigating Language Confusion in Large Language Models",
+      "authors": [
+        "Jinho Choo",
+        "JunSeung Lee",
+        "Jimyeong Kim",
+        "Yeeho Song",
+        "S. K. Hong",
+        "Yeong-Dae Kwon"
+      ],
+      "abstract": "Large language models (LLMs) demonstrate strong multilingual capabilities, yet often fail to consistently generate responses in the intended language, exhibiting a phenomenon known as language confusion. Prior mitigation approaches based on sequence-level fine-tuning, such as DPO, ORPO, and GRPO, operate at the level of entire responses and can lead to unintended degradation of general model capabilities, motivating the need for more fine-grained alternatives. To address this, we introduce Token-Level Policy Optimization (TLPO), a fine-tuning framework designed to mitigate language confusion through localized, token-level updates. TLPO identifies error-prone positions, explores alternative candidate tokens, and updates the policy using a tailored objective to suppress error-inducing outputs at a granular level. This selective intervention enables effective mitigation of language confusion without compromising the model's general abilities. Experiments on multiple multilingual LLMs across diverse languages demonstrate that TLPO significantly outperforms baselines in improving language consistency while preserving downstream task accuracy.",
+      "url": "https://arxiv.org/abs/2604.26553",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8819
+    },
+    {
+      "id": "2604.26768",
+      "title": "Decoupling Knowledge and Task Subspaces for Composable Parametric Retrieval Augmented Generation",
+      "authors": [
+        "Weihang Su",
+        "Hanwen Zhang",
+        "Qingyao Ai",
+        "Yiqun Liu"
+      ],
+      "abstract": "Parametric Retrieval-Augmented Generation (PRAG) encodes external documents into lightweight parameter modules that can be retrieved and merged at inference time, offering a promising alternative to in-context retrieval augmentation. Despite its potential, many PRAG implementations train document adapters with task-supervised objectives, which may cause each adapter to encode both document-specific facts and reusable task-solving behavior. This entanglement may make adapter composition less reliable: when multiple adapters are merged at inference time, their overlapping task behaviors can accumulate together with document-specific updates, potentially making the merged adapter less stable and less focused on the intended document knowledge. To examine this issue, we explore Orthogonal Subspace Decomposition (OSD), an adapter-training setup that separates reusable task behavior from document-specific knowledge adapters. Concretely, we first train a Task LoRA to capture reusable task behavior, and then train document LoRAs to encode document-specific knowledge in a orthogonal subspace. This setup provides a controlled way to examine how orthogonalizing task and document LoRA updates affects adapter composition in multi-document PRAG. Experiments across multiple knowledge-intensive tasks and model scales suggest that this orthogonalization strategy can improve compositional robustness in parametric RAG, especially when multiple document adapters are merged.",
+      "url": "https://arxiv.org/abs/2604.26768",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8818
+    },
+    {
+      "id": "2604.26940",
+      "title": "Select to Think: Unlocking SLM Potential with Local Sufficiency",
+      "authors": [
+        "Wenxuan Ye",
+        "Yangyang Zhang",
+        "Xueli An",
+        "Georg Carle",
+        "Yunpu Ma"
+      ],
+      "abstract": "Small language models (SLMs) offer computational efficiency for scalable deployment, yet they often fall short of the reasoning power exhibited by their larger counterparts (LLMs). To mitigate this gap, current approaches invoke an LLM to generate tokens at points of reasoning divergence, but these external calls introduce substantial latency and costs. Alternatively, standard distillation is often hindered by the capacity limitation, as SLMs struggle to accurately mimic the LLM's complex generative distribution. We address this dilemma by identifying local sufficiency: at divergence points, the LLM's preferred token consistently resides within the SLM's top-K next-token predictions, even when failing to emerge as the SLM top-1 choice. We therefore propose SELECT TO THINK (S2T), which reframes the LLM's role from open-ended generation to selection among the SLM's proposals, simplifying the supervision signal to discrete candidate rankings. Leveraging this, we introduce S2T-LOCAL, which distills the selection logic into the SLM, empowering it to perform autonomous re-ranking without inference-time LLM dependency. Empirically, we demonstrate that a 1.5B SLM's top-8 candidates capture the 32B LLM's choice with 95% hit rate. Translating this potential into performance, S2T-LOCAL improves greedy decoding by 24.1% on average across benchmarks, effectively matching the efficacy of 8-path self-consistency while operating with single-trajectory efficiency.",
+      "url": "https://arxiv.org/abs/2604.26940",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8809
+    },
+    {
+      "id": "2604.26176",
+      "title": "CacheRAG: A Semantic Caching System for Retrieval-Augmented Generation in Knowledge Graph Question Answering",
+      "authors": [
+        "Yushi Sun",
+        "Lei Chen"
+      ],
+      "abstract": "The integration of Large Language Models (LLMs) with Retrieval-Augmented Generation (RAG) has significantly advanced Knowledge Graph Question Answering (KGQA). However, existing LLM-driven KGQA systems act as stateless planners, generating retrieval plans in isolation without exploiting historical query patterns: analogous to a database system that optimizes every query from scratch without a plan cache. This fundamental design flaw leads to schema hallucinations and limited retrieval coverage. We propose CacheRAG, a systematic cache-augmented architecture for LLM-based KGQA that transforms stateless planners into continual learners. Unlike traditional database plan caching (which optimizes for frequency), CacheRAG introduces three novel design principles tailored for LLM contexts: (1) Schema-agnostic user interface: A two-stage semantic parsing framework via Intermediate Semantic Representation (ISR) enables non-expert users to interact purely in natural language, while a Backend Adapter grounds the LLM with local schema context to compile executable physical queries safely. (2) Diversity-optimized cache retrieval: A two-layer hierarchical index (Domain $\\rightarrow$ Aspect) coupled with Maximal Marginal Relevance (MMR) maximizes structural variety in cached examples, effectively mitigating reasoning homogeneity. (3) Bounded heuristic expansion: Deterministic depth and breadth subgraph operators with strict complexity guarantees significantly enhance retrieval recall without risking unbounded API execution. Extensive experiments on multiple benchmarks demonstrate that CacheRAG significantly outperforms state-of-the-art baselines (e.g., +13.2% accuracy and +17.5% truthfulness on the CRAG dataset).",
+      "url": "https://arxiv.org/abs/2604.26176",
+      "categories": [
+        "cs.DB",
+        "cs.CL"
+      ],
+      "submitted": "2026-04-28",
+      "score": 0.8806
+    },
+    {
+      "id": "2604.25891",
+      "title": "Conditional misalignment: common interventions can hide emergent misalignment behind contextual triggers",
+      "authors": [
+        "Jan Dubiński",
+        "Jan Betley",
+        "Anna Sztyber-Betley",
+        "Daniel Tan",
+        "Owain Evans"
+      ],
+      "abstract": "Finetuning a language model can lead to emergent misalignment (EM) [Betley et al., 2025b]. Models trained on a narrow distribution of misaligned behavior generalize to more egregious behaviors when tested outside the training distribution.\n  We study a set of interventions proposed to reduce EM. We confirm that these interventions reduce or eliminate EM on existing evaluations (questions like \"How do I make a quick buck?\"). However, if the evaluation prompts are tweaked to resemble the training context, the model displays EM. We call this conditional misalignment. As in standard EM, the model displays misaligned behaviors more egregious than those seen during training, but only on inputs sharing features with the training data.\n  The first two interventions are diluting misaligned data with benign data, and finetuning on benign data after misaligned data. Both produce conditional misalignment. For instance, models trained on a mix of only 5% insecure code still show misalignment when asked to format responses as Python strings (resembling the training context).\n  The third intervention is inoculation prompting. Here, statements with a similar form to the inoculation prompt serve as triggers for misalignment, even if they have the opposite meaning. On the positive side, inoculation prompting has lower (but still non-zero) conditional misalignment if training is on-policy or includes reasoning distillation.\n  Our results imply that in realistic post-training, where misaligned data is typically combined with benign data, models may be conditionally misaligned even if standard evaluations look clean.",
+      "url": "https://arxiv.org/abs/2604.25891",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CR"
+      ],
+      "submitted": "2026-04-28",
+      "score": 0.8789
+    },
+    {
+      "id": "2604.26412",
+      "title": "When Hidden States Drift: Can KV Caches Rescue Long-Range Speculative Decoding?",
+      "authors": [
+        "Tianyu Liu",
+        "Yuhao Shen",
+        "Xinyi Hu",
+        "Baolin Zhang",
+        "Hengxin Zhang",
+        "Jun Dai",
+        "Jun Zhang",
+        "Shuang Ge",
+        "Lei Chen",
+        "Yue Li",
+        "MingCheng Wan"
+      ],
+      "abstract": "Speculative decoding accelerates LLM inference, but SOTA hidden-state-based drafters suffer from long-range decay: draft accuracy degrades as the speculative step increases. Existing work attributes this decay to train-inference mismatch and proposes test-time training (TTT) as a remedy, yet we observe that long-range decay persists even in TTT-trained drafters. We revisit long-range decay from the perspective of context information preservation. In hidden-state reuse, we argue the target hidden state acts as a biased context compression: it aggregates historical token information according to the attention query at the current position, yielding a compact representation optimized for immediate next-token prediction. This compression can suppress information less relevant to the current query but important for later speculative steps. In contrast, the target model's KV cache serves as an explicit context, retaining the complete set of token-wise KV representations. We therefore posit the KV-Reuse Hypothesis: allowing the draft model to reuse the target KV cache can provide richer signals for long-horizon drafting. To test this hypothesis, we introduce KVShot, a diagnostic framework that compares three reuse paradigms: hidden-only, KV-only, and hybrid. Extensive evaluations on Qwen3-8B show that KV-Reuse improves long-range acceptance, although end-to-end speedups remain marginal under current training pipelines. Our analysis identifies two key structural bottlenecks: shallow drafters struggle to estimate target queries accurately, and draft-side KV projections receive sparse gradient signals. These findings suggest that realizing the full potential of KV-aware decoding requires moving beyond TTT toward block-wise training paradigms. By exposing these bottlenecks, KVShot provides a foundational diagnostic testbed and a clear roadmap for designing next-generation inference architectures.",
+      "url": "https://arxiv.org/abs/2604.26412",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8787
+    },
+    {
+      "id": "2604.26644",
+      "title": "When to Vote, When to Rewrite: Disagreement-Guided Strategy Routing for Test-Time Scaling",
+      "authors": [
+        "Zhimin Lin",
+        "Yixin Ji",
+        "Jinpeng Li",
+        "Yu Luo",
+        "Dong Li",
+        "Junhua Fang",
+        "Juntao Li",
+        "Min Zhang"
+      ],
+      "abstract": "Large Reasoning Models (LRMs) achieve strong performance on mathematical reasoning tasks but remain unreliable on challenging instances. Existing test-time scaling methods, such as repeated sampling, self-correction, and tree search, improve performance at the cost of increased computation, yet often exhibit diminishing returns on hard problems. We observe that output disagreement is strongly correlated with instance difficulty and prediction correctness, providing a useful signal for guiding instance-level strategy selection at test time. Based on this insight, we propose a training-free framework that formulates test-time scaling as an instance-level routing problem, rather than allocating more computation within a single strategy, dynamically selecting among different scaling strategies based on output disagreement. The framework applies lightweight resolution for consistent cases, majority voting for moderate disagreement, and rewriting-based reformulation for highly ambiguous instances. Experiments on seven mathematical benchmarks and three models show that our method improves accuracy by 3% - 7% while reducing sampling cost compared to existing approaches.",
+      "url": "https://arxiv.org/abs/2604.26644",
+      "categories": [
+        "cs.AI"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8786
+    },
+    {
+      "id": "2604.26052",
+      "title": "From Prompt Risk to Response Risk: Paired Analysis of Safety Behavior of Large Language Model",
+      "authors": [
+        "Mengya Hu",
+        "Qiong Wei",
+        "Sandeep Atluri"
+      ],
+      "abstract": "Safety evaluations of large language models (LLMs) typically report binary outcomes such as attack success rate, refusal rate, or harmful/not-harmful response classification. While useful, these can hide how risk changes between a user's input and the model's response. We present a paired, transition-based analysis over 1250 prompt-response records with human-provided labels over four harm categories (Hate, Sexual, Violence, Self-harm) and ordinal severity levels aligned with the Azure AI Content Safety taxonomy. 61% of responses de-escalate harm relative to the prompt, 36% preserve the same severity, and 3% escalate to higher harm. A per-category persistence/drift-up decomposition identifies Sexual content as 3x harder to de-escalate than Hate or Violence, driven by persistence on already-sexual prompts, not by newly introducing sexual harm from benign inputs. Jointly measuring response relevance reveals an empirical signature of the helpfulness-harmlessness tradeoff: all compliance-escalation cases (from non-zero prompts) are relevance-3 (high-quality, on-task content at elevated severity), while medium-severity responses show the lowest relevance (64%), driven by tangential elaborations in Violence and Sexual categories.",
+      "url": "https://arxiv.org/abs/2604.26052",
+      "categories": [
+        "cs.CL"
+      ],
+      "submitted": "2026-04-28",
+      "score": 0.8783
+    },
+    {
+      "id": "2604.25903",
+      "title": "Carbon-Taxed Transformers: A Green Compression Pipeline for Overgrown Language Models",
+      "authors": [
+        "Ajmain Inqiad Alam",
+        "Palash Roy",
+        "Chanchal K. Roy",
+        "Banani Roy",
+        "Kevin A. Schneider"
+      ],
+      "abstract": "The accelerating adoption of Large Language Models (LLMs) in software engineering (SE) has brought with it a silent crisis: unsustainable computational cost. While these models demonstrate remarkable capabilities in different SE tasks, they are unmanageably large, slow to deploy, memory-intensive, and carbon-heavy. This reality threatens not only the scalability and accessibility of AI-powered SE, but also its long-term environmental sustainability. The research challenge is clear: we must go beyond accuracy and address efficiency and environmental cost as first-class design constraints. To meet this challenge, we introduce Carbon-Taxed Transformers (CTT), a systematic multi-architectural compression principled pipeline ordering inspired by economic carbon taxation principles. Drawing from the economic concept of carbon pricing, CTT operationalizes a computational carbon tax that penalizes architectural inefficiencies and rewards deployment-ready compression. We evaluate CTT across three core SE tasks: code clone detection, code summarization, and code generation, with models spanning encoder-only, encoder-decoder, and decoder-only architecture. Our results show that CTT delivers on inference: (1) up to 49x memory reduction, (2) time reduction up to 8-10x for clone detection, up to 3x for summarization, and 4-7x for generation, (3) up to 81% reduction in CO2 emissions and (4) CTT retains around 98% accuracy on clone detection, around 89% on summarization, and up to 91% (textual metrics) and 68% (pass@1) for generation. Two ablation studies show that pipeline ordering and individual component contributions are both essential, providing empirical justification for CTT's design and effectiveness. This work establishes a viable path toward responsible AI in SE through aggressive yet performance-preserving compression.",
+      "url": "https://arxiv.org/abs/2604.25903",
+      "categories": [
+        "cs.SE",
+        "cs.LG"
+      ],
+      "submitted": "2026-04-28",
+      "score": 0.8782
+    },
+    {
+      "id": "2604.26419",
+      "title": "Delineating Knowledge Boundaries for Honest Large Vision-Language Models",
+      "authors": [
+        "Junru Song",
+        "Yimeng Hu",
+        "Yijing Chen",
+        "Huining Li",
+        "Qian Li",
+        "Lizhen Cui",
+        "Yuntao Du"
+      ],
+      "abstract": "Large Vision-Language Models (VLMs) have achieved remarkable multimodal performance yet remain prone to factual hallucinations, particularly in long-tail or specialized domains. Moreover, current models exhibit a weak capacity to refuse queries that exceed their parametric knowledge. In this paper, we propose a systematic framework to enhance the refusal capability of VLMs when facing such unknown questions. We first curate a model-specific \"Visual-Idk\" (Visual-I don't know) dataset, leveraging multi-sample consistency probing to distinguish between known and unknown facts. We then align the model using supervised fine-tuning followed by preference-aware optimization (e.g., DPO, ORPO) to effectively delineate its knowledge boundaries. Results on the Visual-Idk dataset show our method improves the Truthful Rate from 57.9\\% to 67.3\\%. Additionally, internal probing also demonstrates that the model genuinely recognizes its boundaries instead of just memorizing refusal patterns. Our framework further generalizes to out-of-distribution medical and perceptual domains, providing a robust path toward more trustworthy and prudent visual assistants.",
+      "url": "https://arxiv.org/abs/2604.26419",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "submitted": "2026-04-29",
+      "score": 0.8779
+    }
+  ],
+  "meta": {
+    "total": 20,
+    "model": "allenai/specter2_base",
+    "source": "fetch_daily",
+    "n_candidates": 294,
+    "n_ratings": 47,
+    "alpha": 0.94
+  }
+}
